@@ -22,3 +22,24 @@ td {
   padding-top: 1em;
   padding-bottom: 1em;
 }
+
+.project {
+  clear: both;
+  border: 0px solid black;
+  /*display: inline-block;*/
+  /*width: 70px;*/
+  overflow: hidden;
+  /*white-space: nowrap;*/
+  margin-bottom: 30px;
+}
+
+.project img {
+  width: 150px;
+  float: left;
+}
+
+.project-details {
+  width: 720px;
+  display: inline-block;
+  margin-left: 20px;
+}
