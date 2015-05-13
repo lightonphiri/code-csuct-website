@@ -1,5 +1,5 @@
 body {
-  max-width: 1200px;
+  max-width: 900px;
   margin: 0 auto;
   padding: 1em 0;
 }
@@ -10,12 +10,15 @@ a {
 
 table {
   border: 0px solid gray;
+  border-collapse: collapse;
   table-layout: fixed;
-  width: 90%;
+  width: 100%;
 }
 
 td {
   border: 0px solid gray;
   table-layout: fixed;
-  width: 90%;
+  width: 100%;
+  padding-top: 1em;
+  padding-bottom: 1em;
 }
