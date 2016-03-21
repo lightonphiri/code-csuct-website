@@ -1,0 +1,156 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/4/raw/jkwviz001/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/4/raw/mzbntw001/<p><PRE>
+&gt;&gt;&gt;&gt; file: Badge.py
+from turtle import *
+bgcolor('black')
+penup()
+pensize(4)
+pencolor('purple')
+goto(-3, 280)
+write('EAGAN')
+home()
+pendown()
+pensize(3)
+pencolor('white')
+goto(250, 300)
+goto(50, 300)
+home()
+goto(-250, 300)
+goto(-50, 300)
+home()
+circle(75)
+circle(-75)
+goto(250, -300)
+goto(50, -300)
+home()
+goto(-250, -300)
+goto(-50, -300)
+home()
+penup()
+goto(50, 300)
+dot(30, 'black')
+goto(250, 300)
+dot(30, 'red')
+stamp()
+goto(-50, 300)
+dot(30, 'black')
+goto(-250, 300)
+dot(30, 'red')
+stamp()
+goto(50, -300)
+dot(30, 'black')
+'''pencolor('green')
+goto(250, -300)
+pendown()
+pensize(5)
+goto(-250, -300)
+goto(250, 300)
+goto(-250, 300)'''
+exitonclick()&gt;&gt;&gt;&gt; file: LongJump.py
+#Ntwanano Mazibuko
+#25 July 2015
+
+competitor_name={}
+attempts={}
+counter=0
+index=0
+print('*'*5,'Long Jump Information System','*'*5)
+print('Please return the names of competitors. (Press return when done.)')
+while True:
+    counter+=1
+    competitor=input('Competitor no. '+str(counter)+':\n')
+    if competitor!='':    
+        competitor_name[index]=competitor
+        index+=1
+    else: break   
+print('Please enter the distances for each competitor.')
+index=0
+for j in range(len(competitor_name)):
+    jumps=[]
+    print('Competitor '+competitor_name[j]+':')
+    for k in range(3):
+        attempt=input('Attempt '+str(k+1)+':\n')
+        jumps.append(attempt)
+    attempts[competitor_name[index]]=(jumps)
+    index+=1
+index=0
+longest_distances={}
+for d in competitor_name:
+    scores=competitor_name[d]
+    if competitor_name[index].isnumeric:
+        longest_distances[competitor_name[index]]=max(attempts[competitor_name[index]])
+    else:
+        for checker in range(3):
+            if competitor_name[index][checker].isalpha() and competitor_name[index].isalpha():
+                longest_distances[competitor_name[index]]='0'
+        index+=1
+#print(longest_distances)
+print('{0:&lt;24} {1}'.format('Competitor','Longest Distance'))
+for number in range(len(competitor_name)):
+    print('{0:&lt;24} {1}'.format(str(competitor_name[number]),'longest_distances')
+print('The winner is {0} with a jump of {1}.'.format('Sandile',str(longest_distances)))&gt;&gt;&gt;&gt; file: NikNaks.py
+#Ntwanano Mazibuko
+#24 July 2015
+
+import random
+
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match153-0.html#0" TARGET="0"><IMG SRC="../../bitmaps/tm_0_6.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+def main():
+    no_of_guesses=10
+
+    print('Guess the mystery 4 letter code. (No letter occurs more than once.)')
+    difficulty=int(input('Choose difficulty level (4 to 26):\n'))
+    letters=list('abcdefghijklmnopqrstuvwxyz')[0: difficulty]
+    print('The letters in the code are chosen from: {}.'.format(letters))
+    secret_code=[]
+</FONT>    for i in range(4):
+        rand_index=random.randint(0, len(letters)-1)
+        letter=letters.pop(rand_index)
+        secret_code.append(letter)
+
+    while no_of_guesses&gt;0:
+        print('You have',no_of_guesses,'guesses remaining.')
+        no_of_guesses-=1
+        guess=input('Enter your guess:\n')
+        guess=list(guess)
+            
+        Niks=0
+        Naks=0    
+        for j in range(4):
+            alpha1=secret_code[j]
+            alpha2=guess[j]
+        
+            if alpha1 == alpha2:
+                Niks+=1
+            elif alpha2 in secret_code and alpha1!=alpha2: 
+                Naks+=1
+            else: pass
+        
+        
+        if Niks!=4:
+            if no_of_guesses&gt;0: 
+                if Niks==1 and Naks!=1:
+                    print('There is',Niks,'Nik and',Naks,'Naks.')
+                elif Naks==1 and Niks!=1:
+                    print('There are',Niks,'Niks and',Naks,'Nak.')
+                elif Niks==1 and Naks==1:
+                    print('There is',Niks,'Nik and',Naks,'Nak.')
+                else:
+                    print('There are',Niks,'Niks and',Naks,'Naks.')
+            else:
+                print('Sorry, you lose.'+'\n'+'The secret number was '+secret_code[0]+secret_code[1]+secret_code[2]+secret_code[3]+'.')
+        else: 
+            print('Correct!')
+            break
+        
+if __name__ == '__main__':
+    main()</PRE>
+</PRE>
+</BODY>
+</HTML>

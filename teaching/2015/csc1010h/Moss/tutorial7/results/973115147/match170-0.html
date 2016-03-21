@@ -1,0 +1,116 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/7/raw/khnsim009/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/7/raw/khnsim009/<p><PRE>
+&gt;&gt;&gt;&gt; file: leader_board.py
+# leader_board.py
+
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match170-1.html#1" TARGET="1"><IMG SRC="../../bitmaps/tm_1_6.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+def process_line(line):
+    parts = line.split(' ')
+    name = parts[0]
+    trials = int(parts[1])
+    average = float(parts[2])
+</FONT>    return (name, trials, average)
+
+def get_max(entries):
+    max = entries[0]
+    for i in range(1, len(entries)):
+        if entries[i][2] &lt;max[2]:
+            max = entries[i]
+            
+    entries.remove(max)
+    return max
+
+def sort(entries):
+    sorted_entries = []
+    while len(entries)&gt;0:
+        sorted_entries.append(get_max(entries))
+    return sorted_entries
+
+def output(entries):
+    print('Subject        | Average Time')
+    print('************** | ************')
+    for entry in entries:
+        print('{:14} | {:.6}'.format(entry[0], entry[2]))
+              
+def main():
+    while True:
+        try:
+            file_name = input('Enter the name of the file:\n')
+            file_input = open(file_name, 'r')
+        
+            entries = []
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match170-1.html#0" TARGET="1"><IMG SRC="../../bitmaps/tm_0_9.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+            count = 0
+            for line in file_input:
+                entries.append(process_line(line))
+                count += 1
+            file_input.close()
+            
+            entries = sort(entries)
+            output(entries)
+            break
+        except IOError:
+            print('File is not found,there is no such file')
+        except ValueError as ve:
+</FONT>            print('A value error occured at this line',+ str(count)+','+str(ve))
+            print('The format should be the name,trials and average')
+        except IndexError as ve:
+            print('An Index error occured at this line',+ str(count)+','+str(ve))
+        print('The format should be the name,trials and average')
+        break
+main()&gt;&gt;&gt;&gt; file: reaction_test.py
+# reaction tesT
+
+from random import*
+from time import*
+
+file_name = input('Enter the name of the output file:\n')
+f = open(file_name, 'w')
+
+def time_reaction(n):
+    if n &gt; 0:
+        def flush_input():
+            try:
+                import msvcrt
+                while msvcrt.kbhit():
+                    msvcrt.getch()
+            except ImportError:
+                import sys, termios
+                termios.tcflush(sys.stdin, termios.TCIOFLUSH)        
+        print('Get ready...', flush = True)
+    if n &lt;= 0:
+        return 0
+    else:
+        pause = randint(1,5) #random time pause(1 to 5 sec)
+        sleep(pause)
+        start_time = time()
+        user = input("Press 'enter' NOW!")
+        end_time = time()
+        reaction_time = end_time - start_time
+        print('Reaction time: {:.6f}'.format(reaction_time))
+        f.write(str(reaction_time) + '\n')
+        return reaction_time + time_reaction(n-1)
+    
+while True:    
+    def main():
+        total =0
+        subject_name =input("Enter subject name (or press 'enter' to quit):\n")
+        number_of_tests = eval(input('Enter the number of tests:\n'))
+        time = time_reaction(number_of_tests)
+        print('Tests complete.')
+        average =time/number_of_tests
+        f.close()
+        print('Average reaction time: {:.6f}'.format(average))
+        print()
+    main()
+    f.close()</PRE>
+</PRE>
+</BODY>
+</HTML>

@@ -1,0 +1,173 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/7/raw/mktnta004/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/7/raw/mmlfhu003/<p><PRE>
+&gt;&gt;&gt;&gt; file: book_cypher.py
+
+def bookfile():
+    filename=input("Enter the book filename:\n")
+    myfile=open(filename,"r")
+    message=(input("Enter the message:\n")).lower()
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match139-0.html#1" TARGET="0"><IMG SRC="../../bitmaps/tm_1_3.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    sortedlist=message.strip('?!.,;:)([]{}\'" \n')
+    sortedlist=sortedlist.split()
+    message=message.strip('?!.,;:)([]{}\'" \n')
+</FONT>    message=message.split(" ")
+    outputfilename=input("Enter the output filename:\n")
+    results=open(outputfilename,"w")
+    newlist=[]
+    for information in myfile:# adding everything from the file into the listt
+        information=information.strip('?!.,;:)([]{}\'" \n') # removing symbols at the end of the line
+        newlist.append(information) # appending the sentence without the symbols at the end
+    counter=1  # counter is the variable which is going to find the position of the word in the line
+    line=1 # is going to count the line at which the word found
+    words_found={} # This dictionary is going to have the word found with the corresponding word and line (word:line-counter)
+    for sentence in newlist: # this loop is going through each line
+        sentence=sentence.lower() # trying to convert every word in the sentence to lower alphabert
+        sentence=sentence.strip('?!@#$%^*!.,;:)([]{}\'" \n') #removing the symbol at the end of each sentence
+        sentence=sentence.split()
+        counter=1
+        for word in sentence:
+            word=word.strip('?!@#$%^*!.,;:)([]{}\'" \n') # removing the symbol at the end of each line
+            if word in message: # word found in the line
+                words_found[word]=str(line)+"-"+str(counter) # addindg the word found with the corresponding line and position 
+                message.remove(word)
+            if word in message:# checking the second occurence of the word which is alredy found
+                if word in message:
+                    words_found[word]=str(line)+"-"+str(counter)
+                    message.remove(word)                  
+                    counter+=1                
+            else:
+                counter+=1
+        line+=1
+    print("BEGIN")
+    results.write("BEGIN")
+    for output in sortedlist:# trying to go through the dictionary with the word which were found
+        if output in words_found:
+            results.write("\n")
+            results.write(words_found[output])
+            print(words_found[output])
+        elif output!=[]:
+            results.write("\n") # writing them in to my file
+            results.write(output)
+            print(output)
+    
+    print("END")
+    results.write("\n")
+<A NAME="2"></A><FONT color = #0000FF><A HREF="match139-0.html#2" TARGET="0"><IMG SRC="../../bitmaps/tm_2_3.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    results.write("END")
+    myfile.close()
+    results.close()
+bookfile()&gt;&gt;&gt;&gt; file: leader_board.py
+# leader_board.py
+
+def process_line(line):
+    parts = line.split(' ')
+    name = parts[0]
+    trials = int(parts[1])
+</FONT>    average = float(parts[2])
+    return (name, trials, average)
+
+def get_max(entries):
+    max = entries[0]
+    for i in range(1, len(entries)):
+        if entries[i][2] &lt;max[2]:
+            max = entries[i]
+            
+    entries.remove(max)
+    return max
+
+def sort(entries):
+    sorted_entries = []
+    while len(entries)&gt;0:
+        sorted_entries.append(get_max(entries))
+    return sorted_entries
+
+def output(entries):
+    print('Subject        | Average Time')
+    print('************** | ************')
+    for entry in entries:
+        print('{:14} | {:.6}'.format(entry[0], entry[2]))
+              
+def main():
+    while True:
+        try:
+            file_name = input('Enter the name of the file:\n')
+            file_input = open(file_name, 'r')
+            entries = []
+            count=0
+            for line in file_input:
+                entries.append(process_line(line))
+                count+=1
+            file_input.close()
+            
+            entries = sort(entries)
+            output(entries)
+            break
+        except IOError:
+            print("FILE NOT FOUND")
+        except ValueError as ve:
+            print("in line number",count+1,"there is a problen known as",ve)
+            print(line,end="")
+            print("format: name,number of test,average")
+            break
+    
+main()
+    &gt;&gt;&gt;&gt; file: reaction_test.py
+import time
+import random
+names={}
+newlist=[]
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match139-0.html#0" TARGET="0"><IMG SRC="../../bitmaps/tm_0_4.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+def reaction():
+    file_name=input("Enter the name of the output file:\n")
+    f=open(file_name,"w")
+    f.write("Subject        | Average Time") # writing to the file created
+    f.write("\n") # moving to the new line in your file
+    f.write("************** | ************")#Writing to the file
+    f.write("\n")#moving to the next line in my file 
+    while True:
+        total=0 
+</FONT>        subject=input("Enter subject name (or press 'enter' to quit):\n")
+        if subject=="":
+            break
+        else:
+            total=0
+            test= eval(input("Enter the number of tests:\n"))
+            for i in range(test):
+                print("Get ready...")
+                random_number=random.randint(1,5)
+                time_before=time.time() # taking the currentt time
+                time.sleep(random_number)
+                input("Press 'enter' NOW!")
+                time_after=time.time() # taking the current time also
+                reaction_time=round(time_after-time_before,6) #calculating the reaction time of the user to press enter 
+                print("Reaction time:",reaction_time)
+                total+=reaction_time # suming up the reaction time for each test
+            average=total/test
+            names[average]=subject # dictionary which is saving the average as the key and the value as the corresponding key
+            newlist.append(average) #list which is saving only the average of the test
+            print("Average reaction time:",round(average,6))
+            print("Tests complete.")
+    newlist.sort() # sorting the list from minimum to the maximum
+    for i in newlist:
+        results="{0:&lt;15}| {1}".format(names[i],round(i,6))
+        f.write(results)
+        f.write("\n")
+    f.close()
+        
+reaction()
+
+    
+    
+    
+</PRE>
+</PRE>
+</BODY>
+</HTML>

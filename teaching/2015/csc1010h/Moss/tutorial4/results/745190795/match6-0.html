@@ -1,0 +1,218 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/4/raw/kgsfik001/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/4/raw/kgsfik001/<p><PRE>
+&gt;&gt;&gt;&gt; file: LongJump.py
+print("***** Long Jump Information System *****")
+print("Please enter the names of competitors. (Press return when done.)")
+print("Competitor no. 1:")
+competitor = input()
+b = 1
+c = 0
+g = 0
+h = 0
+d = []
+k = 0
+maximums = []
+competitors = [competitor]
+while competitor:
+    b += 1
+    print("Competitor no. "+str(b)+":")
+    competitor = input()
+    if competitor != "":
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match6-1.html#0" TARGET="1"><IMG SRC="../../bitmaps/tm_0_22.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+        competitors.append(competitor)
+print("Please enter the distances for each competitor.")
+for individual in competitors:
+    print("Competitor ",individual,":",sep="")
+    attempt1 = input("Attempt 1:\n")
+    attempt2 = input("Attempt 2:\n")
+    attempt3 = input("Attempt 3:\n")
+    g = (attempt1+attempt2+attempt3).lower()
+    if (attempt1+attempt2+attempt3).find("oul") != -1:
+        g = (attempt1+attempt2+attempt3).lower()
+    d.append(attempt1)
+    d.append(attempt2)
+    d.append(attempt3)
+    if g.find("foul") == -1:
+        maximums.append(max(eval(attempt1),eval(attempt2),eval(attempt3)))
+    else:
+        d.remove("foul")
+        if not "foul" in d:
+            for i in d:
+                if k == 0:
+                    h = 2
+                    e = eval(i)
+                elif k == 1:
+                    g = 2
+                    f = eval(i)
+                k += 1
+            if g == 2 and h == 2:
+                maximums.append(max(e,f))
+        else:
+            d.remove("foul")
+            if not "foul" in d:
+                maximums.append(eval(d[0]))
+            else:
+                maximums.append("No jump")
+print("{0:26}".format("\nCompetitor"),end="")
+print("{0:25}".format("Longest Distance"))
+for each in competitors:
+    print("{0:25}".format(each),end="")
+    if (str(maximums[c])).find(" ") == -1:
+        print("{0:&lt;15.2f}".format((maximums[c])))
+    else:
+        print("{0:25}".format((maximums[c])))
+    c += 1
+</FONT>y = 0
+<A NAME="4"></A><FONT color = #FF00FF><A HREF="match6-1.html#4" TARGET="1"><IMG SRC="../../bitmaps/tm_4_5.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+while "No jump" in maximums:
+    competitors.remove(competitors[maximums.index("No jump")])
+    maximums.remove("No jump")
+print("\nThe winner is",competitors[maximums.index(max(maximums))],"with a jump of","{0:.2f}.".format(max(maximums)))&gt;&gt;&gt;&gt; file: NikNaks.py
+import random
+def main():
+    print("Guess the mystery 4 letter code. (No letter occurs more than once.)")
+    difficulty=int(input('Choose difficulty level (4 to 26):\n'))
+    letters=list('abcdefghijklmnopqrstuvwxyz')[0: difficulty]
+</FONT>    print('The letters in the code are chosen from: {}.'.format(letters))
+    secret_code=[]
+<A NAME="2"></A><FONT color = #0000FF><A HREF="match6-1.html#2" TARGET="1"><IMG SRC="../../bitmaps/tm_2_9.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    for i in range(4):
+        rand_index=random.randint(0, len(letters)-1)
+        letter=letters.pop(rand_index)
+        secret_code.append(letter)
+    c = 10
+    print("You have",c,"guesses remaining.")
+    guess = input("Enter your guess:\n")
+    Niks = 0
+    Naks = 0
+    for k in range(4):
+        if secret_code[k] == guess[k]:
+            Niks = Niks + 1
+        elif guess[k] in secret_code:
+            Naks = Naks + 1
+    a = "Niks"
+    b = "Naks"
+    if Niks == 1 and Naks != 1 and Niks != 4:
+        print("There are",Niks,a[:a.find("s")],"and",Naks,b+".")
+</FONT>    elif Niks != 1 and Naks == 1 and Niks != 4:
+        print("There are",Niks,a,"and",Naks,b[:b.find("s")]+".")
+    elif Niks == 1 and Naks == 1 and Niks != 4:
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match6-1.html#1" TARGET="1"><IMG SRC="../../bitmaps/tm_1_10.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+        print("There are",Niks,a[:a.find("s")],"and",Naks,b[:b.find("s")]+".")
+    else:
+        if Niks != 4:
+            print("There are",Niks,a,"and",Naks,b+".")
+    while c != 1 and list(guess) != secret_code:
+        c -=1
+        print("You have",c,"guesses remaining.")
+        guess = input("Enter your guess:\n")
+        Niks = 0
+        Naks = 0
+        for k in range(4):
+            if secret_code[k] == guess[k]:
+                Niks = Niks + 1
+            elif guess[k] in secret_code:
+                Naks = Naks + 1
+        if Niks == 1 and Naks != 1 and Niks != 4:
+            print("There is",Niks,a[:a.find("s")],"and",Naks,b+".")
+</FONT>        elif Niks != 1 and Naks == 1 and Niks != 4:
+            print("There are",Niks,a,"and",Naks,b[:b.find("s")]+".")
+        elif Niks == 1 and Naks == 1 and Niks != 4:
+<A NAME="3"></A><FONT color = #00FFFF><A HREF="match6-1.html#3" TARGET="1"><IMG SRC="../../bitmaps/tm_3_5.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+            print("There is",Niks,a[:a.find("s")],"and",Naks,b[:b.find("s")]+".")
+        else:
+            if Niks != 4:
+                print("There are",Niks,a,"and",Naks,b+".")
+    if list(guess) == secret_code:
+        print("Correct!")
+    else:
+        print("Sorry, you lose.")
+        print("The secret number was ",end="")
+        for i in secret_code:
+            print(i,end="")
+        print(".")
+if __name__ == "__main__":
+</FONT>    main()&gt;&gt;&gt;&gt; file: turtle.py
+import turtle
+import random
+red = 200
+green = 85
+blue = 47        
+pen = 10
+def tree(branchLen, t, red, green, blue, pen):
+    if branchLen &gt; 3:
+        pen = pen*0.8
+        t.pensize(pen)
+        red = red - 15
+        green = green + 8
+    if branchLen &gt; 5:
+        angle = random.randrange(10, 70)
+        angleTwo = 0.50*angle
+        sub = (0.8*(random.randrange(1,24)))
+        t.forward(branchLen)
+        t.right(angleTwo)
+        tree(branchLen-sub,t, red, green, blue, pen)
+        t.left(angle)
+        tree(branchLen-sub, t, red, green, blue, pen)
+        t.right(angleTwo)
+        t.backward(branchLen)
+
+def main():
+    turtle.penup()
+    turtle.forward(200)
+    turtle.write('Fikile') 
+    turtle.penup()
+    turtle.backward(50)
+    turtle.dot(20,"green")
+    t = turtle.Turtle()
+    t.hideturtle()
+    t.speed(0)
+    myWin = turtle.Screen()
+    t.left(90)
+    t.up()
+    t.backward(170)
+    t.down()
+    tree(random.randrange(40,47),t,red,green,blue, pen)
+    turtle.bgcolor('orange')
+    
+    wn = turtle.Screen()
+    wn.bgcolor("blue")
+    tess = turtle.Turtle()
+    tess.shape("turtle")
+    tess.color("orange")
+    
+    tess.penup()               
+    size = 20
+    for i in range(30):
+        tess.stamp()             
+        size = size + 3          
+        tess.forward(size)       
+        tess.right(24)    
+        
+  
+    
+    wn.mainloop()
+    turtle.exitonclick()    
+    
+    
+    
+    
+    
+    
+    myWin.exitonclick()
+    
+    
+main() </PRE>
+</PRE>
+</BODY>
+</HTML>

@@ -1,0 +1,105 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/6/raw/mtnqha001/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/6/raw/rndmar006/<p><PRE>
+&gt;&gt;&gt;&gt; file: fixed_mod.py
+def palindrome(f):
+    f = f.lower()
+    if len(f)&lt; 2 or ',' in f:
+        return True
+    if not f[0].isalpha():
+        return palindrome(f[1:-1])
+    if f[0]!= f[-1]:
+        return False
+    return palindrome(f[1:-1])
+
+
+
+&gt;&gt;&gt;&gt; file: match_mod.py
+def equals(x,y):
+    if len(x)==len(y):
+        if x=='' and y=='':
+            return True
+        elif x[0]==y[0]:
+            return equals(x[1:],y[1:])
+        else:
+            return False
+    else:
+        return False
+
+
+
+
+def query(pattern, word):
+    if pattern==word=='':
+        return True
+    elif pattern[0] == '?' and word[0].isalpha():
+        return query(pattern[1:],word[1:])
+    elif pattern[0] == word[0]:
+        return query(pattern[1:],word[1:])
+    elif len(pattern)!=len(word):
+        return False
+    elif pattern[0] != word[0]:
+        return False
+
+def match(pattern,word):
+    if pattern==word=='':
+        return True
+    elif word=='' and len(pattern)&gt;0:
+        return False
+    elif pattern =='' and len(word)&gt;0:
+        return False
+    elif '*' in pattern and len(pattern)&gt;len(word):
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match130-0.html#0" TARGET="0"><IMG SRC="../../bitmaps/tm_0_14.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+        pattern=pattern[:pattern.find('*')]+pattern[pattern.find('*')+1:]
+        return match(pattern,word)
+    elif pattern=='*' and len(word)&gt;0:
+        return True
+    elif pattern[0] == '?':
+        return match(pattern[1:],word[1:])
+    elif pattern[0] =='*':
+        pattern = pattern[1:]
+        word=word[1:]
+        word=word[word.find(pattern[0]):]
+</FONT><A NAME="1"></A><FONT color = #00FF00><A HREF="match130-0.html#1" TARGET="0"><IMG SRC="../../bitmaps/tm_1_6.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+        return match(pattern, word)
+    elif pattern[0]==word[0]:
+        return match(pattern[1:],word[1:])
+</FONT>    else:
+        return False
+    
+        
+        
+                                
+    &gt;&gt;&gt;&gt; file: mongoose_mod.py
+#Olivia Marison Randriamady
+#Mongoose Population
+
+def population(n):
+    if n&lt;3:
+        return 2
+    else:
+        return population(n-1)+population(n-2)
+    
+
+
+&gt;&gt;&gt;&gt; file: sum_mod.py
+#Olivia Marison Randriamady
+#Sum of numbers
+
+def sum_to_n(n):
+    if n == 0:
+        return 0
+    else:
+        return n + sum_to_n(n-1)
+    
+    
+</PRE>
+</PRE>
+</BODY>
+</HTML>

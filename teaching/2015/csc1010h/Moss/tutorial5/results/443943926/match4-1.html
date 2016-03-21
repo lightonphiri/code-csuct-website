@@ -1,0 +1,373 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/5/raw/bthlin016/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/5/raw/mngbus006/<p><PRE>
+&gt;&gt;&gt;&gt; file: calendar_utils.py
+#victor Nkuna
+#calutils
+#16-08-2015
+
+<A NAME="2"></A><FONT color = #0000FF><A HREF="match4-0.html#2" TARGET="0"><IMG SRC="../../bitmaps/tm_2_6.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+def is_leap_year(year):
+    """A function that returns whether a year is leap or not"""
+    if year % 400 == 0:
+            return True
+    if year % 100 == 0:
+            return False
+    if year % 4 == 0:
+        return True
+    else:
+        return False
+    
+def month_name(number):
+    """given the number of a month, returns the corresponding names"""
+    if number == 1:
+        return 'January'
+    elif number == 2:
+        return 'February'
+    elif number == 3:
+        return 'March'
+    elif number == 4:
+</FONT>        return 'April'
+    elif number == 5:
+        return 'May'
+    elif number == 6:
+        return 'June'
+    elif number == 7:
+        return 'July'
+    elif number == 8:
+        return 'August'
+    elif number == 9:
+        return 'September'
+<A NAME="3"></A><FONT color = #00FFFF><A HREF="match4-0.html#3" TARGET="0"><IMG SRC="../../bitmaps/tm_3_3.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    elif number == 10:
+        return 'October'
+    elif number == 11:
+        return 'November'
+    else:
+        return 'December'
+
+def days_in_month(month_number,year):
+    if month_number == 1 or month_number == 3 or month_number == 5 or month_number == 7 or month_number == 8 or month_number == 10 or month_number == 12:
+</FONT><A NAME="1"></A><FONT color = #00FF00><A HREF="match4-0.html#1" TARGET="0"><IMG SRC="../../bitmaps/tm_1_20.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+        return 31
+    elif month_number == 4 or month_number == 6 or month_number == 9 or month_number == 11:
+        return 30
+    elif month_number == 2 and is_leap_year(year) == True:
+        return 29
+    else:
+        return 28
+def first_day_of_year(year):
+    day=(1+5*((year-1)%4)+4*((year-1)%100)+6*((year-1)%400))%7
+
+    return day
+
+def first_day_of_month(month_number, year):
+    year=str(year)
+    C=int(year[:2])
+    D=int(year[2:4])
+    if month_number==1 or month_number==2:
+        month_number+=10
+        DD=D-1
+        A=(1+int((13*month_number-1)/5) + DD + int(DD/4) + int(C/4) - 2*C)/1
+        a=A%7    
+        return int(a)
+    else:
+        month_number-=2
+        A=(1+int((13*month_number-1)/5) + D + int(D/4) + int(C/4) - 2*C)/1
+        a=A%7
+        return int(a)   
+
+    
+
+&gt;&gt;&gt;&gt; file: morse_code.py
+
+import time
+
+def code_for(letter):
+    letter1=letter.lower()
+    wow={"a":".-","b":"-...","c":"-.-.","d":"-..","e":".","f":"..-.","g":"--.","h":"....","i":"..","j":".---","k":"-.-","l":".-..","m":"--","n":"-.","o":"---","p":".--.","q":"--.-","r":".-.","s":"...","t":"-","u":"..-","v":"...-","w":".--","x":"-..-","y":"-.--","z":"--.."}
+</FONT><A NAME="0"></A><FONT color = #FF0000><A HREF="match4-0.html#0" TARGET="0"><IMG SRC="../../bitmaps/tm_0_24.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    return wow[letter1]
+
+def sleep(duration):
+    time.sleep(duration)
+#def beep(frequency, duration):
+    #winsound.Beep(frequency, duration)    
+    
+    
+
+def transmit_letter(letter):
+    morsecode=code_for(letter)
+    a=0
+    doc=""
+    for i in morsecode:
+        a+=1
+        if a==len(morsecode):
+            if i==".":
+                #winsound.Beep(1000,100)
+                print(".",end="")
+                doc+="."
+            elif i=="-":
+                #winsound.Beep(1000,300)
+                print("-",end="")
+                doc+="-"
+            
+        else:
+            if i==".":
+                #winsound.Beep(1000,100)
+                print('.',end="")
+                time.sleep(0.1)
+                print("^",end="")
+                doc+=".^"
+
+            elif i=="-":
+                #winsound.Beep(1000,300)
+                print("-",end="")
+                time.sleep(0.1)
+                print("^",end="")
+                doc+="-^"
+    return doc       
+            
+def transmit_word(word):
+    b=0
+    for i in word:
+        b+=1
+        if b==len(word):
+            transmit_letter(i)
+        elif b!=len(word):
+            transmit_letter(i)
+            time.sleep(0.3)
+            print("|",end="")        
+
+
+
+def word_pause():
+    print("||",end="")
+    time.sleep(0.7)
+
+             
+    
+        
+
+
+    &gt;&gt;&gt;&gt; file: morse_translator.py
+import morse_code
+
+
+def main():
+    message=input('Enter message:\n')
+    
+    words=message.split(' ')
+    
+    word=words[0]
+    morse_code.transmit_word(word)
+    words=words[1:]
+    for word in words:
+        morse_code.word_pause()
+        morse_code.transmit_word(word)
+    
+main()&gt;&gt;&gt;&gt; file: morse_utils.py
+# Wrapper round time and winsound functions required for automarker.
+import time
+#import winsound
+
+def sleep(duration):
+    time.sleep(duration)
+    
+def beep(frequency, duration):
+    winsound.Beep(frequency, duration)&gt;&gt;&gt;&gt; file: technical_support.py
+# Tech Support
+# Stephan Jamieson
+# 5/1/2015
+responses={
+    'bluetooth':'Have you tried mouthwash?',
+    'windows':'Ah, I think I see your problem. What version?',
+</FONT>    'apple':'You do mean the computer kind?',
+    'blue':'Ah, the blue screen of death. And then what happened?',
+    'spam':'You should see if your mail client can filter messages.',
+    'connection':'Contact Telkom.',
+    'crashed':'Are the drivers up to date?',
+    'hacked':'You should consider installing anti-virus software.'}
+
+
+def default_response():
+    return 'Curious, tell me more.'
+    
+def get_response(words):
+
+    for word in words:
+        if word in responses:
+            return responses[word]
+    return default_response()
+    
+
+def print_welcome():
+    print('Welcome to the automated technical support system.')
+    print('Please describe your problem:')
+
+
+def get_input():
+    query = (input()).lower().split(' ')
+    return query
+
+def main():
+    print_welcome()
+    query = get_input()
+    while query!=['quit']:
+        response=get_response(query)
+        print(response)
+        query=get_input()
+
+
+        
+
+main()
+
+        
+    
+&gt;&gt;&gt;&gt; file: test_calendar_utils.py
+# test_calendar_utils.py
+# Stephan Jamieson
+# 4/8/2015
+
+def print_welcome():
+    print('Test harness for calendar_utils');
+    
+def get_selection():
+    print('\nChoose from the following options:')
+    print('0. quit')
+    print('1. Test is_leap_year().')
+    print('2. Test month_name().')
+    print('3. Test days_in_month().')
+    print('4. Test first_day_of_year().')
+    print('5. Test first_day_of_month().')
+    return int(input())
+
+def test_leap_year():
+    from calendar_utils import is_leap_year
+
+    year = int(input('Enter the year (4 digits):\n'))
+    if is_leap_year(year):
+        print('The year '+str(year)+' is a leap year.')
+    else:
+        print('The year '+str(year)+' is not leap year.')
+
+def test_month_name():
+    from calendar_utils import month_name
+    
+    for month_number in range(1, 13):
+        print('Month number '+str(month_number)+ ' is '+month_name(month_number)+'.')
+        
+
+def test_days_in_month():
+    from calendar_utils import days_in_month
+
+    year = int(input('Enter the year (4 digits):\n'))
+    for month_number in range(1, 12):
+        print('The days in the month with number '+str(month_number)+ ' in year '+str(year)+' is '+str(days_in_month(month_number, year))+'.')
+        
+def test_first_day_year():
+    from calendar_utils import first_day_of_year
+    
+    year = int(input('Enter the year (4 digits):\n'))
+    print('The first day of '+str(year)+' is '+str(first_day_of_year(year))+'.')
+    
+def test_first_day_month():
+    from calendar_utils import first_day_of_month
+    
+    month = int(input('Enter the month (1 for January, ..., 12 for December):\n'))
+    year = int(input('Enter the year (4 digits):\n'))
+    print('The first day of month '+str(month)+' in '+str(year)+' is '+str(first_day_of_month(month, year))+'.')
+    
+def main():
+    print_welcome()
+    
+    selection = get_selection()
+    while not selection==0:
+
+        if selection==1:
+            test_leap_year()
+        elif selection==2:
+            test_month_name()
+        elif selection==3:
+            
+            test_days_in_month()
+        elif selection==4:
+            test_first_day_year()
+        elif selection==5:
+            test_first_day_month()
+        else:
+            print('That selection was not recognised.')
+
+        selection = get_selection()
+        
+        
+main()
+&gt;&gt;&gt;&gt; file: test_morse_code.py
+# test_morse_code.py
+# Stephan Jamieson
+# 12/1/2015, 4/2015
+
+def print_welcome():
+    print('Test harness for morse_code');
+    
+def get_selection():
+    print('\nChoose from the following options:')
+    print('0. quit')
+    print('1. Test code_for().')
+    print('2. Test transmit_letter().')
+    print('3. Test transmit_word().')
+    print('4. Test word_pause().')
+    return int(input())
+
+def test_code_for():
+    from morse_code import code_for
+    for letter in "abcdefghijklmnopqrstuvwxyz":
+        print(letter, code_for(letter))
+        
+def test_transmit_letter():
+    from morse_code import transmit_letter
+    for letter in "abcdefghijklmnopqrstuvwxyz":
+        print(letter, ':', end='')
+        transmit_letter(letter)
+        print()
+               
+def test_transmit_word():
+    from morse_code import transmit_word
+    word = input("Enter test word:\n")
+    transmit_word(word)
+    
+def test_word_pause():
+    from morse_code import word_pause    
+    word_pause()
+
+
+def main():
+    print_welcome()
+    selection = get_selection()
+    
+    while not selection==0:
+        if selection==1:
+            test_code_for()
+        elif selection==2:
+            test_transmit_letter()
+        elif selection==3:
+            test_transmit_word()
+        elif selection==4:
+            test_word_pause()
+        else:
+            print('Sorry, that selection was not recognised.')
+            
+        selection = get_selection()
+main()</PRE>
+</PRE>
+</BODY>
+</HTML>

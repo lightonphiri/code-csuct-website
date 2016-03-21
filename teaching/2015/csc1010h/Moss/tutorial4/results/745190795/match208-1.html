@@ -1,0 +1,191 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/4/raw/kmpmph001/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/4/raw/ndlmxo003/<p><PRE>
+&gt;&gt;&gt;&gt; file: LongJump.py
+# program of long jump
+# Ndlovu Mxoleleni
+# 02 August 2015
+
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match208-0.html#0" TARGET="0"><IMG SRC="../../bitmaps/tm_0_5.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+def main():
+    print("***** Long Jump Information System *****")
+    print("Please enter the names of competitors. (Press enter when done.)")
+    a = 1
+    names = []
+    while True:
+        names_of_competitors = input("Competitor no. {}:\n".format(a))
+        a +=1
+</FONT>        if names_of_competitors == "":break
+        names.append(names_of_competitors)
+    
+    b = 1
+    first_competitor = []
+    print("Please enter the distances for each competitor.")
+    print("Competitor {}:\n".format(names[0]))
+    for i in range(3):
+        attempts = input("Attempt {}:\n".format(b))
+        b +=1
+    first_competitor.append(attempts)
+    c = 1
+    second_competitor = []
+    print("Competitor {}:\n".format(names[1]))
+    for k in range(3):
+        attempts = input("Attempt {}:\n".format(c))
+        c +=1
+    second_competitor.append(attempts)
+    d = 1
+    third_competitor = []
+    print("Competitor {}:\n".format(names[2]))
+    for k in range(3):
+        attempts = input("Attempt {}:\n".format(d))
+        d +=1
+        third_competitor.append(attempts)
+    e = 1
+    fourth_competitor = []
+    print("Competitor {}:\n".format(names[3]))
+    for k in range(3):
+        attempts = input("Attempt {}:\n".format(e))
+        e +=1
+        fourth_competitor.append(attempts)
+    print(first_competitor)
+    
+    
+main()&gt;&gt;&gt;&gt; file: NikNaks.py
+# program that plays NikNaks
+# Ndlovu Mxoleleni
+# 01 August 2015
+
+import random
+
+def main():
+    print("Guess the mystery 4 letter code. (No letter occurs more than once.)")
+    difficulty=int(input('Choose difficulty level (4 to 26):\n'))
+    letters=list('abcdefghijklmnopqrstuvwxyz')[0: difficulty]
+    print('The letters in the code are chosen from: {}.'.format(letters))
+    secret_code=[]
+    for i in range(4):
+        rand_index=random.randint(0, len(letters)-1)
+        letter=letters.pop(rand_index)
+        secret_code.append(letter)
+    a = 10
+    print("You have {} guesses remaining.".format(a))
+    a -=1
+    guess = input("Enter your guess:\n")
+    if guess[0:5] == secret_code[0:5]: 
+        print("Correct")
+    elif guess[0:5] != secret_code[0:5]:
+        print("You have {} guesses remaining.".format(a))
+        guess = input("Enter your guess:\n")
+        
+    
+main()&gt;&gt;&gt;&gt; file: Planets.py
+from turtle import*
+
+def main():
+    hideturtle()
+    speed(10)
+    lt(105)
+    penup()
+    fd(250)
+    pendown()
+    bgcolor("light blue")
+    color("red","yellow")
+    begin_fill()
+    circle(110)
+    write("Sun ", True, align="right")
+    end_fill()
+    rt(210)
+    penup()
+    fd(140)
+    pendown()
+    lt(90)
+    color("purple","pink")
+    begin_fill()
+    circle(10)
+    write("mercury ", True, align="right")
+    end_fill()
+    rt(60)
+    penup()
+    fd(30)
+    pendown()
+    color("purple","yellow")
+    begin_fill()
+    circle(25)
+    write("Venus ", True, align="right")
+    end_fill()
+    penup()
+    lt(20)
+    fd(70)
+    pendown()
+    color("yellow","blue")
+    begin_fill()
+    circle(30)
+    write("Earth ", True, align="right")
+    end_fill()   
+    lt(20)
+    penup()
+    fd(70)
+    pendown()
+    color("purple","orange")
+    begin_fill()
+    circle(20)
+    write("Mars ", True, align="right")
+    end_fill()
+    rt(35)
+    penup()
+    fd(60)
+    pendown()
+    color("yellow","brown")
+    begin_fill()
+    circle(45)
+    write("Jupiter ", True, align="right")
+    end_fill()
+    lt(20)
+    penup()
+    fd(110)
+    pendown()
+    color("purple","gold")
+    begin_fill()
+    circle(40)
+    write("Saturn ", True, align="right")
+    end_fill()
+    rt(35)
+    circle(40)
+    lt(40)
+    penup()
+    fd(95)
+    pendown()
+    color("white","blue")
+    begin_fill()
+    circle(35)
+    write("Uranus ", True, align="right")
+    end_fill()    
+    penup()
+    fd(70)
+    pendown()
+    color("white","blue")
+    begin_fill()
+    circle(32)
+    write("Neptune ", True, align="right")
+    end_fill()    
+    lt(10)
+    penup()
+    fd(60)
+    pendown()
+    color("yellow","grey")
+    begin_fill()
+    circle(5)
+    write("Pluto ", True, align="right")
+    end_fill()
+
+    exitonclick()
+    
+main()</PRE>
+</PRE>
+</BODY>
+</HTML>

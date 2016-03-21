@@ -1,0 +1,137 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/2/raw/dkgtha005/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/2/raw/dkgtha005/<p><PRE>
+&gt;&gt;&gt;&gt; file: CreditCard.py
+# Thapelo Dikgang
+# 26-pr-2015
+# A program to print out a formatted credit card information
+
+
+card_holder=input("Enter the card holder's name:\n")
+card_number=input('Enter the 16 digit card number (no spaces please):\n')
+splitted_number=card_number[0:4]+" "+card_number[4:8]+" "+card_number[8:12]+" "+card_number[12:]                           #splitting the number into fours
+
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match12-1.html#0" TARGET="1"><IMG SRC="../../bitmaps/tm_0_13.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+date_of_issue=input('Enter the date of issue (mm:yy):\n')
+splitted_date=date_of_issue.replace(':',"/")
+expiry_date=input('Enter the expiry date (mm:yy):\n')
+splitted_expiry_date=expiry_date.replace(':',"/")
+
+security_code=input('Enter the 3 digit security code:\n')
+credit_limit=float(input('Enter the credit limit (Rand):\n'))
+limitfloated=str(credit_limit)+'0 Rand'
+balance=float(input('Enter the balance (Rand):\n'))
+balfloated=str(balance)+"0 Rand"
+leftover=str(credit_limit-balance)
+</FONT><A NAME="2"></A><FONT color = #0000FF><A HREF="match12-1.html#2" TARGET="1"><IMG SRC="../../bitmaps/tm_2_7.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+available=leftover+"0 Rand"
+
+print('{0}{1:-^13} {2} {3:-^14}{4}'.format('+','-','Credit Card Account','-','+'))
+print('{0} {1:&lt;15}{2:&lt;32}{3}'.format('|','Card holder:',card_holder,'|'))
+print('{0} {1:&lt;15}{2:&lt;32}{3}'.format('|','Card number:',splitted_number,'|'))
+print('{0} {1:&lt;15}{2:&lt;9}{3} {4:&lt;10}{5}'.format('|','Date of issue:',splitted_date,'Expiry date:',splitted_expiry_date,'|'))
+print('{0} {1:&lt;15}{2:&lt;32}{3}'.format('|','Security code:',security_code,'|'))
+print('{0} {1:&lt;15}{2:&lt;32}{3}'.format('|','Credit limit:',limitfloated,'|'))
+print('{0} {1:&lt;15}{2:&lt;32}{3}'.format('|','Available:',available,'|'))
+print('{0} {1:&lt;15}{2:&lt;32}{3}'.format('|','Balance:',balfloated,'|'))
+print(('{0}{1:-^48}{2}'.format('+','','+')))&gt;&gt;&gt;&gt; file: EugeneJunior.py
+#A program to work out star wars names
+
+print('Hello, I am Eugene Junior.')             
+
+name=input('What is your first name?\n')                                         # prompt the user to enter the name and surname, and print initials.
+surname=input('What is your last name?\n')
+</FONT>print('Hi',name[0]+'.'+surname[0]+'.'+'!')
+
+year=int(input('What year is this?\n'))
+age=int(input('What age are you?\n'))
+birthyear=str(year-age-1)+'/'+str(year-age)[-2:]+'.'
+print('Okay, so you were born in',birthyear)                                     # prompt the user to enter the birth year,and prints it out.
+
+height=eval(input('How tall are you (metres)?\n'))
+feet=str(int((height*39.3700787)/11.9))
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match12-1.html#1" TARGET="1"><IMG SRC="../../bitmaps/tm_1_9.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+inch=str(int((height*39.3700787)%11.9))
+print("That's",feet+"'"+inch+'"!')                                               # prompt the user to enter the body height,and prints it out in feet and inches
+
+print("I'm going to tell you your Star Wars name.")
+
+mother=input("What's your mother's first name?\n")
+city=input("What's the name of the city nearest to your place of birth?\n")
+first_name=(surname[0:3]+name[0:2]).title()+" "+(mother[-2:]+city[-3:]).title()
+</FONT>print('Your Star Wars name is',first_name+'.')                                   # prompt the user to enter the credential details,and work  out the star wars name of the user&gt;&gt;&gt;&gt; file: HexagonArea.py
+# A program to calculate the area of a hexagon
+import math
+
+side=int(input('Enter the length of the side (cm): \n'))                                #prompt the user to enter the side
+<A NAME="3"></A><FONT color = #00FFFF><A HREF="match12-1.html#3" TARGET="1"><IMG SRC="../../bitmaps/tm_3_6.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+area=((side**2)*3*math.sqrt(3))/2                                                       #calculating the area
+print('The area of a hexagon of side',side,'is',"{0:5.3f}".format(area)+'.')            #print out the area,rounded off to 3 decimal places
+&gt;&gt;&gt;&gt; file: Initials.py
+# Thapelo Dikgang
+# 26-apr-2015
+# A program to print out my initials using a turtle module
+
+
+import turtle # allows us to use turtle
+
+def main():
+    #pick up the pen and move 80 steps to the left to centrelize the letters    
+    turtle.penup()
+    turtle.setx(-80)
+   
+                                            
+    turtle.pencolor('red')                    # change the pen color to red   
+</FONT>    turtle.pendown()                          # put the pen down to start drawing the first letter 
+    turtle.forward(200)                       # move the pen 200 steps forward(upwards direction)
+    turtle.left(90)                           # rotate 90 degrees left
+    turtle.forward(50)                        # move 50 steps forward
+    turtle.left(180)                          # rotate the pen 180 degrees to face backwards
+    turtle.forward(100)                       # move 100 steps forward
+    
+    turtle.penup()                            # pick up the pen and move 50 steps forward
+    turtle.forward(50)
+    
+    
+    
+    turtle.pencolor('magenta')                # change the pen color to magenta
+    turtle.pendown()                          # put the pen down to draw the second letter
+    turtle.right(90)                          # rotate the pen 90 degrees right
+    turtle.forward(200)                       # move the pen 200 steps forward
+    turtle.left(90)                           # rotate the pen 90 degrees left
+    turtle.forward(60)                        # move 50 steps forward
+    
+    
+    # drawing the first curve
+    turtle.left(45)                           #rotate 45 degrees left and move 40 steps forward          
+    turtle.forward(40)
+    turtle.left(45)                           #rotate 45 degrees left and move 143 steps forward
+    turtle.forward(143)
+                              
+    
+    
+    #drawing the secod curve
+    turtle.left(45)                           #rotate 45 degrees left and move 40 steps forward
+    turtle.forward(40)
+    turtle.left(45)                           #rotate 45 degrees left and move 60 steps forward
+    turtle.forward(60)
+                              
+    
+    
+    turtle.hideturtle()                       #hide the pen
+    
+    
+    turtle.exitonclick() # Wait for the user to close the window
+    
+main()</PRE>
+</PRE>
+</BODY>
+</HTML>

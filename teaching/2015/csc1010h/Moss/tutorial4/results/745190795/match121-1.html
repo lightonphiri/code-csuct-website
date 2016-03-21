@@ -1,0 +1,180 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/4/raw/jhmrus001/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/4/raw/mhlcol006/<p><PRE>
+&gt;&gt;&gt;&gt; file: LongJump.py
+# C Mahlasela
+# program to print out results
+# 22 July 2015
+
+print ("***** Long Jump Information System *****")
+print ("Please enter the names of competitors. (Press return when done.)")
+
+# Cganging variables
+i = 2
+stop = ""
+cont = []
+
+# Names of the competitors
+comp = input ("Competitor no. 1:\n")
+cont.append(comp)
+while comp != stop:
+    comp = input ("Competitor no. "+str(i)+":\n")
+    if comp == stop:
+        break
+    else:
+        cont.append(comp)
+        i = i+1
+        
+print("Please enter the distances for each competitor.")
+
+# Variables
+loop = len (cont)
+score = []
+final=[]
+alt = []
+p=0
+esc = "-1"
+
+
+for i in range (loop):
+    print ("Competitor"+" "+cont[0+p]+":")
+    a = 1
+    
+    # enter the scores
+    for i in range (3):
+        atmp = input ("Attempt "+str(a)+":\n").lower()
+        a = a+1
+        if atmp == "foul":
+            score.append(esc)
+        else:
+            score.append(atmp)
+
+    score.sort()    
+    
+    x = eval(score[-1])
+    alt.append(x)
+
+    if x == -1:
+        final.append("No jump")
+    else:
+        final.append("{0:.2f}".format(x))
+    p = p+1
+    del score[:]
+   
+   
+print ("Competitor"+"               "+"Longest Distance")
+for i in range (len(final)):
+    print ("{0:&lt;25}".format(cont[i])+(final[i]))
+
+re = final.count("No jump")
+for i in range (re):
+    pos = final.index("No jump")
+    final.insert(pos,-1)
+    final.remove("No jump")
+    
+high = max(alt)
+pos = alt.index(high)
+win = cont[pos]
+print ("The winner is",win,"with a jump of","{0:.2f}".format(high), end = ".")&gt;&gt;&gt;&gt; file: NikNaks.py
+# C Mahlasela
+# a program that generates a secret code
+# 24 July 2015
+
+import random
+
+def main():
+    print ("Guess the mystery 4 letter code. (No letter occurs more than once.)")
+    level = int (input ('Choose difficulty level (4 to 26):\n'))
+    letters= list ('abcdefghijklmnopqrstuvwxyz')[0: level]
+    print('The letters in the code are chosen from: {}.'.format(letters))
+    secret_code=[]
+
+    for i in range(4):
+        rand_index=random.randint(0, len(letters)-1)
+        letter=letters.pop(rand_index)
+        secret_code.append(letter)
+    #print(secret_code)
+
+    secret = ''.join(secret_code)
+    #print (secret)
+    count = 10
+    word = []
+
+    
+    for i in range (10):
+            if count == 0:
+                    break
+            else:
+                    print ("You have", count,"guesses remianing.")
+                    ans = input ("Enter your guess:\n").lower()
+                    
+                    if ans == secret:
+                            print ("Correct!")
+                            break
+                    else:   
+                            count = count - 1
+                            for i in ans:
+                                    word.append(i)
+                            Niks = 0
+                            Naks = 0                                    
+                            for i in range(0,4) :
+                                if secret_code[i] == word[i]:
+                                    Niks = Niks + 1
+                                                    
+                                else:
+                                    if word[i] in secret_code:
+                                        Naks = Naks + 1
+                                    else:
+                                        pass
+                                                
+                    print ("There are", Niks, "Niks and", Naks, "Naks.")
+           
+if __name__ == '__main__':
+    main()&gt;&gt;&gt;&gt; file: initials.py
+import turtle
+
+def main():
+    turtle.pensize(5)
+    turtle.pencolor("red")
+    # Alignment of the letters
+    turtle.penup()
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match121-0.html#0" TARGET="0"><IMG SRC="../../bitmaps/tm_0_6.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    turtle.left(90)
+    turtle.forward(10)
+    
+    #Print out first letter
+    turtle.pendown()
+    turtle.forward(150)
+    turtle.right(90)
+    turtle.forward(200)
+    turtle.right(90)
+    turtle.forward(150)
+
+    # Space between
+    turtle.penup()    
+    turtle.home()    
+</FONT>    turtle.right(90)
+    turtle.forward(10)
+    
+    turtle.pencolor("blue")
+    # Print the second letter
+    turtle.pendown()
+    turtle.left(90)
+    turtle.forward(200)
+    turtle.right(135)
+    turtle.forward(106.0660172)
+    turtle.left(90)
+    turtle.forward(106.0660172)
+    turtle.right(135)
+    turtle.forward(200)
+    
+    turtle.exitonclick()
+main()</PRE>
+</PRE>
+</BODY>
+</HTML>

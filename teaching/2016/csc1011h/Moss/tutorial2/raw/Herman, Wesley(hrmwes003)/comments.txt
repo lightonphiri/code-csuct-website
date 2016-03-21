@@ -1,0 +1,2 @@
+<p>After adding a guess, it would have been nice if the input box
+  cleared on its own. (2.5 penalty)</p>

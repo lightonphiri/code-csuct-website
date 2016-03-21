@@ -1,0 +1,159 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/2/raw/mhkmal001/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/2/raw/mhkmal001/<p><PRE>
+&gt;&gt;&gt;&gt; file: CreditCard.py
+# A program that prints out a formated output of a credid card
+# malebo mahoko
+# 22 april 2015
+
+def main():
+    chn = input("Enter the card holder's name:\n")                                       # chn == card holders name
+    cn = input("Enter the 16 digit card number (no spaces please):\n")              # cn == card number
+    di = input("Enter the date of issue (mm:yy):\n")                                    # di == date of issue
+    di = di[:2] + "/" + di[-2:]
+    ed = input("Enter the expiry date (mm:yy):\n")                                         # ed == expiry date
+    ed = ed[:2] + "/" + ed[-2:]
+    dsc = int(input("Enter the 3 digit security code:\n"))                              # dsc == digit security code
+    cl = int(input("Enter the credit limit (Rand):\n"))                                # cl == credit limit
+    b  = int(input("Enter the balance (Rand):\n"))                                     # b == balance
+    
+    chn = chn.title()
+    
+    print("+------------- Credit Card Account --------------+")
+    print("| Card holder:   {0:&lt;32}|".format(chn))
+    
+    cn_f4 = cn[0:4]
+    cn_2nd4 = cn[4:8]
+    cn_3rd4 = cn[8:12]
+    cn_4th4 = cn[12:]
+    
+    print("| Card number:  ",cn_f4,cn_2nd4,cn_3rd4,cn_4th4,"            |")
+    print("| Date of issue:",di,"   Expiry date:",ed,"    |")
+    print("| Security code:",dsc,"                            |")
+    
+    rb = cl - b
+    cl = str(cl)
+    b = str(b)
+    rb = str(rb)
+    slg = "|" 
+    r = ".00 Rand"                                                              #rand
+    cl = cl+r
+    b = b+r
+    rb += r
+    
+    print("| Credit limit:  {0:&lt;32}|".format(cl))
+    print("| Available:     {0:&lt;32}|".format(rb))
+    print("| Balance:       {0:&lt;32}|".format(b))
+    print("+------------------------------------------------+")
+    
+main()&gt;&gt;&gt;&gt; file: EugeneJunior.py
+# A program that interacts with the user by asking queastion
+# malebo mahoko
+# 22 April 2015
+
+print("Hello, I am Eugene Junior.")
+
+F_name = input("What is your first name? \n")
+L_name = input("What is your last name? \n")
+
+jF_name = F_name.upper()                                         # upper case the name
+jF_name = jF_name[0]                                              # slice the first term
+
+jL_name = L_name.upper()
+jL_name = jL_name[0]
+
+print("Hi {}.{}.!".format(jF_name,jL_name))
+pre_year = input("What year is this? \n")
+age = input("What age are you? \n")
+
+y_born = str(int(pre_year) - int(age))
+y_born2 = y_born[2:]
+y_born3 = str(int(y_born)-1)
+
+print("Okay, so you were born in", y_born3+"/"+y_born2+".")
+height = eval(input("How tall are you (metres)? \n"))
+
+feet = 3.28*(height)                                            # convert meteers to feet
+des_feet = feet - int(feet)                                     # extract the decimal of feet
+inch = round(12*(des_feet),0)
+inch = int(inch)                                                                # convert to inch
+feet = int(feet)
+
+print("That's {}'{}\"!".format(feet,inch))
+
+print("I'm going to tell you your Star Wars name.")
+mf_name = input("What's your mother's first name? \n")
+c_name = input("What's the name of the city nearest to your place of birth? \n")
+
+L_name = L_name[0:3]                  # extract the first three letters of the last name
+L_name = L_name.title()
+F_name = F_name[0:2]
+F_name = F_name.lower()
+
+mf_name = mf_name[-2:]
+mf_name = mf_name.title()
+c_name = c_name[-3:]
+
+print("Your Star Wars name is {} {}.".format(L_name+F_name,mf_name+c_name))&gt;&gt;&gt;&gt; file: HexagonArea.py
+# A program to calculate the area of a hexagon
+# malebo mahoko
+# 22 April 2015
+
+import math
+
+length = eval(input("Enter the length of the side (cm): \n"))
+area = ((3*(math.sqrt(3)))/2)*(length*length)
+
+print("The area of a hexagon of side {0} is {1:.3f}.".format(length,area))&gt;&gt;&gt;&gt; file: Initials.py
+import turtle
+
+def main():
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match132-1.html#1" TARGET="1"><IMG SRC="../../bitmaps/tm_1_4.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    turtle.pencolor("blue")
+    turtle.penup()
+    turtle.left(90)
+    turtle.fd(20)
+    turtle.pendown()
+    turtle.right(90)
+    turtle.fd(200)
+</FONT>    turtle.left(135)
+    turtle.fd(100)
+    turtle.right(90)
+    turtle.fd(100)
+    turtle.left(135)
+    turtle.fd(200)
+    turtle.penup()
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match132-1.html#0" TARGET="1"><IMG SRC="../../bitmaps/tm_0_4.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    turtle.home()
+    turtle.pencolor("orange")
+    turtle.right(90)
+    turtle.fd(20)
+    turtle.pendown()
+    turtle.left(70)
+    turtle.fd(210)
+    turtle.right(135)
+</FONT>    turtle.fd(220)
+    turtle.penup()
+    turtle.home()
+    turtle.right(90)
+    turtle.fd(20)
+    turtle.left(70)
+    turtle.fd(105)
+    turtle.right(70)
+    turtle.pendown()
+    turtle.hideturtle()
+    turtle.fd(81)
+
+    
+    turtle.exitonclick()
+    
+main()</PRE>
+</PRE>
+</BODY>
+</HTML>

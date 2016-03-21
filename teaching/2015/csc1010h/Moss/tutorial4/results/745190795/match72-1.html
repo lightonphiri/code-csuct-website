@@ -1,0 +1,119 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/4/raw/mcnmon001/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/4/raw/mvhrol001/<p><PRE>
+&gt;&gt;&gt;&gt; file: LongJump.py
+#Mavhungu Rolivhuwa
+#A program to print out the winner with their winning distance
+#30 July 2015
+
+print("***** Long Jump Information System *****")
+print("Please enter the names of competitors. (Press return when done.)")
+#names of each competitor
+counter = 1
+b = []
+while True:
+    a=input("Competitor no. "+str(counter)+":\n")
+    if a != "":
+        b.append(a)
+    if a == "":break
+    else:
+        counter += 1
+e = []
+d = {}
+f = []
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match72-0.html#1" TARGET="0"><IMG SRC="../../bitmaps/tm_1_5.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+print("Please enter the distances for each competitor.")
+for i in b: 
+    print("Competitor",i+":")
+    for k in range(1,4):
+        c = input("Attempt "+str(k)+":\n")
+</FONT>        if c == "foul" or c == "Foul":
+            c = "0"
+        c = eval(c)
+        e.append(c)
+    f.append(max(e))
+    d[i]=max(e)
+    e = []
+print()
+print("{0:25}{1:25}".format("Competitor","Longest Distance"))
+winner = []
+for k in b:
+    if d[k] == 0 or d[k]== "0":
+        d[k]="No jump"
+        print("{0:25}{1:15}".format(k,d[k]))
+    if d[k] != "No jump":
+        winner.append(d[k])
+        print("{0:25}{1:&lt;15.2f}".format(k,d[k]))
+w = max(winner)
+print()
+print("The winner is {0} with a jump of {1:.2f}.".format(b[f.index(w)],w))&gt;&gt;&gt;&gt; file: NikNaks.py
+import random
+def main():
+    print("Guess the mystery 4 letter code. (No letter occurs more than once.)")
+    difficulty=int(input('Choose difficulty level (4 to 26):\n'))
+    letters=list('abcdefghijklmnopqrstuvwxyz')[0: difficulty]
+    print('The letters in the code are chosen from: {}.'.format(letters))
+    secret_code=[]
+    k = 1
+    for i in range(4):
+        rand_index=random.randint(0, len(letters)-1)
+        letter=letters.pop(rand_index)
+        secret_code.append(letter)   
+    p = 10
+    while p&gt;0:
+        print("You have",p,"guesses remaining.")
+        p -= 1
+        guess=list(input("Enter your guess:\n"))
+        niks = 0
+        naks = 0
+        if guess == secret_code:
+            k = 0
+            print("Correct!")
+            break
+        else:
+            for r in range(4):
+                if guess[r] == secret_code[r]:
+                    niks += 1
+                elif guess[r] in secret_code:
+                    naks += 1
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match72-0.html#0" TARGET="0"><IMG SRC="../../bitmaps/tm_0_6.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+            if niks == 1:
+                a = "is"
+                b = "Nik"
+            else:
+                a = "are"
+                b = "Niks"
+            if naks == 1:
+                c = "Nak"
+            else:
+                c = "Naks"
+</FONT>            print("There",a,niks,b,"and",naks,c+".")
+    if k != 0:
+        name = ""
+        for i in secret_code:
+            name += i
+        print("Sorry, you lose.")
+        print("The secret number was",name+".")
+if __name__=="__main__":
+    main()&gt;&gt;&gt;&gt; file: Python Turtle.py
+
+    
+import turtle 
+
+spiral = turtle.Turtle()
+
+for i in range(20):
+    spiral.forward(i * 10)
+    spiral.right(144)
+    
+    
+turtle.done()</PRE>
+</PRE>
+</BODY>
+</HTML>

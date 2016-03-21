@@ -1,0 +1,55 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/4/raw/mnqman002/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/4/raw/mshkgo024/<p><PRE>
+&gt;&gt;&gt;&gt; file: LongJump.py
+""" Comments LOLLLLLLLLOLOLOLOLOLOLOLOLOLOLOLLLLLLLLOLOLLLLLLLLLLL"""
+print("***** Long Jump Information System *****")
+print("Please enter the names of competitors. (Press return when done.)")
+contestant = input("Competitor no. 1:\n")
+competitors = [contestant]
+count = 2
+while contestant:
+    print("Competitor no. "+str(count)+":")
+    contestant = input()
+    count += 1
+    if contestant != "":
+        competitors.append(contestant)
+competitors_maximums = []
+store = {}
+winner = []
+print("Please enter the distances for each competitor.")
+for each_competitor in competitors:
+    print("Competitor",each_competitor+":")
+    a = 1
+    while a &lt;= 3:
+        attempt = input("Attempt "+str(a)+":\n")
+        if attempt.isalpha():
+            attempt = "0"
+        attempt = eval(attempt)
+        competitors_maximums.append(attempt)
+        a += 1
+    competitors_maximums=max(competitors_maximums)
+    winner.append(competitors_maximums)
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match74-0.html#0" TARGET="0"><IMG SRC="../../bitmaps/tm_0_28.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    store[each_competitor] = competitors_maximums
+    competitors_maximums = []
+print()
+print("{0:25}{1:25}".format("Competitor","Longest Distance"))
+for k in competitors:
+    if store[k] == 0:
+        store[k] = "No jump"
+    if store[k] != "No jump":
+        print("{0:25}{1:&lt;15.2f}".format(k,store[k]))
+    else:
+        print("{0:25}{1:15}".format(k,store[k]))
+</FONT>print()
+print("The winner is {0} with a jump of {1:.2f}.".format(competitors[winner.index((max(winner)))],max(winner)))&gt;&gt;&gt;&gt; file: NikNaks.py
+</PRE>
+</PRE>
+</BODY>
+</HTML>

@@ -1,0 +1,138 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/6/raw/01445014/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/6/raw/mphfar001/<p><PRE>
+&gt;&gt;&gt;&gt; file: broken_mod.py
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match98-0.html#1" TARGET="0"><IMG SRC="../../bitmaps/tm_1_5.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+import string
+
+def palindrome (s):
+   if len(s) == 0 :
+      return True
+   elif len(s) == 1:
+      #print(s.isalpha())
+   
+      return s.isalpha()
+   elif s[0] in string.punctuation or s[0] in string.whitespace:
+</FONT>      #print(s[:-1])
+      return palindrome(s[:-1])
+   elif s[-1] in string.punctuation or s[-1] in string.whitespace:
+      #print(s[:-1])
+      return palindrome(s[:-1])
+   elif s[0].lower() == s[-1].lower():
+      #print(s[1:-1])
+      return palindrome (s[1:-1])
+   else:
+      return False
+
+print(palindrome("HEHh"))&gt;&gt;&gt;&gt; file: fixed_mod.py
+import string
+
+def palindrome (s):
+   if len(s) == 0 :
+      return True
+   elif len(s) == 1:
+      #print(s.isalpha())
+   
+      return s.isalpha()
+   elif s[0] in string.punctuation or s[0] in string.whitespace:
+      #print(s[:-1])
+      return palindrome(s[:-1])
+   elif s[-1] in string.punctuation or s[-1] in string.whitespace:
+      #print(s[:-1])
+      return palindrome(s[:-1])
+   elif s[0].lower() == s[-1].lower():
+      #print(s[1:-1])
+      return palindrome (s[1:-1])
+   else:
+      return False
+
+#print(palindrome("HEeh"))&gt;&gt;&gt;&gt; file: match_mod.py
+#mphfar001
+#assignment 6 question 4 
+
+def equals(word_one,word_two) :
+    #print("word one",word_one , "Word Two ", word_two)
+    Bool = []
+    if len(word_one) &gt;0 and len(word_two)&gt;0 :
+        if word_one[-1] == word_two[-1] :
+            Bool.append("True") 
+            #print('0==0 append True','Bool', Bool)
+        if len(word_one) == 1 and len(word_two) == 1: 
+     #       print("Bool",Bool[0])
+            return Bool[0]  
+    else  : 
+        return False
+    return equals(word_one[0:-1],word_two[0:-1])    
+
+def query(pattern,word) :
+    if len(pattern) != len(word) : return False 
+    if len(pattern) == 0 : return True    
+<A NAME="2"></A><FONT color = #0000FF><A HREF="match98-0.html#2" TARGET="0"><IMG SRC="../../bitmaps/tm_2_4.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    if pattern[0] == word[0] or pattern[0] == '?' : return query(pattern[1:],word[1:])
+    
+    
+    else : return False
+    
+#print(query("H??o",'Hllpo'))
+
+def match(pattern,word) :
+</FONT>    if pattern in word : return True
+    if pattern == "*" :return True
+    if query(pattern,word) is True : 
+        return True
+    if pattern[0] == word[0]  or pattern[0] =="?" or pattern[-1]=='?'  : 
+        return match(pattern[1:],word[1:])
+    if pattern[0] == '*' :
+        if pattern[0]==pattern[-1]=="*" and len(pattern) &gt;1 :
+            return match(pattern[1:-1],word)
+         
+            
+        if pattern[-1] == word[-1] or pattern[-1] == "?":
+            return match(pattern[:-1],word[:-1])
+        if len(pattern) &gt; len(word) : 
+            if pattern[-1] == word[-1] :
+                return match(pattern[:-1],word[:-1])
+            else:
+                return False            
+    if len(pattern) == 1 and pattern[0] == "*" :
+        if len(word) == 1 :return True 
+        return True
+    
+    #if pattern[0] != "*" and pattern[-1] not "*" :  
+   
+    
+    if len(pattern)!=1 and pattern[0] == "*" and pattern[-1] == "*" : 
+        return match(pattern[1:-1],word[1:-1]) 
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match98-0.html#0" TARGET="0"><IMG SRC="../../bitmaps/tm_0_6.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    else : return False
+    #return match(pattern[1:],word[1:])
+
+#match("n*a","nigga")
+#print(match("?st*ngi?nt","astringint"))
+    &gt;&gt;&gt;&gt; file: mongoose_mod.py
+#mphfar001
+
+def population(n) :
+    if n == 1 : return 2
+    elif n == 2 : return 2
+    else : return population(n-1)+population(n-2) 
+
+#print(population(60))&gt;&gt;&gt;&gt; file: sum_mod.py
+# MPHFAR001
+# Assignment 6 Q2 CSC1010H 
+# August 2015
+
+def sum_to_n(n) :
+    if n == 1 : return 1
+</FONT>    else : return n + sum_to_n(n-1)
+</PRE>
+</PRE>
+</BODY>
+</HTML>

@@ -1,0 +1,160 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/4/raw/alldin001/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/4/raw/alldin001/<p><PRE>
+&gt;&gt;&gt;&gt; file: LongJump.py
+
+print('{0:*^40}'.format(' Long Jump Information System '))
+print('Please enter the names of competitors. (Press return when done.)')
+n=1
+names_list= []
+jump_results= []
+results={}
+
+while True:
+    name=input('Competitor no. '+ str(n)+ ':\n')  
+    if name!='': 
+        names_list.append(name)
+        n=n+1
+    else:
+        break   
+    
+print('Please enter the distances for each competitor.')
+for competitor in names_list:
+    print('Competitor '+competitor+':')
+    try1= input('Attempt 1:\n')
+    if try1.isalpha():
+        try1=0
+    try2= input('Attempt 2:\n')
+    if try2.isalpha():
+        try2=0
+    try3= input('Attempt 3:\n')
+    if try3.isalpha():
+        try3=0
+        
+    if try1==0 and try2==0 and try3==0:
+        results[competitor]= 0
+        jump_results.append('No jump')
+    else:
+        results[competitor]= max(float(try1), float(try2), float(try3))
+        jump_results.append(max(float(try1), float(try2), float(try3))) 
+    
+print()
+print("{0} {1:&gt;30}".format('Competitor','Longest Distance'))      
+
+for name in names_list:
+    
+    print("{0:&lt;24} {1:4.2f}".format(name,jump_results[names_list.index(name)]))
+       
+    winner_result=max(results)
+    winner_name= names_list[index(jump_results.index(winner_result))]
+print("The winner is {0} with a jump of {1:4.2f}.".format(winner_name, winner_result))
+&gt;&gt;&gt;&gt; file: NikNaks.py
+import random
+def main():
+    print('Guess the mystery 4 letter code. (No letter occurs more than once.)')
+    difficulty=int(input('Choose difficulty level (4 to 26):\n'))
+    letters=list('abcdefghijklmnopqrstuvwxyz')[0: difficulty]
+    print('The letters in the code are chosen from: {}.'.format(letters))
+    secret_code=[]
+        
+    for i in range(4):
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match93-1.html#0" TARGET="1"><IMG SRC="../../bitmaps/tm_0_4.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+        rand_index=random.randint(0, len(letters)-1)
+        letter=letters.pop(rand_index)
+        secret_code.append(letter)
+    # To check things are working, uncomment this print line to see the
+    # code that has been created.
+    #print(secret_code)
+    
+    guesses=10
+    naks=0
+    niks=0    
+</FONT>    while True:
+        print('You have {} guesses remaining.'.format(guesses))
+        answer= input('Enter your guess:\n')
+        if list(answer)== secret_code:
+            print('Correct!')
+            break
+        
+        niks=0      # initialise variable back to 0
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match93-1.html#1" TARGET="1"><IMG SRC="../../bitmaps/tm_1_4.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+        naks=0      # initialise variable back to 0
+        for position in range(4):
+            if answer[position]==secret_code[position]:
+                niks+=1
+            elif answer[position] in secret_code:
+</FONT>                naks+=1
+             
+        if niks==1:
+            print("There is {0} Nik and {1} Naks.".format(niks,naks))
+            
+        elif naks==1:
+            print("There are {0} Niks and {1} Nak.".format(niks,naks))
+            
+        else:
+            print("There are {0} Niks and {1} Naks.".format(niks,naks))
+        
+        guesses-= 1 #guesses=guesses-1
+            
+        if guesses==0:
+            print('Sorry, you lose.')
+            print("The secret number was {0}{1}{2}{3}.".format(secret_code[0],secret_code[1],secret_code[2],secret_code[3]))
+            break
+            
+if __name__ == '__main__':
+    main()&gt;&gt;&gt;&gt; file: Turtle.py
+import turtle
+for i in range(8):
+    turtle.rt(360//6)
+    turtle.pencolor('green'),turtle.forward(50)
+    turtle.lt(45)
+    turtle.tilt(30)
+    if i%2 == 0:
+        turtle.bgcolor('black')
+        turtle.pencolor('cyan')
+    else:
+        
+        turtle.pencolor('blue')            
+    for j in range(4):
+        turtle.speed(0)
+        turtle.forward(100)
+        turtle.rt(90)
+        turtle.stamp()        #Stamp a copy of the turtle shape
+        
+    turtle.pencolor('red'),turtle.lt(30+120)
+    turtle.forward(50)
+    turtle.lt(180)
+    turtle.bgcolor('black')
+    
+    turtle.dot(10, "cyan")    # draw circular dotS with diameter size 10
+    turtle.left(90)
+    turtle.pencolor('red'),turtle.forward(30)
+for i in range(7):
+    turtle.pencolor("magenta")
+    turtle.fd(50)
+    turtle.right(15)
+    turtle.color("grey")   #fill shape with colour
+    turtle.begin_fill()
+    turtle.circle(25)      #draw circle
+    turtle.end_fill()
+turtle.position()
+turtle.penup()
+turtle.fd(50)
+turtle.rt(90)
+turtle.forward(100)
+turtle.pendown()
+turtle.goto(150, 100)
+turtle.write("CSC1010H", move=False, align="left", font=("Broadway", 25, "normal"))    
+#left align the words CSC1010H 
+turtle.hideturtle()
+
+turtle.exitonclick()</PRE>
+</PRE>
+</BODY>
+</HTML>

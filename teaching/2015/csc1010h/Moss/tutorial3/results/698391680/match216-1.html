@@ -1,0 +1,264 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/3/raw/mchsim007/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/3/raw/mltkha004/<p><PRE>
+&gt;&gt;&gt;&gt; file: FeetMetres.py
+Minfeet = int(input("Enter the minimum number of feet (not less than 0):\n"))
+Maxfeet= int(input("Enter the maximum number of feet (not more than 99):\n"))
+count =0
+
+while count&lt;(Maxfeet-Minfeet+1):
+    metres =Minfeet*0.3048
+    print("{0:&gt;4}' |   {1:.2f}m".format(Minfeet,metres))
+    Minfeet+=1
+    count+=count
+    
+    &gt;&gt;&gt;&gt; file: FlowerPattern.py
+import turtle
+
+petaln=int(input("Enter the number of petals (must be an even number):"))
+steml=int(input("Enter the length of stem:"))
+shape=(input("Enter the petal type (triangle, square, or pentagon):"))
+side=int(input("Enter the length of side:"))
+stemc=input("Enter the stem colour:")
+p1colour=input("Enter the first petal colour:")
+p2colour=input("Enter the second petal colour:")
+
+count=1
+alternater=[p1colour,p2colour]
+a=2
+b=0
+if shape=="triangle":
+    for i in range(petaln):
+        if(i+1)%a!=0:
+            b=0
+        else:
+            b=1
+        turtle.pencolor(stemc)
+        turtle.forward(steml)
+        turtle.right(30)
+        for j in range(2):
+            turtle.pencolor(alternater[b])
+            turtle.forward(side)
+            turtle.left(120)
+
+        turtle.forward(side)
+        turtle.penup()
+        turtle.home()
+        turtle.pendown()
+        turtle.right(count*(360/petaln))
+        count+=1
+    
+elif shape=="square":
+    for i in range(petaln):
+        if(i+1)%a!=0:
+            b=0
+        else:
+            b=1        
+        turtle.pencolor(stemc)
+        turtle.forward(steml)
+        turtle.pencolor(alternater[b])
+        turtle.right(90)
+        turtle.forward(side/2)
+        for j in range(3):
+            turtle.pencolor(alternater[b])
+            turtle.left(90)
+            turtle.forward(side)
+        
+        turtle.left(90) 
+        turtle.forward(side/2)
+        turtle.penup()
+        turtle.home()
+        turtle.pendown()
+        turtle.right(count*(360/petaln))
+        count+=1  
+                
+elif shape=="pentagon":
+    for i in range(petaln):
+        if(i+1)%a!=0:
+            b=0
+        else:
+            b=1        
+        turtle.pencolor(stemc)
+        turtle.forward(steml)
+        turtle.right(108/2)
+        turtle.pencolor(alternater[b])
+        turtle.forward(side)
+        for j in range(4):
+            turtle.left(72)
+            turtle.pencolor(alternater[b])
+            turtle.forward(side)
+        turtle.penup()
+        turtle.home()
+        turtle.pendown()
+        turtle.right(count*(360/petaln))
+        count+=1  
+    
+        
+turtle.exitonclick()   &gt;&gt;&gt;&gt; file: InchesMetres.py
+Min = int(input("Enter the minimum number of inches (not less than 0):\n"))
+Max= int(input("Enter the maximum number of inches (not greater than 11):\n"))
+count=0
+
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match216-0.html#0" TARGET="0"><IMG SRC="../../bitmaps/tm_0_2.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+print("Inches:",end="")
+for i in range(Min,Max+1):
+ print("{0:&gt;5}".format(i),end="")
+print("\nMetres:",end="")
+for j in range(Min,Max+1):
+  m=Min*0.0254
+</FONT>  Min+=1
+  print("{0:&gt;5.2f}".format(m),end="")
+  
+  
+    
+&gt;&gt;&gt;&gt; file: TimeConvertor.py
+time= input("Enter a time ([h]h:mm [am|pm]):\n")
+
+if len(time)&gt;5:
+    if len(time)==8:
+        if time[6:]=="am":
+            hours=int(time[0:2])
+            minutes=time[3:5]
+            if hours==12:
+                print("00:",minutes,sep="")
+            elif hours!=12:
+                hours+=12
+                print("{0}:{1}".format(hours,minutes))    
+           
+    elif time[6:]=="pm":
+        hours=int(time[0:2])
+        minutes=time[3:5]
+        if hours==12:
+            print("{0}:{1}".format(hours,minutes))
+        elif hours!=12:
+            hours+=12
+        print("{0}:{1}".format(hours,minutes))    
+        
+    elif len(time)==7:
+        if time[5:]=="pm":
+            hours=int(time[0])+12
+            minutes=time[2:4]
+            print("{0}:{1}".format(hours,minutes))
+        
+        elif time[5:]=="am":
+            hours=time[0]
+            minutes=time[2:4]
+            print("0{0}:{1}".format(hours,minutes))    
+elif len(time)==5:
+    hours=int(time[0:2])
+    minutes=time[3:5]
+    if 0&lt;hours&lt;12:
+        hours=hours
+        print("{}:{} am".format(hours,minutes))
+    elif hours&gt;12:
+        hours-=12
+        print("{}:{} pm".format(hours,minutes))
+    elif hours==12:
+        hours=12
+        print("{}:{} pm".format(hours,minutes))
+    elif hours==00:
+        hours+=12
+        print("{}:{} am".format(hours,minutes))    &gt;&gt;&gt;&gt; file: Twelve.py
+time= input("Enter a time in 12 hour clock ([h]h:mm [am|pm]):\n")
+
+if len(time)==8:
+  if time[6:]=="am":
+    hours=int(time[0:2])
+    minutes=time[3:5]
+    if hours==12:
+        print("00:",minutes,sep="")
+    elif hours!=12:
+        hours+=12
+        print("{0}:{1}".format(hours,minutes))    
+   
+  elif time[6:]=="pm":
+    hours=int(time[0:2])
+    minutes=time[3:5]
+    if hours==12:
+      hours=hours
+    elif hours!=12:
+      hours+=12
+    print("{0}:{1}".format(hours,minutes))    
+    
+elif len(time)==7:
+  if time[5:]=="pm":
+    hours=int(time[0])+12
+    minutes=time[2:4]
+    print("{0}:{1}".format(hours,minutes))
+    
+  elif time[5:]=="am":
+    hours=time[0]
+    minutes=time[2:4]
+    print("0{0}:{1}".format(hours,minutes))    
+  
+&gt;&gt;&gt;&gt; file: TwentyFour.py
+time= str(input("Enter a time in 24 hour clock (hh:mm):\n"))
+hours=int(time[0:2])
+minutes=time[3:5]
+if 0&lt;hours&lt;12:
+    hours=hours
+    print("{}:{} am".format(hours,minutes))
+elif hours&gt;12:
+    hours-=12
+    print("{}:{} pm".format(hours,minutes))
+elif hours==12:
+    hours=12
+    print("{}:{} pm".format(hours,minutes))
+elif hours==00:
+    hours+=12
+    print("{}:{} am".format(hours,minutes))
+
+
+
+
+&gt;&gt;&gt;&gt; file: VehicleClassifier.py
+print("***** Vehicle classifier *****")
+mass=int(input("What is the gross vehicle mass (in kg)?\n"))
+trail=input("Does the vehicle have a trailer?\n")
+
+if trail=="y":
+    masst=int(input("What is gross vehicle mass of the trailer (in kg)?\n"))
+    if masst&gt;750:
+        if mass&lt;=3500:
+            print("This vehicle is class EB.")
+        elif 3500&lt;mass&lt;=16000:
+            print("This vehicle is class EC1.")
+        elif 16000&lt;mass:
+            print("This vehicle is class EC.")         
+        
+    elif masst&lt;=750:
+        if mass&lt;=3500:
+            print("This vehicle is class B.")
+        elif 3500&lt;mass&lt;=16000:
+            print("This vehicle is class C1.")
+        elif 16000&lt;mass:
+            print("This vehicle is class C.")        
+        
+        
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match216-0.html#1" TARGET="0"><IMG SRC="../../bitmaps/tm_1_2.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+elif trail=="n":
+    vart=input("Is the vehicle articulated?\n")
+    if vart=="n":
+        if mass&lt;=3500:
+            print("This vehicle is class B.")
+        elif 3500&lt;mass&lt;=16000:
+</FONT>            print("This vehicle is class C1.")
+        elif 16000&lt;mass:
+            print("This vehicle is class C.")
+    elif vart=="y":
+        if mass&lt;=3500:
+            print("This vehicle is class EB.")
+        elif 3500&lt;mass&lt;=16000:
+            print("This vehicle is class EC1.")
+        elif 16000&lt;mass:
+            print("This vehicle is class EC.") 
+</PRE>
+</PRE>
+</BODY>
+</HTML>

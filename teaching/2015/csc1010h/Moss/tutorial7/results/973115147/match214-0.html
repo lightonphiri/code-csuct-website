@@ -1,0 +1,193 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/7/raw/mldwan001/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/7/raw/mldwan001/<p><PRE>
+&gt;&gt;&gt;&gt; file: book_cypher.py
+# Book Cypher Program
+# Wanga Mulaudzi
+# 13 September 2015
+
+def main():
+    filename = input("Enter the book filename:\n")
+    message = input("Enter the message:\n")
+    output_filename = input("Enter the output filename:\n")
+    
+    message_list = message.split()
+    new_message_list = []
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match214-1.html#0" TARGET="1"><IMG SRC="../../bitmaps/tm_0_4.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    for word in message_list:
+        clean_word = word.strip('?!.,;:)([]{}\'" \n')
+        new_message_list.append(clean_word)
+        
+    f = open(filename, 'r')
+</FONT>    new_file = open(output_filename, 'w')
+    print("")
+    print("BEGIN")
+    line_num = 1
+    lines = f.readlines()
+    
+    length = len(new_message_list)
+    print("BEGIN", file = new_file)
+    for i in range(length):
+        line_num = 1
+        for line in lines:
+            line = line.split()
+            word = new_message_list[i]
+            
+            new = []
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match214-1.html#1" TARGET="1"><IMG SRC="../../bitmaps/tm_1_4.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+            for element in line:
+                Word = element.lower()
+                Word = Word.strip('?!.,;:)([]{}\'" \n')
+                new.append(Word)
+</FONT>                
+            words = word.lower()
+            if words in new:
+                word_index = new.index(words) + 1
+                code = str(line_num) + '-' + str(word_index)
+                print(code)
+                print(code, file = new_file)
+                break
+            else:
+                line_num = line_num + 1
+                if line_num == 3494:
+                    print(word)
+                    print(word, file = new_file)
+    print("END", file = new_file)
+        
+    print("END")
+    new_file.close()
+    f.close()
+main()&gt;&gt;&gt;&gt; file: leader_board.py
+# leader_board.py
+# Wanga Mulaudzi
+# 12 September 2015
+
+def process_line(line):
+    parts = line.split(' ')
+    name = parts[0]
+    try:
+        trials = int(parts[1])
+    except TypeError as ve:
+        print("This TypeError as", ve, "occured on line", num)
+        print("Please enter the number of tests conducted with", name, "as an integer.")
+    except ValueError as ve:
+            print("This ValueError as", ve, "occured on line", num)
+            print("Please enter the number of tests conducted with", name, "as an integer.")    
+    try:
+        average = float(parts[2])
+    except TypeError as ve:
+        print("This TypeError as", ve, "occured on line", num)
+        print("The average time should be a number in the form of digits.")
+    return (name, trials, average)
+
+def get_max(entries):
+    max = entries[0]
+    for i in range(1, len(entries)):
+        if entries[i][2] &lt;max[2]:
+            max = entries[i]
+            
+    entries.remove(max)
+    return max
+
+def sort(entries):
+    sorted_entries = []
+    while len(entries)&gt;0:
+        sorted_entries.append(get_max(entries))
+    return sorted_entries
+
+def output(entries):
+    print('Subject        | Average Time')
+    print('************** | ************')
+    for entry in entries:
+        print('{:14} | {:.6}'.format(entry[0], entry[2]))
+              
+def main():
+    while True:
+        try:
+            file_name = input('Enter the name of the file:\n')
+            file_input = open(file_name, 'r')
+            
+            entries = []
+            num = 0
+            for line in file_input:
+                num = num + 1
+                entries.append(process_line(line))
+            file_input.close()
+            
+            entries = sort(entries)
+            output(entries) 
+            break
+            
+        except:
+            print("File not found. Please enter an existing file name.")
+    
+main()    &gt;&gt;&gt;&gt; file: reaction_test.py
+# Reaction Time Program
+# Wanga Mulaudzi
+# 12 September 2015
+
+import time
+import random
+
+def main():
+    print("Enter the name of the output file:")
+    file = input()
+    candidates = []
+    while True:
+        print("Enter subject name (or press 'enter' to quit):")
+        name = input()
+        
+        if name == (""):
+            break
+        
+        print("Enter the number of tests:")
+        num_tests = int(input())
+        
+        times = 0
+        
+        for i in range(num_tests):
+            print("Get ready...", flush = True)
+            random_int = random.randint(1,5)
+            time.sleep(random_int)
+            print("Press 'enter' NOW!", end=(""))
+            start_time = time.time()
+            input()
+            end_time = time.time()
+            reaction_time = end_time - start_time
+            reaction_time = round(reaction_time,6)
+            print("Reaction time:", reaction_time)
+            times = times + reaction_time
+            
+        print("Tests complete.")
+        average_time = times / num_tests
+        average_time = round(average_time,6)
+        print("Average reaction time", average_time, "\n")
+        
+        details = str(name) + " " + str(num_tests) + " " + str(average_time)
+        candidates.append(details)
+        
+    f = open(file, 'w')
+    for person in candidates:    
+        print(person, file = f)
+        
+    f.close()
+    
+main()
+    
+def flush_input():
+    try:
+        import msvcrt
+        while msvcrt.khbit():
+            msvcrt.getch()
+    except ImportError:
+        import sys, termios
+        termios.tcflush(sys.stdin, termios.TCIOFLUSH)</PRE>
+</PRE>
+</BODY>
+</HTML>

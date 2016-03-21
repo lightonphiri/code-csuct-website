@@ -1,0 +1,335 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/3/raw/khnsim009/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/3/raw/khnsim009/<p><PRE>
+&gt;&gt;&gt;&gt; file: FeetMetres.py
+# display a conversion table for measurements in feet to measurements in metres
+# simnikiwe khonto
+# 15 may 2015
+
+def main():
+    min_num = int(input("Enter the minimum number of feet (not less than 0):\n"))
+    max_num = int(input("Enter the maximum number of feet (not more than 99):\n"))
+    
+    for i in range(min_num,max_num+1):
+        feet = (i/3.28)
+        print("{0:&gt;5}".format(str(i)+"\'")+" |","{0:7.2f}".format(feet),"m",sep="")
+main()&gt;&gt;&gt;&gt; file: InchesMetres.py
+# convertion table for inches to metres
+# simnikiwe khonto
+# 18 may 2015
+
+def main():
+    min_num = int(input("Enter the minimum number of inches (not less than 0):\n"))
+    max_num = int(input("Enter the maximum number of inches (not greater than 11):\n"))
+    
+    print("Inches:", end='')
+    for row in range(min_num,max_num+1):
+        print("{0:&gt;5}".format(row),end="")
+    print("\n""Metres:",end="")
+    for i in range(min_num,max_num+1):
+        metres = (i * 0.0254)
+        print("{0:5.2f}".format(metres),end="")        
+main()        &gt;&gt;&gt;&gt; file: TimeConvertor.py
+# converting 12 hour clock to 24 hour clock
+# simnikiwe khonto
+# 18 May 2015
+
+def main():
+        time = input('Enter a time ([h]h:mm [am|pm]):\n')
+        time1 = time[7:]
+        time2 = time[6:]
+        if time1 =='m' or time2 =='m':
+                time3 =time[1:4]
+                time4 = time[0:1]
+                time5 = time[5:]
+        
+                time6 = time[0:2]
+                time7 = time[2:5]
+                time8 = time[6:]
+        
+                if time4 =='1' and time5 =='am':
+                        print('01'+time3)
+                elif time4 =='2' and time5 == 'am':
+                        print('02'+time3)
+                elif time4 =='3' and time5 =='am':
+                        print('03'+time3)
+                elif time4 =='4' and time5 =='am':
+                        print('04'+time3)
+                elif time4 =='5' and time5 =='am':
+                        print('05'+time3)
+                elif time4 =='6' and time5 =='am':
+                        print('06'+time3)
+                elif time4 =='7' and time5 =='am':
+                        print('07'+time3)
+                elif time4 =='8' and time5 =='am':
+                        print('08'+time3)
+                elif time4 =='9' and time5 =='am':
+                        print('09'+time3)        
+                elif time4 =='1' and time5 =='pm':
+                        print('13'+time3)
+                elif time4 =='2' and time5 =='pm':
+                        print('14'+time3)
+                elif time4 =='3' and time5 =='pm':
+                        print('15'+time3)
+                elif time4 =='4' and time5 =='pm':
+                        print('16'+time3)
+                elif time4 =='5' and time5 =='pm':
+                        print('17'+time3)
+                elif time4 =='6' and time5 =='pm':
+                        print('18'+time3)
+                elif time4 =='7' and time5 =='pm':
+                        print('19'+time3)
+                elif time4 =='8' and time5 =='pm':
+                        print('20'+time3)
+                elif time6=='9' and time5 =='pm':
+                        print('21'+time7)
+                elif time6=='10' and time8 =='am':
+                        print('10'+time7)
+                elif time6=='11' and time8 =='am':
+                        print('11'+time7)
+                elif time6=='12' and time8 =='pm':
+                        print('12'+time7)
+                elif time6=='10' and time8 =='pm':
+                        print('22'+time7)
+                elif time6=='11' and time8 =='pm':
+                        print('23'+time7)
+                else:
+                        print('00'+time7)
+        else:
+                time9 =time[2:]
+                time0 = time[0:2]
+                if time0 =='00':
+                        print('12'+time9+' am')
+                elif time0 =='01':
+                        print('1'+time9+' am')
+                elif time0 =='02':
+                        print('2'+time9+' am')
+                elif time0 =='03':
+                        print('3'+time9+' am')
+                elif time0 =='04':
+                        print('4'+time9+' am')
+                elif time0 =='05':
+                        print('5'+time9+' am')
+                elif time0 =='06':
+                        print('6'+time9+' am')
+                elif time0 =='07':
+                        print('7'+time9+' am')
+                elif time0 =='08':
+                        print('8'+time9+' am')
+                elif time0 =='09':
+                        print('9'+time9+' am')
+                elif time0 =='10':
+                        print('10'+time9+' am')
+                elif time0 =='11':
+                        print('11'+time9+' am')
+                elif time0 =='12':
+                        print('12'+time9+' pm')
+                elif time0 =='13':
+                        print('1'+time9+' pm')
+                elif time0 =='14':
+                        print('2'+time9+' pm')
+                elif time0 =='15':
+                        print('3'+time9+' pm')
+                elif time0 =='16':
+                        print('4'+time9+' pm')
+                elif time0 =='17':
+                        print('5'+time9+' pm')
+                elif time0 =='18':
+                        print('6'+time9+' pm')
+                elif time0 =='19':
+                        print('7'+time9+' pm')
+                elif time0 =='20':
+                        print('8'+time9+' pm')
+                elif time0 =='21':
+                        print('9'+time9+' pm')
+                elif time0 =='22':
+                        print('10'+time9+' pm')
+                else:
+                        print('11'+time9+' pm')
+                
+main()
+        &gt;&gt;&gt;&gt; file: Twelve.py
+# converts the 12 hour clock to 24 hour clock
+# simnikiwe khonto
+# 18 May 2015
+
+def main():
+    time = input('Enter a time in 12 hour clock ([h]h:mm [am|pm]):\n')
+    time1 =time[1:4]
+    time2 = time[0:1]
+    time3 = time[5:]
+    
+    time4 = time[0:2]
+    time5 = time[2:5]
+    time6 = time[6:]
+    
+    if time2 =='1' and time3 =='am':
+        print('01'+time1)
+    elif time2 =='2' and time3 =='am':
+        print('02'+time1)
+    elif time2 =='3' and time3 =='am':
+        print('03'+time1)
+    elif time2 =='4' and time3 =='am':
+        print('04'+time1)
+    elif time2 =='5' and time3 =='am':
+        print('05'+time1)
+    elif time2 =='6' and time3 =='am':
+        print('06'+time1)
+    elif time2 =='7' and time3 =='am':
+        print('07'+time1)
+    elif time2 =='8' and time3 =='am':
+        print('08'+time1)
+    elif time2 =='9' and time3 =='am':
+        print('09'+time1)        
+    elif time2 =='1' and time3 =='pm':
+        print('13'+time1)
+    elif time2 =='2' and time3 =='pm':
+        print('14'+time1)
+    elif time2 =='3' and time3 =='pm':
+        print('15'+time1)
+    elif time2 =='4' and time3 =='pm':
+        print('16'+time1)
+    elif time2 =='5' and time3 =='pm':
+        print('17'+time1)
+    elif time2 =='6' and time3 =='pm':
+        print('18'+time1)
+    elif time2 =='7' and time3 =='pm':
+        print('19'+time1)
+    elif time2 =='8' and time3 =='pm':
+        print('20'+time1)
+    elif time4 =='9' and time3 =='pm':
+        print('21'+time5)
+    elif time4 =='10' and time6 =='am':
+        print('10'+time5)
+    elif time4 =='11' and time6 =='am':
+        print('11'+time5)
+    elif time4 =='12' and time6 =='pm':
+        print('12'+time5)
+    elif time4 =='10' and time6 =='pm':
+        print('22'+time5)
+    elif time4 =='11' and time6 =='pm':
+        print('23'+time5)
+    else:
+        print('00'+time5)    
+main()        &gt;&gt;&gt;&gt; file: TwentyFour.py
+# converting the 24 hour clock to the 12 hour clock
+# simnikiwe khonto
+# 18 May 2015
+
+def main():
+    time = input('Enter a time in 24 hour clock (hh:mm):\n')
+    time1 =time[2:]
+    time2 = time[0:2]
+    if time2 =='00':
+        print('12'+time1+' am')
+    elif time2 =='01':
+        print('1'+time1+' am')
+    elif time2 =='02':
+        print('2'+time1+' am')
+    elif time2 =='03':
+        print('3'+time1+' am')
+    elif time2 =='04':
+        print('4'+time1+' am')
+    elif time2 =='05':
+        print('5'+time1+' am')
+    elif time2 =='06':
+        print('6'+time1+' am')
+    elif time2 =='07':
+        print('7'+time1+' am')
+    elif time2 =='08':
+        print('8'+time1+' am')
+    elif time2 =='09':
+        print('9'+time1+' am')
+    elif time2 =='10':
+        print('10'+time1+' am')
+    elif time2 =='11':
+        print('11'+time1+' am')
+    elif time2 =='12':
+        print('12'+time1+' pm')
+    elif time2 =='13':
+        print('1'+time1+' pm')
+    elif time2 =='14':
+        print('2'+time1+' pm')
+    elif time2 =='15':
+        print('3'+time1+' pm')
+    elif time2 =='16':
+        print('4'+time1+' pm')
+    elif time2 =='17':
+        print('5'+time1+' pm')
+    elif time2 =='18':
+        print('6'+time1+' pm')
+    elif time2 =='19':
+        print('7'+time1+' pm')
+    elif time2 =='20':
+        print('8'+time1+' pm')
+    elif time2 =='21':
+        print('9'+time1+' pm')
+    elif time2 =='22':
+        print('10'+time1+' pm')
+    else:
+        print('11'+time1+' pm')
+
+main()
+        &gt;&gt;&gt;&gt; file: VehicleClassifier.py
+# calculate the class to which a vehicle belongs
+# simnikiwe khonto
+# 18 may 2015
+
+def main():
+    print("***** Vehicle classifier *****")
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match98-1.html#0" TARGET="1"><IMG SRC="../../bitmaps/tm_0_7.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    GVM = int(input("What is the gross vehicle mass (in kg)?\n"))
+    if GVM &lt;= 3500:
+        trailer = (input("Does the vehicle have a trailer?\n"))
+        if trailer == "y":
+            GVMT = int(input("What is gross vehicle mass of the trailer (in kg)?\n"))
+            if GVMT &gt; 750:
+                print("This vehicle is class EB.")
+            else:
+                print("This vehicle is class B.")
+        else:
+            articulated = input("Is the vehicle articulated?\n")
+            if articulated == "n":
+                print("This vehicle is class B.")
+            else:
+                print("This vehicle is class EB.")
+    elif 3500 &lt; GVM &lt;= 16000:
+        trailer = (input("Does the vehicle have a trailer?\n"))
+        if trailer == "y":
+            GVMT = int(input("What is gross vehicle mass of the trailer (in kg)?\n"))
+            if GVMT &gt; 750:
+                print("This vehicle is class EC1.")
+            else:
+                        print("This vehicle is class C1.")
+        else:
+            articulated = input("Is the vehicle articulated?\n")
+            if articulated == "n":
+                print("This vehicle is class C1.")
+            else:
+                print("This vehicle is class EC1.")
+    else:
+</FONT>        16000 &lt; GVM
+        trailer = (input("Does the vehicle have a trailer?\n"))
+        if trailer == "y":
+            GVMT = int(input("What is gross vehicle mass of the trailer (in kg)?\n"))
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match98-1.html#1" TARGET="1"><IMG SRC="../../bitmaps/tm_1_2.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+            if GVMT &gt; 750:
+                print("This vehicle is class EC.")
+            else:
+                print("This vehicle is class C.")
+        else:
+            articulated = input("Is the vehicle articulated?\n")
+            if articulated == "n":
+                print("This vehicle is class C.")
+            else:
+                print("This vehicle is class EC.")        
+main()</FONT></PRE>
+</PRE>
+</BODY>
+</HTML>

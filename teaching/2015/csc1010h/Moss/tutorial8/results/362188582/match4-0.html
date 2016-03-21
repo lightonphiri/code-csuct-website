@@ -1,0 +1,336 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/8/raw/sngsaj001/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/8/raw/sngsaj001/<p><PRE>
+&gt;&gt;&gt;&gt; file: course.py
+class Course:
+
+    def __init__(self, cc='unknown', d='unknown'):
+        self.course_code = cc
+        self.description = d
+
+    def __str__(self):
+        return self.course_code + ', ' + self.description
+
+    def input(self):
+        self.description = input('Enter description: ')
+        self.course_code = input('Enter course code: ')
+        
+    def display(self):
+        print('Course code: ' + self.course_code)
+        print('Description: ' + self.description)&gt;&gt;&gt;&gt; file: lecturer.py
+class Lecturer:
+    
+     def __init__(self, n='unknown', sn='unknown'):
+          self.name = n
+          self.stuff_number = sn
+          self.courses = []
+     
+     def __str__(self):
+          s = self.name + ', ' + self.stuff_number
+          if len(self.courses)&gt;0:
+               s += ': '+str(self.courses[0])
+               for c in self.courses[1:]:
+                    s += '; ' + str(c)
+          return s+'.'
+  
+     def add_course(self, c):
+          self.courses.append(c)
+       
+     def input(self):
+          self.name = input('Enter name: ')
+          self.stuff_number = input('Enter staff number: ')
+ 
+     def display(self):
+          print('Name: ' + self.name)
+          print('Staff number: ' + self.stuff_number)
+  
+&gt;&gt;&gt;&gt; file: sortsearch.py
+"""
+Author: Gary Stewart
+Description: Simple Python implementation of sorting and searching algorithms
+Date: 27-09-2012
+Log:
+    fixed merge to iterative solution
+"""
+
+from random import *
+
+def generate_number_list(size=1000): # generates list of random numbers
+    lst = []
+    for i in range(size):
+        lst.append(randint(0,size-1))
+    return lst
+
+def selection_sort(lst):
+    lst_len = len(lst)
+    for bottom_index in range(lst_len - 1):
+        min_index = bottom_index
+        for i in range(bottom_index+1,lst_len): # find min_index
+            if lst[i] &lt; lst[min_index]:
+                min_index = i
+        lst[bottom_index],lst[min_index] = lst[min_index],lst[bottom_index] # swap
+    return lst
+
+def merge(lst1,lst2):  # for mergesort
+    lst = []
+    while len(lst1) &gt; 0 and len(lst2) &gt; 0:
+        if lst1[0] &lt; lst2[0]:
+            lst.append(lst1[0])
+            del lst1[0]
+        else:
+            lst.append(lst2[0])
+            del lst2[0]
+    return lst + lst1 + lst2
+
+def merge_sort(lst):
+    if len(lst) &lt;= 1:
+        return lst  
+    else: 
+        return merge(merge_sort(lst[0:len(lst)//2]),merge_sort(lst[len(lst)//2:]))
+    
+def bubble_sort(lst):
+    swapped = True
+    top = len(lst) - 1
+    while top &gt; 0 and swapped == True:
+        i = 0
+        swapped = False
+        while i &lt; top:
+            if lst[i] &gt; lst[i+1]:
+                swapped = True
+                lst[i],lst[i+1] = lst[i+1],lst[i] # swap
+            i += 1
+        top -= 1
+    return lst
+
+
+
+# Heap sort (from https://en.wikipedia.org/wiki/Heapsort)
+def heap_sort(a):
+    # Heapify
+    start = ((len(a)-2)//2)
+    while start&gt;=0:
+        siftDown(a, start, len(a)-1)
+        start=start-1
+    end=len(a)-1
+    # Sort
+    while end&gt;0:
+        a[0], a[end] = a[end], a[0]
+        end=end-1
+        siftDown(a, 0, end)
+    return a
+
+def siftDown(a, start, end):
+    root = start
+    
+    while root*2+1&lt;=end:
+        child = root*2+1
+        swap = root
+        
+        if a[swap]&lt;a[child]:
+            swap = child
+        if child+1&lt;=end  and a[swap]&lt;a[child+1]:
+            swap = child+1
+        if swap==root:
+            return
+        else:
+            a[root], a[swap]=a[swap], a[root]
+            root = swap
+
+
+
+
+def linear_search(val,lst):
+    index = 0
+    found_index = None
+    while index &lt; len(lst) and found_index == None:
+        if val == lst[index]:
+            found_index = index
+            break
+        index += 1
+    return found_index
+
+def binary_search(val,lst,btm,top):
+    mdl = btm+(top-btm)//2
+    if lst == None or lst == [] or btm &gt; top:
+        return None  # val not found
+    elif val == lst[mdl]:
+        return mdl   # val found return position
+    elif val &lt; lst[mdl]:
+        return binary_search(val,lst,btm,mdl-1) # search bottom half
+    else:
+        return binary_search(val,lst,mdl+1,top) # search top half
+    
+def main():
+    print('Selection Sort')
+    lst1 = generate_number_list(20)
+    print(lst1)
+    print(selection_sort(lst1))
+    print('Merge Sort')
+    lst2 = generate_number_list(20)
+    print(lst2)
+    print(merge_sort(lst2))
+    print('Bubble Sort')
+    lst3 = generate_number_list(20)
+    print(lst3)
+    print(bubble_sort(lst3))
+    print('Linear Search')
+    lst4 = generate_number_list(20)
+    print(lst4)
+    print(linear_search(10,lst4))
+    print('Binary Search')
+    lst5 = merge_sort(generate_number_list(20)) # list needs to be sorted for binary search
+    print(lst5)
+    print(binary_search(15,lst5,0,len(lst5)-1))
+    
+if __name__ == "__main__":
+    main()
+&gt;&gt;&gt;&gt; file: student.py
+class Student:
+    
+    def __init__(self, n='unknown', sn='unknown'):
+        self.name = n
+        self.student_number = sn
+        self.courses = []
+    
+    def __str__(self):
+        s = self.name + ', ' + self.student_number
+        if len(self.courses)&gt;0:
+            s += ': '+str(self.courses[0])
+            for c in self.courses[1:]:
+                s += '; ' + str(c)
+        return s+'.'
+    
+    def add_course(self, c):
+        self.courses.append(c)
+    
+    def input(self):
+        self.name = input('Enter name: ')
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match4-1.html#0" TARGET="1"><IMG SRC="../../bitmaps/tm_0_11.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+        self.student_number = input('Enter student number: ')
+
+    def display(self):
+        print('Name: ' + self.name)
+        print('Student number: ' + self.student_number)
+&gt;&gt;&gt;&gt; file: universitysystem.py
+#sngsaj001
+
+from student import Student
+from course import Course
+from lecturer import Lecturer
+
+def start():
+    print("""University Member System: 
+0. Quit.
+1. Input Course.
+2. Input Lecturer.
+3. Input Student.
+4. Enrol Student on Course.
+5. Assign Course to Lecturer.
+6. Find Course.
+7. Find Lecturer.
+8. Find Student.
+9. Display Courses.
+10. Display Lecturers.
+11. Display Students.""")
+
+
+start()
+select = eval(input("&gt;"))
+
+lec = {}
+stu = {}
+cos = {}
+
+while select!=0 :
+    
+    if select == 1 :  # Adding a course
+        coz = Course()
+        coz.input()
+        cos[coz.course_code] = coz
+        
+    elif select == 2 : # adding a lecturer
+</FONT>        lect = Lecturer()
+        lect.input()
+        lec[lect.stuff_number] = lect
+        
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match4-1.html#1" TARGET="1"><IMG SRC="../../bitmaps/tm_1_7.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    elif select == 3 : # adding a student
+        stud = Student()
+        stud.input()
+        stu[stud.student_number] = stud
+    
+    elif select == 4 : # enrol studdent on a course
+        stu_num = input("Enter student number: ")
+        cos_code = input("Enter course code: ")
+        
+        if stu_num not in stu:
+            print("Could not find a student with that student number.")
+            
+        else:
+            stu[stu_num].add_course(cos[cos_code])
+            
+    elif select == 5 :  # lecture to a course
+        stuff_num = input("Enter staff number: ")
+        cos_code = input("Enter course code: ")
+                
+        if stuff_num not in lec:
+            print("Could not find a lecture with that staff number.")
+                    
+        else:
+            lec[stuff_num].add_course(cos[cos_code])    
+            
+    elif select == 6 : # find a course
+        cos_code = input("Enter course code: ")
+        
+        if cos_code not in cos:
+            print("Could not find a course with that code.")
+        
+        else:
+            print(cos[cos_code])
+</FONT>        
+    elif select == 7 : # find a lecture 
+        stuff_num = input("Enter staff number: ")
+                
+        if stuff_num not in lec:
+            print("Could not find a member of staff with that number.")
+                
+        else:
+            print(lec[stuff_num]) 
+            
+    elif select == 8 : # find student
+<A NAME="2"></A><FONT color = #0000FF><A HREF="match4-1.html#2" TARGET="1"><IMG SRC="../../bitmaps/tm_2_5.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+        stu_num = input("Enter student number: ")
+                  
+        if stu_num not in stu:
+            print("Could not find a student with that student number.")
+                    
+        else:
+            print(stu[stu_num])
+    
+    elif select == 9 : # display course:
+        for coz in cos :
+            cos[coz].display()
+    
+    elif select == 10 : # display lecture
+        for lect in lec :
+            lec[lect].display()
+    
+    elif select == 11 : # display student
+        for stud in stu :
+            stu[stud].display()
+            
+    else:
+        print("That selection was not recognised.")
+        
+    start()
+    select = eval(input("&gt;"))</FONT></PRE>
+</PRE>
+</BODY>
+</HTML>

@@ -1,0 +1,278 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/3/raw/mhlnal005/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/3/raw/mhlnal005/<p><PRE>
+&gt;&gt;&gt;&gt; file: FeetMetres.py
+# program that converts feet to metres
+# naledi mahlaba
+# 16 April 2015
+
+def feet():
+    min_feet= int(input("Enter the minimum number of feet (not less than 0):\n"))  # prompt user minimum feet
+    max_feet=int(input("Enter the maximum number of feet (not more than 99):\n"))  # prompt user maximum feet
+
+    for i in range(min_feet,max_feet+1):                                          #loop
+        metres=i/3.28                                                             #calculate metres
+        print("{0:&gt;4}' {1:&lt;4}{2:.2f}m".format(i,'|',metres))                      # print results
+feet()&gt;&gt;&gt;&gt; file: FlowerPattern.py
+# program that draw flower pattern
+# naledi mahlaba
+# 16 May 2015
+
+def flower():
+    
+    import turtle
+    stem=turtle.numinput('Petals','Enter the number of petals(must be an even number):')  #prompt useer,number of petals
+    lenght=turtle.numinput('Lenght of stem','Enter the lenght of stem:') #prompt user,lenght of stem
+    petal_type=turtle.textinput('Petal type','Enter the petal type (triangle,square, or pentagon:') #prompt user,type of petal
+    side=turtle.numinput('Lenght of side','Enter the lenght of side:') #prompt user,lenght of side
+    stem_colour=turtle.textinput('First petal colour','Enter the stem colour:') #prompt user, the stem colour
+    colour_1=turtle.textinput('First petal colour','Enter the first petal colour:') #prompt user, the colour of the first petal
+    colour_2=turtle.textinput('Second petal colour','Enter the second petal colour:') # prompt user, tthe colour of the second petal
+    
+    for i in range(int(stem)):                #number of stems
+        turtle.pencolor(stem_colour)          #stem colour
+        turtle.right(360/stem)                #rotating to draw the stem
+        turtle.forward(lenght)                #drawing the stem
+        if i%2==0:                     
+            turtle.pencolor(colour_1)         #change colour
+        else:
+            turtle.pencolor(colour_2)         #change colour
+            
+    #drawing a triangle petal
+        if petal_type=='triangle':            
+            turtle.left(30)                    
+            for i in range(2):                 
+                turtle.forward(side)
+                turtle.right(360/3)
+            turtle.forward(side)
+            turtle.left(30)
+            turtle.pencolor(stem_colour)
+            turtle.forward(lenght)
+            turtle.left(180)
+            
+       #drawing a pentagon petal     
+        elif petal_type=='pentagon':
+            turtle.left(54)
+            for i in range(4):
+                turtle.forward(side)
+                turtle.right(360/5)
+            turtle.forward(side)
+            turtle.left(54)
+            turtle.pencolor(stem_colour)
+            turtle.forward(lenght)
+            turtle.left(180)
+            
+        # drawing square petals
+        elif petal_type=='square':
+            turtle.left(45)
+            for i in range(3):
+                turtle.forward(side)
+                turtle.right(360/4)
+            turtle.forward(side)
+            turtle.left(45)
+            turtle.pencolor(stem_colour)
+            turtle.forward(lenght)
+            turtle.left(180)
+            
+    turtle.exitonclick()
+flower()
+&gt;&gt;&gt;&gt; file: InchesMetres.py
+# program that converts inches to metres
+# naledi mahlaba
+# 16 May 2015
+
+
+def inches():
+   min_inches=int(input("Enter the minimum number of inches (not less than 0):\n"))      #prompt user minimum inches
+   max_inches=int(input("Enter the maximum number of inches (not greater than 11):\n"))  #prompt user maximum inches
+
+   print("Inches:",end="")                                                               #print heading inches
+   for i in range(min_inches,max_inches+1):                                              # loop
+      print('{0:&gt;5}'.format(i),end='')                                                   # print results 
+
+   print("")                                                                          # skip a line
+   print("Metres:",end='')                                                            # print heading metres
+   for i in range(min_inches,max_inches+1):                                           # loop
+      metres=i*0.0254                                                                 # calculate metres
+      print('{0:&gt;5.2f}'.format(metres),end='')                                        # print results
+inches()  
+
+   &gt;&gt;&gt;&gt; file: TimeConvertor.py
+# program that converts time
+# naledi mahlaba
+# 16 May 2015
+
+
+def time():
+    time=input("Enter a time ([h]h:mm [am|pm]):\n") #prompt user, time in 12 hour clock
+    time_1=time[-1]   # slice the last sting
+    if time_1=='m':     # if it ends with m then it should convert 12 hour to 24 hour clock  
+        if len(time)==8:             # check the lenght of string
+            hours=int(time[:2])      # slice to get hours
+            period=time[6:8]         # pm or am
+            minutes=time[3:5]        # slice to get the minutes
+            
+        if len(time)==7:             # check the lenght of string           
+            hours_1=int(time[:1])    # slice to get hours
+            minutes_1=time[2:5]      # slice to get minutes
+            period_1=time[5:7]       # pm or am
+                
+            if period_1=='pm':                                  # add 12 if the period is pm
+                hours_1+=12
+                print("{0}:{1}".format(hours_1,minutes_1))      #print results
+            
+            else:                                               # else if it is am
+                print("0{0}:{1}".format(hours_1,minutes_1))     #print results
+                    
+            
+        elif hours==12 and period=='am':                        # if it is 12 am
+            hours-=12                                           # less 12 to get 00:00
+            print("0{0}:{1}".format(hours,minutes))             # print results
+            
+        elif period=='pm'and hours!=12:
+            hours+=12
+            print("{0}:{1}".format(hours,minutes))                
+        else:
+            print("{0}:{1}".format(hours,minutes))              #else print 12:00        
+    else:
+        hours=int(time[:2])                                      #slice to get hours
+        minutes=time[3:5]                                        # slice to get minutes
+        
+        if 13&lt;=hours&lt;=23:                                        #if hours are between the condition
+                hours-=12                                        # subtract 12
+                print("{0}:{1} pm".format(hours,minutes))       # print results
+        
+        elif hours==0:                                           #if hour 0
+                hours+=12                                        # add 12
+                print("{0}:{1} am".format(hours,minutes))        # print results ,12 am
+            
+        elif 1&lt;=hours&lt;=11:                                      # if hour between condition
+                print("{0}:{1} am".format(hours,minutes))        # print results
+                
+        else:
+                print("{0}:{1} pm".format(hours,minutes))         #else print 12pm        
+
+time()&gt;&gt;&gt;&gt; file: Twelve.py
+# program that converts to twenty four hour clock
+# naledi mahlaba
+# 16 May 2015
+
+def twelve():
+    time=input("Enter a time in 12 hour clock ([h]h:mm [am|pm]):\n") #prompt user, time in 12 hour clock
+    
+    if len(time)==8:             # check the lenght of string
+        hours=int(time[:2])      # slice to get hours
+        period=time[6:8]         # pm or am
+        minutes=time[3:5]        # slice to get the minutes
+    
+    if len(time)==7:             # check the lenght of string           
+        hours_1=int(time[:1])    # slice to get hours
+        minutes_1=time[2:5]      # slice to get minutes
+        period_1=time[5:7]       # pm or am
+        
+        if period_1=='pm':                                  # add 12 if the period is pm
+            hours_1+=12
+            print("{0}:{1}".format(hours_1,minutes_1))      #print results
+    
+        else:                                               # else if it is am
+            print("0{0}:{1}".format(hours_1,minutes_1))     #print results
+    
+    elif hours==12 and period=='am':                        # if it is 12 am
+        hours-=12                                           # less 12 to get 00:00
+        print("0{0}:{1}".format(hours,minutes))             # print results
+    elif period=='pm' and hours!=12:
+        hours+=12
+        print("{0}:{1}".format(hours,minutes))
+    else:
+        print("{0}:{1}".format(hours,minutes))              #else print 12:00  
+twelve()&gt;&gt;&gt;&gt; file: TwentyFour.py
+#program that converts to twelve hour clock
+#naledi mahlaba
+#16 May 2015
+
+def twentyfour():
+        time=input("Enter a time in 24 hour clock (hh:mm):\n")   #prompt user, time in 24 hour clock
+        hours=int(time[:2])                                      #slice to get hours
+        minutes=time[3:5]                                        # slice to get minutes
+
+        if 13&lt;=hours&lt;=23:                                        #if hours are between the condition
+                hours-=12                                        # subtract 12
+                print("{0}:{1} pm".format(hours,minutes))       # print results
+
+        elif hours==0:                                           #if hour 0
+                hours+=12                                        # add 12
+                print("{0}:{1} am".format(hours,minutes))        # print results ,12 am
+    
+        elif 1&lt;=hours&lt;=11:                                      # if hour between condition
+                print("{0}:{1} am".format(hours,minutes))        # print results
+        
+        else:
+                print("{0}:{1} pm".format(hours,minutes))         #else print 12pm
+twentyfour()    
+  
+  &gt;&gt;&gt;&gt; file: VehicleClassifier.py
+# program that classifies vehicles
+# naledi mahlaba
+# 16 April 2015
+
+def vehicle():
+    print("{:*^30}".format(' Vehicle classifier '))
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match196-1.html#1" TARGET="1"><IMG SRC="../../bitmaps/tm_1_2.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    mass=int(input("What is the gross vehicle mass (in kg)?\n"))                # prompt user mass of vehicle
+    if mass&lt;=3500:                                                              # if less than 3500
+        trailer=input("Does the vehicle have a trailer?\n")                     # prompt user , if they have a trailer
+        if trailer=='y':                                                        # if yes
+            mass_trailer=int(input("What is gross vehicle mass of the trailer (in kg)?\n"))  # prompt user, trailer mass
+            if mass_trailer&gt;750:                                                                 # if less than 750
+                print("This vehicle is class EB.")                                               # print results, EB
+</FONT>            else:
+                print("This vehicle is class B.")                                                # print result, B
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match196-1.html#0" TARGET="1"><IMG SRC="../../bitmaps/tm_0_4.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+        else:
+            vehicle=input("Is the vehicle articulated?\n")                                       # else dont have a trailer.prompt user, vehicle articulated
+            if vehicle=='y':
+                print("This vehicle is class EB.")                                               #print results ,EB
+            else:
+                print('This vehicle is class B.')                                                 #print results, B  
+    
+# class C1 vehicle
+    elif 3500&lt;mass&lt;=16000:                                                                       
+        trailer=input("Does the vehicle have a trailer?\n")
+        if trailer=='y':
+            mass_trailer=int(input("What is gross vehicle mass of the trailer (in kg)?\n"))  
+            if mass_trailer&gt;750:
+</FONT>                print("This vehicle is class EC1.")
+            else:
+                print("This vehicle is class C1.")
+        else:
+            vehicle=input("Is the vehicle articulated?\n")
+            if vehicle=='y':
+                print("This vehicle is class EC1.")                                               
+            else:
+                print('This vehicle is class C1.') 
+                      
+    # class C vehicle        
+    elif mass&gt;16000:
+        trailer=input("Does the vehicle have a trailer?\n")
+        if trailer=='y':
+            mass_trailer=int(input("What is gross vehicle mass of the trailer (in kg)?\n")) 
+            if mass_trailer&gt;750:
+                print("This vehicle is class EC.")
+            else:
+                print("This vehicle is class C.")
+        else:
+            vehicle=input("Is the vehicle articulated?\n")
+            if vehicle=='y':
+                print("This vehicle is class EC.")                                              
+            else:
+                print('This vehicle is class C.')     
+vehicle()</PRE>
+</PRE>
+</BODY>
+</HTML>

@@ -1,0 +1,66 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/8/raw/khnsim009/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/8/raw/khnsim009/<p><PRE>
+&gt;&gt;&gt;&gt; file: lecturer.py
+# class lecture
+# simnikiwe khonto
+# 01 october 2015
+
+class Lecturer:
+    
+    def __init__(self, n='unknown', sn='unknown'):
+        self.name = n
+        self.staff_number = sn
+        self.course_lecturing = []
+        
+    def __str__(self):
+        d = self.name + ', ' + self.staff_number
+        if len(self.course_lecturing)&gt;0:
+            d += ': '+str(self.course_lecturing[0])
+            for i in self.course_lecturing[1:]:
+                d += '; ' + str(i)
+        return d+'.'        
+    
+    def add_courselecturing(self,d):
+        self.course_lecturing.append(d)
+        
+    def input(self):
+        self.name = input('Enter name: ')
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match182-1.html#0" TARGET="1"><IMG SRC="../../bitmaps/tm_0_13.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+        self.staff_number = input('Enter staff number: ')
+        
+    def display(self):
+        print('Name: ' + self.name)
+        print('Staff number: ' + self.staff_number)        
+        &gt;&gt;&gt;&gt; file: sorttester.py
+from time import*
+from sortsearch import*
+</FONT>def main():
+    list_size = int(input('Enter the size of the list:\n'))
+    sort = int(input('Choose the sort method:\n1. Heap Sort.\n2. Bubble Sort.\n'))
+    
+    size = generate_number_list(list_size)
+    if sort ==2: #Bubble sort
+        print('Before:',size)
+        start_time = clock()
+        print('After:',bubble_sort(size)) 
+        end_time = clock()
+        time_taken = end_time -start_time
+        print('Time:',time_taken)
+    else: #Heap sort
+        print('Before:',size)
+        start_time = clock()
+        print('After:',heap_sort(size)) 
+        end_time = clock()
+        time_taken = end_time -start_time
+        print('Time:',time_taken)  
+main()    
+    </PRE>
+</PRE>
+</BODY>
+</HTML>

@@ -1,0 +1,161 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/2/raw/mhlnal005/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/2/raw/sksvus001/<p><PRE>
+&gt;&gt;&gt;&gt; file: Creditcard.py
+#program which allows the user to enter information about a credit card account, and then produce a formatted output of that information
+#Name:Skosana Vusi
+#Student No: SKSVUS001
+#Due date: 05 May 2015
+
+
+def main():
+    
+    #Prompt the user to enter credit card details:
+    name=str(input("Enter the card holder's name:\n"))
+    card_number=str(input("Enter the 16 digit card number (no spaces please):\n"))
+    issue_date=str(input("Enter the date of issue (mm:yy):\n"))
+    expiry_date=str(input("Enter the expiry date (mm:yy)\n"))
+    security_code=str(input("Enter the 3 digit security code:\n"))
+    credit_limit=float(input("Enter the credit limit (Rand):\n"))
+    balance=float(input("Enter the balance (Rand):\n"))
+    
+    available=float(credit_limit-balance)     #the available amount is credit limit minus balance
+    
+    
+    print("+{0:-^48}+".format(" Credit Card Account ")) #print title of a credit card with its top boarders
+    
+    
+    #string slicing for card number
+    no1=card_number[0:4]         #first four card numbers
+    no2=card_number[4:8]         #second four card numbers
+    no3=card_number[8:12]        #third four card numbers
+    no4=card_number[12:16]       #fourth four card numbers
+    card_no=("{} {} {} {}".format(no1,no2,no3,no4))   #format the sliced numbers into one line
+    
+    
+    #display the information entered by the user on a credit card.
+    print("| Card holder:{0:3}{1:&lt;25}{2:&gt;8}".format("",name,'|'))
+    print("| Card number:{0:3}{1:&lt;19}{2:&gt;14}".format("",card_no,"|"))
+    print("| Date of issue:{0:1}{1:&lt;5}    Expiry date: {2:&lt;5}{3:&gt;6}".format("",issue_date,expiry_date,"|"))
+    print("| Security code:{0:1}{1:3}{2:&gt;30}".format("",security_code,"|"))
+    print("| Credit limit:  {0:&lt;8.2f} Rand{1:&gt;20}".format(credit_limit,"|"))
+    print("| Available:     {0:&lt;8.2f} Rand{1:&gt;20}".format(available,"|"))
+    print("| Balance:       {0:&lt;7.2f} Rand{1:&gt;21}".format(balance,"|"))
+    
+    
+    print("+{0:-^48}+".format("")) #bottom boarder of a credit card
+    
+main()&gt;&gt;&gt;&gt; file: EugeneJunior.py
+#program called EugeneJunior.py that interacts with the user in a conversational manner by asking questions and responding appropriately.
+#Name: Skosana Vusi
+#Student no: SKSVUS001
+
+
+
+
+def main():
+    name=str(input("Hello, I am Eugene Junior. What is your name:\n")) #Prompt the user to enter name
+    surname=str(input("What is your last name?\n"))                    #prompt the user to enter last name
+    
+    #initial of the user
+    initials1=name[0]     #First letter of the user's name
+    initials2=surname[0]  #First letter of user's surname
+    
+    
+    year=eval(input("Hi {}.{}! what year is this?\n".format(initials1.title(),initials2.title())))   #include user's initials (with upper cases) and ask for current year
+    age=eval(input("What age are you?\n"))                                                           #ask age
+    
+   
+    #calculate year of birth 
+    year1=(year-age)-1               #a year before birth            
+    year2=str(int(year-age))[2:4]    #actual date of birth with only last two digits
+    
+    height=eval(input("so you were born in {}/{}.How tall are you?\n".format(year1,year2)))       #tell the user year of birth and ask for user's height 
+    
+    #converting height from meters to inches and feets
+    height1=int(height//(1/3.29))
+    height2=height%((1/3.28)*12)
+    
+    mother_name=str(input(" that's {0}'{1:1.0f}\"! I'm going to tell you your Star Wars name.\nWhat's your mothers first name?\n".format(height1,height2)))    #ask for user's mother's name
+    city=str(input("What is the name of the City nearest to your place of birth?\n"))                                                                   #ask user's nearest city of birth
+    
+   
+    #find users star wars name
+    wars_name1=surname[0:3]           #first three letters of users suname
+    wars_name2=name[0:2]              #first two letters of user's first name
+    wars_name=wars_name1+wars_name2   #link first three letters of user's surname with first two letters of users first name
+    
+    
+    #find user's star wars surname
+    wars_surname1=mother_name[(len(mother_name)-1)-1:len(mother_name):1]  #last two letters of user's mother's name
+    wars_surname2=city[(len(city)-1)-2:len(city):1]                       #last three letters of users nearest city
+    wars_surname=wars_surname1+wars_surname2                              #Link two letters of user's mother's name  and three letters of nearest city
+    
+    
+    
+    star_wars=str(input("Your Star Wars name is {0} {1}".format(wars_name.title(),wars_surname.title()) ))     #Tell user Star wars name in capital letter (for both name and surname)
+    
+    
+main()&gt;&gt;&gt;&gt; file: Initials.py
+import turtle
+
+
+import turtle
+
+turtle.penup()
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match84-0.html#0" TARGET="0"><IMG SRC="../../bitmaps/tm_0_6.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+turtle.left(90)
+turtle.forward(100)
+
+turtle.pendown()
+turtle.pencolor('blue')
+turtle.right(70)
+turtle.forward(212.8)
+turtle.back(212.8)
+turtle.right(40)
+</FONT>turtle.forward(212.8)
+
+
+turtle.penup()
+turtle.right(70)
+turtle.forward(200)
+
+#writing the second character
+turtle.pendown()
+turtle.pencolor('red')
+turtle.left(180)
+turtle.forward(120)
+turtle.left(90)
+turtle.forward(100)
+turtle.left(90)
+turtle.forward(120)
+turtle.right(90)
+turtle.forward(100)
+turtle.right(90)
+turtle.forward(120)&gt;&gt;&gt;&gt; file: TriangleArea.py
+#program that is given the length of side of a regular hexagon, and it computes and prints the area, rounded and formatted to 3 decimal places.
+ #Name:Vusi Skosana
+ #Student No: SKSVUS001
+ #Due date: 05 May 2015
+
+
+
+
+def main():
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match84-0.html#1" TARGET="0"><IMG SRC="../../bitmaps/tm_1_5.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+ import math
+ side=eval(input("Enter the length of the side (cm):\n")) #prompt the user to enter the length
+ 
+ area=(3*(math.sqrt(3))/2)*((side)**2)                    #formula to calculate the area of a hexagon
+ 
+ print("The area of a hexagon of side {0} is {1:&lt;0.3f}.".format(side,area))  #displays the output 
+</FONT>main()</PRE>
+</PRE>
+</BODY>
+</HTML>

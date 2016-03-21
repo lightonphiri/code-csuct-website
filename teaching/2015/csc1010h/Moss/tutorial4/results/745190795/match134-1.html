@@ -1,0 +1,218 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/4/raw/mblese001/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/4/raw/xlxphi002/<p><PRE>
+&gt;&gt;&gt;&gt; file: LongJump.py
+#Program to determine winner for long jump
+#Phindile Xulu
+#30 July 2015
+
+def main():
+    print("***** Long Jump Information System *****")
+    competitors = []
+    competitor_no = []
+    competitor_no_1 = 1
+    print("Please enter the names of competitors. (Press return when done.)")
+    while True:
+        competitor_name = input("Competitor no. {}:\n".format(competitor_no_1))
+        
+        if competitor_name == '': break
+        else:
+            competitors.append(competitor_name)
+            competitor_no.append(competitor_no_1)
+            competitor_no_1 +=1
+    print("Please enter the distances for each competitor.")
+    all_scores = []
+    all_scores2 = []
+    for name in competitors:
+        print("Competitor {}:".format(name))
+        score_max = 0
+      
+        for attempts in range (1,4):
+            score=input("Attempt {}:\n".format(attempts))
+            score = score.lower()
+            if score=='foul':
+                score = 0
+            else:
+                score =eval(score)
+                
+                if score&gt;score_max:
+                    score_max=score
+        
+                else:
+                    score_max +=0
+                
+            if attempts == 3:
+                
+                all_scores.append(score_max)
+                
+    score_and_competitor = {}
+      
+    for val in competitor_no: 
+        score_and_competitor[all_scores[val-1]] = competitors[val-1]
+   
+    print("\nCompetitor               Longest Distance         ")    
+    
+   
+    for char in competitor_no:
+        if all_scores[char-1] == 0:
+            print("{:&lt;25}{:&lt;8}".format(competitors[char-1],"No jump"))
+        else:
+            print("{:&lt;25}{:.2f}".format(competitors[char-1],float(all_scores[char-1])))
+    
+    score_and_competitor = {}
+    for k in competitor_no:
+        score_and_competitor[all_scores[k-1]] =competitors[k-1]
+    
+    winner_score =max(all_scores)
+    print("\nThe winner is {} with a jump of {:.2f}.".format(score_and_competitor[winner_score],winner_score))
+    
+main()&gt;&gt;&gt;&gt; file: NikNaks.py
+#Program to create NikNaks game
+#Phindile Xulu
+#02 June 2015
+
+import random
+
+def main():
+ 
+ print("Guess the mystery 4 letter code. (No letter occurs more than once.)")
+ difficulty=int(input('Choose difficulty level (4 to 26):\n'))
+ letters=list('abcdefghijklmnopqrstuvwxyz')[0: difficulty]
+ print('The letters in the code are chosen from: {}.'.format(letters))
+ secret_code=[]
+ for i in range(4):
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match134-0.html#0" TARGET="0"><IMG SRC="../../bitmaps/tm_0_4.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+  rand_index=random.randint(0, len(letters)-1)
+  letter=letters.pop(rand_index)
+  secret_code.append(letter)
+  
+ 
+ guesses_remaining=10
+ while True:
+  niks = 0
+  naks = 0  
+  print("You have {} guesses remaining.".format(guesses_remaining))
+</FONT>
+  guess_str = input("Enter your guess:\n")
+  
+  guess = []
+  for char in guess_str:
+   guess.append(char)
+ 
+  if secret_code == guess:
+   print("Correct!")
+   break
+  else:
+   for i in guess:
+    for j in secret_code:
+     if i == j and secret_code.index(i) == guess.index(j):
+      niks+=1
+     
+     elif i == j and secret_code.index(i) !=guess.index(j):
+      niks+=0
+      naks+=1
+  if niks == 1 and naks==1:
+   print("There is {} Nik and {} Nak.".format(niks,naks))    
+  elif niks == 1:
+   print("There is {} Nik and {} Naks.".format(niks,naks))
+  elif naks ==1:
+   print("There are {} Niks and {} Nak.".format(niks,naks))
+  
+  else:
+   
+   print("There are {} Niks and {} Naks.".format(niks,naks))
+  
+  if guesses_remaining ==1:
+   code =""
+   for var in secret_code:
+    code+=var
+   print("Sorry, you lose.\nThe secret number was ",code,".",sep ="")
+   break
+  else:
+   guesses_remaining-=1
+
+
+if __name__ == "__main__":
+ main()&gt;&gt;&gt;&gt; file: Python turtle.py
+#Program to print out a turning wheel with stacked boxes
+#Phindile Xulu
+#02 August 2015
+from turtle import* 
+speed(0)
+def main():
+    shape("circle")
+    colours = ["blue","red","green","yellow"]
+    colours2= colours+colours+colours
+   
+    for i in range (4):
+      
+        rt(0)
+        fd(200)
+      
+        for colour in colours2:
+           
+            for i in range(4):
+                
+                bgcolor(colour)
+                lt(90)
+                fd(100)
+                lt(90)
+                fd(20)
+                stamp()
+                lt(230)
+                rt(120)
+                fd(100)
+                lt(120)
+                
+        home()
+    color("black","green")
+   
+    pu()
+    rt(90)
+    fd(100)
+    pd()
+    begin_fill()
+    rt(90)
+    fd(50)
+    rt(90)
+    fd(50)
+    rt(90)
+    fd(50)
+    end_fill() 
+    color("black","blue")
+    pu()
+    rt(90)
+    fd(12.5+25)
+    pd()
+    begin_fill()
+    rt(180)
+    fd(25)
+    rt(90)
+    fd(25)
+    rt(90)
+    fd(25)
+    end_fill()
+    color("black","blue")
+    pu()
+    rt(90)
+    fd(12.5+25+6.25)
+    pd()
+    begin_fill()
+    rt(90)
+    fd(12.5)
+    rt(90)
+    fd(12.5)
+    rt(90)
+    fd(12.5)
+    end_fill() 
+    done()
+main()
+</PRE>
+</PRE>
+</BODY>
+</HTML>

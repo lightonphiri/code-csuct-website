@@ -1,0 +1,207 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/8/raw/flndoc001/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/8/raw/flndoc001/<p><PRE>
+&gt;&gt;&gt;&gt; file: Course.py
+class Course:
+
+    def __init__(self, cc='unknown', d='unknown'):
+        self.course_code = cc
+        self.description = d
+
+    def __str__(self):
+        return self.course_code + ', ' + self.description
+
+    def input(self):
+        self.description = input('Enter description: ')
+        self.course_code = input('Enter course code: ')
+        
+    def display(self):
+        print('Course code: ' + self.course_code)
+        print('Description: ' + self.description)&gt;&gt;&gt;&gt; file: Lecturer.py
+#DOCTOR FULANI
+#02 OCTOBER 2015
+#TUTORIAL 8
+
+
+class Lecturer:
+    def __init__(self,na="Unknown",nu="1"):
+        self.name = na
+        self.number = nu
+        self.courses = []
+        
+    def __str__(self):
+        f= self.name + ", " + self.number
+        if len(self.courses)&gt;0:
+            f+= ": "+str(self.courses[0])
+            for i in self.courses[1:]:
+                f += "; " +str(i)
+        return f+"."
+    def add_courses(self,d):
+        self.courses.append(d)        
+        
+    def input(self):
+        self.name = input('Enter name: ')
+        self.number = input('Enter student number: ')    
+
+    def displays(self):
+        print('Name: ' + self.name)
+        print('Staff number: ' + self.number)
+        
+    
+    
+        &gt;&gt;&gt;&gt; file: Student.py
+class Student:
+    
+    def __init__(self, n='unknown', sn='unknown'):
+        self.name = n
+        self.student_number = sn
+        self.courses = []
+    
+    def __str__(self):
+        s = self.name + ', ' + self.student_number
+        if len(self.courses)&gt;0:
+            s += ': '+str(self.courses[0])
+            for c in self.courses[1:]:
+                s += '; ' + str(c)
+        return s+'.'
+    
+    def add_course(self, c):
+        self.courses.append(c)
+    
+    def input(self):
+        self.name = input('Enter name: ')
+        self.student_number = input('Enter student number: ')
+
+    def display(self):
+        print('Name: ' + self.name)
+        print('Student number: ' + self.student_number)
+    
+&gt;&gt;&gt;&gt; file: sorttester.py
+from sortsearch import*
+import time
+def main():
+    
+    size=int(input("Enter size of the list\n"))
+    print("Choose the sort method")
+    print("1. Heap Sort.")
+    print("2. Bubble Sort.")
+    method=input()
+    a=generate_number_list(size)
+    print("Before: ",a)
+    if method=="1":
+        time1=time.clock()
+        heaplist=heap_sort(a)
+        time2=time.clock()
+        print("After: ",heaplist)
+        print(time2-time1)
+    elif method=="2":
+        time1=time.clock()
+        Bubblesort=bubble_sort(a)
+        time2=time.clock()        
+        print("After: ",Bubblesort)
+        print("Time:",time2-time1)
+    else:
+        print("IndexError")
+
+main()
+    &gt;&gt;&gt;&gt; file: universitysystem.py
+#03 OCTOBER 2015
+#TUTORIAL 8
+#FULANI DOCTOR
+from Lecturer import Lecturer
+from Course import Course
+from Student import Student
+
+def main():
+    CourseDic={}
+    Lecturerr={}
+    Students={}
+    while True:
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match207-1.html#0" TARGET="1"><IMG SRC="../../bitmaps/tm_0_3.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+        option=int(input("University Member System:\n0. Quit.\n1. Input Course.\n2. Input Lecturer.\n3. Input Student.\n4. Enrol Student on Course.\n5. Assign Course to Lecturer. \n6. Find Course. \n7. Find Lecturer. \n8. Find Student. \n9. Display Courses. \n10. Display Lecturers. \n11. Display Students.\n&gt;"))
+        if option==0: 
+            break
+        elif option&gt;11 or option&lt;0:
+            print("That selection was not recognised.")
+        elif option==1:
+            Description=input("Enter description: ")
+</FONT>            Coursecode=input("Enter course code: ")
+            CourseDic[Coursecode]=Course(Coursecode,Description)
+        elif option==2:
+            Stuffname=input("Enter name: ")
+            Stuffnumber=input("Enter staff number: ")
+            Lecturerr[Stuffnumber]=Lecturer(Stuffname,Stuffnumber)
+        elif option==3:
+            Studentname=input("Enter name: ")
+            Studentnumber=input("Enter student number: ")
+            Students[Studentnumber]=Student(Studentname,Studentnumber)
+        elif option==4:
+            try:
+                studentN=input("Enter student number: ")
+                courseC=input("Enter course code: ")
+                Students[studentN].add_course(CourseDic[courseC])
+            except:
+                print("Could not find a student with that student number.")
+        elif option==5:
+            try: 
+                stuffN=input("Enter staff number: ")
+                courseCC=input("Enter course code: ")
+                Lecturerr[stuffN].add_courses(CourseDic[courseCC])
+            except:
+                print("Could not find a lecturer with that staff number.")
+        elif option==6:
+            try:
+                code=input("Enter course code: ")
+                print(CourseDic[code])                      
+            except:
+                print("Could not find a course with that code.") 
+        elif option==7:
+            
+            try:
+                stuffNumb=input("Enter staff number: ")
+                print(Lecturerr[stuffNumb])
+            except:
+                print("Could not find a member of staff with that number.")
+        elif option==8:
+            
+            try:
+                StudentNN=input("Enter student number: ")
+                print(Students[StudentNN])
+                
+            except:
+                print("Could not find a student with that number.")
+        elif option==9:
+            for i in  range(1,len(CourseDic)+1):
+                i=str(i)
+                CourseDic[i].display()
+                
+        elif option==10:
+            for b in range(1,len(Lecturerr)+1):
+                b=str(b)
+                Lecturerr[b].displays()
+        elif option==11:
+            for c in range(1,len(Students)+1):
+                c=str(c)
+                Students[c].display()
+                
+main()
+        
+        
+            
+            
+            
+            
+    
+            
+            
+            
+            
+    </PRE>
+</PRE>
+</BODY>
+</HTML>

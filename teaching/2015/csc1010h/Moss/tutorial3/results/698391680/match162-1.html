@@ -1,0 +1,242 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/3/raw/mhlthe039/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/3/raw/mtmjea001/<p><PRE>
+&gt;&gt;&gt;&gt; file: FeetMetres.py
+minimum=int(input("Enter the minimum number of feet (not less than 0):"))
+maximum=int(input("Enter the maximum number of feet (not more than 99):"))
+
+for i in range(1):
+    for n in range(minimum,maximum+1):
+        meters=n*0.3048
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match162-0.html#0" TARGET="0"><IMG SRC="../../bitmaps/tm_0_3.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+        print("{0:&gt;2}' |  {1:.2f}m  ".format(n,meters))      &gt;&gt;&gt;&gt; file: FlowerPattern.py.py
+import turtle
+
+petals= turtle.numinput("Enter the number of petals (must be an even number):","")
+stems= turtle.numinput("Enter the length of stem:","")
+side= turtle.numinput("Enter the length of side:","")
+colourstem=turtle.textinput("Enter the stem colour:","")
+</FONT>colourpetal1=turtle.textinput("Enter the first petal colour","")
+colourpetal2=turtle.textinput("Enter the second petal colour","")
+
+
+
+
+def main():
+   for k in range(3):
+      turtle.speed(1)
+      for i in range(2):
+         turtle.color(colourstem)
+         for j in range(1):
+            turtle.forward(50)
+            
+            turtle.right(30)
+            
+            for i in range(3):
+            
+               turtle.color(colourpetal1)
+               
+             
+               turtle.forward(100)
+               turtle.left(120) 
+                 
+           
+         turtle.color(colourstem)
+         turtle.right(150)
+         turtle.forward(50)
+      
+      turtle.right(60)       
+         
+             
+                   
+
+            
+            
+                
+        
+            
+            
+    
+    
+main()
+
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match162-0.html#1" TARGET="0"><IMG SRC="../../bitmaps/tm_1_2.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+turtle.exitonclick()&gt;&gt;&gt;&gt; file: InchesMetres.py
+minimum=int(input("Enter the minimum number of inches (not less than 0):\n"))
+maximum=int(input("Enter the minimum number of inches (not less than 0):\n"))
+print("Inches:",end=" ")
+
+for n in range(minimum,maximum+1):
+</FONT>        print("{0:&gt;4}".format(n),end=" ")
+        
+print()
+print("Metres:",end=" ")
+for i in range(1,maximum-minimum+2):
+        meters=i*0.0254
+        print("{0:.2f}".format(meters),end=" ")
+&gt;&gt;&gt;&gt; file: TimeConvertor.py
+def main():
+  
+    #program 1
+    for i in range(1):
+            time= input("Enter a time ([h]h:mm [am|pm]):\n")
+            
+            
+            e=time[0:1]
+            g=len(time)
+            
+            if g==8 and time.startswith("12") and time.endswith("am"):
+                print("00:00 ")
+            elif g==8 and time.endswith("am") and not time.startswith("12"):
+                print(time[0:6])
+            elif g==7 and time.endswith("am"):
+                print("0"+time[0:5])
+            elif g==8 and time.endswith("pm") and time.startswith("12"):
+                print(time[0:5])
+                
+            elif g==7 and time.endswith("pm") and not time.startswith("12"):
+                a=time[0:1]
+                b=int(a)
+                c=b+12    
+                f=time[2:4]
+                print("{}:{}".format(c,f))     
+                if True: break
+              
+    #program 2
+            else:
+                z=time[0:2]
+                y=int(z)
+                
+                x=time[0:1]
+                w=time[1:2]
+                v=int(x)
+                u=int(w)
+                s=v+u
+                t=time[2:5]
+                if 0&lt;s&lt;3:
+                    
+                    print("{} am".format(time))
+                elif s==0:
+                    
+                   
+                    
+                    print("{}{} am".format(12,t))
+                elif s&gt;3:
+                    r=y-12
+                    print("{}{} pm".format(r,t))
+                elif s==3:
+                    print("{} pm".format(time))
+main()&gt;&gt;&gt;&gt; file: Twelve.py
+time= input("Enter a time in 12 hour clock ([h]h:mm [am|pm]):\n")
+
+e=time[0:1]
+g=len(time)
+
+if g==8 and time.startswith("12") and time.endswith("am"):
+    print("00:00 ")
+elif g==8 and time.endswith("am") and not time.startswith("12"):
+    print(time[0:6])
+elif g==7 and time.endswith("am"):
+    print("0"+time[0:5])
+elif g==8 and time.endswith("pm") and time.startswith("12"):
+    print(time[0:5])
+elif g==7 and time.endswith("pm") and not time.startswith("12"):
+    a=time[0:1]
+    b=int(a)
+    c=b+12    
+<A NAME="2"></A><FONT color = #0000FF><A HREF="match162-0.html#2" TARGET="0"><IMG SRC="../../bitmaps/tm_2_2.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    f=time[2:4]
+    print("{}:{}".format(c,f))    
+
+
+&gt;&gt;&gt;&gt; file: TwentyFour.py
+time= input("Enter a time in 24 hour clock (hh:mm):\n")
+z=time[0:2]
+y=int(z)
+</FONT>
+x=time[0:1]
+w=time[1:2]
+v=int(x)
+u=int(w)
+s=v+u
+t=time[2:5]
+if 0&lt;s&lt;3:
+    
+    print("{} am".format(time))
+elif s==0:
+    
+   
+    
+    print("{}{} am".format(12,t))
+elif s&gt;3:
+    r=y-12
+    print("{}{} pm".format(r,t))
+elif s==3:
+    print("{} pm".format(time))
+    &gt;&gt;&gt;&gt; file: VehicleClassifier.py
+gvm=int(input("What is the gross vehicle mass (in kg)?\n"))
+vt=input("Does the vehicle have a trailer?\n")
+
+if vt=="y":
+    vtm=int(input("What is the gross vehicle mass of the trailer (in kg)?\n"))
+    if vtm&gt;750:
+        if gvm&lt;=3500:
+            print("This vehicle is class EB.")
+           
+        elif 3500&lt;gvm&lt;=16000:
+            print("This vehicle is class EC1.")
+           
+            
+        elif 16000&lt;gvm:
+            print("This vehicle is class EC.")
+          
+            
+    elif vtm&lt;750:
+        if gvm&lt;=3500:
+            print("This vehicle is class B.")
+          
+            
+        elif 3500&lt;gvm&lt;=16000:
+            print("This vehicle is class C1.")
+           
+            
+        elif 16000&lt;gvm:
+            print("This vehicle is class C.")
+            
+            
+elif vt=="n":
+    a=input("Is the vehicle articulated?\n")
+    if a=="y":
+        if gvm&lt;=3500:
+            print("This vehicle is class EB.")
+           
+            
+        elif 3500&lt;gvm&lt;=16000:
+            print("This vehicle is class EC1.")
+            
+            
+        elif 16000&lt;gvm:
+            print("This vehicle is class EC.") 
+            
+            
+    elif a=="n":
+        if gvm&lt;=3500:
+            print("This vehicle is class B.") 
+            
+                 
+        elif 3500&lt;gvm&lt;=16000:
+            print("This vehicle is class C1.")                
+           
+        elif 16000&lt;gvm:
+            print("This vehicle is class C.")
+                 </PRE>
+</PRE>
+</BODY>
+</HTML>

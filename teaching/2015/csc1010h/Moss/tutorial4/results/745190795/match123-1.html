@@ -1,0 +1,203 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/4/raw/hrmwes003/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/4/raw/mpntiy001/<p><PRE>
+&gt;&gt;&gt;&gt; file: LongJump.py
+#tiyiselani mpangane
+
+print("***** Long Jump Information System *****")
+print("Please enter the names of competitors. (Press return when done.)")
+print("Competitor no. 1:")
+competitor = input()
+b,c,g,h,d,k = 1,0,0,0,[],0
+maxi,competitors = [],[competitor]
+while True:
+    b += 1
+    print("Competitor no. "+str(b)+":")
+    competitor = input()
+    if competitor == "":break
+    else:
+        competitors.append(competitor)
+print("Please enter the distances for each competitor.")
+for each in competitors:
+    print("Competitor ",each,":",sep="")
+    distance = input("Attempt 1:\n")
+    at2 = input("Attempt 2:\n")
+    at3 = input("Attempt 3:\n")
+    x = (distance+at2+at3).lower()
+    if (distance+at2+at3).find("oul") != -1:
+        x = (distance+at2+at3).lower()
+    d.append(distance)
+    d.append(at2)
+    d.append(at3)
+    if x.find("foul") == -1:
+        maxi.append(max(eval(distance),eval(at2),eval(at3)))
+    else:
+        d.remove("foul")
+        if not "foul" in d:
+            for i in d:
+                if k == 0:
+                    h = 10
+                    e = eval(i)
+                elif k == 1:
+                    x = 10
+                    f = eval(i)
+                k += 1
+            if x == 10 and h == 10:
+                maxi.append(max(e,f))
+        else:
+            d.remove("foul")
+            if not "foul" in d:
+                maxi.append(eval(d[0]))
+            else:
+                maxi.append("No jump")
+print("{0:26}".format("\nCompetitor"),end="")
+print("{0:25}".format("Longest Distance"))
+for each in competitors:
+    print("{0:25}".format(each),end="")
+    if (str(maxi[c])).find(" ") == -1:
+        print("{0:&lt;15.2f}".format((maxi[c])))
+    else:
+        print("{0:25}".format((maxi[c])))
+    c += 1
+while "No jump" in maxi:
+    competitors.remove(competitors[maxi.index("No jump")])
+    maxi.remove("No jump")
+print("\nThe winner is",competitors[maxi.index(max(maxi))],"with a jump of","{:.2f}.".format(max(maxi)))&gt;&gt;&gt;&gt; file: NikNaks.py
+#Tiyiselani Mpangane
+# aguess game called Niknaks
+# 01 august 2015
+
+import random
+def main():
+    print("Guess the mystery 4 letter code. (No letter occurs more than once.)")
+    difficulty=int(input('Choose difficulty level (4 to 26):\n'))
+    letters=list('abcdefghijklmnopqrstuvwxyz')[0: difficulty]
+    print('The letters in the code are chosen from: {}.'.format(letters))
+    code=[]
+    for i in range(4):
+        rand_index=random.randint(0, len(letters)-1)
+        letter=letters.pop(rand_index)
+        code.append(letter)
+    print(code)
+    accumulator= 10
+    print("You have",accumulator,"guesses remaining.")
+    guess = input("Enter your guess:\n")
+    Niks = 0
+    Naks = 0
+    for t in range(4):
+        if code[t] == guess[t]:
+            Niks = Niks + 1
+        elif guess[t] in code:
+            Naks = Naks + 1
+    a = "Niks"
+    b = "Naks"
+    if Niks == 1 and Naks != 1 and Niks != 4:
+        print("There are",Niks,a[:a.find("s")],"and",Naks,b+".")
+    elif Niks != 1 and Naks == 1 and Niks != 4:
+        print("There are",Niks,a,"and",Naks,b[:b.find("s")]+".")
+    elif Niks == 1 and Naks == 1 and Niks != 4:
+        print("There are",Niks,a[:a.find("s")],"and",Naks,b[:b.find("s")]+".")
+    else:
+        if Niks != 4:
+            print("There are",Niks,a,"and",Naks,b+".")
+    while accumulator != 1 and list(guess) != code:
+        accumulator -=1
+        print("You have",accumulator,"guesses remaining.")
+        guess = input("Enter your guess:\n")
+        Niks = 0
+        Naks = 0
+        for t in range(4):
+            if code[t] == guess[t]:
+                Niks = Niks + 1
+            elif guess[t] in code:
+                Naks = Naks + 1
+        if Niks == 1 and Naks != 1 and Niks != 4:
+            print("There is",Niks,a[:a.find("s")],"and",Naks,b+".")
+        elif Niks != 1 and Naks == 1 and Niks != 4:
+            print("There are",Niks,a,"and",Naks,b[:b.find("s")]+".")
+        elif Niks == 1 and Naks == 1 and Niks != 4:
+            print("There is",Niks,a[:a.find("s")],"and",Naks,b[:b.find("s")]+".")
+        else:
+            if Niks != 4:
+                print("There are",Niks,a,"and",Naks,b+".")
+    if list(guess) == code:
+        print("Correct!")
+    else:
+        print("Sorry, you lose.")
+        print("The secret number was ",end="")
+        for i in code:
+            print(i,end="")
+        print(".")
+if __name__=="__main__":
+    main()&gt;&gt;&gt;&gt; file: question4.py
+# tiyiselani mpangane
+# usinng python moudules to draw a picture
+# 30 august 2015
+
+import turtle
+
+turtle.hideturtle()
+turtle.color('black','red')# to colour the whole
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match123-0.html#0" TARGET="0"><IMG SRC="../../bitmaps/tm_0_3.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+turtle.begin_fill()
+for i in range(3):   #to draw the roof
+    turtle.right(60)
+    turtle.forward(100)
+turtle.forward(100)#to draw the hous
+turtle.right(90)
+turtle.forward(180)
+turtle.right(90)
+turtle.forward(220)
+</FONT>turtle.forward(70)
+turtle.right(90)
+turtle.forward(20)
+turtle.right(90)
+turtle.forward(80)
+turtle.penup()
+turtle.forward(10)
+turtle.pendown()
+turtle.right(-90)
+turtle.forward(163)
+turtle.right(180)
+turtle.forward(181)
+turtle.right(-90)
+turtle.penup()
+turtle.forward(50)
+turtle.pendown()
+turtle.end_fill()
+turtle.color('black','blue')#to colour the window
+turtle.begin_fill()
+for i in range (2):      # draw the window
+    for i in range(4):
+        turtle.left(90)
+        turtle.forward(50)
+        
+    turtle.left(90)
+    turtle.forward(56)
+turtle.end_fill()
+turtle.penup()
+turtle.right(180)
+turtle.forward(200)
+turtle.pendown()
+turtle.color('black','green')#to colour the sun
+turtle.begin_fill()
+for i in range(4):     # draw the door
+    turtle.left(90)
+    turtle.forward(70)
+turtle.end_fill()
+turtle.penup()
+turtle.right(157)
+turtle.forward(450)
+turtle.forward(30)
+turtle.color("black", "yellow")
+turtle.begin_fill()
+turtle.circle(80)# to draw the sun
+turtle.end_fill()</PRE>
+</PRE>
+</BODY>
+</HTML>

@@ -1,0 +1,115 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/6/raw/alldin001/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/6/raw/alldin001/<p><PRE>
+&gt;&gt;&gt;&gt; file: fixed_mod.py
+import string
+
+def palindrome (s):
+   #print(s)
+   if len(s) == 1:
+      return s.isalpha()
+   elif len(s) == 2:
+      if s[0]==s[1]:
+         return True
+      return False
+   elif s[0] in string.punctuation or s[0] in string.whitespace:
+      return palindrome(s[1:])
+   elif s[-1] in string.punctuation or s[-1] in string.whitespace:
+      return palindrome(s[:-1])
+   elif s[0].lower() == s[-1].lower():
+      return palindrome (s[1:-1])
+   else:
+      return False
+
+'''print(palindrome('kayak'))
+print(palindrome('deed'))
+print(palindrome('at noon, ta'))
+print(palindrome('dead'))'''&gt;&gt;&gt;&gt; file: match_mod.py
+def equals(word_one,word_two):
+    if word_one=='' and word_two=='':             #base case
+        return True
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match106-1.html#1" TARGET="1"><IMG SRC="../../bitmaps/tm_1_3.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    elif len(word_one)==len(word_two):            #if words not same length, can't be the same word
+        if word_one[0]==word_two[0]:
+            return equals(word_one[1:],word_two[1:])
+</FONT>        return False
+    else:
+        return False
+    
+def query(pattern, word):
+    if pattern=='' and word=='':                    #base case
+        return True
+    if len(pattern)== len(word):
+        if pattern[0]=='?' and word[0].isalpha():   # ? reduces pattern and word by one letter
+            return query(pattern[1:],word[1:])
+        elif pattern[0]==word[0]:
+<A NAME="2"></A><FONT color = #0000FF><A HREF="match106-1.html#2" TARGET="1"><IMG SRC="../../bitmaps/tm_2_3.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+            return query(pattern[1:],word[1:])
+        return False
+    else:
+        return False
+    
+def match(pattern, word):
+    if pattern=='*' and word=='':                   #base case
+        return True
+    elif pattern=='' and word=='':                  #base case
+        return True
+</FONT>    elif pattern[0]=='?' and word[0].isalpha():     # ? reduces pattern and word by 1 letter
+        return match(pattern[1:],word[1:])
+    elif pattern[-1]=='?' and word[-1].isalpha():   # ? reduces pattern and word by 1 letter
+            return match(pattern[:-1],word[:-1])    
+      
+    elif len(pattern)==len(word):
+<A NAME="3"></A><FONT color = #00FFFF><A HREF="match106-1.html#3" TARGET="1"><IMG SRC="../../bitmaps/tm_3_3.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+        if pattern[0]==word[0]:
+            return match(pattern[1:],word[1:])
+        elif pattern[0]=='*' and word[0].isalpha():
+</FONT>            if len(word)==1:                        #base case as * represents 1 letter
+                return True                         
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match106-1.html#0" TARGET="1"><IMG SRC="../../bitmaps/tm_0_3.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+            elif pattern[-1]==word[-1]:
+                return match(pattern[:-1],word[:-1])  #reduce from reverse end
+            elif pattern[-1]=='*':
+</FONT>                return match(pattern,word[:-1]) #take away first * when * at the end
+            return match(pattern[1:],word[1:]) # N.B. line 37 condition, so reduce pattern and word
+        return False
+    
+    elif len(pattern)!=len(word):
+        if pattern[0]==word[0]:
+            return match(pattern[1:],word[1:])
+        elif len(pattern)&lt;len(word):
+            if pattern[0]=='*' and word[0].isalpha():
+                return match(pattern,word[1:])          #reduce long words taking the place of *
+        elif len(pattern)&gt;len(word):                
+            if pattern[0]=='*' and word.isalpha():      #for short words where * might be 0 letters
+                if pattern[-1]==word[-1]:               #start 'eating' away from the reverse end
+                    return match(pattern[:-1],word[:-1])
+                elif pattern[0]=='*' and pattern[-1]=='*': #take away first * when * at the end
+                    return match(pattern[:-1],word[:-1])
+        return False 
+    else:
+        return False&gt;&gt;&gt;&gt; file: mongoose_mod.py
+def population(n):
+    if n&lt;0:
+        return 0
+    elif n==0 or n==1 or n==2:
+        return 2
+    else:
+        return population(n-1)+ population(n-2)
+        &gt;&gt;&gt;&gt; file: sum_mod.py
+def sum_to_n(n):
+    if n&lt;=0:
+        return 0
+    else:
+        return n + sum_to_n(n-1)</PRE>
+</PRE>
+</BODY>
+</HTML>

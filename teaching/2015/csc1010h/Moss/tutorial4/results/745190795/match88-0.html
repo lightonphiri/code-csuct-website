@@ -1,0 +1,206 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/4/raw/mcnmon001/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/4/raw/mcnmon001/<p><PRE>
+&gt;&gt;&gt;&gt; file: LongJump.py
+print("***** Long Jump Information System *****")
+print("Please enter the names of competitors. (Press return when done.)")
+# collecting the names of the competiors
+a =0
+b=0
+qa =0
+names = []
+maximum = {}
+while True:
+    a+=1
+    competitors = input("Competitor no. "+str(a)+":\n")
+    if competitors == "": 
+        break
+    else:
+        names.append(competitors)
+
+
+# Collecting three attempts from each competitor and storing the maximum
+
+print("Please enter the distances for each competitor.")
+for individual in names:
+    print("Competitor",individual+":")
+    for attempt in range(1,4):
+        attemp = input("Attempt "+str(attempt)+":\n")
+        #if attemp.isalpha():
+            #qa+=1
+            #if qa ==3:
+               # maximum[attempt] = "Foul"
+               # qa = 0
+            #continue
+    
+        
+        
+        if not attemp.isalpha():
+            
+            if float(attemp)&gt;float(b):
+                b = attemp
+    maximum[individual] = b         # append to the dictionary(from above)
+    b=0
+
+
+
+
+for  element in maximum :
+    if maximum[element] == 0:
+        
+        maximum[element] = "No jump"
+        
+print()
+print("{:&lt;25}{}".format("Competitor","Longest Distance\n"),end ="")       
+for individual in names:
+    if maximum[individual] == "No jump":
+        print("{:&lt;25}{}".format(individual,maximum[individual]))
+        
+    else:
+        print("{:&lt;25}{:.2f}".format(individual,float(maximum[individual])))
+    
+
+monde = 0 
+munda = ""  
+for element in maximum:
+    if maximum[element]== "No jump":
+        continue
+    
+    
+    if  float(maximum[element]) &gt; float(monde):
+        monde = maximum[element]
+        munda = element 
+        #munda = ""
+print()
+print("The winner is {0} with a jump of {1:2.2f}.".format(munda,float(monde)))
+&gt;&gt;&gt;&gt; file: NikNaks.py
+import random
+def main():
+    
+    difficulty=int(input("Guess the mystery 4 letter code. (No letter occurs more than once.)"+'\nChoose difficulty level (4 to 26):\n'))
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match88-1.html#0" TARGET="1"><IMG SRC="../../bitmaps/tm_0_9.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    letters=list('abcdefghijklmnopqrstuvwxyz')[0: difficulty]
+    print('The letters in the code are chosen from: {}.'.format(letters))
+    secret_code=[]
+    b =""
+    for i in range(4):
+        rand_index=random.randint(0, len(letters)-1)
+        letter=letters.pop(rand_index)
+        secret_code.append(letter) 
+        b+=letter
+</FONT>        
+        
+    
+    guess = input("You have 10 guesses remaining.\n"+"Enter your guess: \n")
+    group =list(guess)
+    a = 10
+    
+    p = 0
+   
+    while True:
+        
+        niks = 0
+        naks = 0
+        q = 4
+        a-=1
+        if group == secret_code:
+            print("Correct!")
+            break
+        
+        else:
+           
+            for k in group:
+                q-=1
+                if k in secret_code and group[q]==secret_code[q]:
+                    niks+=1
+                elif k not in secret_code:
+                    naks += 0
+                else:
+                    naks+=1
+                    
+                StringNik = ""
+                StringNak = ""
+                x = ""
+                
+                if niks == 1:
+                    StringNik = "Nik"
+                    x = "is "
+                else:
+                    StringNik = "Niks"
+                    x = "are "
+                if naks == 1:
+                    StringNak ="Nak"
+                else:
+                    StringNak = "Naks"
+                        
+            print ("There "+x+str(niks)+" "+StringNik,"and",naks,StringNak+".")
+            print("You have",a,"guesses remaining.")
+                    
+            #if (niks &gt;1 or naks &gt;1) :
+                #print("There are",niks,"Niks and",naks,"Naks.")
+                #print("You have",a,"guesses remaining.")
+            #elif niks == 0 and naks == 0:
+                    #print("There are",niks,"Niks and",naks,"Nak.")
+                    #print("You have",a,"guesses remaining.")
+            #elif naks == 1 or  naks == 1:
+                #print("There is",niks,"Nik and",naks,"Nak.")
+                #print("You have",a,"guesses remaining.")
+                   
+                
+            #elif niks == 1 and naks == 0:
+                #print("There is",niks,"Nik and",naks,"Naks.")
+                #print("You have",a,"guesses remaining.") 
+                
+            #elif niks == 0 and  naks ==1 :
+                #print("There are",niks,"Niks and",naks,"Nak.")
+                #print("You have",a,"guesses remaining.")
+            #elif  niks &gt; 1 and  naks ==1 :
+                #print("There are",niks,"Niks and",naks,"Nak.")
+                #print("You have",a,"guesses remaining.")
+            #elif  niks &gt; 1 and  naks ==0 :
+                #print("There are",niks,"Niks and",naks,"Naks.")
+                #print("You have",a,"guesses remaining.")
+            #elif  niks == 1 and  naks &gt; 1 :
+                #print("There is",niks,"Niks and",naks,"Naks.")
+                #print("You have",a,"guesses remaining.")
+            #elif  niks == 0 and  naks &gt;1 :
+                #print("There are",niks,"Niks and",naks,"Naks.")
+                #print("You have",a,"guesses remaining.")
+        
+            
+            guess = input("Enter your guess: \n")
+            group =list(guess)
+        if a == 1:
+            #break
+            print("Sorry, you lose.\n"+"The secret number was",b+".")
+            break
+        
+if __name__ == '__main__':
+ 
+    main()&gt;&gt;&gt;&gt; file: turtle_test.py
+#from turtle 
+import turtle
+
+wn = turtle.Screen()
+wn.bgcolor("yellow")
+tess = turtle.Turtle()
+tess.shape("turtle")
+tess.color("blue")
+
+tess.penup()              
+size = 20
+for i in range(30):
+   tess.stamp()          
+   size = size + 3        
+   tess.forward(size)    
+   tess.right(24)           
+
+wn.mainloop()</PRE>
+</PRE>
+</BODY>
+</HTML>

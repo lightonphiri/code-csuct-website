@@ -1,0 +1,162 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/4/raw/mktnta004/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/4/raw/mlxmog001/<p><PRE>
+&gt;&gt;&gt;&gt; file: LongJump.py
+#Program to log the results of an athletics long jump contest
+#Mogase Maloa
+#MLXMOG001
+#03 August 2015
+
+def main():
+    name=' Long Jump Information System '
+    print("{:*^40}".format(name))
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match45-0.html#0" TARGET="0"><IMG SRC="../../bitmaps/tm_0_6.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    print("Please enter the names of competitors. (Press return when done.)")
+    count=1
+    competitors=[]
+    while True:
+        competitor_name=input("Competitor no. "+str(count)+":\n")
+        if competitor_name=="":
+            break
+        competitors.append(competitor_name)
+        count+=1
+    print("Please enter the distances for each competitor.")
+</FONT>    competitordistance={}
+    for i in competitors:
+        print("Competitor",i+":")
+        distances=[]
+        for j in range(3):
+            distance=input("Attempt "+str(j+1)+":\n")
+            if distance!='foul':
+                distance2=float(distance)
+                distances.append(distance2)
+        
+        
+        if distances==[]:
+            competitordistance[i]='No jump'
+        else:
+            maximum=max(distances)
+            competitordistance[i]=maximum
+    heading1="Competitor"
+    heading2="Longest Distance"
+    print("\n{:&lt;25}".format(heading1)+"{}".format(heading2))
+    for i in competitors:
+        if competitordistance[i]!='No jump':
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match45-0.html#1" TARGET="0"><IMG SRC="../../bitmaps/tm_1_4.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+            print("{:&lt;25}".format(i)+"{:.2f}".format(competitordistance[i]))
+        else:
+            print("{:&lt;25}".format(i)+"{}".format(competitordistance[i]))
+</FONT>    distanceonly=[]
+    for i in competitordistance:
+        if competitordistance[i] !='No jump':
+            distanceonly.append(competitordistance[i])
+    maximum2=max(distanceonly)
+    distancecompetitor={v:m for m,v in competitordistance.items()}
+<A NAME="2"></A><FONT color = #0000FF><A HREF="match45-0.html#2" TARGET="0"><IMG SRC="../../bitmaps/tm_2_4.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    print("\nThe winner is",distancecompetitor[maximum2],"with a jump of","{:.2f}".format(maximum2)+".")
+main()
+    
+    
+    
+    
+    
+                            
+          &gt;&gt;&gt;&gt; file: NikNaks.py
+#Program to play a game of Niknaks
+#Mogase Maloa
+#MLXMOG001
+#03 August 2015
+
+import random
+def main():
+    print("Guess the mystery 4 letter code. (No letter occurs more than once.)")
+    difficulty=int(input("Choose difficulty level (4 to 26):\n"))
+    letters=list('abcdefghijklmnopqrstuvwxyz')[0:difficulty]
+    print('The letters in the code are chosen from: {}'.format(letters)+".")
+</FONT>    secret_code=[]
+    for i in range(4):
+        rand_index=random.randint(0,len(letters)-1)
+        letter=letters.pop(rand_index)
+        secret_code.append(letter)
+    guesses=10
+    while guesses&gt;0:
+        print('You have',guesses,'guesses remaining.')
+        code=input("Enter your guess:\n")
+        count=0
+        num=0
+        t=0
+        for j in secret_code:
+            for k in code:
+                if j==k and secret_code.index(j)==t:
+                    count+=1
+                    
+                else:
+                    if j==k and secret_code.index(j)!=t:
+                        num+=1
+                t+=1
+            t=0
+                        
+        if count==4 and num==0:
+            
+            print('Correct!')
+            break
+        elif count==1 and num!=1:
+            print("There is",count,"Nik and",num,"Naks.")
+        elif count!=1 and num==1:
+            print("There are",count,"Niks and",num,"Nak.")
+        elif count==1 and num==1:
+            print("There is",count,"Nik and",num,"Nak.")
+        else:
+            print("There are",count,"Niks and",num,"Naks.")
+        guesses-=1
+    else:
+        print("Sorry, you lose.")
+        print("The secret number was ",end='')
+        for k in secret_code:
+            print(k,end='')
+        print('.')
+if __name__ == '__main__':
+    main()
+            
+
+    
+    
+    
+    
+&gt;&gt;&gt;&gt; file: PythonTurtle.py
+#Program to draw image using turtle
+#Mogase Maloa
+#MLXMOG001
+#03 August 2015
+
+import turtle
+turtle.color('yellow','green')
+turtle.shape('square')
+turtle.shapesize(1.00,1.00,1)
+turtle.penup()
+turtle.setpos(-100,90)
+turtle.setheading(270)
+turtle.pendown()
+turtle.begin_fill()
+for i in range(8):
+    
+    
+    for i in range(4):
+        
+        turtle.dot(10,'red')
+        turtle.forward(100)
+        turtle.right(90)
+    turtle.right(45)
+turtle.setheading(0)
+turtle.end_fill()
+turtle.exitonclick()</PRE>
+</PRE>
+</BODY>
+</HTML>

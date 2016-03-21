@@ -1,0 +1,3 @@
+<p>Your Clinic2 program doesn't read the files at the beginning. It's
+  supposed to show the patients/doctors entered when I last ran it and
+  chose to quit.</p>

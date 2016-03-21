@@ -1,0 +1,205 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/4/raw/rndmar006/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/4/raw/sngjia001/<p><PRE>
+&gt;&gt;&gt;&gt; file: LongJump.py
+# Lelethu Poswa
+# August 2015
+# Long Jump
+#_________________________________________________________-
+import math
+
+def main():
+    print("***** Long Jump Information System *****")
+    print("Please enter the names of competitors. (Press return when done.)")
+    
+    
+    figure = 1
+    contestants = []
+    longest_jumps = {}
+    top = []
+    first = []
+    
+    
+    
+    while True:
+        print('Competitor no. ', figure, ':', sep='')
+        figure = figure +1
+        athlete = input('')
+        contestants.append(athlete)
+        if athlete=='':   # If athlete = 'enter' stop the athlete before the enter button 
+            contestants.remove(contestants[-1])
+            
+            break
+    print("Please enter the distances for each competitor.")
+    for n in contestants:
+        print('Competitor', n+ ':')
+        jump_1 = input("Attempt 1:\n")
+        jump_2 = input("Attempt 2:\n")
+        jump_3 = input("Attempt 3:\n")
+        
+        
+        if jump_1 =='foul':
+            jump_1 =0
+        if jump_2 =='foul':
+            jump_2 =0            
+        if jump_3 =='foul':
+            jump_3 =0
+            
+            
+        MAX = max(float(jump_1), float(jump_2), float(jump_3))
+        
+        first.append(MAX)
+        
+        top.append(MAX)
+        longest_jumps[n] = MAX
+    win = float(max(first))
+    num = first.index(win)
+    pos_name=contestants[num]
+    count=int(0)
+    
+    
+    
+    print()
+    print('{0:&lt;24} {1}'.format('Competitor', 'Longest Distance'))
+    for i in longest_jumps:
+        if longest_jumps[i]==0:
+            
+            
+            print('{0:&lt;24} {1:0&lt;4}'.format(i, 'No jump'))
+        else:
+            print('{0:&lt;24} {1:0&lt;4}'.format(i, longest_jumps[i]))
+            
+    print()
+    
+    print('The winner is {0} with a jump of {1:0&lt;4}.'.format(pos_name, win))
+            
+main()&gt;&gt;&gt;&gt; file: NikNaks.py
+# Lelethu Poswa
+# August 2015
+# Nik Naks program
+#__________________________________________________________
+    
+import random
+def main():
+     left = 10
+     print('Guess the mystery 4 letter code. (No letter occurs more than once.)')
+     difficulty=int(input('Choose difficulty level (4 to 26):\n'))
+     letters=list('abcdefghijklmnopqrstuvwxyz')[0: difficulty]
+     print('The letters in the code are chosen from: {}.'.format(letters))
+     secret_word=[]
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match240-0.html#0" TARGET="0"><IMG SRC="../../bitmaps/tm_0_3.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+     for i in range(4):
+          rand_index=random.randint(0, len(letters)-1)
+          letter=letters.pop(rand_index)
+          secret_word.append(letter)
+          
+     one = secret_word[0]
+</FONT>     two = secret_word[1]
+     three = secret_word[2]
+     four = secret_word[3]
+     while left!=0:
+          nik = 0
+          nak = 0
+          if left !=0:
+               print('You have', left, 'guesses remaining.')
+               
+               attempt = input("Enter your guess:\n")
+               
+               attempt_one = attempt[0]
+               attempt_two = attempt[1]
+               attempt_three =attempt[2]
+               attempt_four = attempt[3]
+          
+               attempt_list = []
+               attempt_list.append(attempt_one)
+               attempt_list.append(attempt_two)
+               attempt_list.append(attempt_three)
+               attempt_list.append(attempt_four)
+               
+               count_attempt1 = attempt_list.count(one)
+               count_attempt2 = attempt_list.count(two)
+               count_attempt3 = attempt_list.count(three)
+               count_attempt4 = attempt_list.count(four)
+               nak = count_attempt1+ count_attempt2 + count_attempt3 + count_attempt4
+     
+          if attempt_one == one:
+               nak = nak - 1
+               nik = nik + 1
+          if attempt_two == two:
+               nak = nak - 1
+               nik = nik + 1
+          if attempt_three == three:
+               nak = nak - 1
+               nik = nik + 1
+          if attempt_four == four:
+               nak = nak - 1
+               nik = nik + 1          
+           
+          if nik ==4:
+               print('Correct!')
+               break
+          if nik!=1 and nak!=1:
+               print("There are", nik, 'Niks and', nak, 'Naks.')
+          elif nik ==1:
+               print("There is", nik, 'Nik and', nak, 'Naks.')
+          elif nak==1:
+               print('There are', nik, 'Niks and', nak, 'Nak.')
+          elif nik==1 and nak==1:
+               print('There is', nik, 'Nik and', nak, 'Nak.')
+               
+               
+          left = left -1
+     if left ==0:
+          print('Sorry, you lose.')
+          print('The secret number was', secret_word[0] + secret_word[1] + secret_word[2] + secret_word[3]+'.')
+               
+          '''print('There are', nik, 'Niks and', nak, 'Naks.')
+          left = left - 1
+          print('You have', left, 'guesses remaining.')'''
+if __name__ == '__main__':
+     main()
+   &gt;&gt;&gt;&gt; file: Python.py
+import turtle
+
+def main():
+    turtle.setx(100) #set your x axis points
+    turtle.color("blue", "yellow") # fill the circle with yellow with blue boarders
+    turtle.begin_fill() #fill circle with colour. New funtion 1
+    turtle.circle(40)   #draw circle. New function 2
+    turtle.end_fill()
+    turtle.right(90)
+    turtle.forward(40)
+    turtle.right(120)
+    turtle.forward(60)
+    turtle.dot(20, "blue") #draw a dot with size and colour. New function 3
+    turtle.back(60)
+    turtle.right(120)
+    turtle.forward(60)
+    turtle.dot(20, "blue")
+    turtle.back(60)
+    turtle.right(120)
+    turtle.forward(50)
+    turtle.right(60)
+    turtle.forward(60)
+    turtle.dot(20, "black")
+    turtle.back(60)
+    turtle.left(120)
+    turtle.forward(60)
+    turtle.dot(20, "black")
+    turtle.right(150)
+    turtle.penup()
+    turtle.forward(60)
+
+    turtle.write("This is Clive ", True, align="center") # new function 4
+    
+    turtle.exitonclick()
+   
+main()</PRE>
+</PRE>
+</BODY>
+</HTML>

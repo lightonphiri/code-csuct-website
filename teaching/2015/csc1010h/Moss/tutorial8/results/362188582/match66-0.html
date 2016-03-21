@@ -1,0 +1,161 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/8/raw/kstbab001/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/8/raw/kstbab001/<p><PRE>
+&gt;&gt;&gt;&gt; file: Lecture.py
+class Lecture:
+    def __init__(self,n='unknown',sn='unknow'):
+        self.name=n
+        self.stuff_number=sn
+        self.lecture_courses=[]
+    
+    def __str__(self):
+        s = self.name + ', ' + self.stuff_number
+        if len(self.lecture_courses)&gt;0:
+            s += ': '+str(self.lecture_courses[0])
+            for c in self.lecture_courses[1:]:
+                s += '; ' + str(c)
+        return s+'.'
+    
+    def add_course(self, c):
+        self.lecture_courses.append(c)
+        
+    def input(self):
+        self.name = input('Enter name: ')
+        self.stuff_number = input('Enter staff number: ')
+               
+    def display(self):
+        print('Name: ' + self.name)
+        print('Stuff number: ' + self.staff_number)    &gt;&gt;&gt;&gt; file: course.py
+class Course:
+
+    def __init__(self, cc='unknown', d='unknown'):
+        self.course_code = cc
+        self.description = d
+
+    def __str__(self):
+        return self.course_code + ', ' + self.description
+
+    def input(self):
+        self.description = input('Enter description: ')
+        self.course_code = input('Enter course code: ')
+        
+    def display(self):
+        print('Course code: ' + self.course_code)
+        print('Description: ' + self.description)&gt;&gt;&gt;&gt; file: student.py
+class Student:
+    
+    def __init__(self, n='unknown', sn='unknown'):
+        self.name = n
+        self.student_number = sn
+        self.courses = []
+    
+    def __str__(self):
+        s = self.name + ', ' + self.student_number
+        if len(self.courses)&gt;0:
+            s += ': '+str(self.courses[0])
+            for c in self.courses[1:]:
+                s += '; ' + str(c)
+        return s+'.'
+    
+    def add_course(self, c):
+        self.courses.append(c)
+    
+    def input(self):
+        self.name = input('Enter name: ')
+        self.student_number = input('Enter student number: ')
+
+    def display(self):
+        print('Name: ' + self.name)
+        print('Student number: ' + self.student_number)
+&gt;&gt;&gt;&gt; file: universitysystem.py
+from course import Course
+from student import Student
+from Lecture import Lecture
+dict_course={}
+dict_student={}
+dict_lecture={}
+values={0:'Quit.',1:'Input Course.',2:'Input Lecturer.',3:'Input Student.',4:'Enrol Student on Course.',5:'Assign Course to Lecturer.',6:'Find Course.',7:'Find Lecturer.',8:'Find Student.',9:'Display Courses.',10:'Display Lecturers.',11:'Display Students.'}
+ 
+def display_dictionary_values():
+    print('University Member System:')
+    for i in range(12):
+        print(str(i)+'.',values[i])
+    
+def main():
+    while True:
+        display_dictionary_values()
+        user=int(input('&gt;'))        
+        if user==0:
+            break
+        elif user==1:
+            course=input('Enter description: ')
+            code=input('Enter course code: ')
+            dict_course[code]=course
+        elif user==2:
+            name_L=input('Enter name: ')
+            stuff_num=input('Enter staff number: ')
+            dict_lecture[stuff_num]=name_L
+        elif user==3:
+            name_S=input('Enter name: ')
+            student_num=input('Enter student number: ')
+            dict_student[student_num]=name_S
+        elif user==4:
+            student_num1=input('Enter student number: ')
+            code1=input('Enter course code: ')
+            if student_num1 in dict_student:
+                s=Student(dict_student[student_num1],student_num1)
+                s.add_course(Course(code1,dict_course[code1]))
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match66-1.html#1" TARGET="1"><IMG SRC="../../bitmaps/tm_1_3.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+            else:
+                print('Could not find a student with that student number.')
+        elif user==5:
+            stuf_num=input('Enter staff number: ')
+            code2=input('Enter course code: ')
+            if stuf_num in dict_lecture:
+                lec=Lecture(dict_lecture[stuf_num],stuf_num)
+</FONT>                lec.add_course(Course(code2,dict_course[code2]))
+            else:
+                print('Could not find a lecturer with that staff number.')
+        elif user==6:
+            code=input('Enter course code: ')
+            if code in dict_course:
+                print(Course(code,dict_course[code]))
+            else:
+                print('Could not find a course with that code.')
+        elif user==7:
+            stuf=input('Enter staff number: ')
+            if stuf in dict_lecture:
+                print(Lecture(dict_lecture[stuf],stuf))
+            else:
+                print('Could not find a member of staff with that number.')
+        elif user==8:
+            num=input('Enter student number: ')
+            if num in dict_student:
+                print(Student(dict_student[num],num))
+            else:
+                print('Could not find a student with that number.') 
+        elif user==9:
+            for i in dict_course:
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match66-1.html#0" TARGET="1"><IMG SRC="../../bitmaps/tm_0_5.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+                print('Course code:',i)
+                print('Description:',dict_course[i])
+        elif user==10:
+            for i in dict_lecture:
+                print('Name:',dict_lecture[i])
+                print('Staff number:',i)
+        elif user==11:
+            for i in dict_student:
+</FONT>                print('Name:',dict_student[i])
+                print('Student number:',i)
+        else:
+                print('That selection was not recognised.')
+main()</PRE>
+</PRE>
+</BODY>
+</HTML>

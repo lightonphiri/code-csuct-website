@@ -1,0 +1,413 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/5/raw/mmlfhu003/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/5/raw/mmlfhu003/<p><PRE>
+&gt;&gt;&gt;&gt; file: calendar.py
+import calendar_utils
+
+def to_string(n, e):
+        if n&lt;1 or n&gt;e:
+                return '  '
+        else:
+                return '{:&gt;2}'.format(n)
+        
+def row(i, s, e):
+        start = i*7+s
+        result=to_string(start, e)
+        for column in range(start+1, start+7):
+                result+=' '+to_string(column, e)  
+        return result
+
+def row_of_months(i, start_month, year):
+        
+        start_day=(calendar_utils.first_day_of_month(start_month, year)-1)%7
+        days=calendar_utils.days_in_month(start_month, year)
+        
+        result=row(i, 1-start_day, days)
+
+        for month in range(start_month+1, start_month+3):
+                result+='   '
+                start_day=(start_day+days)%7
+                days=calendar_utils.days_in_month(month, year)
+                result+=row(i, 1-start_day, days)
+
+        return result
+
+def print_year(year):
+        print('{0:^69}'.format(year))
+        
+def print_month_names(start_month):
+        print('{0:^20}   {1:^20}   {2:^20}'.format(calendar_utils.month_name(start_month), calendar_utils.month_name(start_month+1), calendar_utils.month_name(start_month+2)).title())
+
+def print_month_days():
+        week='Mo Tu We Th Fr Sa Su'
+        print('{0:^20}   {1:^20}   {2:^20}'.format(week, week, week))
+        
+def print_months(start_month, year):
+        print_month_names(start_month)
+        print()
+        print_month_days()
+        
+        for r in range(0, 6):
+                print(row_of_months(r, start_month, year))
+                
+def main():
+        year=int(input('Enter the year:\n'))
+        
+        print_year(year)
+        print()
+        print_months(1, year)
+        for month in range(4, 13, 3):
+                print()
+                print_months(month, year)
+                
+
+if __name__ == "__main__":
+        main()&gt;&gt;&gt;&gt; file: calendar_utils.py
+def is_leap_year(year):
+        p=str(year)[0:2]
+        c=str(year)[-2:]
+        if int(p)%4==0 and int(c)%4==0:
+                return True
+        elif int(p)%4==0 and int(c)%4==0:
+                return True
+        elif int(p)%4!=0 and int(c)%4==0:
+                return False
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match249-1.html#1" TARGET="1"><IMG SRC="../../bitmaps/tm_1_0.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+        elif int(p)%4==0 and int(c)%4!=0:
+                return False
+def month_name(number):
+        diction={1:'January',2:"February",3:"March",4:"April",5:"May",6:"June",7:"July",8:"August",9:"September",10:"October",11:"November",12:"December"}
+</FONT>        return diction[number]
+
+def days_in_month(month_number, year):
+        if (month_number==1 or month_number==3 or month_number==5 or month_number==7 or month_number==8 or month_number==10 or month_number==12):
+                return 31
+        elif month_number==4 or month_number==6 or month_number==9 or month_number==11:
+                return 30
+        elif month_number==2 and (year%400==0 or year%4==0):
+                return 29
+        elif  month_number==2 and (year%400!=0 or year%4!=0):
+                return 28
+def first_day_of_year(year):
+        days={1:'Monday',2:'Tuesday',3:"Wednesday",4:"Thursday",5:"Friday",6:"Saturday",0:'Sunday'}
+        a=(1+5*((year-1)%4)+4*((year-1)%100)+6*((year-1)%400))
+        day=a%7
+        return day
+
+def first_day_of_month(month_number, year):
+        a=(1+5*((year-1)%4)+4*((year-1)%100)+6*((year-1)%400))
+        day=a%7 
+        days=['Sunday','Monday','Tuesday',"Wednesday","Thursday","Friday","Saturday"]
+        dayss={'Sunday':0,'Monday':1,'Tuesday':2,"Wednesday":3,"Thursday":4,"Friday":5,"Saturday":6}
+    
+        p=str(year)[0:2]
+        c=str(year)[-2:]    
+        if month_number==1:
+                fd=day
+                return dayss[days[fd]]         
+        elif month_number==2:
+                fd=day+31%7-7
+                return dayss[days[fd]] 
+        elif month_number==3 and (int(p)%4!=0 and int(c)%4==0 or int(p)%4==0 and int(c)%4!=0):
+                fd=day+59%7-7
+                return dayss[days[fd]]
+        elif month_number==4 and (int(p)%4!=0 and int(c)%4==0 or int(p)%4==0 and int(c)%4!=0):
+                fd=day+90%7-7
+                return dayss[days[fd]]
+        elif month_number==5 and (int(p)%4!=0 and int(c)%4==0 or int(p)%4==0 and int(c)%4!=0):
+                fd=day+120%7-7
+                return dayss[days[fd]]
+            
+        elif month_number==6 and (int(p)%4!=0 and int(c)%4==0 or int(p)%4==0 and int(c)%4!=0):
+                fd=day+151%7-7
+                return dayss[days[fd]]
+        elif month_number==7 and (int(p)%4!=0 and int(c)%4==0 or int(p)%4==0 and int(c)%4!=0):
+                fd=day+181%7-7
+                return dayss[days[fd]]
+        elif month_number==8 and (int(p)%4!=0 and int(c)%4==0 or int(p)%4==0 and int(c)%4!=0):
+                fd=day+212%7-7
+                return dayss[days[fd]]
+        elif month_number==9 and (int(p)%4!=0 and int(c)%4==0 or int(p)%4==0 and int(c)%4!=0):
+                fd=day+243%7-7
+                return dayss[days[fd]]
+        elif month_number==10 and (int(p)%4!=0 and int(c)%4==0 or int(p)%4==0 and int(c)%4!=0):
+                fd=day+273%7-7
+                return dayss[days[fd]] 
+        elif month_number==11 and (int(p)%4!=0 and int(c)%4==0 or int(p)%4==0 and int(c)%4!=0):
+                fd=day+304%7-7
+                return dayss[days[fd]]
+        elif month_number==12 and (int(p)%4!=0 and int(c)%4==0 or int(p)%4==0 and int(c)%4!=0):
+                fd=day+334%7-7
+                return dayss[days[fd]]       
+        elif month_number==3  and (int(p)%4==0 and int(c)%4==0 or int(p)%4==0 and int(c)%4==0):
+                fd=day+60%7-7
+                return dayss[days[fd]]
+        elif month_number==4 and (year%400==0 and int(c)%4==0 or int(p)%4==0 and int(c)%4==0):
+                fd=day+91%7-7
+                return dayss[days[fd]]
+        elif month_number==5 and (year%400==0 and int(c)%4==0 or int(p)%4==0 and int(c)%4==0):
+                fd=day+121%7-7
+                return dayss[days[fd]]
+                       
+        elif month_number==6 and (year%400==0 and int(c)%4==0 or int(p)%4==0 and int(c)%4==0):
+                fd=day+152%7-7
+                return dayss[days[fd]]
+        elif month_number==7 and (year%400==0 and int(c)%4==0 or int(p)%4==0 and int(c)%4==0):
+                fd=day+182%7-7
+                return dayss[days[fd]]
+        elif month_number==8 and (year%400==0 and int(c)%4==0 or int(p)%4==0 and int(c)%4==0):
+                fd=day+213%7-7
+                return dayss[days[fd]]
+        elif month_number==9 and (year%400==0 and int(c)%4==0 or int(p)%4==0 and int(c)%4==0):
+                fd=day+244%7-7
+                return dayss[days[fd]]
+        elif month_number==10 and (year%400==0 and int(c)%4==0 or int(p)%4==0 and int(c)%4==0):
+                fd=day+274%7-7
+                return dayss[days[fd]] 
+        elif month_number==11 and (year%400==0 and int(c)%4==0 or int(p)%4==0 and int(c)%4==0):
+                fd=day+305%7-7
+                return dayss[days[fd]]
+        elif month_number==12 and (year%400==0 and int(c)%4==0 or int(p)%4==0 and int(c)%4==0):
+                fd=day+335%7-7
+                return dayss[days[fd]]    
+                            
+            
+            
+            
+    
+    
+    
+    
+    &gt;&gt;&gt;&gt; file: morse_code.py
+def code_for(letter):
+    symbols={'a':'.-','b':'-...','c':'-.-.','d':'-..','e':'.','f':'..-.','g':'--.','h':'....','i':'..','j':'.---','k':'-.-','l':'.-..','m':'--','n':'-.','o':'---','p':'.--.','q':'--.-','r':'.-.','s':'...','t':'-','u':'..-','v':'...-','w':'.--','x':'-..-','y':'-.--','z':'--..'}
+    return symbols[letter.lower()]
+
+def transmit_letter(letter):
+    symbols={'a':'.^-','b':'-^.^.^.','c':'-^.^-^.','d':'-^.^.','e':'.','f':'.^.^-^.','g':'-^-^.','h':'.^.^.^.','i':'.^.','j':'.^-^-^-','k':'-^.^-','l':'.^-^.^.','m':'-^-','n':'-^.','o':'-^-^-','p':'.^-^-^.','q':'-^-^.^-','r':'.^-^.','s':'.^.^.','t':'-','u':'.^.^-','v':'.^.^.^-','w':'.^-^-','x':'-^.^.^-','y':'-^.^-^-','z':'-^-^.^.'}
+    
+    for i in letter:
+        print(symbols[letter.lower()],end="")
+def transmit_word(word):
+    word=word.lower()
+    symbols={'a':'.^-','b':'-^.^.^.','c':'-^.^-^.','d':'-^.^.','e':'.','f':'.^.^-^.','g':'-^-^.','h':'.^.^.^.','i':'.^.','j':'.^-^-^-','k':'-^.^-','l':'.^-^.^.','m':'-^-','n':'-^.','o':'-^-^-','p':'.^-^-^.','q':'-^-^.^-','r':'.^-^.','s':'.^.^.','t':'-','u':'.^.^-','v':'.^.^.^-','w':'.^-^-','x':'-^.^.^-','y':'-^.^-^-','z':'-^-^.^.'}
+    p=0
+    x=(word).lower()[p]
+    d=(word).lower()[-1]
+    for i in word:
+        #x=word[p]
+        if x==i and d!=i:
+            symbols={'a':'.^-|','b':'-^.^.^.|','c':'-^.^-^.|','d':'-^.^.|','e':'.|','f':'.^.^-^.|','g':'-^-^.|','h':'.^.^.^.|','i':'.^.|','j':'.^-^-^-|','k':'-^.^-|','l':'.^-^.^.|','m':'-^-|','n':'-^.|','o':'-^-^-|','p':'.^-^-^.|','q':'-^-^.^-|','r':'.^-^.|','s':'.^.^.|','t':'-|','u':'.^.^-|','v':'.^.^.^-|','w':'.^-^-|','x':'-^.^.^-|','y':'-^.^-^-|','z':'-^-^.^.|'}
+            print(symbols[x],end="")
+            
+            
+        elif  d==i and x!=i:
+            
+            symbols={'a':'.^-','b':'-^.^.^.','c':'-^.^-^.','d':'-^.^.','e':'.','f':'.^.^-^.','g':'-^-^.','h':'.^.^.^.','i':'.^.','j':'.^-^-^-','k':'-^.^-','l':'.^-^.^.','m':'-^-','n':'-^.','o':'-^-^-','p':'.^-^-^.','q':'-^-^.^-','r':'.^-^.','s':'.^.^.','t':'-','u':'.^.^-','v':'.^.^.^-','w':'.^-^-','x':'-^.^.^-','y':'-^.^-^-','z':'-^-^.^.'}
+            print(symbols[i],end="")
+            
+            
+        else:
+            symbols={'a':'.^-|','b':'-^.^.^.|','c':'-^.^-^.|','d':'-^.^.|','e':'.|','f':'.^.^-^.|','g':'-^-^.|','h':'.^.^.^.|','i':'.^.|','j':'.^-^-^-|','k':'-^.^-|','l':'.^-^.^.|','m':'-^-|','n':'-^.|','o':'-^-^-|','p':'.^-^-^.|','q':'-^-^.^-|','r':'.^-^.|','s':'.^.^.|','t':'-|','u':'.^.^-|','v':'.^.^.^-|','w':'.^-^-|','x':'-^.^.^-|','y':'-^.^-^-|','z':'-^-^.^.|'}
+            
+            print(symbols[i],end="")
+            
+        #p+=1    
+def word_pause():
+    print('||',end="")
+         
+        
+        
+        
+        
+        
+&gt;&gt;&gt;&gt; file: technical_support.py
+# Tech Support
+# Stephan Jamieson
+# 5/1/2015
+responses={
+    'bluetooth':'Have you tried mouthwash?',
+    'windows':'Ah, I think I see your problem. What version?',
+    'apple':'You do mean the computer kind?',
+    'blue':'Ah, the blue screen of death. And then what happened?',
+    'spam':'You should see if your mail client can filter messages.',
+    'connection':'Contact Telkom.',
+    'crashed':'Are the drivers up to date?',
+    'hacked':'You should consider installing anti-virus software.'}
+
+
+def default_response():
+    return 'Curious, tell me more.'
+    
+def get_response(words):
+    for word in words:
+        if  word.lower() in responses:
+            return responses[word.lower()]
+    return default_response()
+    
+
+def print_welcome():
+    print('Welcome to the automated technical support system.')
+    print('Please describe your problem:')
+
+
+def get_input():
+    query = (input()).lower().split(' ')
+    return query
+
+def main():
+    print_welcome()
+    query = get_input()
+    while query!=['quit']:
+        response=get_response(query)
+        print(response)
+        #question
+        query =get_input()
+        if query==['quit']:break
+
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match249-1.html#0" TARGET="1"><IMG SRC="../../bitmaps/tm_0_1.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+if __name__ == '__main__':
+    main()&gt;&gt;&gt;&gt; file: test_calendar_utils.py
+# test_calendar_utils.py
+# Stephan Jamieson
+# 4/8/2015
+
+def print_welcome():
+    print('Test harness for calendar_utils');
+    
+def get_selection():
+    print('\nChoose from the following options:')
+    print('0. quit')
+    print('1. Test is_leap_year().')
+    print('2. Test month_name().')
+    print('3. Test days_in_month().')
+    print('4. Test first_day_of_year().')
+    print('5. Test first_day_of_month().')
+    return int(input())
+</FONT>
+def test_leap_year():
+    from calendar_utils import is_leap_year
+
+    year = int(input('Enter the year (4 digits):\n'))
+    if is_leap_year(year):
+        print('The year '+str(year)+' is a leap year.')
+    else:
+        print('The year '+str(year)+' is not leap year.')
+
+def test_month_name():
+    from calendar_utils import month_name
+    
+    for month_number in range(1, 13):
+        print('Month number '+str(month_number)+ ' is '+month_name(month_number)+'.')
+        
+
+def test_days_in_month():
+    from calendar_utils import days_in_month
+
+    year = int(input('Enter the year (4 digits):\n'))
+    for month_number in range(1, 12):
+        print('The days in the month with number '+str(month_number)+ ' in year '+str(year)+' is '+str(days_in_month(month_number, year))+'.')
+        
+def test_first_day_year():
+    from calendar_utils import first_day_of_year
+    
+    year = int(input('Enter the year (4 digits):\n'))
+    print('The first day of '+str(year)+' is '+str(first_day_of_year(year))+'.')
+    
+def test_first_day_month():
+    from calendar_utils import first_day_of_month
+    
+    month = int(input('Enter the month (1 for January, ..., 12 for December):\n'))
+    year = int(input('Enter the year (4 digits):\n'))
+    print('The first day of month '+str(month)+' in '+str(year)+' is '+str(first_day_of_month(month, year))+'.')
+    
+def main():
+    print_welcome()
+    
+    selection = get_selection()
+    while not selection==0:
+
+        if selection==1:
+            test_leap_year()
+        elif selection==2:
+            test_month_name()
+        elif selection==3:
+            
+            test_days_in_month()
+        elif selection==4:
+            test_first_day_year()
+        elif selection==5:
+            test_first_day_month()
+        else:
+            print('That selection was not recognised.')
+
+        selection = get_selection()
+        
+        
+main()
+&gt;&gt;&gt;&gt; file: test_morse_code.py
+# test_morse_code.py
+# Stephan Jamieson
+# 12/1/2015, 4/2015
+
+def print_welcome():
+    print('Test harness for morse_code');
+    
+def get_selection():
+    print('\nChoose from the following options:')
+    print('0. quit')
+    print('1. Test code_for().')
+    print('2. Test transmit_letter().')
+    print('3. Test transmit_word().')
+    print('4. Test word_pause().')
+    return int(input())
+
+def test_code_for():
+    from morse_code import code_for
+    for letter in "abcdefghijklmnopqrstuvwxyz":
+        print(letter, code_for(letter))
+        
+def test_transmit_letter():
+    from morse_code import transmit_letter
+    for letter in "abcdefghijklmnopqrstuvwxyz":
+        print(letter, ':', end='')
+        transmit_letter(letter)
+        print()
+               
+def test_transmit_word():
+    from morse_code import transmit_word
+    word = input("Enter test word:\n")
+    transmit_word(word)
+    
+def test_word_pause():
+    from morse_code import word_pause    
+    word_pause()
+
+
+def main():
+    print_welcome()
+    selection = get_selection()
+    
+    while not selection==0:
+        if selection==1:
+            test_code_for()
+        elif selection==2:
+            test_transmit_letter()
+        elif selection==3:
+            test_transmit_word()
+        elif selection==4:
+            test_word_pause()
+        else:
+            print('Sorry, that selection was not recognised.')
+            
+        selection = get_selection()
+main()</PRE>
+</PRE>
+</BODY>
+</HTML>

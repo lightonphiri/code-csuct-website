@@ -1,0 +1,255 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/5/raw/isclil001/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/5/raw/isclil001/<p><PRE>
+&gt;&gt;&gt;&gt; file: calendar.py
+import calendar_utils
+
+def to_string(n, e):
+        if n&lt;1 or n&gt;e:
+                return '  '
+        else:
+                return '{:&gt;2}'.format(n)
+        
+def row(i, s, e):
+        start = i*7+s
+        result=to_string(start, e)
+        for column in range(start+1, start+7):
+                result+=' '+to_string(column, e)  
+        return result
+
+def row_of_months(i, start_month, year):
+        
+        start_day=(calendar_utils.first_day_of_month(start_month, year)-1)%7
+        days=calendar_utils.days_in_month(start_month, year)
+        
+        result=row(i, 1-start_day, days)
+
+        for month in range(start_month+1, start_month+3):
+                result+='   '
+                start_day=(start_day+days)%7
+                days=calendar_utils.days_in_month(month, year)
+                result+=row(i, 1-start_day, days)
+
+        return result
+
+def print_year(year):
+        print('{0:^69}'.format(year))
+        
+def print_month_names(start_month):
+        print('{0:^20}   {1:^20}   {2:^20}'.format(calendar_utils.month_name(start_month), calendar_utils.month_name(start_month+1), calendar_utils.month_name(start_month+2)).title())
+
+def print_month_days():
+        week='Mo Tu We Th Fr Sa Su'
+        print('{0:^20}   {1:^20}   {2:^20}'.format(week, week, week))
+        
+def print_months(start_month, year):
+        print_month_names(start_month)
+        print()
+        print_month_days()
+        
+        for r in range(0, 6):
+                print(row_of_months(r, start_month, year))
+                
+def main():
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match143-1.html#0" TARGET="1"><IMG SRC="../../bitmaps/tm_0_3.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+        year=int(input('Enter the year:\n'))
+        
+        print_year(year)
+        print()
+        print_months(1, year)
+        for month in range(4, 13, 3):
+                print()
+                print_months(month, year)
+                
+
+if __name__ == "__main__":
+        main()&gt;&gt;&gt;&gt; file: morse_code.py
+letters = {"a":".-","b":"-...","c":"-.-.","d":"-..","e":".","f":"..-.","g":"--.","h":"....","i":"..","j":".---","k":"-.-","l":".-..","m":"--","n":"-.","o":"---","p":".--.","q":"--.-","r":".-.","s":"...","t":"-","u":"..-","v":"...-","w":".--","x":"-..-","y":"-.--","z":"--.."}
+</FONT>message = input("Enter message:\n")
+
+p = {}
+def code_for(letters): 
+    letter = letters.lower()
+    d = ""
+
+    for i in letter:
+        d = ""
+        if i in letters:
+            d +=letters[i]
+    return d
+print(code_for(letters))
+
+def transmit_letter(letters):
+    x = code_for(letters)
+    y = ""
+    silence = "^"
+    for i in x:
+        p = {}
+        p[i] = i
+    for i in x:
+        y += p[i]+silence
+    z = len(y)
+    y = y[0:z-1]
+    print(z)
+    print(y,end = "")
+
+print(transmit_letters(letters))
+
+def transmit_word(word):
+
+    t = transmit_letters(letters)
+    empty = ""
+    duration = "|"
+    for letter in word:
+        
+        x = code_for(letters)
+        y = ""
+        silence = "^"
+        for i in x:
+            p = {}
+            p[i] = i
+        for i in x:
+            y += p[i]+silence
+        z = len(y)
+        y = y[0:z-1]       
+        
+        empty += y + duration
+    empty = empty[0:len(empty)-1]
+    print(empty,end = "")
+print(transmit_word(word))
+        
+def word_pause():
+    print("||", end ="")
+    print(transmit_word("word"))
+    word_list = message.split(" ")
+    empty_string = ""
+    pause = "||"
+    for word in word_list:
+        var = transmit_word(word)
+        empty_string += var + pause
+    empty_string = empty_string[0:len(empty_string)-2]
+    return empty_string
+    
+print(word_pause())
+        
+        
+
+    
+    
+    
+
+    
+&gt;&gt;&gt;&gt; file: technical_support.py
+# Tech Support
+# Stephan Jamieson
+# 5/1/2015
+responses={
+    'bluetooth':'Have you tried mouthwash?',
+    'windows':'Ah, I think I see your problem. What version?',
+    'apple':'You do mean the computer kind?',
+    'blue':'Ah, the blue screen of death. And then what happened?',
+    'spam':'You should see if your mail client can filter messages.',
+    'connection':'Contact Telkom.',
+    'crashed':'Are the drivers up to date?',
+    'hacked':'You should consider installing anti-virus software.'}
+
+
+def default_response():
+    return 'Curious, tell me more.'
+    
+def get_response(query):
+    for word in query:
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match143-1.html#1" TARGET="1"><IMG SRC="../../bitmaps/tm_1_3.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+        if  word in responses:
+            return responses[word]
+                                               
+    else:
+        return  default_response()
+
+
+def print_welcome():
+    print('Welcome to the automated technical support system.')
+    print('Please describe your problem:')
+
+
+def get_input():
+    query = input().lower()
+</FONT><A NAME="2"></A><FONT color = #0000FF><A HREF="match143-1.html#2" TARGET="1"><IMG SRC="../../bitmaps/tm_2_3.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    query = query.split(' ')
+    return query
+
+def main():
+    print_welcome()
+    query = get_input()
+    while True:
+        if query == ['quit']:
+            break
+        else:
+</FONT>            
+            response=get_response(query)
+            print(response)
+            query = get_input()
+        
+main()&gt;&gt;&gt;&gt; file: test_morse_code.py
+def print_welcome():
+    print('Test harness for morse_code');
+    
+def get_selection():
+    print('\nChoose from the following options:')
+    print('0. quit')
+    print('1. Test code_for().')
+    print('2. Test transmit_letter().')
+    print('3. Test transmit_word().')
+    print('4. Test word_pause().')
+    return int(input())
+
+def test_code_for():
+    from morse_code import code_for
+    for letter in "abcdefghijklmnopqrstuvwxyz":
+        print(letter, code_for(letter))
+        
+def test_transmit_letter():
+    from morse_code import transmit_letter
+    for letter in "abcdefghijklmnopqrstuvwxyz":
+        print(letter, ':', end='')
+        transmit_letter(letter)
+        print()
+               
+def test_transmit_word():
+    from morse_code import transmit_word
+    word = input("Enter test word:\n")
+    transmit_word(word)
+    
+def test_word_pause():
+    from morse_code import word_pause    
+    word_pause()
+
+
+def main():
+    print_welcome()
+    selection = get_selection()
+    
+    while not selection==0:
+        if selection==1:
+            test_code_for()
+        elif selection==2:
+            test_transmit_letter()
+        elif selection==3:
+            test_transmit_word()
+        elif selection==4:
+            test_word_pause()
+        else:
+            print('Sorry, that selection was not recognised.')
+            
+        selection = get_selection()
+main()</PRE>
+</PRE>
+</BODY>
+</HTML>

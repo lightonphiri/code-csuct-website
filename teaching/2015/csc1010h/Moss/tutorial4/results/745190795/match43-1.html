@@ -1,0 +1,252 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/4/raw/khsman003/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/4/raw/mmlfhu003/<p><PRE>
+&gt;&gt;&gt;&gt; file: LongJump.py
+def main():
+    number_of_compititor=1
+    name=[]
+    atmpt=[]
+    diction={}
+    score=0
+    winner=''
+    print('***** Long Jump Information System *****')
+    print('Please enter the names of competitors. (Press return when done.)')
+    while True:
+        print("Competitor no.",str(number_of_compititor)+":")
+        compititor=input('')
+        if compititor!="":
+            number_of_compititor+=1
+            name.append(compititor)
+            continue
+        else:
+            print('Please enter the distances for each competitor.')
+            for i in name:
+                print('Competitor '+str(i)+":")
+                for p in range(3):
+                    print('Attempt', str(p+1)+':')
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match43-0.html#0" TARGET="0"><IMG SRC="../../bitmaps/tm_0_4.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+                    attempt=input("")
+                    if attempt=="foul":
+                        attempt="0"
+                        atmpt.append(attempt)
+                        diction[i]=max(atmpt)
+                    else:
+                        atmpt.append(attempt)
+                        diction[i]=max(atmpt)
+                    if float(attempt)&gt;float(score):
+                        score=attempt
+                atmpt=[]
+            print()
+</FONT>            print("Competitor               Longest Distance         ")
+            L=len(name)
+            for t in range(L):
+                #print("{0:25}{1:&lt;15.2f}".format(name[t],float(diction[i])))
+                if diction[name[t]]==score:
+                    winner=name[t]
+                if diction[name[t]]==str(0):
+                    print("{0:25}{1:&lt;25}".format(name[t],"No jump"))
+                else:
+                    print("{0:25}{1:&lt;15.2f}".format(name[t],float(diction[name[t]])))
+            print()       
+            print("The winner is {0} with a jump of {1:.2f}.".format(winner,float(score)))
+            break
+                
+            
+main()
+                    
+                        
+                        
+                        
+                    
+                    
+            
+            
+        
+        
+        
+
+    &gt;&gt;&gt;&gt; file: NikNaks.py
+import random
+def main():
+<A NAME="2"></A><FONT color = #0000FF><A HREF="match43-0.html#2" TARGET="0"><IMG SRC="../../bitmaps/tm_2_2.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    print('Guess the mystery 4 letter code. (No letter occurs more than once.)')
+    difficulty=int(input('Choose difficulty level (4 to 26):\n'))
+    letters=list('abcdefghijklmnopqrstuvwxyz')[0: difficulty]
+    print('The letters in the code are chosen from: {}.'.format(letters))
+    secret_code=[]
+    p=""
+</FONT>    niks=0
+    naks=0
+    for i in range(4):
+        rand_index=random.randint(0, len(letters)-1)
+        letter=letters.pop(rand_index)
+        secret_code.append(letter)
+    attempt=10
+    while attempt&gt;=1:
+        print("You have",attempt,"guesses remaining.")
+        guess=input("Enter your guess:\n")
+        for p in range(4):
+            if guess[p]==secret_code[p]:
+                niks+=1
+            elif guess[p] in secret_code:
+                naks+=1
+        if niks==4:
+            print('Correct!')
+            break
+        else:
+            attempt-=1
+        if niks==1 and naks==1:
+                print("There is",niks, "Nik and",naks,"Nak.")
+        elif niks==1 and naks&gt;1:
+                print("There is",niks, "Nik and",naks,"Naks.")
+        elif niks&gt;1 and naks==1:
+                print("There are",niks, "Niks and",naks,"Nak.")
+        elif niks&gt;1 and naks&gt;1:
+                print("There are",niks, "Niks and",naks,"Naks.")
+        elif niks==0 and naks==0:
+                print("There are",niks, "Niks and",naks,"Naks.")
+        elif niks==1 and naks==0:
+                print("There is",niks, "Nik and",naks,"Naks.")
+        elif niks==0 and naks==1:
+                print("There are",niks, "Niks and",naks,"Nak.")
+        elif niks&gt;1 and naks==0:
+                print("There are",niks, "Niks and",naks,"Naks.")
+        elif niks==0 and naks&gt;1:
+                print("There are",niks, "Niks and",naks,"Naks.")
+        niks=0
+        naks=0    
+    if attempt==0:
+        print('Sorry, you lose.')
+        m=""
+        for u in secret_code:
+            m+=u
+        print('The secret number was',m,end=""+".")
+if __name__ == '__main__':
+    main()
+                           
+        
+    #print(secret_code)&gt;&gt;&gt;&gt; file: turtlehouse.py
+import turtle
+turtle.speed(0)
+turtle.fillcolor("blue")
+turtle.begin_fill()
+turtle.left(90)
+turtle.pu()
+turtle.fd(200)
+turtle.pd()
+for i in range(4):
+    turtle.rt(90)
+    turtle.fd(100)
+turtle.end_fill()
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match43-0.html#1" TARGET="0"><IMG SRC="../../bitmaps/tm_1_2.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+turtle.fillcolor("green")
+turtle.begin_fill()
+turtle.rt(180)
+turtle.fd(30)
+turtle.left(90)
+turtle.fd(50)
+turtle.rt(90)
+turtle.fd(30)
+</FONT>turtle.rt(90)
+turtle.fd(50)
+turtle.rt(90)
+turtle.fd(30)
+turtle.end_fill()
+turtle.rt(180)
+turtle.fd(60)
+turtle.fillcolor("yellow")
+turtle.begin_fill()
+turtle.fd(200)
+turtle.left(90)
+turtle.fd(100)
+turtle.left(90)
+turtle.fd(190)
+turtle.left(90)
+turtle.fd(100)
+turtle.end_fill()
+turtle.left(90)
+turtle.fillcolor("green")
+turtle.begin_fill()
+turtle.fd(50)
+turtle.left(90)
+turtle.fd(50)
+turtle.rt(90)
+turtle.fd(50)
+turtle.rt(90)
+turtle.fd(50)
+turtle.rt(90)
+turtle.fd(50)
+turtle.end_fill()
+turtle.home()
+turtle.rt(90)
+turtle.fd(40)
+turtle.left(90)
+turtle.penup()
+turtle.fd(70)
+turtle.fillcolor("green")
+turtle.begin_fill()
+for i in range(4):
+    turtle.rt(90)
+    turtle.fd(40)
+turtle.end_fill()
+turtle.rt(90)
+turtle.fillcolor("red")
+turtle.fd(50)
+turtle.left(90)
+turtle.fd(30)
+turtle.rt(300)
+turtle.begin_fill()
+turtle.pd()
+turtle.fd(100)
+turtle.left(30)
+turtle.fd(115)
+turtle.left(30)
+turtle.fd(100)
+turtle.left(150)
+turtle.end_fill()
+turtle.fd(280)
+turtle.back(180)
+turtle.left(105)
+turtle.fd(50)
+turtle.pu()
+turtle.home()
+turtle.rt(90)
+turtle.fd(150)
+turtle.pd()
+turtle.fillcolor("brown")
+turtle.begin_fill()
+turtle.fd(10)
+turtle.left(90)
+turtle.fd(40)
+turtle.left(90)
+turtle.fd(10)
+turtle.left(90)
+turtle.fd(40)
+turtle.back(40)
+turtle.end_fill()
+#turtle.hideturtle()
+turtle.fillcolor("green")
+turtle.begin_fill()
+turtle.left(90)
+turtle.fd(15)
+turtle.left(120)
+turtle.fd(20)
+turtle.left(120)
+turtle.fd(20)
+turtle.left(120)
+turtle.end_fill()
+turtle.fd(20)
+turtle.left(120)
+turtle.fd(20)
+turtle.hideturtle()
+turtle.exitonclick()</PRE>
+</PRE>
+</BODY>
+</HTML>

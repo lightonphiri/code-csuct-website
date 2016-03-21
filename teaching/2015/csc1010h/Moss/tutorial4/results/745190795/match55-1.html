@@ -1,0 +1,173 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/4/raw/khsman003/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/4/raw/mnqman002/<p><PRE>
+&gt;&gt;&gt;&gt; file: LongJump.py
+x= 1 
+c = []
+print("***** Long Jump Information System *****")
+print("Please enter the names of competitors. (Press return when done.)")
+while True:
+    n = input("Competitor no. "+str(x)+ ":\n")
+    x+=1
+    if n=="" : break
+    else:
+        c.append(n)
+d={}
+l=[]
+sh=[]
+print("Please enter the distances for each competitor.")
+for m in c:
+    print("Competitor",m+ ":")
+    for i in range(3):
+        attempt=input("Attempt "+str(i+1)+":\n")
+        if attempt== "Foul" or attempt=="foul":
+            attempt="0"
+        attempt = eval(attempt)
+        l.append(attempt)
+    d[m]=max(l)
+    sh.append(max(l))
+    l=[]
+print()
+
+print("{0:25}{1}".format("Competitor","Longest Distance"))
+for name in c:
+    if d[name] == 0:
+        d[name]="No jump"
+    if d[name]!="No jump":
+        print("{0:25}{1:&lt;15.2f}".format(name,d[name]))
+    else:
+        print("{0:25}{1:15}".format(name,d[name]))
+winner = []
+for m in c:
+        if d[m] != "No jump":
+            d[m]=float(d[m]) 
+            winner.append(d[m])
+s = max(winner)
+print()
+print("The winner is {1} with a jump of {0:.2f}.".format(s,c[sh.index(s)]))&gt;&gt;&gt;&gt; file: NikNaks.py
+import random
+def main():
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match55-0.html#0" TARGET="0"><IMG SRC="../../bitmaps/tm_0_9.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    print("Guess the mystery 4 letter code. (No letter occurs more than once.)")
+    difficulty=int(input('Choose difficulty level (4 to 26):\n'))
+    letters=list('abcdefghijklmnopqrstuvwxyz')[0: difficulty]
+    print('The letters in the code are chosen from: {}.'.format(letters))
+    secret_code=[]
+    s=""
+    for i in range(4):
+        rand_index=random.randint(0, len(letters)-1)
+        letter=letters.pop(rand_index)
+        secret_code.append(letter)
+        s+=letter
+    niks=0
+    naks=0
+    variable= 10
+</FONT>    x=0
+    for j in range(10):
+        niks= 0
+        naks=0
+        print ("You have", (variable-x), "guesses remaining.")
+        print("Enter your guess:")
+        guess = input("")
+        for p in range(len(guess)):
+            if secret_code[p] in guess:
+                if guess[p]==secret_code[p]:
+                    niks+=1
+                elif guess[p]!=secret_code[p]: 
+                    naks+=1
+        if niks== 4:
+            print("Correct!")
+            break
+        
+        if niks==0 and naks==0:
+            print("There are",ni,"Niks and",na,"Naks.")
+            x+=1
+        elif niks==1 and naks==0:
+            print("There are",ni,"Nik and",na,"Naks.")
+            x+=1
+        elif niks==0 and naks==1:
+            print("There are",ni,"Niks and",na,"Nak.")
+            x+=1
+        elif niks&gt;1 and naks&gt;1:
+            print("There are",ni,"Niks and",na,"Naks.")
+            x+=1
+        elif niks&gt;1 and naks==0:
+            print("There are",ni,"Niks and",na,"Naks.")
+            x+=1
+        elif niks==0 and naks&gt;1:
+            print("There are",ni,"Niks and",na,"Naks.")
+            x+=1
+        elif niks&gt;1 and naks==1:
+            print("There are",ni,"Niks and",na,"Nak.")
+            x+=1
+        elif niks==1 and naks&gt;1:
+            print("There is",ni,"Nik and",na,"Naks.")
+            x+=1
+        elif niks==1 and naks==1:
+            print("There is",ni,"Nik and",na,"Nak.")
+            x+=1            
+        if x==10:
+            print('Sorry, you lose.')
+            print('The secret number was',s+".")
+            
+            
+if __name__ == '__main__':
+    main()
+           
+    
+    
+    
+
+            &gt;&gt;&gt;&gt; file: PythonTurtle.py
+# python turtle
+# mantombi manqele
+# 30 july 2015
+
+import turtle
+
+def main():
+    turtle.shape('triangle')
+    turtle.pensize(3)
+    turtle.color("black", "magenta")
+    turtle.begin_fill()
+    turtle.circle(-40)
+    turtle.end_fill()
+    turtle.color("black")
+    turtle.penup()
+    turtle.left(90)
+    turtle.back(40)
+    turtle.right(180)
+    turtle.pendown()
+    turtle.stamp()
+    turtle.penup()
+    turtle.forward(100)
+    turtle.left(90)
+    turtle.shape('square')
+    turtle.color("black", "blue")
+    turtle.pendown()
+    turtle.begin_fill()
+    turtle.circle(-40)
+    turtle.end_fill()
+    turtle.color("black")
+    turtle.penup()
+    turtle.left(90)
+    turtle.back(40)
+    turtle.pendown()
+    turtle.stamp()
+    turtle.penup()
+    turtle.forward(300)
+    turtle.shape("turtle")
+    turtle.right(90)
+    turtle.exitonclick()
+    
+main()
+
+    </PRE>
+</PRE>
+</BODY>
+</HTML>

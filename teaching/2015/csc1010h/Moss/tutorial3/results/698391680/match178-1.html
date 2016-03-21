@@ -1,0 +1,238 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/3/raw/khsman003/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/3/raw/mphfar001/<p><PRE>
+&gt;&gt;&gt;&gt; file: FeetMetres.py
+# FeetMetres 
+
+def main() :
+    _min_feet_ = int(input("Enter the minimum number of feet (not less than 0):\n"))
+    _max_feet_ = int(input("Enter the maximum number of feet (not more than 99):\n"))
+    
+    for i in range (_min_feet_,_max_feet_+1) :
+        
+        _metres_ =.3048*i
+        print("{0:&gt;4}' |   {1:.2f}m".format(i,_metres_))
+main()&gt;&gt;&gt;&gt; file: FlowerPattern.py
+# Flower Pattern
+
+import turtle
+
+petals = int(turtle.numinput("Petals","Enter the number of petals (must be an even number): "))
+stem = turtle.numinput("Stem Length","Enter the length of stem: ")
+petal_type = turtle.textinput("Petal Window" , "Enter the petal type (triangle, square, or pentagon): ")
+size = turtle.numinput("Size window","Enter the length of side: ")
+stem_colour = turtle.textinput("Stem Colour","Enter the stem colour: ")
+color_one = turtle.textinput("First Petal",'Enter the first petal colour: ')
+color_two = turtle.textinput("Second Petal","Enter the second petal colour: ")
+turtle.speed(3)
+
+if petal_type == "pentagon" :
+    for i in range (petals) :
+        turtle.color(stem_colour)
+        turtle.fd(stem)
+        if i%2 ==0 :
+            colour = color_one
+        else :
+            colour = color_two
+        turtle.color(colour)
+        turtle.right(54)
+        turtle.fd(size)
+        turtle.left(72)
+        turtle.fd(size)
+        turtle.left(72)
+        turtle.fd(size)
+        turtle.left(72)
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match178-0.html#0" TARGET="0"><IMG SRC="../../bitmaps/tm_0_2.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+        turtle.fd(size)
+        turtle.left(72)
+        turtle.fd(size)
+   
+        turtle.penup()
+        turtle.right(54)
+        turtle.fd(stem)
+        
+        turtle.pendown()
+        turtle.right(360/petals+180)
+</FONT>
+    
+if petal_type == "triangle" : 
+    for i in range (petals) :
+        turtle.color(stem_colour)
+        turtle.fd(stem)
+        if i%2 ==0 :
+            colour = color_one
+        else :
+            colour = color_two
+        turtle.color(colour)
+        turtle.right(30)
+        turtle.fd(size)
+        turtle.left(120)
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match178-0.html#1" TARGET="0"><IMG SRC="../../bitmaps/tm_1_2.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+        turtle.fd(size)
+        turtle.left(120)
+        turtle.fd(size)
+        #turtle.left(72)
+        #turtle.fd(size)
+        #turtle.left(72)
+        #turtle.fd(size)
+       
+        turtle.penup()
+        turtle.right(30)
+        turtle.fd(stem)
+       
+        turtle.pendown()
+        turtle.right(360/petals+180)
+</FONT>        
+if petal_type == "square" :
+    for i in range (petals) :
+        turtle.color(stem_colour)
+        turtle.fd(stem)
+        if i%2 ==0 :
+            colour = color_one
+        else :
+            colour = color_two
+        turtle.color(colour)
+        turtle.right(45)
+        turtle.fd(size)
+        turtle.left(90)
+        turtle.fd(size)
+        turtle.left(90)
+<A NAME="2"></A><FONT color = #0000FF><A HREF="match178-0.html#2" TARGET="0"><IMG SRC="../../bitmaps/tm_2_2.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+        turtle.fd(size)
+        turtle.left(90)
+        turtle.fd(size)
+        
+         
+        turtle.penup()
+        turtle.right(45)
+        turtle.fd(stem)
+         
+        turtle.pendown()
+        turtle.right(360/petals+180)
+</FONT>    
+
+
+turtle.exitonclick()&gt;&gt;&gt;&gt; file: InchesMetres.py
+# inchMetres 
+
+def main() :
+    _min_inch_ = int(input("Enter the minimum number of inches (not less than 0):\n"))
+    _max_inch_ = int(input("Enter the maximum number of inches (not greater than 11):\n"))
+    
+    print("Inches:",end='')
+    for i in range (_min_inch_,_max_inch_+1) :
+        _metres_ =0.0254*i
+        print ("{:&gt;5}".format(i), end = '')
+    print()
+    print("Metres:",end='')
+    for i in range (_min_inch_,_max_inch_+1) :
+        _metres_ =0.0254*i    
+        print("{:&gt;5.2f}".format(_metres_),end='')
+        
+main()&gt;&gt;&gt;&gt; file: TimeConvertor.py
+# TIME CONVERTER 
+
+def main() :
+    _time_ = input("Enter a time ([h]h:mm [am|pm]):\n") 
+    if len(_time_)&lt;6 :        
+         
+        Sli_time_=int(_time_[0:2])
+    
+        if _time_[0:2]== '00':
+            Two_four_ = "12" 
+            print ("{}:{} am".format(Two_four_,_time_[3:5])) 
+        if 12 &lt; Sli_time_ &lt;24 :
+            Two_four_=Sli_time_-12
+            print(Two_four_,":",_time_[3:5]," pm",sep="")
+        if 0&lt; Sli_time_ &lt;12 :
+            print("{}:{} am".format(_time_[1],_time_[3:5]))
+        elif Sli_time_ ==12 :
+            print("{} pm".format(_time_))
+            
+    elif len(_time_)&gt;5 :
+    
+      
+        _period_ = _time_[5:7]
+        _start_ = int(_time_[0])
+    
+        print("0{}".format(_time_[0:4])) if _period_== "am" else False
+   
+        if 0&lt; int(_time_[0])&lt;10 and _time_[5:7] == "pm" :
+            _conv_=int(_time_[0]) + 12
+        
+            print("{}:{}".format(_conv_,_time_[2:4]))
+        print("23:{}".format(_time_[3:5])) if _time_[0:2] == "11" and _time_[6:8] == "pm" else False
+        print("{}".format(_time_[0:5])) if _time_[0:2] == "12" and _time_[6:8] == "pm" else False
+        print("00:{}".format(_time_[3:5])) if _time_[0:2] == "12" and _time_[6:8] == "am" else False 
+        
+main()&gt;&gt;&gt;&gt; file: Twelve.py
+# Twelve.py 
+
+def main ():
+    _time_= input("Enter a time in 12 hour clock ([h]h:mm [am|pm]):\n")
+    _period_ = _time_[5:7]
+    _start_ = int(_time_[0])
+    
+    print("0{}".format(_time_[0:4])) if _period_== "am" else False
+   
+    if 0&lt; int(_time_[0])&lt;10 and _time_[5:7] == "pm" :
+        _conv_=int(_time_[0]) + 12
+        
+        print("{}:{}".format(_conv_,_time_[2:4]))
+    print("23:{}".format(_time_[3:5])) if _time_[0:2] == "11" and _time_[6:8] == "pm" else False
+    print("{}".format(_time_[0:5])) if _time_[0:2] == "12" and _time_[6:8] == "pm" else False
+    print("00:{}".format(_time_[3:5])) if _time_[0:2] == "12" and _time_[6:8] == "am" else False
+
+main()&gt;&gt;&gt;&gt; file: TwentyFour.py
+def main() :
+    _time_ = input("Enter a time in 24 hour clock (hh:mm):\n")
+    Sli_time_=int(_time_[0:2])
+    
+    if Sli_time_== 00:
+        Two_four_ = "12" 
+        print ("{}:{} am".format(Two_four_,_time_[3:5])) 
+    if 12 &lt; Sli_time_ &lt;24 :
+        Two_four_=Sli_time_-12
+        print(Two_four_,":",_time_[3:5]," pm",sep="")
+    if 0&lt; Sli_time_ &lt;12 :
+        print("{}:{} am".format(_time_[1],_time_[3:5]))
+    elif Sli_time_ ==12 :
+        print("{} pm".format(_time_))
+main()
+&gt;&gt;&gt;&gt; file: VehicleClassifier.py
+def classifier() :
+    print("***** Vehicle classifier *****")
+    _gvm_ = eval(input("What is the gross vehicle mass (in kg)?\n"))
+    _trailer_= input("Does the vehicle have a trailer?\n")
+    if _gvm_ &lt;= 3500 :
+        _class_ = "B"   
+    if 3500&lt;_gvm_ &lt;=16000 : 
+        _class_ = "C1" 
+    if _gvm_ &gt; 16000 :
+        _class_ = "C"  
+    
+    if _trailer_[0] == "y" :
+        _trailer_mass_=eval(input("What is gross vehicle mass of the trailer (in kg)?\n"))
+        if _trailer_mass_ &gt; 750 :
+            print("This vehicle is class E{}.".format(_class_))
+        elif _trailer_mass_ &lt;= 750 :
+            print("This vehicle is class {}.".format(_class_))
+    
+    if _trailer_[0] == "n" :
+        _art_ = input("Is the vehicle articulated?\n")         
+        if _art_ == "n" :
+            print("This vehicle is class {}.".format(_class_))
+        else :
+            print("This vehicle is class E{}.".format(_class_))
+    
+classifier()</PRE>
+</PRE>
+</BODY>
+</HTML>

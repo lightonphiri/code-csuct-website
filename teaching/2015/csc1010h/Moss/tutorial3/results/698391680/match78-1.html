@@ -1,0 +1,319 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/3/raw/mhlthe039/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/3/raw/mzbntw001/<p><PRE>
+&gt;&gt;&gt;&gt; file: FeetMetres.py
+'''
+Author: Ntwanano Mazibuko
+Student no.: MZBNTW001
+Date: 12 May 2015
+'''
+
+def main():
+    minimum=int(input('Enter the minimum number of feet (not less than 0): \n'))
+    maximum=int(input('Enter the maximum number of feet (not more than 99): \n'))
+
+    for i in range(minimum, maximum+1):
+        feet_to_metres=i*0.3048
+        print('  {0:^4}|{1:&gt;7.2f}'.format(str(i)+'\'',feet_to_metres),'m',sep='')
+main()&gt;&gt;&gt;&gt; file: FlowerPattern.py
+'''
+Author: Ntwanano Mazibuko
+Student no.: MZBNTW001
+Date: 15 May 2015
+'''
+
+from turtle import *
+
+def flowerpattern():
+    number_of_petals=numinput('Enter the number of petals (must be an even number):','')
+    length_of_stem=numinput('Enter the length of stem:','')
+    petal_type=textinput('Enter the petal type (triangle, square, or pentagon):','')
+    length_of_side=numinput('Enter the length of side:','')
+    stem_colour=textinput('Enter the stem colour:','')
+    first_petal_colour=textinput('Enter the first petal colour:','')
+    second_petal_colour=textinput('Enter the second petal colour:','')
+    angle=360/int(number_of_petals)
+    
+    if petal_type=='triangle':
+        for i in range(1, int(number_of_petals)+1):
+            i-=1
+            if i%2==0:
+                i+=1
+                pencolor(stem_colour)
+                forward(length_of_stem)
+                left(30)
+                pencolor(second_petal_colour)
+                for n in range(3):
+                    forward(length_of_side)
+                    right(120)
+                penup()
+                home()
+                pendown()
+                left(i*int(angle))
+            
+            elif i%2!=0:
+                i+=1
+                pencolor(stem_colour)
+                forward(length_of_stem)
+                left(30)
+                pencolor(first_petal_colour)  
+                for n in range(3):
+                    forward(length_of_side)
+                    right(120)
+                penup()
+                home()
+                pendown()
+                left(i*int(angle))
+    
+    elif petal_type=='square':
+        for i in range(1, int(number_of_petals)+1):
+            i-=1
+            if i%2==0:
+                i+=1        
+                pencolor(stem_colour)
+                forward(length_of_stem)
+                left(45)
+                pencolor(second_petal_colour)  
+                for k in range(4):
+                    forward(length_of_side)
+                    right(90)
+                penup()
+                home()
+                pendown()
+                left(i*int(angle))
+            
+            elif i%2!=0:
+                i+=1
+                pencolor(stem_colour)
+                forward(length_of_stem)
+                left(45)
+                pencolor(first_petal_colour)  
+                for k in range(4):
+                    forward(length_of_side)
+                    right(90)
+                penup()
+                home()
+                pendown()
+                left(i*int(angle))
+                
+    elif petal_type=='pentagon':
+        for i in range(1, int(number_of_petals)+1):
+            i-=1
+            if i%2==0:
+                i+=1
+                pencolor(stem_colour)
+                forward(length_of_stem)
+                left(56)
+                for j in range(5):
+                    pencolor(second_petal_colour)
+                    forward(length_of_side)
+                    right(72)
+                penup()
+                home()
+                pendown()
+                left(i*int(angle))
+            
+            elif i%2!=0:
+                i+=1
+                pencolor(stem_colour)
+                forward(length_of_stem)
+                left(56)
+                for j in range(5):
+                    pencolor(first_petal_colour)
+                    forward(length_of_side)
+                    right(72)
+                penup()
+                home()
+                pendown()
+                left(i*int(angle))
+    exitonclick()
+flowerpattern()&gt;&gt;&gt;&gt; file: InchesMetres.py
+'''
+Author: Ntwanano Mazibuko
+Student no.: MZBNTW001
+Date: 12 May 2015
+'''
+
+def main():
+    minimum=int(input('Enter the minimum number of inches (not less than 0):\n'))
+    maximum=int(input('Enter the maximum number of inches (not greater than 11):\n'))
+    
+    print('Inches: ',end='')
+    for i in range(minimum, maximum+1):
+        print('{0:&gt;4}'.format(i),end=' ')
+    print()
+    print('Metres: ',end='')
+    for j in range(minimum, maximum+1):
+        inches_to_metres=j*0.0254
+        print('{0:&gt;4.2f}'.format(inches_to_metres),end=' ')
+      
+main()&gt;&gt;&gt;&gt; file: TimeConvertor.py
+'''
+Author: Ntwanano Mazibuko
+Student no.: MZBNTW001
+Date: 15 May 2015
+'''
+def main():
+    time=input('Enter a time ([h]h:mm [am|pm]):\n')
+    colon=time.find(':')
+    time1=time[:colon]
+    time2=time[colon+1:5]
+    
+    if time.endswith('am') or time.endswith('pm'):         
+        if 0&lt;int(time1)&lt;10 and time.endswith('am'):
+            print('0'+str(time1)+':'+time2)
+        
+        elif 10&lt;=int(time1)&lt;=11 and time.endswith('am'):
+            print(str(time1)+':'+time2)
+        
+        elif 0&lt;int(time1)&lt;12 and time.endswith('pm'):
+            time_in_pm=int(time1)+12
+            print(str(time_in_pm)+':'+time2)    
+                
+        elif int(time1)==12 and time.endswith('pm'):
+            time_pm=int(time1)
+            print(str(time_pm)+':'+time2)
+            
+        elif time1=='12' and time.endswith('am'):
+            print('00'+':'+time2)       
+        
+    else:        
+        if 0&lt;int(time1)&lt;12:
+            print(str(int(time1))+':'+time2+' am')
+            
+        elif time1=='00':
+            hour_am=int(time1)+12
+            print(str(hour_am)+':'+time2+' am')
+                
+        elif time1==12:
+            print(str(time1)+':'+time2+' pm')
+                
+        elif 13&lt;=int(time1)&lt;=23:
+            time1_am=int(time1)-12
+            print(str(time1_am)+':'+time2+' pm')
+main()&gt;&gt;&gt;&gt; file: Twelve.py
+'''
+Author: Ntwanano Mazibuko
+Student no.: MZBNTW001
+Date: 12 May 2015
+'''
+
+def main():
+    time_am=input('Enter a time in 12 hour clock ([h]h:mm [am|pm]):\n')
+    colon=time_am.find(':')
+    time_am1=time_am[:colon]
+    time_am2=time_am[colon+1:5]
+    
+    if 0&lt;int(time_am1)&lt;10 and time_am.endswith('am'):
+        print('0'+str(time_am1)+':'+time_am2)
+        
+    elif 10&lt;=int(time_am1)&lt;=11 and time_am.endswith('am'):
+        print(str(time_am1)+':'+time_am2)
+        
+    elif 0&lt;int(time_am1)&lt;12 and time_am.endswith('pm'):
+        time_in_pm=int(time_am1)+12
+        print(str(time_in_pm)+':'+time_am2)    
+        
+    elif int(time_am1)==12 and time_am.endswith('pm'):
+        time=int(time_am1)
+        print(str(time)+':'+time_am2)
+    
+    elif time_am1=='12' and time_am.endswith('am'):
+        print('00'+':'+time_am2)
+        
+    else:
+        print()
+main()&gt;&gt;&gt;&gt; file: TwentyFour.py
+'''
+Author: Ntwanano Mazibuko
+Student no.: MZBNTW001
+Date: 12 May 2015
+'''
+
+def main():
+    time_pm=input('Enter a time in 24 hour clock (hh:mm):\n')
+    time_pm1=int(time_pm[:2])
+    time_pm2=time_pm[3:]
+    
+    if 0&lt;time_pm1&lt;12:
+        print(str(time_pm1)+':'+time_pm2+' am')
+    
+    elif time_pm1==0:
+        hour_am=(int(time_pm1)+12)
+        print(str(hour_am)+':'+time_pm2+' am')
+        
+    elif time_pm1==12:
+        print(str(time_pm1)+':'+time_pm2+' pm')
+        
+    else:
+        time1_am=(time_pm1)-12
+        print(str(time1_am)+':'+time_pm2+' pm')
+        
+main()&gt;&gt;&gt;&gt; file: VehicleClassifier.py
+'''
+Author: Ntwanano Mazibuko
+Student no.: MZBNTW001
+Date: 8 May 2015
+'''
+
+def vehicle_classifier():
+    print('*'*5,'Vehicle classifier','*'*5)
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match78-0.html#0" TARGET="0"><IMG SRC="../../bitmaps/tm_0_13.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    GVM=int(input('What is the gross vehicle mass (in kg)?\n'))
+
+    if GVM&lt;=3500:
+        trailer=input('Does the vehicle have a trailer?\n')
+        if trailer=='y':
+            trailer_GVM=int(input('What is gross vehicle mass of the trailer (in kg)?\n'))
+            if trailer_GVM&gt;750:
+                print('This vehicle is class EB.')
+            else:
+                print('This vehicle is class B.')
+                
+        else:
+            articulated=input('Is the vehicle articulated?\n')
+            if articulated=='y':
+                print('This vehicle is class EB.')
+            else:
+                print('This vehicle is class B.')
+                
+    elif 3500&lt;GVM&lt;=16000:
+        trailer=input('Does the vehicle have a trailer?\n')
+        if trailer=='y':
+            trailer_GVM=int(input('What is gross vehicle mass of the trailer (in kg)?\n'))
+            if trailer_GVM&gt;750:
+                print('This vehicle is class EC1.')
+            else:
+                print('This vehicle is class C1.')
+
+        else:
+            articulated=input('Is the vehicle articulated?\n')
+            if articulated=='y':
+                print('This vehicle is class EC1.')
+            else:
+                print('This vehicle is class C1.')
+                
+    else:
+        trailer=input('Does the vehicle have a trailer?\n')
+        if trailer=='y':
+            trailer_GVM=int(input('What is gross vehicle mass of the trailer (in kg)?\n'))
+            if trailer_GVM&gt;750:
+                print('This vehicle is class EC.')
+            else:
+                print('This vehicle is class C.')
+
+        else:
+            articulated=input('Is the vehicle articulated?\n')
+            if articulated=='y':
+                print('This vehicle is class EC.')
+            else:
+                print('This vehicle is class C.')
+vehicle_classifier()</FONT></PRE>
+</PRE>
+</BODY>
+</HTML>

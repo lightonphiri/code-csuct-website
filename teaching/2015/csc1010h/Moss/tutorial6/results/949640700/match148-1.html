@@ -1,0 +1,59 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/6/raw/hrmwes003/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/6/raw/sngjia001/<p><PRE>
+&gt;&gt;&gt;&gt; file: fixed_mod.py
+# Jian Yi Song  
+# 26  August                                           
+# Program to check if the sentence is a palindrome!
+
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match148-0.html#0" TARGET="0"><IMG SRC="../../bitmaps/tm_0_25.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+import string
+
+def palindrome (s):
+   if len(s) == 1:
+      return s.isalpha()
+   elif len(s)==0:
+      return True
+   elif s[0] in string.punctuation or s[0] in string.whitespace:
+</FONT>      return palindrome(s[:-1])
+   elif s[-1] in string.punctuation or s[-1] in string.whitespace:
+      return palindrome(s[:-1])
+   elif s[0].lower() == s[-1].lower():
+      return palindrome (s[1:-1])
+   else:
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match148-0.html#1" TARGET="0"><IMG SRC="../../bitmaps/tm_1_24.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+      return False&gt;&gt;&gt;&gt; file: match_mod.py
+&gt;&gt;&gt;&gt; file: mongoose_mod.py
+#SNGJIA001  
+#program to predict the mongoose population
+#26 August 
+
+def population(n):
+    if n==1:
+        return 2
+    elif n&lt;=2:
+        return n
+    
+    return population(n-1)+population(n-2)&gt;&gt;&gt;&gt; file: sum_mod.py
+#SNGJIA001
+#Progrma to print the sum of the of the interger from 1 to n 
+#26 August 2015
+
+
+def sum_to_n(n):
+    if n == 0:
+</FONT>        return 0
+    else:
+        return n+sum_to_n(n-1)
+    &gt;&gt;&gt;&gt; file: test_equals.py
+&gt;&gt;&gt;&gt; file: test_query.py
+</PRE>
+</PRE>
+</BODY>
+</HTML>

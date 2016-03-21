@@ -1,0 +1,216 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/3/raw/mcnmon001/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/3/raw/mcnmon001/<p><PRE>
+&gt;&gt;&gt;&gt; file: FeetMetres.py
+minimum = eval(input("Enter the minimum number of feet (not less than 0): "))
+maximum = eval(input("Enter the maximum number of feet (not more than 99): "))
+
+
+for i in range(minimum,maximum+1):
+    metres = i*0.3048
+    print("{0:&gt;3}{1:&lt;2}{2:&lt;4}{3:2.2f}m".format(i,"'","|",round(metres,2)))&gt;&gt;&gt;&gt; file: FlowerPattern.py
+import turtle
+
+
+
+c = turtle.numinput("petal number","Enter the mumber of petals (must be even number): )")
+a = turtle.numinput("stem length","Enter the length of the stem: ")
+
+c = int(c)
+d = turtle.textinput("petal type","Enter the petal type(triangle, square, or pentagon): ")
+b = turtle.numinput("side size","Enter the length of side: ")
+e = turtle.textinput("stem colour","Enter then stem colour: ")
+e1 = turtle.textinput("first petal colour","Enter the first petal colour: ")
+e2 = turtle.textinput("second petal colour","Enter the second petal colour: ")
+r = 0
+
+#turtle.speed(0)
+turtle.speed(0)
+for i in range(c):       
+        
+# the pentagons
+                if d == "pentagon":
+                                
+                                turtle.color(e)
+                                r += 360/c
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match156-1.html#0" TARGET="1"><IMG SRC="../../bitmaps/tm_0_2.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+                                turtle.fd(a)
+                                
+                                if i%2 !=0:
+                                                turtle.color(e2)
+                                else:
+                                                turtle.color(e1)
+                                
+                                turtle.left(54)
+                                turtle.fd(b)
+                                turtle.right(72)
+</FONT>                                turtle.fd(b)
+                                turtle.right(72)
+                                turtle.fd(b)
+                                turtle.right(72)
+                                turtle.fd(b)        
+                                turtle.right(72)
+                                turtle.fd(b)
+                                
+                                
+                                turtle.color(e)        
+                                turtle.home()
+                                turtle.right(r)
+#the triangles
+
+                elif d == "triangle":
+                                
+                                
+                                turtle.color(e)
+                                r += 360/c
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match156-1.html#1" TARGET="1"><IMG SRC="../../bitmaps/tm_1_2.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+                                turtle.fd(a)
+                                
+                                if i%2 !=0:
+                                                turtle.color(e2)
+                                else:
+                                                turtle.color(e1)                                
+        
+                                turtle.left(30)
+                                turtle.fd(b)
+                                turtle.right(120)
+</FONT>                                turtle.fd(b)
+                                turtle.right(120)
+                                turtle.fd(b)
+                                
+                                turtle.color(e)
+                                turtle.home()
+                                turtle.right(r)
+             
+  
+# squares
+                elif d == "square":
+          
+                                turtle.color(e)
+                                r += 360/c
+<A NAME="2"></A><FONT color = #0000FF><A HREF="match156-1.html#2" TARGET="1"><IMG SRC="../../bitmaps/tm_2_2.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+                                turtle.fd(a)
+                                
+                                if i%2 !=0:
+                                                turtle.color(e2)
+                                else:
+                                                turtle.color(e1)                                
+                                
+                                turtle.left(90)
+                                turtle.fd(b*(1/2))
+</FONT>                                turtle.right(90)
+                                turtle.fd(b)
+                                turtle.right(90)
+                                turtle.fd(b)
+                                turtle.right(90)
+                                turtle.fd(b)
+                                turtle.right(90)
+                                turtle.fd(b*(1/2))
+                                
+                                turtle.color(e)
+                                turtle.home()
+                                turtle.right(r)
+   
+turtle.exitonclick()&gt;&gt;&gt;&gt; file: InchesMetres.py
+mini = eval(input("Enter the minimum number of inches (not less than 0): "))
+maxi = eval(input("Enter the maximum number of inches (not greater than 11): "))
+#print
+print("{:7}".format("Inches:"),end = "")
+for i in range(mini,maxi+1,):
+    metres = i*0.0254
+    print("{:&gt;5}".format(i),end = "")
+    if i == maxi:
+        break
+
+    
+print("{:&lt;8}".format("\nMetres:"),end = " ")
+for i in range(mini,maxi+1):
+    metres = i*0.0254
+    metres = round(metres,2)
+    #metres = float(metres)
+    print("{:2.2f}".format(metres),end = " ")
+    
+    &gt;&gt;&gt;&gt; file: More advancement.py
+
+time = input("Enter a 12 hour clock: \n")
+if time[-2:]== "pm":
+  
+  if str(0)&lt;time[0]&lt;=str(9) and time[1:2]==":":
+        a = eval(time[:1])+12
+        print(str(a)+time[1:5])
+  elif time[:2]== str(10) or time[:2] == str(11):
+        b = eval(time[:2])+12
+        print(str(b)+time[2:5])
+  elif time[:2]==str(12):
+        print(time[:5])
+    
+        
+elif time[-2:] == "am":
+    
+    if str(0)&lt;time[0]&lt;=str(9) and time[1:2] == ":":
+        print("0"+time[:4])
+    else:
+        if time[:2]== "12":
+            print("00"+time[2:5])
+            
+        else:
+            print(time[:5])
+    
+    
+    
+#The 24 hour time converter to 12 hour time
+
+if time[:2]&gt;str(12) and time[-1:]!="m":
+    c = eval(time[:2])-12
+    print(str(c)+time[2:]+" pm")
+elif  str(10)&lt;=time[:2]&lt;str(12) and time[-1:]!="m":
+    print(time[:]+" am")
+elif str(0)&lt;time[:2]&lt;str(10) and time[-1:]!="m":
+    print(time[1:]+" am")
+elif time[:2]==str(00) and time[-1:]!="m":
+    print("12"+time[2:5]+"am")&gt;&gt;&gt;&gt; file: Twelve.py
+time = input("Enter time in 12 hour clock([h]h:mm [am|pm]): \n")
+if time[-2:]== "pm":
+  
+  if 0&lt;eval(time[0])&lt;=9 and time[1:2]==":":
+        a = eval(time[:1])+12
+        print(str(a)+time[1:5])
+  elif eval(time[:2])== 10 or eval(time[:2]) ==11:
+        b = eval(time[:2])+12
+        print(str(b)+time[2:5])
+  elif eval(time[:2])==12:
+        print(time[:5])
+    
+        
+elif time[-2:] == "am":
+    
+    if 0&lt;eval(time[0])&lt;=9 and time[1:2] == ":":
+        print("0"+time[:4])
+    else:
+        if time[:2]== "12":
+            print("00"+time[2:5])
+            
+        else:
+            print(time[:5])
+            &gt;&gt;&gt;&gt; file: TwentyFour.py
+time = input("Enter a time in 24 hour clock (hh:mm): \n")
+
+if eval(time[:2])&gt;12 and time[-1:]!="m":
+    c = eval(time[:2])-12
+    print(str(c)+time[2:]+" pm")
+elif  10&lt;=eval(time[:2])&lt;=12 and time[-1:]!="m":
+    print(time[:]+" am")
+elif 0&lt;eval(time[:2])&lt;10 and time[-1:]!="m":
+    print(time[1:]+" am")
+elif eval(time[:2])==00 and time[-1:]!="m":
+    print("12"+time[2:5]+" am")</PRE>
+</PRE>
+</BODY>
+</HTML>

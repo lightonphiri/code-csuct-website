@@ -1,0 +1,290 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/3/raw/mhlthe039/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/3/raw/mktnta004/<p><PRE>
+&gt;&gt;&gt;&gt; file: FeetMetres.py
+#Table to convert feet to metres
+#Ntaoleng Mokotini
+#2015/05/12
+
+def main():
+    minimum = eval(input("Enter the minimum number of feet (not less than 0): \n"))
+    maximum = eval(input("Enter the maximum number of feet (not more than 99): \n"))
+    for i in range(minimum, maximum+1):
+        metres = i*0.3048     
+        print("  {0:&gt;2}'".format(i)+" |   {0:.2f}m".format(metres))
+main()&gt;&gt;&gt;&gt; file: FlowerPattern.py
+#Turtle Flower
+#2015/05/14
+#Ntaoleng Mokotini
+import turtle
+def main():
+    petals = turtle.numinput("Petals","Enter the number of petals (must be an even number):")
+    stem = turtle.numinput("Stem","Enter the length of stem:")
+    petaltype = turtle.textinput("Petal Type","Enter the petal type (triangle, square, or pentagon):")
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match115-0.html#0" TARGET="0"><IMG SRC="../../bitmaps/tm_0_1.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    side = turtle.numinput("Side","Enter the length of side:")
+    stemcolour = turtle.textinput("Stem Colour","Enter the stem colour:")
+    firstpetal = turtle.textinput("First Petal","Enter the first petal colour:")
+    secondpetal = turtle.textinput("Second Petal","Enter the second petal colour:")
+    b = 0
+    count = 0
+</FONT>    for i in range (int(petals)):
+        turtle.pencolor(stemcolour)
+        turtle.forward(stem)
+        if petaltype == "pentagon":
+            turtle.left(54)
+            if b == 0 or b%2 == 0:
+                for i in range(5):
+                    turtle.pencolor(secondpetal)
+                    turtle.forward(side)
+                    turtle.right(72)
+                turtle.pencolor(stemcolour)
+                turtle.home()
+                angle = 360/petals
+                count+= angle
+                turtle.right(count)
+            else:
+                for i in range(5):
+                    turtle.pencolor(firstpetal)
+                    turtle.forward(side)
+                    turtle.right(72)
+                turtle.pencolor(stemcolour)
+                turtle.home()
+                angle = 360/petals
+                count+= angle
+                turtle.right(count)
+            b+=1
+            
+        elif petaltype == "triangle":
+            turtle.left(30)
+            if b == 0 or b%2 == 0:
+                for i in range(3):
+                    turtle.pencolor(secondpetal)
+                    turtle.forward(side)
+                    turtle.right(120)
+                turtle.pencolor(stemcolour)
+                turtle.home()
+                angle = 360/petals
+                count+= angle
+                turtle.right(count)
+            else:
+                for i in range(3):
+                    turtle.pencolor(firstpetal)
+                    turtle.forward(side)
+                    turtle.right(120)
+                turtle.pencolor(stemcolour)
+                turtle.home()
+                angle = 360/petals
+                count+= angle
+                turtle.right(count)
+            b+=1  
+            
+        else:
+            turtle.left(45)
+            if b == 0 or b%2 == 0:
+                for i in range(4):
+                    turtle.pencolor(secondpetal)
+                    turtle.forward(side)
+                    turtle.right(90)
+                turtle.pencolor(stemcolour)
+                turtle.home()
+                angle = 360/petals
+                count+= angle
+                turtle.right(count)
+            else:
+                for i in range(4):
+                    turtle.pencolor(firstpetal)
+                    turtle.forward(side)
+                    turtle.right(90)
+                turtle.pencolor(stemcolour)
+                turtle.home()
+                angle = 360/petals
+                count+= angle
+                turtle.right(count)
+            b+=1     
+    turtle.exitonclick()
+main()&gt;&gt;&gt;&gt; file: InchesMetres.py
+#Table to convert inches to metres
+#Ntaoleng Mokotini
+#2015/05/12
+
+def main():
+<A NAME="2"></A><FONT color = #0000FF><A HREF="match115-0.html#2" TARGET="0"><IMG SRC="../../bitmaps/tm_2_1.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    minimum = eval(input("Enter the minimum number of inches (not less than 0):\n"))
+    maximum = eval(input("Enter the maximum number of inches (not greater than 11):\n"))
+    print("Inches:", end=" ")
+    for i in range(minimum, maximum+1):
+        metres = i*0.0254
+</FONT>        print("{0:&gt;4}".format(i), end=" ")
+    print("\nMetres:", end=" ")
+    for i in range(minimum, maximum+1):
+        metres = i*0.0254    
+        print("{0:&gt;4.2f}".format(metres),end=" ")
+    
+main()&gt;&gt;&gt;&gt; file: TimeConvertor.py
+#Converts from 12 hour to 24 hour and vice versa
+#Ntaoleng Mokotini
+#2015/05/12
+def main():
+    time = input("Enter a time ([h]h:mm [am|pm]):\n")
+    length = len(time)
+    letter = time[length-1:length]    
+    if letter == "m":
+        length = len(time)
+        letter = time[length-2:length]
+        if letter == "am":
+            if len(time)==7:
+                time1 = int(time[0:1])
+                print("0"+str(time1)+":"+str(time[2:4]))
+            else:
+                    time1 = int(time[0:2])
+                    if 10&lt;=time1&lt;=11:
+                        print(str(time1)+":"+str(time[3:5]))
+                    else:
+                        print("0"+str(time1-12)+":"+str(time[3:5]))                        
+                                    
+        else:
+            if len(time)==7:
+                time1 = int(time[0:1])
+                print(str(time1+12)+":"+str(time[2:4]))
+            else:
+                time1 = int(time[0:2])
+                if 10&lt;=time1&lt;=11:
+                    print(str(time1+12)+":"+str(time[3:5]))
+                else:
+                    print(str(time1)+":"+str(time[3:5]))
+    else:
+            
+        time1 = time[0:2]
+        time1 = int(time1)
+        if 13&lt;=time1&lt;=23:
+                print(str(time1-12)+str(time[2:5])+" pm")
+        elif time1 == 0:
+                print(str(time1+12)+str(time[2:5])+" am")
+        elif time1 == 12:
+                print(str(time1)+str(time[2:5])+" pm")
+        else:
+                print(str(time1)+str(time[2:5])+" am")            
+main()&gt;&gt;&gt;&gt; file: Twelve.py
+#Converts from 12 hour to 24 hour
+#Ntaoleng Mokotini
+#2015/05/12
+def main():
+        time = (input("Enter a time in 12 hour clock ([h]h:mm [am|pm]):\n"))
+        length = len(time)
+        letter = time[length-2:length]
+        if letter == "am":
+                if len(time)==7:
+                        time1 = int(time[0:1])
+                        print("0"+str(time1)+":"+str(time[2:4]))
+                else:
+                        time1 = int(time[0:2])
+                        if 10&lt;=time1&lt;=11:
+                                print(str(time1)+":"+str(time[3:5]))
+                        else:
+                                print("0"+str(time1-12)+":"+str(time[3:5]))                        
+                        
+        else:
+                if len(time)==7:
+                        time1 = int(time[0:1])
+                        print(str(time1+12)+":"+str(time[2:4]))
+                else:
+                        time1 = int(time[0:2])
+                        if 10&lt;=time1&lt;=11:
+                                print(str(time1+12)+":"+str(time[3:5]))
+                        else:
+                                print(str(time1)+":"+str(time[3:5]))                                   
+main()&gt;&gt;&gt;&gt; file: TwentyFour.py
+#Converts from 24 hour to 12 hour
+#Ntaoleng Mokotini
+#2015/05/12
+def main():
+        time = input("Enter a time in 24 hour clock (hh:mm):\n")
+        time1 = time[0:2]
+        time2 = int(time1)
+        if 13&lt;=time2&lt;=23:
+                print(str(time2-12)+str(time[2:5])+" pm")
+        elif time2 == 0:
+                print(str(time2+12)+str(time[2:5])+" am")
+        elif time2 == 12:
+                print(str(time2)+str(time[2:5])+" pm")
+        else:
+                print(str(time2)+str(time[2:5])+" am")
+main()&gt;&gt;&gt;&gt; file: VehicleClassifier.py
+#Vehicle Classification
+#Ntaoleng Mokotini
+#2015/05/12
+def main():
+        print("***** Vehicle classifier *****")
+<A NAME="3"></A><FONT color = #00FFFF><A HREF="match115-0.html#3" TARGET="0"><IMG SRC="../../bitmaps/tm_3_1.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+        gvm= int(input("What is the gross vehicle mass (in kg)?\n"))
+        if gvm&lt;=3500:
+                trailer = input("Does the vehicle have a trailer?\n")
+                if trailer == "y":
+                        gvmtrailer = int(input("What is gross vehicle mass of the trailer (in kg)?\n"))
+                        if gvmtrailer&gt;750:
+</FONT>                                bclass = "B"
+                                print("This vehicle is class E"+bclass+".")
+                        else:
+                                bclass = "B"
+                                print("This vehicle is class "+bclass+".")
+                else:
+                        art = input("Is the vehicle articulated?\n")
+                        if art == "y":
+                                bclass = "B"
+                                print("This vehicle is class E"+bclass+".")
+                        else:
+                                bclass = "B"
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match115-0.html#1" TARGET="0"><IMG SRC="../../bitmaps/tm_1_1.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+                                print("This vehicle is class "+bclass+".")   
+                                
+        elif 3500&lt;gvm&lt;=16000:
+                trailer = input("Does the vehicle have a trailer?\n")
+                if trailer == "y":
+                        gvmtrailer = int(input("What is gross vehicle mass of the trailer (in kg)?\n"))
+                        if gvmtrailer&gt;750:
+</FONT>                                bclass = "C1"
+                                print("This vehicle is class E"+bclass+".")
+                        else:
+                                bclass = "C1"
+                                print("This vehicle is class "+bclass+".")
+                else:
+                        art = input("Is the vehicle articulated?\n")
+                        if art == "y":
+                                bclass ="C1"
+                                print("This vehicle is class E"+bclass+".")
+                        else:
+                                bclass = "C1"
+                                print("This vehicle is class "+bclass+".")   
+        else:
+                trailer = input("Does the vehicle have a trailer?\n")
+                if trailer == "y":
+                        gvmtrailer = int(input("What is gross vehicle mass of the trailer (in kg)?\n"))
+                        if gvmtrailer&gt;750:
+                                bclass = "C"
+                                print("This vehicle is class E"+bclass+".")
+                        else:
+                                bclass = "C"
+                                print("This vehicle is class "+bclass+".")
+                else:
+                        art = input("Is the vehicle articulated?\n")
+                        if art == "y":
+                                bclass = "C"
+                                print("This vehicle is class E"+bclass+".")
+                        else:
+                                bclass = "C"
+                                print("This vehicle is class "+bclass+".")   
+main()
+                
+</PRE>
+</PRE>
+</BODY>
+</HTML>

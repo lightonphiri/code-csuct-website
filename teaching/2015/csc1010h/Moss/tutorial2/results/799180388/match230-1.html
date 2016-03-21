@@ -1,0 +1,155 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/2/raw/flndoc001/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/2/raw/mfkref006/<p><PRE>
+&gt;&gt;&gt;&gt; file: CreditCard.py
+#Refilwe Mofokeng
+
+def main ():
+    title = " Credit Card Account "
+    
+    holders_name = input("Enter the card holder's name:\n")
+    
+    card_number= input("Enter the 16 digit card number (no spaces please):\n")
+    card_number1 = card_number[0:4]
+    card_number2 = card_number[4:8]
+    card_number3 = card_number[8:12]
+    card_number4 = card_number[12:16]
+    card_number5 =  card_number1 + " " +  card_number2 + " "+  card_number3 + " "+  card_number4  
+    
+    issue_date = input("Enter the date of issue (mm:yy):\n")
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match230-0.html#0" TARGET="0"><IMG SRC="../../bitmaps/tm_0_6.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    issue_date1 = issue_date[0:2]
+    issue_date2 = issue_date[3:5]    
+    expiry_date = input("Enter the expiry date (mm:yy):\n")
+    expiry_date1 = expiry_date[0:2]
+    expiry_date2 = expiry_date[3:5] 
+    
+    digit_code = input("Enter the 3 digit security code:\n")
+    
+    credit_limit = float(input("Enter the credit limit (Rand):\n"))
+</FONT>    credit_limit2 = str(credit_limit)
+    credit_limit3 = '{0:&lt;3.2f}'.format(credit_limit)
+    credit_limit1 = str(credit_limit3)+" Rand"
+    balance = float(input("Enter the balance (Rand):\n"))
+    balance_2 = '{0:&lt;3.2f}'.format(balance)
+    balance_1 = str(balance_2)+" Rand"
+    available = credit_limit - balance
+    available_2 = '{0:&lt;3.2f}'.format(available)
+    available_1 = str(available_2)+" Rand" 
+    
+    print("+{0:-^48}+".format(title))
+    print("| Card holder:   {0:&lt;32}|".format(holders_name))
+    print("| Card number:   {0:&lt;32}|".format(card_number5))
+    print("| Date of issue: {0}/{1}    Expiry date: {2}/{3}     |".format(issue_date1, issue_date2, expiry_date1, expiry_date2))
+    print("| Security code: {0:&lt;32}|".format(digit_code)) 
+    print("| Credit limit:  {0:&lt;32}|".format(credit_limit1))
+    print("| Available:     {0:&lt;32}|".format(available_1))
+    print("| Balance:       {0:&lt;32}|".format(balance_1))
+    end="-"*48
+    print("+{0}+".format(end))    
+    
+main ()
+    &gt;&gt;&gt;&gt; file: EugeneJunior.py
+# Eugene Junior interacting with a user
+# Refilwe Mofokeng
+# 25 April 2015
+
+import math
+def main ():
+    print("Hello, I am Eugene Junior.")
+    first_name = input("What is your first name?\n")
+    first_name1 = first_name[0]
+    first_name2 = first_name1.upper()
+    last_name = input("What is your last name?\n")
+    last_name1 = last_name[0]
+    last_name2 = last_name1.upper()
+    print("Hi {0}.{1}.!".format(first_name2, last_name2))
+    
+    year = int(input("What year is this?\n"))
+    age = int(input("What age are you?\n"))
+    year1 = year - age
+    year2 = year1 - 1
+    year3 = str(year2)
+    year4 = str(year1)
+    year5 = year4[-2:]
+    print("Okay, so you were born in {0}/{1}.".format(year3, year5))
+    
+    height = float(input("How tall are you (metres)?\n"))
+    feet= int(height * 1//0.3048)
+    inch= (height * 1%0.3048) * (100//2.54)
+    print ("That's ",feet,"\'", round(inch), "\"!",sep="")
+    print("I'm going to tell you your Star Wars name.")
+    mothers_name = input("What's your mother's first name?\n")
+    city = input("What's the name of the city nearest to your place of birth?\n")
+    mothers_name1 = last_name[0:3]
+    mothers_name2 = first_name[0:2]
+    mothers_name3 = mothers_name1+mothers_name2
+    mothers_name4 = mothers_name3.title()
+    star_wars1 = mothers_name[-2:]
+    star_wars2 = city[-3:]
+    star_wars3 = star_wars1+star_wars2
+    star_wars4 = star_wars3.title()
+    print("Your Star Wars name is {0} {1}.".format(mothers_name4, star_wars4))    
+    
+main ()&gt;&gt;&gt;&gt; file: HexagonArea.py
+#program to calculate area of a hexagon.
+
+def main():
+    #promt user,
+    length= float(input ("Enter the length of the side (cm):\n"))
+    #area calculation
+    import math
+    area= ((3* math.sqrt(3)) / 2 * length**2)
+    #display answer
+    print ('The area of a hexagon of side', int(length), 'is','{0:.3f}.'.format(area))
+    
+main()
+
+    &gt;&gt;&gt;&gt; file: Initials.py
+import turtle
+
+turtle.penup()
+turtle.forward(200)
+turtle.pencolor('red')
+turtle.pendown()
+turtle.right(180)
+turtle.penup()
+turtle.forward(25)
+turtle.pendown()
+turtle.forward(200)
+turtle.penup()
+turtle.back(200)
+turtle.pendown()
+turtle.left(45)
+turtle.forward(141.42)
+turtle.left(90)
+turtle.forward(141.42)
+turtle.right(135)
+turtle.forward(200)
+turtle.penup()
+turtle.right(90)
+turtle.forward(425)
+turtle.right(90)
+turtle.pendown()
+turtle.pencolor('blue')
+turtle.forward(200)
+turtle.right(90)
+turtle.forward(150)
+turtle.right(90)
+turtle.forward(100)
+turtle.right(90)
+turtle.forward(150)
+turtle.right(213.69)
+turtle.forward(180.28)
+
+
+
+turtle.exitonclick()</PRE>
+</PRE>
+</BODY>
+</HTML>

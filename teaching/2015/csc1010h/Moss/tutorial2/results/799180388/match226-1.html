@@ -1,0 +1,118 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/2/raw/ndnlut002/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/2/raw/sngjia001/<p><PRE>
+&gt;&gt;&gt;&gt; file: CreditCard.py
+# Program to enter information abut credit card
+# SNGAJIA001    
+# 1 May 2015
+
+card_name = input("Enter the card holder's name:\n")
+card_number = input("Enter the 16 digit card number (no spaces please):\n")
+temp = ""
+i = 0
+while i &lt; 4:
+    if i &lt; 3:
+        temp += card_number[4*(i):4*(i+1)] + " "
+    else:
+        temp += card_number[4*(i):4*(i+1)]
+    i +=1
+
+
+date_issue = input("Enter the date of issue (mm:yy):\n")
+date_issue = date_issue[0:2] + "/" + date_issue[3:]
+expire_date = input("Enter the expiry date (mm:yy):\n")
+expire_date = expire_date[0:2] + "/" + expire_date[3:]
+three_digit_code = input("Enter the 3 digit security code:\n")
+
+credit_limit = float(input("Enter the credit limit (Rand):\n"))
+card_balance = float(input("Enter the balance (Rand):\n"))
+
+print("+------------- Credit Card Account --------------+")
+print("| {0:&lt;15}".format("Card holder:"),"{0:&lt;32}|".format(card_name),sep="")
+print("| {0:&lt;15}".format("Card number:"),"{0:&lt;32}|".format(temp),sep="")
+print("| {0:&lt;15}".format("Date of issue:"),"{0:&lt;32}|".format(date_issue + "    Expiry date:" +" "+ expire_date),sep="")
+print("| {0:&lt;15}".format("Security code:"),"{0:&lt;32}|".format(three_digit_code),sep="")
+print("| {0:&lt;15}".format("Credit limit:"),"{0:&lt;32}|".format(str(credit_limit) + "0 Rand" ),sep="")
+print("| {0:&lt;15}".format("Available:"),"{0:&lt;32}|".format(str(credit_limit-card_balance) + "0 Rand" ),sep="")
+print("| {0:&lt;15}".format("Balance:"),"{0:&lt;32}|".format(str(card_balance) + "0 Rand" ),sep="")
+print("+------------------------------------------------+")
+&gt;&gt;&gt;&gt; file: EugeneJunior.py
+# chatbot program
+# SNGJIA001 
+# 2 May 2015
+
+def main():
+    print("Hello, I am Eugene Junior.")
+    first_name = input("What is your first name? \n") #prompting user for his name 
+    last_name = input("What is your last name? \n")  #prompting user for his last name
+    print("Hi",first_name[0]+"."+ last_name[0]+".!")
+    year = eval(input("What year is this? \n"))  #prompting user what year it is 
+    age = eval(input("What age are you? \n")) # prompting user for his own age
+    year_born = year - age-1 # theres 2 possibility of when the user is born
+    year_born_2 = year - age 
+    print("Okay, so you were born in", str(year_born)+"/" +str(year_born_2)[2:4]+".")
+    meters = eval(input("How tall are you (metres)? \n")) #prompting user for height
+    total_inches = 39.37 * meters 
+    feet = int(total_inches/12)
+    inches = int(round(total_inches - feet*12))
+    print ("That's" , str(feet)+"'"+str(inches)+"\"!")
+    mother_name = input("I'm going to tell you your Star Wars name. \nWhat's your mother's first name? \n" ) # prompting for users mothers name 
+    city_name = input("What's the name of the city nearest to your place of birth? \n")
+    print("Your Star Wars name is", last_name[0:3]+first_name[0:2].lower(),mother_name[-2].upper() +mother_name[-1]+ city_name[-3:-1]+city_name[-1]+".")    
+  
+main()&gt;&gt;&gt;&gt; file: HexagonArea.py
+#Program to claculate the area of a regular hexagon
+#SNGJIA001 
+# 2 May 2015
+
+import math #import maths module to calculate maths related sums   
+
+def main():
+    length = int(input("Enter the length of the side (cm):\n")) #prompt user for length of one side of the hexagon 
+    area = round((((3*math.sqrt(3))/2)*length**2),3)
+    print("The area of a hexagon of side",length, "is", "{:.3f}".format(area), end=".") 
+main()&gt;&gt;&gt;&gt; file: Initials.py
+#
+#
+#
+import turtle
+turtle.showturtle()
+turtle.pencolor("red")
+turtle.penup()	
+turtle.forward(20)	
+turtle.showturtle()
+turtle.pendown()
+turtle.forward(150)
+turtle.left(90)	
+turtle.forward(100)
+turtle.left(90)	
+turtle.forward(150)
+turtle.right(90)
+turtle.forward(100)
+turtle.right(90)
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match226-0.html#0" TARGET="0"><IMG SRC="../../bitmaps/tm_0_7.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+turtle.forward(150)
+turtle.left(180)
+turtle.forward(150)
+turtle.penup()	
+turtle.forward(20)
+turtle.pencolor("blue")
+turtle.pendown()
+turtle.forward(150)
+turtle.back(75)
+turtle.left(90)
+turtle.forward(200)
+</FONT>turtle.right(90)
+turtle.forward(100)
+turtle.right(90)
+turtle.forward(100)
+turtle.exitonclick()
+</PRE>
+</PRE>
+</BODY>
+</HTML>

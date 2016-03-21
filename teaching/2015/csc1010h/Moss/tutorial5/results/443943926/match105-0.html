@@ -1,0 +1,396 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/5/raw/khwnel002/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/5/raw/khwnel002/<p><PRE>
+&gt;&gt;&gt;&gt; file: calendar_utils.py
+import calendar
+import calendar_utils
+
+def print_welcome():
+    print('Test harness for calendar_utils');
+    
+def get_selection():
+    print('\nChoose from the following options:')
+    print('0. quit')
+    print('1. Test is_leap_year().')
+    print('2. Test month_name().')
+    print('3. Test days_in_month().')
+    print('4. Test first_day_of_year().')
+    print('5. Test first_day_of_month().')
+    return int(input())
+
+year = int(input('Enter the year (4 digits): \n'))
+def is_leap_year(year):
+    h=(year-2000)%4
+    if h == 0:
+        return True
+    else:
+        return False    
+
+def month_name(number):
+    if number == 1:
+        return 'January'
+    elif number == 2:
+        return 'February'
+    elif number == 3:
+        return 'March'
+    elif number == 4:
+        return 'April'
+    elif number==5:
+        return 'May'
+    elif number==6:
+        return 'June'
+    elif number==7:
+        return 'July'
+    elif number==8:
+        return 'August'
+    elif number==9:
+        return 'September'
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match105-1.html#1" TARGET="1"><IMG SRC="../../bitmaps/tm_1_2.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    elif number==10:
+        return 'October'
+    elif number==11:
+        return 'November'
+    else:
+        return 'December'
+ 
+     
+def days_in_month(month, number):
+    if month == 1:
+        return 31
+    elif month == 2:
+</FONT>        leap = (n-2000)%4
+<A NAME="2"></A><FONT color = #0000FF><A HREF="match105-1.html#2" TARGET="1"><IMG SRC="../../bitmaps/tm_2_2.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+        if leap == 0:
+            return 29
+        else:
+            return 28
+    elif month ==3:
+        return 31
+     
+    elif month==4:
+        return 30
+    elif month ==5:
+</FONT>        return 31
+    if month==6:
+        return 30
+    elif month == 7:
+        return 31
+    elif month==8:
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match105-1.html#0" TARGET="1"><IMG SRC="../../bitmaps/tm_0_2.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+        return 31
+    elif month == 9:
+        return 30
+    elif month == 10:
+        return 31
+    elif month ==11:
+        return 30
+    else:
+        return 31
+
+
+def first_day_of_year(number):
+    calc = (1+(5*((number-1)%4)) + (4 *((number-1)%100))  + (6*((number-1)%400)))
+</FONT>    calc=calc%7     
+     
+    if calc == 0:
+        return 0
+    elif calc==1:
+        return 1
+    elif calc==2:
+        return 2
+    elif calc==3:
+        return 3
+    elif calc==4:
+        return 4
+    elif calc==5:
+        return 5
+    elif calc==6:
+        return 6
+
+def first_day_of_month(month, number):
+    a=0
+    for i in range(month-1):
+        p=days_in_month(i+1,number)
+        a+=p
+    firstdaycalc=first_day_of_year(year)+x%7-7
+    day=['s','m','T','w','t','f','S']
+    dayno={'s':0,'m':1,'T':2,'w':3,'t':4,'f':5,'S':6}
+    return dayno[day[firstdaycalc]]
+
+#def main():
+    #print_welcome()
+    
+    #selection = get_selection()
+    #while not selection==0:
+
+        #if selection==1:
+            #test_leap_year()
+        #elif selection==2:
+            #test_month_name()
+        #elif selection==3:
+            
+            #test_days_in_month()
+        #elif selection==4:
+            #test_first_day_year()
+        #elif selection==5:
+            #test_first_day_month()
+        #else:
+            #print('That selection was not recognised.')
+
+        #selection = get_selection()
+#main()
+     
+     
+
+
+&gt;&gt;&gt;&gt; file: morse_code.py
+letter1 = input('Enter a letter: ')
+letter = letter1.lower()
+
+def code_for(letter):
+    if letter == 'a':
+        letter = '.-'
+        print(letter)
+    if letter =='b':
+        letter = '-...'
+        print(letter)
+    if letter =='c':
+        letter = '-.-.'
+        print(letter)
+    if letter =='d':
+        letter = '-..'
+        print(letter)
+    if letter == 'e':
+        letter = '.'
+        print(letter)
+    if letter =='f':
+        letter = '..-.'
+        print(letter)
+    if letter =='g':
+        letter = '--.'
+        print(letter)
+    if letter =='h':
+        letter = '....'
+        print(letter)
+    if letter == 'i':
+        letter = '..'
+        print(letter)
+    if letter =='j':
+        letter = '.---'
+        print(letter)
+    if letter == 'k':
+        letter = '-.-'
+        print(letter)
+    if letter =='l':
+        letter ='.-..'
+        print(letter)
+    if letter =='k':
+        letter = '-.-'
+        print(letter)
+    if letter =='l':
+        letter = '.-..'
+        print(letter)
+    if letter == 'm':
+        letter = '--'
+        print(letter)
+    if letter =='n':
+        letter = '-.'
+        print(letter)
+    if letter == 'o':
+        letter = '---'
+        print(letter)
+    if letter =='p':
+        letter = '.--.'
+        print(letter)
+    if letter =='q':
+        letter ='--.-'
+        print(letter)
+    if letter =='r':
+        letter = '.-.'
+        print(letter)
+    if letter == 's':
+        letter = '...'
+        print(letter)
+    if letter =='t':
+        letter = '-'
+        print(letter)
+    if letter =='u':
+        letter = '..-'
+        print(letter)
+    if letter == 'v':
+        letter = '...-'
+        print(letter)
+    if letter == 'w':
+        letter = '.--'
+        print(letter)
+    if letter =='x':
+        letter ='-..-'
+        print(letter)
+    if letter =='y':
+        letter = '-.--'
+        print(letter)
+    if letter =='z':
+        letter = '--..'
+        print(letter)
+code_for(letter)
+
+def transmit_letter(letter):
+    transmit_letter = code_for(letter)
+    if letter == 'a':
+        letter = '.^-'
+        print(letter)
+    if letter =='b':
+        letter = '-^.^.^.'
+        print(letter)
+    if letter =='c':
+        letter = '-^.^-^.'
+        print(letter)
+    if letter =='d':
+        letter = '-^.^.'
+        print(letter)
+    if letter == 'e':
+        letter = '.'
+        print(letter)
+    if letter =='f':
+        letter = '.^.^-^.'
+        print(letter)
+    if letter =='g':
+        letter = '-^-^.'
+        print(letter)
+    if letter =='h':
+        letter = '.^.^.^.'
+        print(letter)
+    if letter == 'i':
+        letter ='.^.'
+        print(letter)
+    if letter =='j':
+        letter ='.^-^-^-'
+        print(letter)
+    if letter == 'k':
+        letter = '-^.^-'
+        print(letter)
+    if letter =='l':
+        letter = '.^-^.^.'
+        print(letter)
+    if letter =='k':
+        letter = '-^.^-'
+        print(letter)
+    if letter =='l':
+        letter = '.^-^.^.'
+        print(letter)
+    if letter == 'm':
+        letter = '-^-'
+        print(letter)
+    if letter =='n':
+        letter = '-^.'
+        print(letter)
+    if letter == 'o':
+        letter = '-^-^-'
+        print(letter)
+    if letter =='p':
+        letter ='.^-^-^.'
+        print(letter)
+    if letter =='q':
+        letter = '-^-^.^-'
+        print(letter)
+    if letter =='r':
+        letter ='.^-^.'
+        print(letter)
+    if letter == 's':
+        letter = '.^.^.'
+        print(letter)
+    if letter =='t':
+        letter = '-'
+        print(letter)
+    if letter =='u':
+        letter = '.^.^-'
+        print(letter)
+    if letter == 'v':
+        letter = '.^.^.^-'
+        print(letter)
+    if letter == 'w':
+        letter = '.^-^-'
+        print(letter)
+    if letter =='x':
+        letter = '-^.^.^-'
+        print(letter)
+    if letter =='y':
+        letter ='-^.^-^-'
+        print(letter)
+    if letter =='z':
+        letter = '-^-^.^.'
+        print(letter)
+transmit_letter(letter)  
+
+message = str(input('Enter message: \n'))
+word =''
+def transmit_word(word):
+    transmit_word = transmit_letter(letter)
+    nmessage = list(message)
+    start = 0
+    for p in nmessage:
+        print(p[start:start+p])
+        start+=p
+    #for i in nmessage:
+        #i+=1
+        #nmessage = letter
+    #print(nmessage)
+    #print(nmessage+'|', end='')
+transmit_word(word)
+
+#use sep==| for words&gt;&gt;&gt;&gt; file: technical_support.py
+# Tech Support
+# Stephan Jamieson
+# 5/1/2015
+responses={
+    'bluetooth':'Have you tried mouthwash?',
+    'windows':'Ah, I think I see your problem. What version?',
+    'apple':'You do mean the computer kind?',
+    'blue':'Ah, the blue screen of death. And then what happened?',
+    'spam':'You should see if your mail client can filter messages.',
+    'connection':'Contact Telkom.',
+    'crashed':'Are the drivers up to date?',
+    'hacked':'You should consider installing anti-virus software.'}
+
+
+def default_response():
+    return 'Curious, tell me more.'
+    
+def get_response(words):
+    for word in words:
+        if word in responses:
+            return responses[word]
+    return default_response()
+    
+            
+        
+    
+
+def print_welcome():
+    print('Welcome to the automated technical support system.')
+    print('Please describe your problem:')
+
+
+def get_input():
+    query = input().lower().split(' ')
+    return query
+
+def main():
+    print_welcome()
+    query = get_input()
+    while True:
+        if query==['quit']:break
+        response=get_response(query)
+        print(response)
+        query=get_input()
+main()</PRE>
+</PRE>
+</BODY>
+</HTML>

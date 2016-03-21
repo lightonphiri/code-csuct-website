@@ -1,0 +1,115 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/7/raw/mtnqha001/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/7/raw/mtnqha001/<p><PRE>
+&gt;&gt;&gt;&gt; file: leader_board.py
+# leader_board.py
+# Qhawekazi Mtini
+# September 2015
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match117-1.html#1" TARGET="1"><IMG SRC="../../bitmaps/tm_1_7.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+def process_line(line):
+    parts = line.split(' ')
+    name = parts[0]
+    trials = int(parts[1])
+    average = float(parts[2])
+</FONT>    return (name, trials, average)
+
+def get_max(entries):
+    max = entries[0]
+    for i in range(1, len(entries)):
+        if entries[i][2] &lt;max[2]:
+            max = entries[i]
+            
+    entries.remove(max)
+    return max
+
+def sort(entries):
+    sorted_entries = []
+    while len(entries)&gt;0:
+        sorted_entries.append(get_max(entries))
+    return sorted_entries
+
+def output(entries):
+    print('Subject        | Average Time')
+    print('************** | ************')
+    for entry in entries:
+        print('{:14} | {:.6}'.format(entry[0], entry[2]))
+              
+def main():
+    entries = []
+    try:
+        file_name = input('Enter the name of the file:\n')
+        file_input = open(file_name, 'r')
+   
+        
+        count = 1
+        for line in file_input:
+            entries.append(process_line(line))
+            count += 1
+        file_input.close()
+    except FileNotFoundError as k:
+        print("Error:",k) 
+        print("Please enter new file name:") 
+    except ValueError as n:
+        print("Error:",n)
+        print("Error line:",line)
+        print("Line number:",count)
+        print("Enter an integer in place of error.")
+      
+    
+            
+    entries = sort(entries)
+    output(entries)
+    
+main()
+    &gt;&gt;&gt;&gt; file: reaction_test.py
+#the reaction test
+# Qhawekazi Mtini
+#September 2015 
+
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match117-1.html#0" TARGET="1"><IMG SRC="../../bitmaps/tm_0_36.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+import time
+import random
+
+def flush_input():
+    try:
+        import msvcrt
+        while msvcrt.kbhit():
+            msvcrt.getch()
+    except ImportError:
+        import sys, termios
+        termios.tcflush(sys.stdin, termios.TCIOFLUSH)
+
+def get_ready():
+    flush_input()
+    n = int(input("Enter the number of tests:\n"))
+    for i in range(n):
+        print("Get Ready...", flush=True)
+        time.sleep(random.randint(1,5))
+        print("Press 'enter' NOW!:")
+        start_time= time.time()
+        enter = input()
+        end_time= time.time() - start_time
+        print(end_time)
+        
+def main():
+    name = input("Enter the name of the output file:\n")
+    f = open(name,"w")
+    subject = input("Enter subject name (or press 'enter' to quit):\n")
+    while True:
+        if subject == "":
+            break
+        else:
+            get_ready()
+            subject = input("Enter subject name (or press 'enter' to quit):\n")
+            
+    f.close()
+</FONT>main()</PRE>
+</PRE>
+</BODY>
+</HTML>

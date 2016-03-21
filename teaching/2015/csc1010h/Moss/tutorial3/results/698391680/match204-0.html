@@ -1,0 +1,145 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/3/raw/kstbab001/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/3/raw/kstbab001/<p><PRE>
+&gt;&gt;&gt;&gt; file: FeetMetres.py
+def main():
+    num1=int(input('Enter the minimum number of feet (not less than 0): '))
+    print()
+    num2=int(input('Enter the maximum number of feet (not more than 99): '))
+    print()
+    for i in range(num1,num2+1):
+        m=i*(25/82)
+        print('{0:4}\''.format(i),"|",'{0:6.2f}m'.format(m))
+    
+main()
+    
+&gt;&gt;&gt;&gt; file: InchesMetres.py
+num1=int(input('Enter the minimum number of inches (not less than 0):\n'))
+num2=int(input('Enter the maximum number of inches (not greater than 11):\n'))
+print('Inches:',end='')
+for i in range(num1,num2+1):
+    print('{0:5}'.format(i),end='')
+print()
+print('Metres:',end='')
+for j in  range(num1,num2+1):    
+    a=j*(100/3937)    
+    print('{0:5.2f}'.format(a),end='')&gt;&gt;&gt;&gt; file: TimeConvertor.py
+def main():
+    time=input('Enter a time ([h]h:mm [am|pm]):\n')
+    if time[-1]=='m':
+        c=time[-2:]
+        if c=='am':
+            if len(time)==7:
+                print('0'+time[0:5])
+            else:
+                if time[0:2]=='12':
+                    print('00'+time[2:5])
+                else:
+                    print(time[0:5])
+        elif c=='pm':
+            if len(time)==7:
+                a=int(time[0])+12
+                print(str(a)+time[1:4])
+            else:
+                if time[0:2]=='12':
+                    print(time[0:5])
+                else:
+                    z=int(time[0:2])+12
+                    print(str(z)+time[2:5])
+    else:
+        s=time[0:2]
+        s1=int(s)%12
+        cal=int(s)//12
+        if s=='00' or s=='24':
+            print('12'+time[2:5]+' am')
+        elif s=='12':
+            print('12'+time[2:5]+' pm')
+        elif cal%2==1:
+            print(str(s1)+time[2:5]+' pm')
+        elif cal%2==0:
+            print(str(s1)+time[2:5]+' am')
+        else:
+            print()        
+main()&gt;&gt;&gt;&gt; file: Twelve.py
+def main():
+    time=input('Enter a time in 12 hour clock ([h]h:mm [am|pm]):\n')
+    c=time[-2:]
+    if c=='am':
+        if len(time)==7:
+            print('0'+time[0:5])
+        else:
+            if time[0:2]=='12':
+                print('00'+time[2:5])
+            else:
+                print(time[0:5])
+    elif c=='pm':
+        if len(time)==7:
+            a=int(time[0])+12
+            print(str(a)+time[1:4])
+        else:
+            if time[0:2]=='12':
+                print(time[0:5])
+            else:
+                z=int(time[0:2])+12
+                print(str(z)+time[2:5])
+                
+main()&gt;&gt;&gt;&gt; file: TwentyFour.py
+def main():
+    time=input('Enter a time in 24 hour clock (hh:mm):\n')
+    s=time[0:2]
+    s1=int(s)%12
+    cal=int(s)//12
+    if s=='00' or s=='24':
+        print('12'+time[2:5]+' am')
+    elif s=='12':
+        print('12'+time[2:5]+' pm')
+    elif cal%2==1:
+        print(str(s1)+time[2:5]+' pm')
+    elif cal%2==0:
+        print(str(s1)+time[2:5]+' am')
+    else:
+        print()
+main()&gt;&gt;&gt;&gt; file: VehicleClassifier.py
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match204-1.html#1" TARGET="1"><IMG SRC="../../bitmaps/tm_1_3.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+v=' Vehicle classifier '
+print('{0:*^30}'.format(v))
+mass=int(input('What is the gross vehicle mass (in kg)?\n'))
+tr=input('Does the vehicle have a trailer?\n')
+if tr=='y':
+     masT=int(input('What is the gross vehicle mass of the trailer (in kg)?\n'))
+     if mass &lt;= 3500 and masT &lt;= 750:
+</FONT>          print('This vehicle is class B')
+     elif 3500 &lt; mass &lt;= 16000 and masT &lt;= 750:
+          print('This vehicle is class C1')
+     elif mass &gt; 16000 and masT &lt;= 750:
+          print('This vehicle is class C')
+     elif mass &lt;= 3500 and masT &gt; 750:
+          print('This vehicle is class EB')
+     elif 3500 &lt; mass &lt;= 16000 and masT &gt; 750:
+          print('This vehicle is class EC1')
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match204-1.html#0" TARGET="1"><IMG SRC="../../bitmaps/tm_0_5.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+     elif mass&gt;16000 and masT&gt;750:
+          print('This vehicle is class EC')
+          
+elif tr=='n':
+     art=input('Is the vehicle articulated?\n')
+     if art=='y':
+          if mass&lt;=3500:
+               print('This vehicle is class EB')
+          elif 3500&lt;mass&lt;=16000:
+               print('This vehicle is class EC1')
+          elif mass&gt;16000:
+</FONT>               print('This vehicle is class EC')
+          else:
+               print()          
+     
+</PRE>
+</PRE>
+</BODY>
+</HTML>

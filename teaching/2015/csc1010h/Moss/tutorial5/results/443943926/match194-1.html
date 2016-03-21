@@ -1,0 +1,215 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/5/raw/mhlthe039/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/5/raw/sksvus001/<p><PRE>
+&gt;&gt;&gt;&gt; file: calendar_utils.py
+#Skosana Vusi frlimo
+#calutils
+#17 August 2015
+
+def is_leap_year(year):
+    """A function that returns whether a year is leap or not"""
+    if year % 400 == 0:
+            return True
+    if year % 100 == 0:
+            return False
+    if year % 4 == 0:
+        return True
+    else:
+        return False
+    
+
+def month_name(number):
+    """given the number of a month, returns the corresponding names"""
+    if number == 1:
+        return 'January'
+    elif number == 2:
+        return 'February'
+    elif number == 3:
+        return 'March'
+    elif number == 4:
+        return 'April'
+    elif number == 5:
+        return 'May'
+    elif number == 6:
+        return 'June'
+    elif number == 7:
+        return 'July'
+    elif number == 8:
+        return 'August'
+    elif number == 9:
+        return 'September'
+    elif number == 10:
+        return 'October'
+    elif number == 11:
+        return 'November'
+    else:
+        return 'December'
+
+def days_in_month(month_number,year):
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match194-0.html#0" TARGET="0"><IMG SRC="../../bitmaps/tm_0_3.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    if month_number == 1 or month_number == 3 or month_number == 5 or month_number == 7 or month_number == 8 or month_number == 10 or month_number == 12:
+        return 31
+    elif month_number == 4 or month_number == 6 or month_number == 9 or month_number == 11:
+        return 30
+    elif month_number == 2 and is_leap_year(year) == True:
+</FONT>        return 28
+    else:
+        return 29
+def first_day_of_year(year):
+    day=(1+5*((year-1)%4)+4*((year-1)%100)+6*((year-1)%400))%7
+
+    return day
+
+def first_day_of_month(month_number, year):
+    year=str(year)
+    C=int(year[:2])
+    D=int(year[2:4])
+    if month_number==1 or month_number==2:
+        month_number+=10
+        DD=D-1
+        A=(1+int((13*month_number-1)/5) + DD + int(DD/4) + int(C/4) - 2*C)/1
+        a=A%7    
+        return int(a)
+    else:
+        month_number-=2
+        A=(1+int((13*month_number-1)/5) + D + int(D/4) + int(C/4) - 2*C)/1
+        a=A%7
+        return int(a)   
+
+    
+
+&gt;&gt;&gt;&gt; file: morse_code.py
+#Skosana Vusi Frelimo
+#17 August 2015
+
+
+import time
+import winsound
+
+def code_for(letter):
+    letter1=letter.lower()
+    wow={"a":".-","b":"-...","c":"-.-.","d":"-..","e":".","f":"..-.","g":"--.","h":"....","i":"..","j":".---","k":"-.-","l":".-..","m":"--","n":"-.","o":"---","p":".--.","q":"--.-","r":".-.","s":"...","t":"-","u":"..-","v":"...-","w":".--","x":"-..-","y":"-.--","z":"--.."}
+    return wow[letter1]
+
+def sleep(duration):
+    time.sleep(duration)
+def beep(frequency, duration):
+    winsound.Beep(frequency, duration)    
+    
+    
+
+def transmit_letter(letter):
+    morsecode=code_for(letter)
+    a=0
+    doc=""
+    for i in morsecode:
+        a+=1
+        if a==len(morsecode):
+            if i==".":
+                winsound.Beep(1000,100)
+                print(".",end="")
+                doc+="."
+            elif i=="-":
+                winsound.Beep(1000,300)
+                print("-",end="")
+                doc+="-"
+            
+        else:
+            if i==".":
+                winsound.Beep(1000,100)
+                print('.',end="")
+                time.sleep(0.1)
+                print("^",end="")
+                doc+=".^"
+
+            elif i=="-":
+                winsound.Beep(1000,300)
+                print("-",end="")
+                time.sleep(0.1)
+                print("^",end="")
+                doc+="-^"
+    return doc       
+            
+def transmit_word(word):
+    b=0
+    for i in word:
+        b+=1
+        if b==len(word):
+            transmit_letter(i)
+        elif b!=len(word):
+            transmit_letter(i)
+            time.sleep(0.3)
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match194-0.html#1" TARGET="0"><IMG SRC="../../bitmaps/tm_1_3.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+            print("|",end="")        
+
+
+
+def word_pause():
+    print("||",end="")
+    time.sleep(0.7)
+
+             
+    
+        
+
+
+    &gt;&gt;&gt;&gt; file: technical_support.py
+# Tech Support
+# Stephan Jamieson
+# 5/1/2015
+responses={
+    'bluetooth':'Have you tried mouthwash?',
+    'windows':'Ah, I think I see your problem. What version?',
+    'apple':'You do mean the computer kind?',
+    'blue':'Ah, the blue screen of death. And then what happened?',
+    'spam':'You should see if your mail client can filter messages.',
+    'connection':'Contact Telkom.',
+    'crashed':'Are the drivers up to date?',
+    'hacked':'You should consider installing anti-virus software.'}
+
+
+#def default_response():
+    #return 'Curious, tell me more.'
+    
+def get_response(words):
+</FONT>    for word in words:
+        
+        if not word in responses:
+            continue
+            #return 'Curious, tell me more.'  
+        else:
+            return responses[word]
+    return 'Curious, tell me more.'
+    #return default_response()
+    
+
+def print_welcome():
+    print('Welcome to the automated technical support system.')
+    print('Please describe your problem:')
+
+
+def get_input():
+    query = input().lower()
+    query = query.split(' ')
+    return query
+
+def main():
+    print_welcome()
+    words = get_input()
+    i = int(0)
+    while words[i]!='quit':
+        #words = get_input()
+        response=get_response(words)
+        print(response)
+        words = get_input()
+        i = int(0)
+main()    </PRE>
+</PRE>
+</BODY>
+</HTML>

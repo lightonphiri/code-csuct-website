@@ -1,0 +1,131 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/7/raw/mngsan021/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/7/raw/mngsan021/<p><PRE>
+&gt;&gt;&gt;&gt; file: book_cypher.py
+a=input("Enter the book filename:\n")
+message=input("Enter the message:\n").lower().split(" ")
+c=input("Enter the output filename:\n")
+e=open(c,"w")
+print("BEGIN")
+print("BEGIN",file=e)
+for n in range(len(message)):
+    d=open(a,"r")
+    f=d.readlines()
+    for i in range(len(f)):
+        f[i]=f[i].lower().split(" ")
+    for i in range(len(f)):
+        g=f[i]
+        for k in range(len(g)):
+            if message[n]==f[i][k].strip('?!.,;:)([]{}\'" \n'):
+                print(str(i+1)+"-"+str(k+1-f[i][:k+1].count("")))
+                print(str(i+1)+"-"+str(k+1-f[i][:k+1].count("")),file=e)
+                break
+        if message[n]==f[i][k].strip('?!.,;:)([]{}\'" \n'):
+            break
+    if message[n]!=f[i][k].strip('?!.,;:)([]{}\'" \n'):
+        print(message[n])
+        print(message[n],file=e)
+print("END",file=e)
+print("END")
+d.close()
+e.close()&gt;&gt;&gt;&gt; file: leader_board.py
+# leader_board.py
+
+def process_line(line):
+    parts = line.split(' ')
+    name = parts[0]
+    trials = int(parts[1])
+    average = float(parts[2])
+    return (name, trials, average)
+
+def get_max(entries):
+    max = entries[0]
+    for i in range(1, len(entries)):
+        if entries[i][2] &lt;max[2]:
+            max = entries[i]
+            
+    entries.remove(max)
+    return max
+
+def sort(entries):
+    sorted_entries = []
+    while len(entries)&gt;0:
+        sorted_entries.append(get_max(entries))
+    return sorted_entries
+
+def output(entries):
+    print('Subject        | Average Time')
+    print('************** | ************')
+    for entry in entries:
+        print('{:14} | {:.6}'.format(entry[0], entry[2]))
+              
+def main():
+    file_name = input('Enter the name of the file:\n')
+    try:
+        file_input = open(file_name, 'r')
+    except:
+        print("There is a problem with the file name please enter another file.")
+        while True:
+            file_name = input('Enter the name of the file:\n')
+            try:
+                file_input = open(file_name, 'r')
+            except:
+                print("There is a problem with the file name please enter another file.")
+            else:
+                break
+    entries = []
+    c=0
+    for line in file_input:
+        c+=1
+        try:
+            entries.append(process_line(line))
+        except ValueError as ve:
+            print("There is a value error in line number",c)
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match107-1.html#0" TARGET="1"><IMG SRC="../../bitmaps/tm_0_25.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+            print(line)
+            print("The format of the line is string, interger and float")
+        except IndexError as ie:
+            print("There is an index error in line number",c)
+            print(line)
+            print("The each line must contain atleast 3 elements.")
+    file_input.close()
+    
+    entries = sort(entries)
+    output(entries)
+    
+main()
+    &gt;&gt;&gt;&gt; file: reaction_test.py
+import time
+import random
+filea=input("Enter the name of the output file:\n")
+while True:
+    subject=input("Enter the subject name (or press 'enter' to quit):\n")
+    if subject=="":break
+    tests=int(input("Enter the number of tests:\n"))
+    filea=open(filea,"a")
+    average=0
+    for i in range(tests):
+        print("Get ready...",flush=True)
+        filea.write("Get ready...\n")
+        time.sleep(random.randint(1,5))
+        start=time.time()
+        d=input("Press 'enter' NOW!")
+        end=time.time()
+        reaction_time=end-start
+        average+=reaction_time
+        print("Reaction time:","{0:.6f}".format(reaction_time))
+        filea.write("Reaction time:"+str("{0:.6f}".format(reaction_time))+"\n")
+    print("Tests complete.")
+    filea.write("Tests complete."+"\n")
+    print("Average reaction time:"+str("{0:.6f}".format(average/tests)))
+    filea.write("Average reaction time:"+str("{0:.6f}".format(average/tests))+"\n")
+    print()
+filea.close()</FONT></PRE>
+</PRE>
+</BODY>
+</HTML>

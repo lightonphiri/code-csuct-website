@@ -1,0 +1,206 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/2/raw/jkwviz001/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/2/raw/jkwviz001/<p><PRE>
+&gt;&gt;&gt;&gt; file: CreditCard.py
+# program that prints out credit card details 
+# Vizicelo Jikwana
+# JKWVIZ001
+# 21 March 2015
+
+def main():
+    # obtain details
+    name = str(input("Enter the card holder's name: \n"))
+    
+    name = name.title()
+    
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match121-1.html#0" TARGET="1"><IMG SRC="../../bitmaps/tm_0_4.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    cardno = str(input("Enter the 16 digit card number (no spaces please): \n"))
+    
+    date_of_issue = str(input("Enter the date of issue (mm:yy): \n"))
+    
+    expiry_date = str(input("Enter the expiry date (mm:yy): \n"))
+    
+    security_code = input("Enter the 3 digit security code: \n")
+    
+    credit_limit = str(input("Enter the credit limit (Rand): \n"))
+    
+    balance1 = float(input("Enter the balance (Rand): \n"))
+    
+    # print out details
+    
+    no_of_spaces1 = 32 - len(name)
+</FONT>    
+    print("+------------- Credit Card Account --------------+")
+    
+   
+    
+    print("| Card holder:   {}{}|".format(name,no_of_spaces1*' '))
+    
+    
+    
+    s1,s2,s3,s4 = cardno[:4],cardno[4:8],cardno[8:12],cardno[12:16]
+    
+    space = 29 - len(cardno)
+    
+    print("| Card number:   {} {} {} {}{}|".format(s1,s2,s3,s4,space*' '))
+    
+   
+    
+    card_date_of_issue = date_of_issue[0:2] + '/' + date_of_issue[3:5]
+    card_expiry_date = expiry_date[0:2] + '/' + expiry_date[3:5]
+    
+    
+    print("| Date of issue: {}    Expiry date: {}     |".format(card_date_of_issue,card_expiry_date))
+    
+    
+    
+    print("| Security code: {}                             |".format(security_code))
+    
+    no_of_spaces2 = 24 - len(credit_limit)
+    
+    credit_limit = str(float(credit_limit)) + '0'
+    
+    print("| Credit limit:  {} Rand{}|".format(credit_limit,no_of_spaces2*' '))
+    
+    
+    
+    available = str(float(credit_limit) - float(balance1)) + '0'
+    
+    no_of_spaces3 = 27 - len(str(available))
+    
+    print("| Available:     {} Rand{}|".format(available,no_of_spaces3*' '))
+    
+    #balance = str(float(balance)) + '0'
+    
+    
+    balance = str(float(balance1)) + '0'
+    
+    no_of_spaces4 = 28 - len(str(balance))
+    
+    print("| Balance:       {} Rand{}|".format(float(balance),no_of_spaces4*' '))
+    
+    
+    
+    print("+------------------------------------------------+")
+    
+main()&gt;&gt;&gt;&gt; file: EugeneJunior.py
+
+
+def eugene():
+    import math
+    
+    print("Hello, I am Eugene Junior.")
+    
+    fname = str(input(("What is your first name?\n")))
+    
+    lname = str(input(("What is your last name?\n")))
+    
+    fname = fname.title()
+    lname = lname.title()
+    
+    initial1 = fname[0]
+    initial2 = lname[0]
+    
+    initial = initial1 + '.' + initial2 + '.' + '!'
+    print("Hi",initial)
+    
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match121-1.html#1" TARGET="1"><IMG SRC="../../bitmaps/tm_1_4.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    year = eval(input("What year is this?\n"))
+    
+    age = eval(input("What age are you?\n"))
+    
+    bdate = year-age-1
+    apprmte = year-age
+    bdate = str(bdate)
+</FONT>    apprmte = str(apprmte)
+    date = bdate + '/' + apprmte[2:4] + '.'
+    print("Okay, so you were born in",date)
+    
+    height = eval(input("How tall are you (metres)? \n"))
+    
+    height1 = math.floor(height*3.28084)
+    
+    height2 = (height*3.28084 - height1)*12
+    
+    difference = round(height2)
+    
+    height3 = str(height1) + "'" + str(difference) + '"' + "!"
+    
+    print("That's",height3) 
+    
+    print("I'm going to tell you your Star Wars name.")
+    
+    mothername = str(input("What's your mother's first name? \n"))
+    
+    city_name = str(input("What's the name of the city nearest to your place of birth? \n"))
+    
+    fname = fname.lower()
+    
+    SWfname = lname[0:3] + fname[0:2]
+    
+    #SWlname1 = mothername[-1:-3] + city_name[-1:-5]
+    
+    SWlname = mothername[-2] + mothername[-1] + city_name[-3] + city_name[-2] + city_name[-1]
+    
+    
+    SWlname1 = SWlname.title()
+    
+    SWlname = SWlname1 + '.'
+    
+    print("Your Star Wars name is",SWfname,SWlname)
+    
+eugene()&gt;&gt;&gt;&gt; file: HexagonArea.py
+import math
+
+def area():
+ Length_of_side = eval(input("Enter the length of the side (cm): \n"))
+
+ area = ((3*math.sqrt(3))/2)*(Length_of_side**2)
+
+ print("The area of a hexagon of side {} is {:.3f}.".format(Length_of_side,area))
+ 
+area()&gt;&gt;&gt;&gt; file: initials.py
+import turtle
+
+def tortoise():
+    turtle.left(90)
+    turtle.penup()
+    turtle.forward(100)
+    turtle.pendown()
+    turtle.right(65)
+    turtle.pencolor('blue')
+    turtle.forward(100)
+    turtle.penup()
+    turtle.back(100)
+    turtle.pendown()
+    turtle.right(45)
+    turtle.forward(100)
+    turtle.penup()
+    turtle.back(100)
+    turtle.right(70)
+    turtle.forward(60)
+    turtle.pendown()
+    turtle.forward(50)
+    turtle.left(90)
+    turtle.forward(90)
+    turtle.left(90)
+    turtle.forward(30)
+    turtle.penup()
+    turtle.back(60)
+    turtle.pendown()
+    turtle.forward(30)
+    turtle.penup()
+    turtle.left(90)
+    turtle.forward(90)
+    turtle.hideturtle()
+    turtle.exitonclick()
+tortoise()</PRE>
+</PRE>
+</BODY>
+</HTML>

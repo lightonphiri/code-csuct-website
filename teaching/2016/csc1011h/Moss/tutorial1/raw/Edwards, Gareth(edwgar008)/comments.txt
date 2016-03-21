@@ -1,0 +1,4 @@
+<p>The inner loop within the adding methods was a good addition.&#160;</p>
+  <p>Good working solution&#160;<img alt="yes" height="23"
+    src="https://vula.uct.ac.za/library/editor/ckeditor/plugins/smiley/images/thumbs_up.png"
+    title="yes" width="23" /></p>

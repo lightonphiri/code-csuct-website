@@ -1,0 +1,32 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/1/raw/gmbawa001/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/1/raw/gmbawa001/<p><PRE>
+&gt;&gt;&gt;&gt; file: CalculateChange.py
+#program used to determine the amount of coins in change in R5 R2, and R1, an individual obtains give a total change amount in rand
+# Awande Gumbi (gmbawa001)
+# 28 February 2015
+
+# take the given amount to be first be divided by a 5.
+# the remainder will then be divided by 2
+# the reamainder will be the 1 rands obtained.
+
+
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match50-1.html#0" TARGET="1"><IMG SRC="../../bitmaps/tm_0_71.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+rand = int(input("Enter change amount:\n"))
+five_rand = rand//5             #divide by 5, to see the number of 5 rand coins we can obtain
+two_rand = (rand%5)//2          #divide by 2, from the remainder of the factor divided by 5 to see the 2 rand we ca obtain
+one_rand = int((rand%5)%2)//1
+# the remaining number from dividing by 5 and then by 2, will be the number of 1 rand coins
+
+print("The change:")
+</FONT>print(five_rand,"R5 coins")
+print(two_rand,"R2 coins")
+print(one_rand,"R1 coins")</PRE>
+</PRE>
+</BODY>
+</HTML>

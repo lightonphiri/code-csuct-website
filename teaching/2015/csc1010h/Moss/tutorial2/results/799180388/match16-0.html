@@ -1,0 +1,121 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/2/raw/ndxgiv001/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/2/raw/ndxgiv001/<p><PRE>
+&gt;&gt;&gt;&gt; file: CreditCard.py
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match16-1.html#1" TARGET="1"><IMG SRC="../../bitmaps/tm_1_4.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+def main():
+    name=input("Enter the card holder's name:\n")
+    
+    card_holder=input('Enter the 16 digit card number (no spaces please):\n')
+    date=input('Enter the date of issue (mm:yy):\n')
+    expiry=input('Enter the expiry date (mm:yy):\n')
+    security=int(input('Enter the 3 digit security code:\n'))
+    credit=int(input('Enter the credit limit (Rand):\n'))
+</FONT>    rand="Rand"
+    format_credit="{0:.2f} {1}".format(credit,rand) 
+    balance=int(input('Enter the balance (Rand):\n'))
+    slicing_cardholder=str(card_holder)
+    sliced_variable=slicing_cardholder[0:4]
+    sliced_variable2=slicing_cardholder[4:8]
+    sliced_variable3=slicing_cardholder[8:12]
+    slicedvar=slicing_cardholder[12:16]
+    concate_date=date[0]+date[1]
+    concate_date2=date[3]+date[4]
+    concate_expiry=expiry[0]+expiry[1]
+    p=expiry[3]+expiry[4]
+    available_balance=credit-balance
+    available='{0:.2f} {1}'.format(available_balance,rand)
+    formated_balance='{0:.2f} {1}'.format(balance,rand)
+    print("+------------- Credit Card Account --------------+")
+    print("| Card holder:"," ","{0:&lt;32}".format(name)+"|")
+    print("| Card number:","  "+sliced_variable+" "+sliced_variable2+" "+sliced_variable3+" "+slicedvar,"{0:&gt;13}".format("|"))
+    print("| Date of issue:",""+concate_date+"/"+concate_date2,"   "+"Expiry date: "+concate_expiry+"/"+p,"{0:&gt;5}".format("|"))
+    print("| Security code:",security,"{0:&gt;29}".format("|"))
+    print("| Credit limit:  {0:&lt;32}{1}".format(format_credit,"|"))
+    print("| Available:     {0:&lt;32}{1}".format(available,"|"))
+    print("| Balance:","      {0:&lt;32}{1}".format(formated_balance,"|"))
+    print("+------------------------------------------------",end="+")    
+main()&gt;&gt;&gt;&gt; file: EugeneJunior.py
+import math
+name_intro='Hello, I am Eugene Junior.' 
+print(name_intro)
+first_name=input('What is your first name?\n')
+lowercase_firstname=first_name.lower()
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match16-1.html#0" TARGET="1"><IMG SRC="../../bitmaps/tm_0_6.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+last_name=input('What is your last name?\n')
+print('Hi',first_name[0]+"."+last_name[0],end='.!\n')
+
+year=eval(input('What year is this?\n'))
+age=eval(input('What age are you?\n'))
+user_age=year-age
+year_behind=user_age-1
+</FONT>remainder=user_age%100
+print('Okay, so you were born in',str(year_behind)+'/'+str(remainder),end='.'"\n")
+height=eval(input('How tall are you (metres)?\n'))
+feet=height*3.3
+feet_remainder=feet-int(feet)
+inch=12*feet_remainder
+print("That's",str(int(feet))+'\''+str(int(inch)),end="\"!""\n")
+print("I'm going to tell you your Star Wars name.")
+mother_name=input("What's your mother's first name?\n")
+mother_title=mother_name[-1]
+uppercase_mother=mother_name.upper()
+birth_place=input("What's the name of the city nearest to your place of birth?\n")
+print("Your Star Wars name is",last_name[0:3]+lowercase_firstname[0:2],uppercase_mother[-2]+mother_title+birth_place[-3::1],end='.')
+
+       
+&gt;&gt;&gt;&gt; file: HexagonArea.py
+# calculate the area
+import math
+length=int(input('Enter the length of the side (cm):\n'))
+area=((3*math.sqrt(3))/2)*length**2
+print('The area of a hexagon of side',length,'is',"{0:3.3f}".format(area),end=".")&gt;&gt;&gt;&gt; file: Initials.py
+# turtle program
+def main():
+    import turtle
+<A NAME="2"></A><FONT color = #0000FF><A HREF="match16-1.html#2" TARGET="1"><IMG SRC="../../bitmaps/tm_2_4.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    turtle.pensize(1)
+    turtle.penup()
+    turtle.left(90)
+    turtle.forward(25)
+    turtle.pendown()
+    turtle.color("red")
+    turtle.forward(100)
+    turtle.right(90)
+</FONT>    turtle.forward(200)
+    turtle.right(90)
+    turtle.forward(100)
+    turtle.right(90)
+<A NAME="3"></A><FONT color = #00FFFF><A HREF="match16-1.html#3" TARGET="1"><IMG SRC="../../bitmaps/tm_3_4.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    turtle.penup()
+    turtle.forward(200)
+    turtle.left(180)
+    turtle.pendown()
+    turtle.forward(100)
+    turtle.left(90)
+    turtle.forward(50)
+</FONT>    turtle.penup()
+    turtle.home()
+    turtle.right(90)
+    turtle.forward(25)
+    turtle.pendown()
+    turtle.color('green')
+    turtle.left(90)
+    turtle.forward(200)
+    turtle.right(154)
+    turtle.forward(223)
+    turtle.left(154)
+    turtle.forward(200)
+    turtle.exitonclick()
+main()</PRE>
+</PRE>
+</BODY>
+</HTML>

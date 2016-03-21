@@ -1,0 +1,461 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/3/raw/pswlel001/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/3/raw/sngxha002/<p><PRE>
+&gt;&gt;&gt;&gt; file: FeetMetres.py
+# A program that converts feets to metres 
+# Xhanti Singatha 
+# 15 May 2015
+
+def main():
+    min_num = int(input('Enter the minimum number of feet (not less than 0):\n'))
+    max_num = int(input('Enter the maximum number of feet (not more than 99):\n'))
+    for i in range(min_num,max_num+1):
+        metre = i*0.3048
+        
+        print("{0:&gt;4}'".format(i)+" |"+"{0:7.2f}m".format(metre))
+        
+main()&gt;&gt;&gt;&gt; file: FlowerPattern.py
+# A program that draws flower petals with a specified petal type
+# Xhanti Singatha
+# 17 May 2015
+
+import turtle
+
+<A NAME="4"></A><FONT color = #FF00FF><A HREF="match20-0.html#4" TARGET="0"><IMG SRC="../../bitmaps/tm_4_3.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+a = turtle.numinput("","Enter the number of petals (must be an even number): ")
+a = int(a)
+b = turtle.numinput("","Enter the length of stem: ")
+c = turtle.textinput("","Enter the petal type (triangle, square, or pentagon): ")
+d = turtle.numinput("","Enter the length of side: ")
+e = turtle.textinput("","Enter the stem colour: ")
+f = turtle.textinput("","Enter the first petal colour: ")
+g = turtle.textinput("","Enter the second petal colour: ")
+
+x = 0
+
+for i in range(a):
+</FONT>    if c=="triangle":
+        x +=360/a
+        turtle.color(e)
+        turtle.forward(b)
+<A NAME="5"></A><FONT color = #FF0000><A HREF="match20-0.html#5" TARGET="0"><IMG SRC="../../bitmaps/tm_0_3.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+        if i%2 == 0:
+            turtle.color(f)
+        else:
+            turtle.color(g)
+        turtle.left(30)
+        turtle.forward(d)
+        turtle.right(120)
+        turtle.forward(d)
+        turtle.right(120)
+        turtle.forward(d)
+        turtle.color(e)
+        turtle.home()
+        turtle.right(x)
+    elif c=="square":
+        x +=360/a
+</FONT>        turtle.color(e)
+        turtle.forward(b)
+<A NAME="2"></A><FONT color = #0000FF><A HREF="match20-0.html#2" TARGET="0"><IMG SRC="../../bitmaps/tm_2_4.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+        if i%2 == 0:
+            turtle.color(f)
+        else:
+            turtle.color(g)
+        turtle.left(90)
+        turtle.forward(d/2)
+        turtle.right(90)
+        turtle.forward(d)
+        turtle.right(90)
+        turtle.forward(d)
+        turtle.right(90)
+        turtle.forward(d)
+        turtle.right(90)
+        turtle.forward(d/2)
+        turtle.color(e)
+        turtle.home()
+        turtle.right(x)
+    elif c=="pentagon":
+</FONT>        x +=360/a
+        turtle.color(e)
+        turtle.forward(b)
+<A NAME="8"></A><FONT color = #00FFFF><A HREF="match20-0.html#8" TARGET="0"><IMG SRC="../../bitmaps/tm_3_1.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+        if i%2 == 0:
+            turtle.color(f)
+        else:
+            turtle.color(g)
+            
+        turtle.left(36)
+        turtle.forward(d)
+        turtle.right(72)
+        turtle.forward(d)
+</FONT>        turtle.right(72)
+        turtle.forward(d)
+        turtle.right(72)
+        turtle.forward(d)
+        turtle.right(72)
+        turtle.forward(d)
+        turtle.color(e)
+        turtle.home()
+        turtle.right(x)        
+
+turtle.exitonclick()
+    &gt;&gt;&gt;&gt; file: InchesMetres.py
+# A program that converts inches to metres 
+# Xhanti Singatha 
+# 15 May 2015
+
+def main():
+<A NAME="6"></A><FONT color = #00FF00><A HREF="match20-0.html#6" TARGET="0"><IMG SRC="../../bitmaps/tm_1_2.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    min_num = int(input('Enter the minimum number of inches (not less than 0):\n'))
+    max_num = int(input('Enter the maximum number of inches (not greater than 11):\n'))
+    print('Inches:',end="")
+    
+    
+    
+    for i in range(min_num,max_num+1):
+        metre = i*0.0254
+        metre = round(metre,2)
+        print("{0:&gt;5}".format(i)+"",end="")
+</FONT>        
+    print('\nMetres: ',end="")
+    for i in range(min_num,max_num+1):
+        metre = i*0.0254
+        #metre = round(metre,2)
+        print("{0:2.2f}".format(metre),end=" ")
+       
+    
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match20-0.html#1" TARGET="0"><IMG SRC="../../bitmaps/tm_1_5.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+main()
+    
+
+              
+              &gt;&gt;&gt;&gt; file: TimeConvertor.py
+# A program that converts the 12 hour clock to 24 hour clock and 24 hour clock to 12 hour clock
+# Xhanti Singatha
+# 15 May 2015
+
+def main():
+        time = input('Enter a time ([h]h:mm [am|pm]):\n')
+        g = time[7:]
+        h = time[6:]
+        if g=='m' or h=='m':
+                a =time[1:4]
+                b = time[0:1]
+                c = time[5:]
+        
+                d = time[0:2]
+                e = time[2:5]
+                f = time[6:]
+        
+                if b=='1' and c =='am':
+                        print('01'+a)
+                elif b=='2' and c =='am':
+                        print('02'+a)
+                elif b=='3' and c =='am':
+                        print('03'+a)
+</FONT>                elif b=='4' and c =='am':
+                        print('04'+a)
+                elif b=='5' and c =='am':
+                        print('05'+a)
+                elif b=='6' and c =='am':
+                        print('06'+a)
+                elif b=='7' and c =='am':
+                        print('07'+a)
+                elif b=='8' and c =='am':
+                        print('08'+a)
+                elif b=='9' and c =='am':
+                        print('09'+a)        
+                elif b=='1' and c =='pm':
+                        print('13'+a)
+                elif b=='2' and c =='pm':
+                        print('14'+a)
+                elif b=='3' and c =='pm':
+                        print('15'+a)
+                elif b=='4' and c =='pm':
+                        print('16'+a)
+                elif b=='5' and c =='pm':
+                        print('17'+a)
+                elif b=='6' and c =='pm':
+                        print('18'+a)
+                elif b=='7' and c =='pm':
+                        print('19'+a)
+                elif b=='8' and c =='pm':
+                        print('20'+a)
+                elif d=='9' and c =='pm':
+                        print('21'+e)
+                elif d=='10' and f =='am':
+                        print('10'+e)
+                elif d=='11' and f =='am':
+                        print('11'+e)
+<A NAME="3"></A><FONT color = #00FFFF><A HREF="match20-0.html#3" TARGET="0"><IMG SRC="../../bitmaps/tm_3_4.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+                elif d=='12' and f =='pm':
+                        print('12'+e)
+                elif d=='10' and f =='pm':
+                        print('22'+e)
+                elif d=='11' and f =='pm':
+                        print('23'+e)
+                else:
+                        print('00'+e)
+        else:
+                a =time[2:]
+                b = time[0:2]
+                if b=='00':
+                        print('12'+a+' am')
+                elif b=='01':
+                        print('1'+a+' am')
+                elif b=='02':
+                        print('2'+a+' am')
+                elif b=='03':
+</FONT>                        print('3'+a+' am')
+                elif b=='04':
+                        print('4'+a+' am')
+                elif b=='05':
+                        print('5'+a+' am')
+                elif b=='06':
+                        print('6'+a+' am')
+                elif b=='07':
+                        print('7'+a+' am')
+                elif b=='08':
+                        print('8'+a+' am')
+                elif b=='09':
+                        print('9'+a+' am')
+                elif b=='10':
+                        print('10'+a+' am')
+                elif b=='11':
+                        print('11'+a+' am')
+                elif b=='12':
+                        print('12'+a+' pm')
+                elif b=='13':
+                        print('1'+a+' pm')
+                elif b=='14':
+                        print('2'+a+' pm')
+                elif b=='15':
+                        print('3'+a+' pm')
+                elif b=='16':
+                        print('4'+a+' pm')
+                elif b=='17':
+                        print('5'+a+' pm')
+                elif b=='18':
+                        print('6'+a+' pm')
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match20-0.html#0" TARGET="0"><IMG SRC="../../bitmaps/tm_0_6.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+                elif b=='19':
+                        print('7'+a+' pm')
+                elif b=='20':
+                        print('8'+a+' pm')
+                elif b=='21':
+                        print('9'+a+' pm')
+                elif b=='22':
+                        print('10'+a+' pm')
+                else:
+                        print('11'+a+' pm')
+                
+main()
+        &gt;&gt;&gt;&gt; file: Twelve.py
+# A program that converts the 12 hour time into a 24 hour time
+# Xhanti Singatha
+# 14 May 2015
+
+def main():
+    time = input('Enter a time in 12 hour clock ([h]h:mm [am|pm]):\n')
+    a =time[1:4]
+    b = time[0:1]
+    c = time[5:]
+    
+    d = time[0:2]
+    e = time[2:5]
+    f = time[6:]
+    
+    if b=='1' and c =='am':
+        print('01'+a)
+    elif b=='2' and c =='am':
+        print('02'+a)
+    elif b=='3' and c =='am':
+        print('03'+a)
+</FONT>    elif b=='4' and c =='am':
+        print('04'+a)
+    elif b=='5' and c =='am':
+        print('05'+a)
+    elif b=='6' and c =='am':
+        print('06'+a)
+    elif b=='7' and c =='am':
+        print('07'+a)
+    elif b=='8' and c =='am':
+        print('08'+a)
+    elif b=='9' and c =='am':
+        print('09'+a)        
+    elif b=='1' and c =='pm':
+        print('13'+a)
+    elif b=='2' and c =='pm':
+        print('14'+a)
+    elif b=='3' and c =='pm':
+        print('15'+a)
+    elif b=='4' and c =='pm':
+        print('16'+a)
+    elif b=='5' and c =='pm':
+        print('17'+a)
+    elif b=='6' and c =='pm':
+        print('18'+a)
+    elif b=='7' and c =='pm':
+        print('19'+a)
+    elif b=='8' and c =='pm':
+        print('20'+a)
+    elif d=='9' and c =='pm':
+        print('21'+e)
+    elif d=='10' and f =='am':
+        print('10'+e)
+    elif d=='11' and f =='am':
+        print('11'+e)
+<A NAME="7"></A><FONT color = #0000FF><A HREF="match20-0.html#7" TARGET="0"><IMG SRC="../../bitmaps/tm_2_1.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    elif d=='12' and f =='pm':
+        print('12'+e)
+    elif d=='10' and f =='pm':
+        print('22'+e)
+    elif d=='11' and f =='pm':
+        print('23'+e)
+    else:
+        print('00'+e)
+    
+    
+main()
+        &gt;&gt;&gt;&gt; file: TwentyFour.py
+# A program that converts the 24 hour time into a 12 hour time
+# Xhanti Singatha
+# 14 May 2015
+
+def main():
+    time = input('Enter a time in 24 hour clock (hh:mm):\n')
+</FONT>    a =time[2:]
+    b = time[0:2]
+    if b=='00':
+        print('12'+a+' am')
+    elif b=='01':
+        print('1'+a+' am')
+    elif b=='02':
+        print('2'+a+' am')
+    elif b=='03':
+        print('3'+a+' am')
+    elif b=='04':
+        print('4'+a+' am')
+    elif b=='05':
+        print('5'+a+' am')
+    elif b=='06':
+        print('6'+a+' am')
+    elif b=='07':
+        print('7'+a+' am')
+    elif b=='08':
+        print('8'+a+' am')
+    elif b=='09':
+        print('9'+a+' am')
+    elif b=='10':
+        print('10'+a+' am')
+    elif b=='11':
+        print('11'+a+' am')
+    elif b=='12':
+        print('12'+a+' pm')
+    elif b=='13':
+        print('1'+a+' pm')
+    elif b=='14':
+        print('2'+a+' pm')
+    elif b=='15':
+        print('3'+a+' pm')
+    elif b=='16':
+        print('4'+a+' pm')
+    elif b=='17':
+        print('5'+a+' pm')
+    elif b=='18':
+        print('6'+a+' pm')
+    elif b=='19':
+        print('7'+a+' pm')
+    elif b=='20':
+        print('8'+a+' pm')
+    elif b=='21':
+        print('9'+a+' pm')
+    elif b=='22':
+        print('10'+a+' pm')
+    else:
+        print('11'+a+' pm')
+
+main()
+        &gt;&gt;&gt;&gt; file: VehicleClassifier.py
+# A program that classifies vehicles in driving linsence category
+# Xhanti Singatha
+# 14 May 2015
+
+def main():
+    print('***** Vehicle classifier *****')
+    gvm = int(input('What is the gross vehicle mass (in kg)?\n'))
+    trailer = input('Does the vehicle have a trailer?  \n')
+    a ='E'
+    if trailer =='y':
+        gvm_trailer = int(input('What is the gross vehicle mass of the trailer (in kg)\n'))
+        total_gvm =gvm+gvm_trailer
+        
+        if  750&lt;gvm_trailer&lt;=3500:
+            print('This vehicle is class',a+'B.')
+        elif 3500&lt;gvm_trailer&lt;=16000:
+            print('This vehicle is class',a+'C1.')
+        elif 16000&lt;gvm_trailer:
+            print('This vehicle is class',a+'C.')
+        
+        elif gvm&lt;=3500 or 750&lt;gvm_trailer&lt;=3500:
+            print('This vehicle is class B.')
+        elif 3500&lt;gvm&lt;=16000 or 750&lt;gvm_trailer&lt;=16000:
+            print('This vehicle is class C1.')
+        elif 16000&lt;gvm or 750&lt;gvm_trailer&lt;=16000:
+            print('This vehicle is class C.')
+            
+        elif gvm&lt;=3500 and 750&lt;gvm_trailer&lt;=3500:
+            print('This vehicle is class',a+'B.')
+        elif 3500&lt;gvm&lt;=16000 and  750&lt;gvm_trailer&lt;=16000:
+            print('This vehicle is class ',a+'C1')
+        elif 16000&lt;gvm and 750&lt;gvm_trailer&lt;16000:
+            print('This vehicle is class',a+'C')            
+        
+        elif trailer =='y' and gvm_trailer&lt;=3500:
+            print('This vehicle is class B.')
+        elif trailer =='y' and 3500&lt;gvm_trailer&lt;=16000:
+            print('This vehicle is class C1.')
+        elif trailer =='y' and 16000&lt;gvm_trailer:
+            print('This vehicle is class C.')
+            
+        elif trailer =='y' and total_gvm &lt;=3500:
+            print('This vehicle is class B.')
+        elif trailer =='y' and 3500&lt;total_gvm&lt;=16000:
+            print('This vehicle is class C1.')
+        else:
+            print('This vehicle is class C.')
+    else:
+        articulation = input('Is the vehicle articulated?\n')
+        
+        if articulation =='y' and gvm&lt;=3500:
+            print('This vehicle is class',a+'B.')
+        elif articulation =='y' and 3500&lt;gvm&lt;=16000:
+            print('This vehicle is class',a+'C1.')
+        elif articulation =='y' and 16000&lt;gvm:
+            print('This vehicle is class',a+'C.')
+            
+        elif articulation =='n' and gvm&lt;=3500:
+            print('This vehicle is class B.')
+        elif articulation =='n' and 3500&lt;gvm&lt;=16000:
+            print('This vehicle is class C1.')
+        else:
+            print('This vehicle is class C.')
+            
+main()
+       </PRE>
+</PRE>
+</BODY>
+</HTML>

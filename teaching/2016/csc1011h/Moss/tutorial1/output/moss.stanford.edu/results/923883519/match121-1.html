@@ -1,0 +1,255 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Dropbox/Projects/work/2016/csc1011h/Moss/tutorial1/raw/Herman,_Wesley(hrmwes003)/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Dropbox/Projects/work/2016/csc1011h/Moss/tutorial1/raw/Mazibuko,_Eagan(mzbntw001)/<p><PRE>
+&gt;&gt;&gt;&gt; file: Appointment.py
+# Ntwanano Mazibuko
+# Appointment.py
+
+from time import *
+
+#creates timestmp to be displayed
+def timestamp():
+    time=str(asctime())
+    timestamp= time[0:3]+' '+time[8:10]+'/'+time[4:7]+'/'+time[20:]+' '+time[11:16]
+    print(timestamp)
+
+#definition of the Appointment class
+class Appointment:
+    
+    def __init__(pat_id_n='unkwown',doc_id_n='unkwown',ts=timestamp(),memo='None'):        # constructor method to initialise variables
+        self.pat_id_number=pat_id_n         # variable to store patient's id number
+        self.doc_id_number=doc_id_n         # variable to store doctor's id number
+        self.timestamp=ts                   # variable for storing the full timestamp of the appointment
+        self.memo=memo                      # variable to store the description of what occured at the appointment
+        
+    def __str__(self):              # converts all variables from constructor into a single string
+        s = self.pat_id_number+','+self.doc_id_number+','+self.timestamp+','+self.memo
+        return (s) #returns string
+    
+    #displays all information concerning appointment
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match121-0.html#0" TARGET="0"><IMG SRC="../../bitmaps/tm_0_3.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    def display(self):
+        print('Patient\'s Id number:',self.pat_id_number)
+        print('Doctor\'s Id number:',self.doc_id_number)
+        print('Timestamp:',self.timestamp)
+        print('Memo:',self.memo)&gt;&gt;&gt;&gt; file: Doctor.py
+# Ntwanano Mazibuko
+# Doctor.py
+
+from Person import Person
+</FONT>
+class Doctor(Person):
+    
+    def __init__(self,n='None',a=0,id_n='unkwown',add='unkwown'):
+        Person.__init__(self,n,a)       # constructor method from parent class
+        self.doc_id_number=id_n         # variable to store doctor's id number
+        self.doc_address=add            # variable to store doctor's address
+        
+    def __str__(self):          # converting all variables into a single string
+        s= self.name+', '+str(self.age)+', '+str(self.doc_ID_Number)+', '+self.doc_address      
+        return (s)
+    #displays doctor's information
+    def dispaly(self):
+        Person.display(self)
+        print('Doctor\'s Id number:',self.doc_ID_Number)
+        print('Doctor\'s address:',self.doc_address)
+    #inputs for doctor's info
+    def input(self):
+        self.doc_id_number=input('Enter Doctor\'s Id number: ')
+        self.doc_address=input('Enter Doctor\'s address: ')&gt;&gt;&gt;&gt; file: Patient.py
+# Ntwanano Mazibuko
+# Patient.py
+
+from Person import Person
+
+class Patient(Person):
+    
+    def __init__(self,n='None',a=0,id_n='unkwown',add='unkwown',n_v=0):
+        Person.__init__(self,n,a)       # constructor method derived from parent
+        self.pat_id_number=id_n         # varible to store patient's Id number
+        self.pat_address=add            # variable to store patient's address
+        self.num_of_visits=n_v          # variable to store the number of visits to the clinic
+        
+    def __str__(self):
+        s= self.name+', '+str(self.age)+', '+str(self.pat_id_number)+', '+self.pat_address+', '+str(self.num_of_visits)     # method of converting to string
+        return (s)
+    #displays patients info
+    def display(self):
+        Person.display(self)
+        print('Patient\'s Id number:',self.doc_id_number)
+        print('Patient\'s address:',self.doc_address)        
+    #function to calculate patients medical fees
+    def calculate_medical_fees(self):
+        return (200*self.num_of_visits)     # calculates amount owed by patient based on the standard fee, per visit
+    #inputs for patient's information
+    def input(self):
+        self.pat_id_number=input('Enter Patient\'s Id number: ')
+        self.pat_address=input('Enter Patient\'s address: ')&gt;&gt;&gt;&gt; file: Person.py
+class Person:
+    
+    def __init__(self,n='unknown',a=0): #constructor for Person class
+        self.name = n
+        self.age = a
+    #function for increasing person's age
+    def increment_age(self):
+        self.age += 1
+    #string convertor
+    def __str__(self):
+        return(self.name + ',' + str(self.age))
+    #displays person's information
+    def display(self):
+        print('Name:',self.name)
+        print('Age:',self.age)
+
+&gt;&gt;&gt;&gt; file: clinicsystem.py
+# Ntwanano Mazibuko
+# 29 February 2016
+
+from Person import Person
+from Doctor import Doctor
+from Patient import Patient
+from Appointment import Appointment
+
+from pickle import *
+#datatypes to store information required by the clinic
+doctors = {}
+patients = {}
+appointments = {}
+patient_appointments= {}
+doctor_appointments= {}
+Appointment_number=0
+
+#options available to choose from
+def intro():
+    print('Clinic System:')
+    print('0. Quit.')
+    print('1. Input Patient')
+    print('2. Input Doctor')
+    print('3. Input Appointment.')
+    print('4. Enrol Patient to Appoinment.')
+    print('5. Assign Appointment to Doctor.')
+    print('6. Find Appointment.')
+    print('7. Find Doctor.')
+    print('8. Find Patient.')
+    print('9. Display Appointments.')
+    print('10. Display Doctors.')
+    print('11. Display Patients.')
+
+#function to iterate over datatype info
+def display_dictionary_values(subject):
+    for i in subject:
+        item=subject[i]
+        item.display()
+    
+def main():    
+    input_file=open('Outputs.txt','wb') #opens file to save input
+    while True:
+        intro() #calls options
+        
+        option=int(input('&gt;'))
+    
+        if option== 0: #ceases operation
+            data_files=[doctors,patients,appointments,doctor_appointments,patient_appointments]
+            dump(data_files, input_file)
+            input_file.close()
+            break
+        
+        elif option== 1: #inputs patient's info
+            patient=Patient()
+            patient.id_input()
+            patients[patient.pat_id_number]=patient
+            
+        elif option== 2: #inputs for doctor's info
+            doctor=Doctor()
+            doctor.input()
+            doctors[doctor.doc_id_number]=doctor
+            
+        elif option== 3: #inputs appointment info
+            Appointment_number+=1
+            appointment=Appointment()
+            appointment.input()
+            appointments[Appointment_number]=appointment
+            
+        elif option== 4: #searchs for patient
+            pat_id_number=input('Enter Patient\'s Id number: ')
+            appointment=Appointment()
+            appointment.input()
+            
+            if len(patient.pat_id_number)&gt;0:
+                for i in patients:
+                    if pat_id_number == i:
+                        patient_appointments[pat_id_number]=appointment
+                print('Could not find a patient with that Id number.')
+        
+            else:
+                print('Could not find a patient with that student number.')
+     
+        elif option== 5: #searchs for doctor
+            doc_id_number=input('Enter Doctor\'s Id number: ')
+            appointment=Appointment()
+            appointment.input()
+            
+            if len(doctor.doc_id_number)&gt;0:
+                for i in doctors:
+                    if doc_id_number == i:
+                        doctor_appointments[doc_id_number]=appointment
+                print('Could not find a doctor with that Id number.')
+        
+            else:
+                print('Could not find a doctor with that id number.')
+                
+        elif option== 6: #searchs for appointment
+            Appointment_number=int(input('Enter Appointment number: '))
+            appointment=Appointment()
+            appointment.input()
+            
+            if len(appintment_number)&gt;0:
+                for i in appointments:
+                    if Appointment_number == i:
+                        appointments[Appointment_number]=appointment
+                print('Could not find an appointment with that appointment number.')
+        
+            else:
+                print('Could not find an appointment with that appointment number.')                       
+        
+        elif option== 7: #finds doctor
+            doc_id_number=input('Enter Doctor\'s Id number: ')
+            
+            if doc_id_number in doctors:
+                print(doctors[doc_id_number])
+                
+            else:
+                print('Could not find a doctor with that id number.')
+            
+        elif option== 8: #finds patient
+            patient_id_number=input('Enter Patient\'s Id number: ')
+            
+            if len(patient_id_number)&gt;0:
+                for ptt in patients:
+                    if patient_id_number==ptt:
+                        print(patients[patient_id_number])
+                print('Could not find a patient with that id number.')
+            else:
+                print('Could not find a patient with that id number.')
+        
+        elif option== 9: #displays all appointments
+            display_dictionary_values(appointments)
+        
+        elif option== 10: #displays all doctors
+            display_dictionary_values(doctors)
+        
+        elif option== 11: #displays all patients
+            display_dictionary_values(patients)
+        
+        else: #printed when option is not found
+            print('That selection was not recognised.')
+
+main()</PRE>
+</PRE>
+</BODY>
+</HTML>

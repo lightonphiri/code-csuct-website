@@ -1,0 +1,34 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/1/raw/ndnlut002/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/1/raw/ndnlut002/<p><PRE>
+&gt;&gt;&gt;&gt; file: CalculateChange.py
+# calculate the simplest change for money
+# lutho nduneni
+# 14 april 2015
+
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match41-1.html#0" TARGET="1"><IMG SRC="../../bitmaps/tm_0_72.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+def main():
+    amount_to_be_changed=eval(input("Enter change amount:\n"))  # Enter the amount that has to be changed
+    # Check how many R5 coins can be found in the amount
+    R5_change=amount_to_be_changed//5
+    # Check how much cannot be changed to R5 coins
+    remaining=amount_to_be_changed%5
+    # Check if amount left can be changed to R2 coins
+    R2_change=remaining//2
+    # Change the remaining amount to R1 coins
+    R1_change=remaining%2
+    # Print the results
+    print("The change:")
+</FONT>    print(R5_change,"R5 coins")
+    print(R2_change,"R2 coins")
+    print(R1_change,"R1 coins")
+main()
+</PRE>
+</PRE>
+</BODY>
+</HTML>

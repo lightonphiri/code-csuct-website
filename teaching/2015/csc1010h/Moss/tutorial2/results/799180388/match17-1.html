@@ -1,0 +1,109 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/2/raw/mmlfhu003/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/2/raw/rmnmma003/<p><PRE>
+&gt;&gt;&gt;&gt; file: CreditCard.py
+card_holder=input("Enter the card holder's name: \n")
+card_no=input("Enter the 16 digit card number (no spaces please):  \n")
+date_issued=input("Enter the date of issue (mm:yy):  \n")
+expiry_date=input("Enter the expiry date (mm:yy):  \n")
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match17-0.html#1" TARGET="0"><IMG SRC="../../bitmaps/tm_1_5.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+expiry_date="{0}/{1}    Expiry date: {2}/{3}".format(date_issued[0:2],date_issued[3:5],expiry_date[0:2],expiry_date[3:5])
+</FONT><A NAME="0"></A><FONT color = #FF0000><A HREF="match17-0.html#0" TARGET="0"><IMG SRC="../../bitmaps/tm_0_6.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+sec_code=input("Enter the 3 digit security code:  \n")
+limit=float(input("Enter the credit limit (Rand):  \n"))
+bal=float(input("Enter the balance (Rand):  \n"))
+avail=limit-bal
+bal="{0:.2f} Rand".format(bal)
+limit="{0:.2f} Rand".format(limit)
+avail="{0:.2f} Rand".format(avail)            
+</FONT>print("+------------- Credit Card Account --------------+")
+print("{0:&lt;17}{1:&lt;32}|".format("| Card holder:",card_holder))
+<A NAME="2"></A><FONT color = #0000FF><A HREF="match17-0.html#2" TARGET="0"><IMG SRC="../../bitmaps/tm_2_5.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+print("{0:&lt;17}{1} {2} {3} {4}             |".format("| Card number:",card_no[0:4],card_no[4:8],card_no[8:12],card_no[12:16]))
+print("{0:&lt;17}{1:&lt;32}|".format("| Date of issue:",expiry_date))
+print("{0:&lt;17}{1:&lt;32}|".format("| Security code:",sec_code))
+print("{0:&lt;17}{1:&lt;32}|".format("| Credit limit:",limit))
+print("{0:&lt;17}{1:&lt;32}|".format("| Available:",avail))
+</FONT>print("{0:&lt;17}{1:&lt;32}|".format("| Balance:",bal))
+print("+------------------------------------------------+")&gt;&gt;&gt;&gt; file: EugeneJunior.py
+print("Hello, I am Eugene Junior.")
+first_name=input("What is your first name? \n")
+last_name=input("What is your last name? \n")
+print("Hi "+first_name[0].upper()+"."+last_name[0].upper()+".!")
+current_year=int(input("What year is this?  \n"))
+age=int(input("What age are you?  \n"))
+
+print("Okay, so you were born in",str(current_year-age
+-1)+"/"+str(current_year-age
+)[2:4]+'.')
+height=eval(input("How tall are you (metres)?  \n"))
+feet=height*3.3
+taken_feet=int(feet)
+remainder_feet=feet-taken_feet
+metres=remainder_feet/3.3
+inches=metres*39.3701
+taken_inches=int(inches)
+print("That's {0}\'{1}\"!".format(taken_feet,taken_inches))
+
+print("I'm going to tell you your Star Wars name.")
+mother=input("What's your mother's first name?  \n")
+city=input("What's the name of the city nearest to your place of birth?  \n")
+print("Your Star Wars name is {0} {1}.".format(last_name[0:3].title()+ first_name[0:2].lower(),mother[-2:].title()+city[-3:].lower()))
+
+&gt;&gt;&gt;&gt; file: HexagonArea.py
+import math
+length=int(input("Enter the length of the side (cm):  \n"))
+formular_numerator=math.sqrt(9*3)
+formular=formular_numerator/2
+Area=formular*(length)**2
+
+print("The area of a hexagon of side {0} is {1:.3f}.".format(length,Area))&gt;&gt;&gt;&gt; file: Initials.py
+import turtle
+turtle.left(90)
+turtle.penup()
+turtle.forward(145)
+turtle.right(90)
+turtle.pendown()
+turtle.pensize(2)
+turtle.color("blue")
+
+
+turtle.forward(200)
+turtle.right(90)
+turtle.forward(100)
+turtle.right(90)
+turtle.forward(60)
+turtle.right(45)
+turtle.forward(70)
+turtle.left(90)
+turtle.forward(70)
+turtle.right(45)
+turtle.forward(45)
+<A NAME="3"></A><FONT color = #00FFFF><A HREF="match17-0.html#3" TARGET="0"><IMG SRC="../../bitmaps/tm_3_5.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+turtle.left(90)
+turtle.penup()
+turtle.forward(50)
+turtle.pendown()
+turtle.color("orange")
+turtle.left(90)
+turtle.forward(200)
+turtle.right(135)
+</FONT>turtle.forward(100)
+turtle.left(90)
+turtle.forward(100)
+turtle.right(135)
+turtle.forward(200)
+             
+
+turtle.exitonclick()</PRE>
+</PRE>
+</BODY>
+</HTML>

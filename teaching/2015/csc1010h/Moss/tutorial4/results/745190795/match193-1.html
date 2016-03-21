@@ -1,0 +1,157 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/4/raw/dkgtha005/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/4/raw/kmpmph001/<p><PRE>
+&gt;&gt;&gt;&gt; file: LongJump.py
+# Program that determines the winner of a competition in long jump
+# Khomotjo Khomotjo
+# 29 july 2015
+    
+def main():
+    print("***** Long Jump Information System *****")
+    print("Please enter the names of competitors. (Press return when done.)")
+    
+    a=1     # create a counter
+    names=[]   # store the names
+    
+    while True:
+        comp=input("Competitor no. {}:\n".format(a))   # ask for names
+        a+=1
+        names.append(comp)   # add name to list
+        if comp=='':
+            break
+    names.remove('')   # remove the empty string from the list
+   
+    print("Please enter the distances for each competitor.")
+    
+    large=[]   # store the measurements
+    values=[]  # list the integers alone
+    
+    for i in names:
+        for test in range(1):
+            print("Competitor {}:".format(i))
+        
+            at1=input("Attempt 1:\n")
+            at2=input("Attempt 2:\n")
+            at3=input("Attempt 3:\n")
+            
+            if at1==at2==at3=="foul":
+                foul="No jump"
+                large.append(foul)
+                        
+            elif not str(at1).isalpha() and not str(at2).isalpha() and at3=="foul":
+                big=max(float(at1),float(at2))
+                large.append("{:.2f}".format(big))
+                values.append(big)
+                        
+            elif not str(at1).isalpha() and at2=="foul" and at3=="foul":
+                large.append("{:.2f}".format(float(at1)))
+                values.append(at1)
+                        
+            elif at1=="foul" and not str(at2).isalpha() and at3=="foul":
+                large.append("{:.2f}".format(float(at2)))
+                values.append(at2)
+                        
+            elif at1=="foul" and not str(at2).isalpha() and not str(at3).isalpha():
+                big=max(float(at2),float(at3))
+                large.append("{:.2f}".format(big))
+                values.append(big)
+                        
+            elif at1=="foul" and at2=="foul" and not str(at3).isalpha():
+                large.append(("{:.2f}".format(float(at3))))
+                values.append(at3)
+                    
+            elif not str(at1).isalpha() and at2=='foul' and not str(at3).isalpha():
+                big=max(float(at1),float(at3))
+                large.append("{:.2f}".format(big))
+                values.append(big)
+                          
+            elif not str(at1).isalpha() and not str(at2).isalpha() and not str(at3).isalpha():
+                big=max(float(at1), float(at2), float(at3))
+                large.append("{:.2f}".format(big))
+                values.append(big)
+    print()
+    print("Competitor               Longest Distance")
+
+    for i in range(len(names)):       # print out the results stored in the lists large and values
+        print("{:&lt;24} {:&lt;35}".format(names[i],large[i]))
+    
+    stop=float(large.index("{:.2f}".format(float(max(values)))))    # find the position of the name in the list through another list
+    
+    print()
+    print("The winner is {} with a jump of {:.2f}.".format(names[int(stop)],float(max(values))))
+
+main()&gt;&gt;&gt;&gt; file: NikNaks.py
+# program that plays a game with the user
+# Kudumela Khomotjo
+# 03 August 2015
+
+def main():
+ import random
+ print("Guess the mystery 4 letter code. (No letter occurs more than once.)")
+ 
+ difficulty=int(input('Choose difficulty level (4 to 26):\n'))
+ letters=list('abcdefghijklmnopqrstuvwxyz')[0: difficulty]
+ print('The letters in the code are chosen from: {}.'.format(letters))
+ 
+ secret_code=[]
+ count = []
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match193-0.html#0" TARGET="0"><IMG SRC="../../bitmaps/tm_0_4.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+ for i in range(4):
+     rand_index=random.randint(0, len(letters)-1)
+     letter=letters.pop(rand_index)
+     secret_code.append(letter)
+     
+ for i in range(10,0,-1):
+</FONT>   print("You have",i,"guesses remaining.")
+   guess = input("Enter your guess:\n")
+   count.append(i)
+   
+   guess_list = []
+   
+   for let in guess:
+       guess_list.append(let)
+ 
+   niks = []
+   for i in guess_list:
+    if i in secret_code and guess_list.index(i) == secret_code.index(i):
+     niks.append(i)
+    
+   naks2 = [] 
+   for i in guess_list:
+    for b in secret_code:
+     if i == b:
+      naks2.append(i)
+   
+   for i in niks:
+    if i in naks2:
+     naks2.remove(i)
+    
+   if len(niks)==4:
+    print("Correct!")
+    break
+   
+   elif len(niks) != 4:
+    if len(niks) == 1:
+     print('There is',len(niks),"Nik","and",len(naks2),"Naks.")
+    elif len(naks2) == 1:
+     print('There are',len(niks),"Niks","and",len(naks2),"Nak.")
+    else:
+     print('There are',len(niks),"Niks","and",len(naks2),"Naks.")
+   
+   
+   if len(count) == 10:
+  
+       print('Sorry, you lose.')
+       string = secret_code[0]+secret_code[1]+secret_code[2]+secret_code[3]
+       print('The secret number was',string,end='.')
+
+if __name__ == '__main__':
+ main()</PRE>
+</PRE>
+</BODY>
+</HTML>

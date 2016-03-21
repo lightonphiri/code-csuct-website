@@ -1,0 +1,189 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/4/raw/gmbawa001/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/4/raw/gmbawa001/<p><PRE>
+&gt;&gt;&gt;&gt; file: LongJump.py
+print("***** Long Jump Information System *****")
+print("Please enter the names of competitors. (Press return when done.)")
+a = input("Competitor no. 1:\n")
+b = [a]
+h = 2
+while a:
+    a = input("Competitor no. "+str(h)+":\n")
+    h+=1
+    if a != "":
+        b.append(a)
+c = []
+d = {}
+g = []
+j = []
+print("Please enter the distances for each competitor.")
+for p in b:
+    print("Competitor",p+":")
+    for i in range(1,4):
+        e = input("Attempt "+str(i)+":\n")
+        if e == "Foul" or e == "foul":
+            e = "0"
+        e = eval(e)
+        c.append(e)
+    j = max(c)
+    d[p] = j
+    g.append(j)
+    c = []
+print()
+f = []
+print("{0:25}{1:25}".format("Competitor","Longest Distance"))
+for name in b:
+    if d[name] == 0:
+        d[name] = "No jump"
+        print("{0:25}{1:15}".format(name,"No jump"))
+    if d[name] != "No jump":
+        print("{0:25}{1:&lt;15.2f}".format(name,d[name]))
+        f.append(d[name])
+            
+print()
+print("The winner is {0} with a jump of {1:.2f}.". format(b[g.index(max(f))],(max(f))))
+&gt;&gt;&gt;&gt; file: NikNaks.py
+import random
+def main():
+    print("Guess the mystery 4 letter code. (No letter occurs more than once.)")
+    difficulty=int(input('Choose difficulty level (4 to 26):\n'))
+    letters=list('abcdefghijklmnopqrstuvwxyz')[0: difficulty]
+    print('The letters in the code are chosen from: {}.'.format(letters))
+    secret_code=[]
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match28-1.html#1" TARGET="1"><IMG SRC="../../bitmaps/tm_1_12.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    for i in range(4):
+        rand_index=random.randint(0, len(letters)-1)
+        letter=letters.pop(rand_index)
+        secret_code.append(letter)
+    c = 10
+    print("You have",c,"guesses remaining.")
+    guess = input("Enter your guess:\n")
+    Niks = 0
+    Naks = 0
+    for k in range(4):
+        if secret_code[k] == guess[k]:
+            Niks = Niks + 1
+        elif guess[k] in secret_code:
+            Naks = Naks + 1
+    a = "Niks"
+    b = "Naks"
+    if Niks == 1 and Naks != 1 and Niks != 4:
+        print("There are",Niks,a[:a.find("s")],"and",Naks,b+".")
+</FONT>    elif Niks != 1 and Naks == 1 and Niks != 4:
+        print("There are",Niks,a,"and",Naks,b[:b.find("s")]+".")
+    elif Niks == 1 and Naks == 1 and Niks != 4:
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match28-1.html#0" TARGET="1"><IMG SRC="../../bitmaps/tm_0_13.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+        print("There are",Niks,a[:a.find("s")],"and",Naks,b[:b.find("s")]+".")
+    else:
+        if Niks != 4:
+            print("There are",Niks,a,"and",Naks,b+".")
+    while c != 1 and list(guess) != secret_code:
+        c -=1
+        print("You have",c,"guesses remaining.")
+        guess = input("Enter your guess:\n")
+        Niks = 0
+        Naks = 0
+        for k in range(4):
+            if secret_code[k] == guess[k]:
+                Niks = Niks + 1
+            elif guess[k] in secret_code:
+                Naks = Naks + 1
+        if Niks == 1 and Naks != 1 and Niks != 4:
+            print("There is",Niks,a[:a.find("s")],"and",Naks,b+".")
+</FONT>        elif Niks != 1 and Naks == 1 and Niks != 4:
+            print("There are",Niks,a,"and",Naks,b[:b.find("s")]+".")
+        elif Niks == 1 and Naks == 1 and Niks != 4:
+<A NAME="2"></A><FONT color = #0000FF><A HREF="match28-1.html#2" TARGET="1"><IMG SRC="../../bitmaps/tm_2_6.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+            print("There is",Niks,a[:a.find("s")],"and",Naks,b[:b.find("s")]+".")
+        else:
+            if Niks != 4:
+                print("There are",Niks,a,"and",Naks,b+".")
+    if list(guess) == secret_code:
+        print("Correct!")
+    else:
+        print("Sorry, you lose.")
+        print("The secret number was ",end="")
+        for i in secret_code:
+            print(i,end="")
+        print(".")
+if __name__ == "__main__":
+</FONT>    main()&gt;&gt;&gt;&gt; file: Python turtle.py
+import sys
+import turtle
+
+def border(t, screen_x, screen_y):
+    """(Turtle, int, int)
+
+    Draws a border around the canvas in red.
+    """
+    # Lift the pen and move the turtle to the center.
+    t.penup()
+    t.home()
+
+    # Move to lower left corner of the screen; leaves the turtle
+    # facing west.
+    t.forward(screen_x / 2)
+    t.right(90)
+    t.forward(screen_y / 2)
+    t.setheading(180)           # t.right(90) would also work.
+    
+    # Draw the border
+    t.pencolor('red')
+    t.pendown()
+    t.pensize(10)
+    for distance in (screen_x, screen_y, screen_x, screen_y):
+        t.forward(distance)
+        t.right(90)
+
+    # Raise the pen and move the turtle home again; it's a good idea
+    # to leave the turtle in a known state.
+    t.penup()
+    t.home()
+
+def square(t, size, color):
+    """(Turtle, int, str)
+
+    Draw a square of the chosen colour and size.
+    """
+    t.pencolor(color)
+    t.pendown()
+    for i in range(4):
+        t.forward(size)
+        t.right(90)
+
+def main():
+    # Create screen and turtle.
+    screen = turtle.Screen()
+    screen.title('Square Demo')
+    screen_x, screen_y = screen.screensize()
+    t = turtle.Turtle()
+
+    # Uncomment to draw the graphics as quickly as possible.
+    ##t.speed(0)
+
+    # Draw a border around the canvas
+    border(t, screen_x, screen_y)
+
+    # Draw a set of nested squares, varying the color.
+    # The squares are 10%, 20%, etc. of half the size of the canvas.
+    colors = ['red', 'orange', 'yellow', 'green', 'blue', 'violet']
+    t.pensize(3)
+    for i, color in enumerate(colors):
+        square(t, (screen_y / 2) / 10 * (i+1), color)
+
+    print('Hit any key to exit')
+    dummy = input()
+        
+if __name__ == '__main__':
+    main()
+</PRE>
+</PRE>
+</BODY>
+</HTML>

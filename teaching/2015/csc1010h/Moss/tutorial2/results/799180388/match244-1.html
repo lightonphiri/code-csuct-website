@@ -1,0 +1,138 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/2/raw/mktnta004/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/2/raw/rwxnku001/<p><PRE>
+&gt;&gt;&gt;&gt; file: CreditCard.py
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match244-0.html#0" TARGET="0"><IMG SRC="../../bitmaps/tm_0_6.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+def main():
+    holder_name=input("Enter the card holder's name:\n")
+    card_number=input("Enter the 16 digit card number (no spaces please):\n")
+    issue_date=input("Enter the date of issue (mm:yy):\n")
+    expiry_date=input("Enter the expiry date (mm:yy):\n")
+    sec_code=input("Enter the 3 digit security code:\n")
+    credit_limit=input("Enter the credit limit (Rand):\n")
+    balance=input("Enter the balance (Rand):\n")
+    available=int(credit_limit)-int(balance)
+    cr_a=card_number[0:4]
+</FONT>    cr_b=card_number[4:8]
+    cr_c=card_number[8:12]
+    cr_d=card_number[12:16]
+    card_number=str(cr_a)+" "+str(cr_b)+" "+str(cr_c)+" "+str(cr_d)
+    sec_code=sec_code[0:3]
+    iss_a=issue_date[0:2]
+    iss_b=issue_date[3:5]
+    issue_date=str(iss_a)+"/"+str(iss_b)
+    exp_a=expiry_date[0:2]
+    exp_b=expiry_date[3:5]
+    expiry_date=str(exp_a)+"/"+str(exp_b)
+    credit_limit='{0:1.2f}'.format(int(credit_limit))
+    available='{0:1.2f}'.format(int(available))
+    balance='{0:1.2f}'.format(int(balance))
+    name=' Credit Card Account '
+    bottom='-'
+    rand='Rand'
+    print("+{0:-^48}+".format(name),"\n| Card holder:   {0:&lt;32}|".format(holder_name.title()),"\n| Card number:   {0:&lt;32}|".format(card_number),"\n| Date of issue: {}".format(issue_date),"   Expiry date: {0:&lt;10}|".format(expiry_date),"\n| Security code: {0:&lt;32}|".format(sec_code),"\n| Credit limit:  {0:&lt;32}|".format((str(credit_limit))+" "+str(rand)),"\n| Available:     {0:&lt;32}|".format((str(available))+" "+str(rand)),"\n| Balance:       {0:&lt;32}|".format((str(balance))+" "+str(rand)),"\n+{0:-&lt;48}+".format(bottom))
+    
+    
+main()
+&gt;&gt;&gt;&gt; file: EugeneJunior.py
+from math import*
+def main():
+    name='Eugene Junior.'
+    print("Hello, I am",name,"\nWhat is your first name?")
+    name=input()
+    print("What is your last name?") 
+    last=input()
+    ini_name=name[0:1]
+    ini_name=ini_name.upper()
+    ini_last=last[0:1]
+    ini_last=ini_last.upper()
+    print("Hi",str(ini_name)+"."+str(ini_last)+".!","\nWhat year is this?")
+    year=eval(input())
+    print("What age are you?")
+    age=eval(input())
+    age_1=(year-1)-age
+    age_2=(age_1+1)-1900
+    print("Okay, so you were born in",str(age_1)+"/"+str(age_2)+".","\nHow tall are you (metres)?")
+    height=eval(input())
+    foot=height//0.305
+    foot=int(foot)
+    foot_inch=round(height%0.30480,3)
+    inches=foot_inch//0.025
+    inches=int(inches)
+    print("That's",str(foot)+"'"+str(inches)+"\"!","\nI'm going to tell you your Star Wars name.","\nWhat's your mother's first name?")
+    mother_name=input()
+    print("What's the name of the city nearest to your place of birth?")
+    birth_place=input()
+    start=int(len(mother_name))-2
+    end=int(len(mother_name))
+    START=int(len(birth_place))-3
+    END=int(len(birth_place))
+    StarWarsName=str(last[0:3])+str(name[0:2])
+    StarWarsSurname=str(mother_name[start:end])+str(birth_place[START:END])
+    StarWarsName=StarWarsName.title()
+    StarWarsSurname=StarWarsSurname.title()
+    print("Your Star Wars name is",StarWarsName,str(StarWarsSurname)+".")
+    
+    
+    
+    
+    
+    
+main()
+    
+    
+    
+    &gt;&gt;&gt;&gt; file: HexagonArea.py
+from math import*
+def main():
+    side=input("Enter the length of the side (cm):\n")
+    area=((3*sqrt(3))/2)*int(side)**2
+    area='{0:1.3f}'.format(area)
+    print("The area of a hexagon of side",side,"is",str(area)+".")
+    
+main()&gt;&gt;&gt;&gt; file: Initials.py
+from turtle import*
+from math import*
+def main():
+    shape('turtle')
+    mode('logo')
+    screensize(500,500)
+    color('red')
+    penup()
+    num=numinput("Length","Enter the Length:")
+    setx(-25)
+    pendown()
+    forward(num)
+    penup()
+    back(num)
+    pendown()
+    left(26.565)
+    forward(hypot(num,num/2))
+    left(153.435)
+    forward(num)
+    penup()
+    home()
+    color('green')
+    setx(25)
+    pendown()
+    forward(num)
+    right(90)
+    forward(num/2)
+    right(90)
+    forward(num/2)
+    right(90)
+    forward(num/2)
+    left(135)
+    forward(hypot(num/2,num/2))
+    penup()
+    home()
+    exitonclick()
+main()</PRE>
+</PRE>
+</BODY>
+</HTML>

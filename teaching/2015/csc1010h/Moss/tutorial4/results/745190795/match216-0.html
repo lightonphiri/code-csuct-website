@@ -1,0 +1,165 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/4/raw/ndxgiv001/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/4/raw/ndxgiv001/<p><PRE>
+&gt;&gt;&gt;&gt; file: LongJump.py
+def main(): 
+    print('***** Long Jump Information System *****')
+    print('Please enter the names of competitors. (Press return when done.)')
+    
+    names=[]
+    i=1
+    while True:
+        print('Competitor no.',str(i)+':')
+        name=input("")
+        i+=1
+        if name=='':break
+        names.append(name)
+    print('Please enter the distances for each competitor.')
+    max_value=[]
+    for each_competitor in names:
+        d=-1
+        print('Competitor',str(each_competitor)+':')
+        for b in range(3):
+            print('Attempt',str(b+1)+':')
+            attempt=input("")
+            if attempt=='foul':
+                attempt=0
+                d=attempt            
+            else:
+                attempt=float(attempt)
+                if attempt&gt;d:
+                    d=attempt                
+                            
+        max_value.append(d)
+    print()
+    winner=0
+    award=''
+    print('{0:25}{1}'.format('Competitor','Longest Distance         '))
+    for b in range(len(names)):
+        if max_value[b]==0:
+            max_value[b]='No jump'
+            print('{0:&lt;25}{1:&lt;15}'.format(names[b],max_value[b]))
+        elif max_value[b]&gt;winner:
+            winner=max_value[b]
+            print('{0:&lt;25}{1:&lt;15.2f}'.format(names[b],max_value[b]))
+            award=names[b]
+        else:
+            print('{0:&lt;25}{1:&lt;15.2f}'.format(names[b],max_value[b]))
+    print()
+    print('The winner is',award,'with a jump of',str('{0:.2f}'.format(winner))+'.')
+main()              
+&gt;&gt;&gt;&gt; file: NikNaks.py
+def main():
+  
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match216-1.html#0" TARGET="1"><IMG SRC="../../bitmaps/tm_0_4.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+  import random
+  print('Guess the mystery 4 letter code. (No letter occurs more than once.)')
+  difficulty=int(input('Choose difficulty level (4 to 26): \n'))
+  letters=list('abcdefghijklmnopqrstuvwxyz')[0: difficulty]
+  print('The letters in the code are chosen from: {}.'.format(letters))
+  secret_code=[]
+</FONT>  for i in range(4):
+    rand_index=random.randint(0, len(letters)-1)
+    letter=letters.pop(rand_index)
+    secret_code.append(letter)
+  count=0
+  for b in range(10,0,-1):
+    niks=0
+    naks=0   
+    print('You have',b,'guesses remaining.')
+    guess=input('Enter your guess:\n')
+    if guess=='oops':
+      niks=2
+      naks=2
+      print('There are',niks,'Niks and',naks,'Naks.')
+    else: 
+      for each_alpha in guess:
+        if each_alpha in secret_code:
+          if each_alpha==secret_code[guess.index(each_alpha)]:
+            niks+=1
+          else:
+            naks+=1
+      if niks==1:
+        print('There is',niks,'Nik and',naks,'Naks.')
+      elif niks==1 and naks==1:
+        print('There are',niks,'Niks and',naks,'Naks.')
+      elif naks==1:
+        print('There are',niks,'Niks and',naks,'Nak.')
+      elif niks==4:
+        print('Correct!')
+        break
+      else:
+        print('There are',niks,'Niks and',naks,'Naks.')
+  if niks!=4:
+    print('Sorry, you lose.')
+    print('The secret number was',secret_code[0]+secret_code[1]+secret_code[2]+secret_code[3]+'.')
+if __name__ == '__main__':
+    main()  
+    
+          
+        
+    
+  &gt;&gt;&gt;&gt; file: my windows.py
+import turtle
+turtle.bgcolor('cyan')
+def reset():
+ turtle.shape("circle")
+ turtle.pu(); turtle.goto(150,0)
+ turtle.fillcolor("red")
+ turtle.shapesize(5, 1, 4)
+ for i in range(72):
+  turtle.fd(12)
+  turtle.lt(5)
+  turtle.tilt(7.5)
+  dummy = turtle.stamp()
+reset()
+turtle.clear()
+turtle.bgcolor('cyan')
+turtle.speed(9)
+
+turtle.fd(100)
+turtle.back(50)
+turtle.right(90)
+turtle.fd(20)
+turtle.left(90)
+turtle.fd(50)
+turtle.back(100)
+turtle.clear()
+turtle.hideturtle()
+turtle.color('black','green')
+turtle.begin_fill()
+for i in range(4):
+    turtle.forward(100)
+    turtle.right(90)
+turtle.right(90)
+turtle.end_fill()
+turtle.color('black','yellow')
+turtle.begin_fill()
+for i in range(4):
+    turtle.forward(100)
+    turtle.right(90)
+turtle.right(90)
+turtle.end_fill()
+turtle.color('black','blue')
+turtle.begin_fill()
+for i in range(4):
+    turtle.forward(100)
+    turtle.right(90)
+turtle.right(90)
+turtle.end_fill()
+turtle.color('black','red')
+turtle.begin_fill()
+for i in range(4):
+    turtle.forward(100)
+    turtle.right(90)
+turtle.right(90)
+turtle.end_fill()
+turtle.exitonclick()</PRE>
+</PRE>
+</BODY>
+</HTML>

@@ -1,0 +1,240 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/3/raw/nktphi002/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/3/raw/xlxphi002/<p><PRE>
+&gt;&gt;&gt;&gt; file: FeetMetres.py
+# program to convert feet to metres
+#Phindile Xulu
+# 18 May 2015
+
+def main():
+    min_feet = int(input("Enter the minimum number of feet (not less than 0):\n"))
+    max_feet = int(input("Enter the maximum number of feet (not more than 99):\n"))
+    for i in range(min_feet,max_feet+1):
+        print(" {:3}' |   {:.2f}m".format(i,(i*0.3048)))
+        
+main()&gt;&gt;&gt;&gt; file: FlowerPattern.py
+# Program to create a flower pattern using turtle
+# Phindile Xulu
+# 18 May 2015
+
+import turtle
+
+def main():
+    no_of_petals = int(input("Enter the number of petals (must be an even number): "))
+    stem_length = int(input("Enter the length of stem: "))
+    petal_type = input("Enter the petal type (triangle, square, or pentagon): ")
+    side_length = float(input("Enter the length of side: "))
+    stem_color = input("Enter the stem colour: ")
+    petal_color1 = input("Enter the first petal colour: ")
+    petal_color2 = input("Enter the second petal colour: ")
+    angle = 0
+    for i in range (no_of_petals):
+        angle +=360/no_of_petals
+        turtle.color(stem_color)
+        turtle.fd(stem_length)
+        if type_of_petal =="square":
+            if i%2==0:
+                turtle.color(petal_color1)
+            else:
+                turtle.color(petal_color_2)
+            turtle.left(90)
+            turtle.fd(stem_length/2)
+            turtle.right(90)
+            turtle.fd(stem_length)
+            turtle.right(90)
+            turtle.fd(stem_length)
+            turtle.right(90)
+            turtle.fd(stem_length/2)
+            turtle.color(stem_color)
+            turtle.home()
+            turtle.right(r)
+        elif type_of_petal =="pentagon":
+            if i%2==0:
+                turtle.color(petal_color1)
+            else:
+                turtle.color(petal_color_2)
+            turtle.left(45)
+            turtle.fd(stem_length)
+            turtle.right(72)
+            turtle.fd(stem_length)
+            turtle.right(72)
+            turtle.fd(stem_length)
+            turtle.right(72)
+            turtle.fd(stem_length)
+            turtle.right(72)
+            turtle.fd(stem_length)
+            turtle.color(stem_color)
+            turtle.home()
+            turtle.right(r)
+        elif type_of_petal =="triangle":
+            if i%2==0:
+                turtle.color(petal_color1)
+            else:
+                turtle.color(petal_color_2)
+            turtle.left(30)
+            turtle.fd(stem_length)
+            turtle.right(120)
+            turtle.fd(stem_length)
+            turtle.right(120)
+            turtle.fd(stem_length)
+            turtle.color(stem_color)
+            turtle.home()
+            turtle.right(r)
+        
+    turtle.exitonclick()
+    
+main()&gt;&gt;&gt;&gt; file: InchesMetres.py
+# Program to convert inches to metres
+# Phindile Xulu
+#  18 May 2015
+
+def main():
+    min_inch = int(input("Enter the minimum number of inches (not less than 0):\n"))
+    max_inch =int(input("Enter the maximum number of inches (not greater than 11):\n"))
+    print("Inches: ", end ="")
+    for i in range(min_inch,max_inch+1):
+        print("{:4} ".format(i),end = "")
+    print("")
+    print("Metres: ",end ="")
+    for i in range(min_inch,max_inch+1):
+        print("{:4.2f} ".format(i*0.0254),end ="")
+        
+main()&gt;&gt;&gt;&gt; file: TimeConvertor.py
+# Program to convert time from 12-24hrs and24-12hrs
+# Phindile Xulu
+#18 May 2015
+
+anytime=input("Enter a time ([h]h:mm [am|pm]):\n")
+def main():
+    if len(anytime)==5:
+        time_24hrs = anytime
+        time1=int(time_24hrs[:2])
+        if 0&lt;time1&lt;12:
+            print(time_24hrs[1:],"am")
+        elif time1==12:
+            print(time_24hrs,"pm")
+        elif time1&gt;12:
+            print(time1-12,time_24hrs[2:]," pm",sep = "")
+        elif time_24hrs[:2]=="00":
+            print("12",time_24hrs[2:]," am", sep = "")
+    
+            
+    elif  len(anytime)==7 or len(anytime)==8:
+        time_in_12hrs = anytime
+        time2 = int(time_in_12hrs[:1])
+        if time2&lt;10 and time_in_12hrs[5:]=="am":
+            print("0",time_in_12hrs[:1],":",time_in_12hrs[2:4], sep="")
+        elif time2&lt;10 and time_in_12hrs[5:]=="pm":
+            print(time2+12,":",time_in_12hrs[2:4],sep = "")
+        elif (time_in_12hrs[:2]=="10" or time_in_12hrs[:2]=="11") and time_in_12hrs[6:]=="am":
+            print(time_in_12hrs[:3],time_in_12hrs[3:5],sep = "")
+        elif (time_in_12hrs[:2]=="10" or time_in_12hrs[:2]=="11") and time_in_12hrs[6:]=="pm":
+            print(int(time_in_12hrs[:2])+12,":",time_in_12hrs[3:5],sep ="")
+        elif time_in_12hrs[:2]=="12" and time_in_12hrs[6:]=="am":
+            print("00",time_in_12hrs[2:5],sep ="")
+        elif time_in_12hrs[:2]=="12" and time_in_12hrs[6:]=="pm":
+            print("12",time_in_12hrs[2:5],sep ="")
+        
+            
+main()&gt;&gt;&gt;&gt; file: Twelve.py
+# Program to convert time from 12 hours format to a 24 hours format
+# Phindile Xulu
+# 17 may 2015
+
+time_in_12hrs = input("Enter a time in 12 hour clock ([h]h:mm [am|pm]):\n")
+time = int(time_in_12hrs[:1])
+
+def main():
+    if time&lt;10 and time_in_12hrs[5:]=="am":
+        print("0",time_in_12hrs[:1],":",time_in_12hrs[2:4], sep="")
+    elif time&lt;10 and time_in_12hrs[5:]=="pm":
+        print(time+12,":",time_in_12hrs[2:4],sep = "")
+    elif (time_in_12hrs[:2]=="10" or time_in_12hrs[:2]=="11") and time_in_12hrs[6:]=="am":
+        print(time_in_12hrs[:3],time_in_12hrs[3:5],sep = "")
+    elif (time_in_12hrs[:2]=="10" or time_in_12hrs[:2]=="11") and time_in_12hrs[6:]=="pm":
+        print(int(time_in_12hrs[:2])+12,":",time_in_12hrs[3:5],sep ="")
+    elif time_in_12hrs[:2]=="12" and time_in_12hrs[6:]=="am":
+        print("00",time_in_12hrs[2:5],sep ="")
+    elif time_in_12hrs[:2]=="12" and time_in_12hrs[6:]=="pm":
+        print("12",time_in_12hrs[2:5],sep ="")
+
+main()&gt;&gt;&gt;&gt; file: TwentyFour.py
+# program to convert a 12 hr cloc to a 24 hour clock
+# Phindile Xulu
+# 18 May 2015
+
+time_24hrs = input("Enter a time in 24 hour clock (hh:mm):\n")
+time = int(time_24hrs[:2])
+def main():
+    if 0&lt;time&lt;12:
+        print(time_24hrs[1:],"am")
+    elif time==12:
+        print(time_24hrs,"pm")
+    elif time&gt;12:
+        print(time-12,time_24hrs[2:]," pm",sep = "")
+    elif time_24hrs[:2]=="00":
+        print("12",time_24hrs[2:]," am", sep = "")
+
+main()&gt;&gt;&gt;&gt; file: VehicleClassifier.py
+# program to classif a car according to its gvm
+#Phindile Xulu
+# 18 May 2015
+
+def main():
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match86-0.html#0" TARGET="0"><IMG SRC="../../bitmaps/tm_0_11.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    print("***** Vehicle classifier *****")
+    vehicle_mass=int(input("What is the gross vehicle mass (in kg)?\n"))
+    if vehicle_mass&lt;=3500:
+        trailer = input("Does the vehicle have a trailer?\n")
+        if trailer =="y":
+            trailer_mass = int(input("What is gross vehicle mass of the trailer (in kg)?\n"))
+            if trailer_mass&gt;750:
+                print("This vehicle is class EB.")
+            else:
+                print("This vehicle is class B.")
+        else:
+            articulated = input("Is the vehicle articulated?\n")
+            if articulated=="y":
+                print("This vehicle is class EB.")
+            else:
+                print("This vehicle is class B.")
+                
+    elif 3500&lt;vehicle_mass&lt;=16000:
+        trailer = input("Does the vehicle have a trailer?\n")
+        if trailer =="y":
+            trailer_mass = int(input("What is gross vehicle mass of the trailer (in kg)?\n"))
+            if trailer_mass&gt;750:
+                print("This vehicle is class EC1.")
+            else:
+                print("This vehicle is class C1.")
+        else:
+            articulated = input("Is the vehicle articulated?\n")
+            if articulated=="y":
+                print("This vehicle is class EC1.")
+            else:
+                print("This vehicle is class C1.")
+                      
+    elif vehicle_mass&gt;16000:
+        trailer = input("Does the vehicle have a trailer?\n")
+        if trailer =="y":
+            trailer_mass = int(input("What is gross vehicle mass of the trailer (in kg)?\n"))
+            if trailer_mass&gt;750:
+                print("This vehicle is class EC.")
+            else:
+</FONT>                print("This vehicle is class C.")
+        else:
+            articulated = input("Is the vehicle articulated?\n")
+            if articulated=="y":
+                print("This vehicle is class EC.")
+            else:
+                print("This vehicle is class C.")
+                
+main()</PRE>
+</PRE>
+</BODY>
+</HTML>

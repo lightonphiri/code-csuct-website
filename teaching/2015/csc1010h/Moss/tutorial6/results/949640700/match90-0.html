@@ -1,0 +1,119 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/6/raw/khnsim009/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/6/raw/khnsim009/<p><PRE>
+&gt;&gt;&gt;&gt; file: fixed_mod.py
+# fuxing a code
+# simnikiwe khonto
+# 27 august 2015
+
+import string
+
+def palindrome (s):
+   if len(s) == 0:
+      return True
+   elif len(s) == 1:
+      return s.isalpha()
+   elif s[0] in string.punctuation or s[0] in string.whitespace:
+      return palindrome(s[1:])
+   elif s[-1] in string.punctuation or s[-1] in string.whitespace:
+      return palindrome(s[:-1])
+   elif s[0].lower() == s[-1].lower():
+      return palindrome (s[1:-1])
+   else:
+      return False&gt;&gt;&gt;&gt; file: match_mod.py
+# dictionary program
+# simnikiwe khonto
+# 27 august 2015
+
+import string
+
+def equals(w_1,w_2):
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match90-1.html#0" TARGET="1"><IMG SRC="../../bitmaps/tm_0_4.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    if w_1 == '' and w_2 == '':
+        return True
+    if len(w_1) == len(w_2):
+        if w_1[0] == w_2[0]:
+            return equals(w_1[1:],w_2[1:])
+</FONT>        elif w_1[0] != w_2[0]:
+            return False       
+    else:
+        return False
+
+def query(pattern,word):
+    if pattern == '' and word == '':
+        return True
+    elif (pattern == '' and word != '') or (pattern != '' and word == '') : 
+        return False
+    elif pattern != '' and word != '': 
+        if (pattern[0] == word[0]) or  (pattern[0] in string.punctuation ):
+            pattern = pattern[1:]
+            word = word[1:]
+            return query(pattern, word)
+        else:
+            return False
+
+def match(pattern, word):
+    if pattern=='*': 
+        return True
+    elif pattern[0]==word[0] and pattern[-1]!="*" and pattern[-1]!="?":
+        if pattern[-1]==word[-1]:
+            return match(pattern[1:-1],word[1:-1])
+        else:
+            return False
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match90-1.html#1" TARGET="1"><IMG SRC="../../bitmaps/tm_1_4.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    elif pattern[0]=="*" and pattern[-1]==word[-1]:
+        return match(pattern[:-1],word[:-1])
+    elif pattern[-1]=="*" and pattern[0]==word[0]:
+</FONT><A NAME="2"></A><FONT color = #0000FF><A HREF="match90-1.html#2" TARGET="1"><IMG SRC="../../bitmaps/tm_2_3.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+        return match(pattern[1:],word[1:])
+    elif pattern[0]=="*" and pattern[-1]=="*":
+</FONT>        if len(pattern)==2:
+            return True
+        else:
+            pattern=pattern[1:-1]
+            if pattern in word:
+                return True
+            else:
+                return False
+    elif pattern[0]=="?" and pattern[-1]!='*' and pattern[-1]!="?":
+        if pattern[-1]==word[-1]:
+            return match(pattern[1:-1],word[1:-1])
+        else:
+            return False
+    elif pattern[-1]=="?" and pattern[0]!="*" and pattern[0]!="?":
+        if pattern[0]==word[0]:
+            return match(pattern[1:-1],word[1:-1])
+        else:
+            return False
+    elif pattern[0]!=word[0] and pattern[0]!="*" and pattern[0]!="?":
+<A NAME="3"></A><FONT color = #00FFFF><A HREF="match90-1.html#3" TARGET="1"><IMG SRC="../../bitmaps/tm_3_3.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+        return False&gt;&gt;&gt;&gt; file: mongoose_mod.py
+# calculating P(n)
+# simnikiwe khonto
+# 20 august 2015
+
+def population(n):
+    if n &lt;= 2:
+        return 2
+    else:
+        return population(n-1) + population(n-2)&gt;&gt;&gt;&gt; file: sum_mod.py
+# recursively sum values
+# simnikiwe khonto
+# 27 august 2015
+
+def sum_to_n(n):
+</FONT>    if n &lt;= 0:
+        return 0
+    else:
+        return n + sum_to_n(n-1)</PRE>
+</PRE>
+</BODY>
+</HTML>

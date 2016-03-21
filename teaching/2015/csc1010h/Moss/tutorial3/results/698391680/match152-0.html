@@ -1,0 +1,233 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/3/raw/gmbawa001/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/3/raw/gmbawa001/<p><PRE>
+&gt;&gt;&gt;&gt; file: FeetMetres.py
+'''Part A [15 marks]
+Write a program called FeetMetres.py that displays a conversion table for measurements in feet to measurements in metres. The program should ask the user to enter the range of values that the table will hold. Here is an example of what should be output when the program runs:
+Enter the minimum number of feet (not less than 0):
+5
+Enter the maximum number of feet (not more than 99):
+10
+5' | 1.52m
+6' | 1.83m
+7' | 2.13m
+8' | 2.44m
+9' | 2.74m
+10' | 3.05m
+RECOMMENDATION: Develop your solution in parts. Try, for example, printing just the feet part before you start working on the conversion.
+Enter the minimum number of feet (not less'''
+
+min= int(input("Enter the minimum number of feet (not less than 0):\n"))
+max =int(input("Enter the maximum number of feet (not more than 99):\n"))
+sum=0
+
+for i in range(min,max+1):
+    m= i/3.28084
+    print("{0:&gt;5}".format(str(i)+"'")," | ","{0:&gt;6.2f}".format(m),"m",sep="")&gt;&gt;&gt;&gt; file: InchesMetres.py
+'''Enter the minimum number of inches (not less than 0):
+1
+Enter the maximum number of inches (not greater than 11):
+6
+Inches: 1 2 3 4 5 6
+Metres: 0.03 0.05 0.08 0.10 0.13 0.15'''
+
+min= int(input("Enter the minimum number of inches (not less than 0):\n"))
+max =int(input("Enter the maximum number of inches (not greater than 11):\n"))
+sum=0
+
+print("Inches:",end="")
+for i in range(min,max+1):
+    print("{0:5}".format(i),end="")
+print()
+print("Metres:",end=" ")
+for i in range(min,max+1):
+    m = i/39.320
+    print("{0:.2f}".format(m),end=" ")&gt;&gt;&gt;&gt; file: TimeConvertor.py
+'''Part C [5 marks]
+Write a program called TimeConvertor.py that converts times expressed in 24 hour clock to 12 hour clock and that converts times expressed in 12 hour clock to 24 hour clock. Here are three examples of what the program should look like when it runs:
+Enter a time ([h]h:mm [am|pm]):
+00:00
+12:00 am
+Enter a time ([h]h:mm [am|pm]):
+12:00 am
+00:00'''
+# program called TimeConvertor.py that converts times expressed in 24 hour clock to 12 hour clock and that converts times expressed in 12 hour clock to 24 hour clock.
+#Awande Gumbi
+#15 May 2015
+
+time =input("Enter a time ([h]h:mm [am|pm]):\n")
+h= time[:time.find(":")]
+m= time[time.find(":"):time.find(" "):1]
+hh= int(h)
+
+if time[-1]=="m":
+     if hh==12:
+          if time[-2]=='a':
+               print("00"+m)
+          else:
+               print(time[:5])
+     elif time[-2] == "p":
+          print(str(hh+12)+str(m))
+     elif time[-2]=='a':
+          if 0&lt;hh&lt;10:
+               print("0"+time[:5])
+          else:
+               print(time[:5])
+else:
+     if 0&lt;hh&lt;12:
+          print(str(hh)+time[time.find(":"):],"am")
+     elif hh==12:
+          print(h+time[-3:],"pm")
+     elif hh&gt;12:
+          print(str(hh-12)+time[2:],"pm")
+     elif hh==0:
+          print("12"+time[2:],"am")
+      
+     
+
+        
+    
+
+
+
+&gt;&gt;&gt;&gt; file: Twelve.py
+
+'''Write a program called Twelve.py that converts times expressed in 12 hour clock to 24 hour clock. Here are three examples of what the program should look like when it runs:
+Enter a time in 12 hour clock ([h]h:mm [am|pm]):
+4:00 am
+04:00
+Enter a time in 12 hour clock ([h]h:mm [am|pm]):
+12:00 pm
+12:00'''
+#Awande Gumbi gmbawa001
+# 16 May 2015
+
+ 
+time =input("Enter a time in 12 hour clock ([h]h:mm [am|pm]):\n")
+h= time[:time.find(":")]
+m= time[time.find(":"):time.find(" "):1]
+a= time[time.find(" ")::]
+hh= int(h)
+
+
+if a==' am':
+ if hh==12:
+  print("00"+m)
+ else:
+  if 0&lt;hh&lt;10:
+   print("0"+str(hh)+ m)
+  else:
+    print(time[:5])
+elif a == " pm":
+  if hh==12:
+   print(time[:5])
+  else:
+   print(str(hh+12)+str(m))
+ 
+
+ 
+
+
+
+ &gt;&gt;&gt;&gt; file: TwentyFour.py
+'''Part A [10 marks]
+Write a program called TwentyFour.py that converts times expressed in 24 hour clock to 12 hour clock. Here are three examples of what the program should look like when it runs:
+Enter a time in 24 hour clock (hh:mm):
+00:00
+12:00 am
+Enter a time in 24 hour clock (hh:mm):
+17:00
+5:00 pm
+#Enter a time in 24 hour clock (hh:mm):'''
+
+ #A program called TwentyFour.py that converts times expressed in 24 hour clock to 12 hour clock.
+ #Awande GUmbi gmbawa001
+ #13 May 2015
+ 
+time =input("Enter a time in 24 hour clock (hh:mm):\n")
+h= time[0:2:1]
+m= time[3:5:1]
+hh= int(h)
+mm= int(m)
+
+if 0&lt;hh&lt;12:
+ print(str(hh)+":"+str(m),"am")
+elif hh==12:
+  print(h+":"+m,"pm")
+elif hh&gt;12:
+ print(str(hh-12)+":"+str(m),"pm")
+elif hh==00:
+ print("12"+":"+m,"am")
+ 
+
+
+ &gt;&gt;&gt;&gt; file: VehicleClassifier.py
+
+ 
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match152-1.html#0" TARGET="1"><IMG SRC="../../bitmaps/tm_0_2.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+print("***** Vehicle classifier *****") 
+car = int(input("What is the gross vehicle mass (in kg)?\n"))
+trailer =input("Does the vehicle have a trailer?\n")
+#t_mass = input("What is the gross vehicle mass of the trailer (in kg)?\n")
+#art = input("Is the vehicle articulated?")
+
+if car&lt;=3500:
+    if trailer=="y":
+        t_mass = int(input("What is gross vehicle mass of the trailer (in kg)?\n"))
+        if t_mass&gt;750:
+            print("This vehicle is class EB.")
+        else:
+            print("This vehicle is class B.")
+</FONT>    else:
+        art = input("Is the vehicle articulated?\n")
+        if art=="y":
+            print("This vehicle is class EB.")
+        elif art=="n":
+<A NAME="2"></A><FONT color = #0000FF><A HREF="match152-1.html#2" TARGET="1"><IMG SRC="../../bitmaps/tm_2_2.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+            print("This vehicle is class B.")
+        
+elif 3500&lt;car&lt;=16000:
+    if trailer=="y":
+            t_mass = int(input("What is gross vehicle mass of the trailer (in kg)?\n"))
+            if t_mass&gt;750:
+                print("This vehicle is class EC1.")
+</FONT>            else:
+                print("This vehicle is class C1.")
+    else:
+        art = input("Is the vehicle articulated?\n")
+        if art=="y":
+            print("This vehicle is class EC1.")
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match152-1.html#1" TARGET="1"><IMG SRC="../../bitmaps/tm_1_2.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+        elif art=="n":
+            print("This vehicle is class C1.")
+        
+        
+else:
+    if trailer=="y":
+            t_mass = int(input("What is gross vehicle mass of the trailer (in kg)?\n"))
+            if t_mass&gt;750:
+                print("This vehicle is class EC.")
+            else:
+                print("This vehicle is class C.")
+    else:
+</FONT>        art = input("Is the vehicle articulated?\n")
+        if art=="y":
+            print("This vehicle is class EC.")
+        elif art=="n":
+            print("This vehicle is class C.")
+    
+
+    
+  
+ 
+</PRE>
+</PRE>
+</BODY>
+</HTML>

@@ -1,0 +1,168 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/3/raw/mlylau001/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/3/raw/mlylau001/<p><PRE>
+&gt;&gt;&gt;&gt; file: FeetMetres.py
+minimum=int(input('Enter the minimum number of feet (not less than 0):\n'))
+maximum=int(input('Enter the maximum number of feet (not more than 99):\n'))
+
+for i in range(minimum,maximum+1):
+    metres=str(round(i*0.3048,2))
+    if len(metres)==3:
+        newmetres=metres+'0'
+        print ("{0:&gt;4}' |   {1}m".format(i,newmetres))
+    elif len(metres)==4:
+        print ("{0:&gt;4}' |   {1}m".format(i,metres))
+    
+&gt;&gt;&gt;&gt; file: TimeConverter.py
+<A NAME="2"></A><FONT color = #0000FF><A HREF="match105-1.html#2" TARGET="1"><IMG SRC="../../bitmaps/tm_2_3.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+time=input('Enter a time ([h]h:mm [am|pm]):\n')
+
+if len(time)==8:
+    hh=int(time[0:2])
+    mm=time[3:5]
+</FONT>    last_2_letters=time[6:8]
+    if hh!=12:
+        if last_2_letters=='am':
+            print('{}:{}'.format(hh,mm))
+        elif last_2_letters=='pm':
+            newhh=hh+12
+            print('{}:{}'.format(newhh,mm))
+    elif hh==12 and last_2_letters=='pm':
+        print('{}:{}'.format(hh,mm))
+    elif hh==12 and last_2_letters=='am':
+        newhh=hh-12
+        print('0{}:{}'.format(newhh,mm))    
+elif 5&lt;len(time)&lt;=7:
+    hh=int(time[0:1])
+    mm=time[2:4]
+    last_2_letters=time[5:7]
+    if hh&lt;12 and last_2_letters=='am':
+        print('0{}:{}'.format(hh,mm))
+    elif hh&lt;12 and last_2_letters=='pm':
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match105-1.html#0" TARGET="1"><IMG SRC="../../bitmaps/tm_0_4.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+        newhh=hh+12
+        print('{}:{}'.format(newhh,mm))
+elif len(time)==5:
+    hh=int(time[0:2])
+    mm=time[3:5]
+    
+    if hh!=00 and hh!=12:
+</FONT>        if 0&lt;hh&lt;12:
+            print('{0}:{1} am'.format(hh,mm))
+        else:
+            if 12&lt;hh&lt;24:
+                time12=str(hh-12)
+                print('{0}:{1} pm'.format(time12,mm))
+    elif hh==00 or hh==12:
+        if hh==00:
+            newhh=str(hh+12)
+            print('{0}:{1} am'.format(newhh,mm))
+        else:
+            hh=str(hh)
+            print('{0}:{1} pm'.format(hh,mm))    &gt;&gt;&gt;&gt; file: Twelve.py
+time=input('Enter a time in 12 hour clock ([h]h:mm [am|pm]):\n')
+
+if len(time)==8:
+    hh=int(time[0:2])
+    mm=time[3:5]
+    last_2_letters=time[6:8]
+    if hh!=12:
+        if last_2_letters=='am':
+            print('{}:{}'.format(hh,mm))
+        elif last_2_letters=='pm':
+            newhh=hh+12
+            print('{}:{}'.format(newhh,mm))
+    elif hh==12 and last_2_letters=='pm':
+        print('{}:{}'.format(hh,mm))
+    elif hh==12 and last_2_letters=='am':
+        newhh=hh-12
+<A NAME="3"></A><FONT color = #00FFFF><A HREF="match105-1.html#3" TARGET="1"><IMG SRC="../../bitmaps/tm_3_3.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+        print('0{}:{}'.format(newhh,mm))    
+elif len(time)==7:
+    hh=int(time[0:1])
+    mm=time[2:4]
+</FONT>    last_2_letters=time[5:7]
+    if hh&lt;12 and last_2_letters=='am':
+        print('0{}:{}'.format(hh,mm))
+    elif hh&lt;12 and last_2_letters=='pm':
+        newhh=hh+12
+        print('{}:{}'.format(newhh,mm))
+    
+&gt;&gt;&gt;&gt; file: TwentyFour.py
+time=input('Enter a time in 24 hour clock (hh:mm):\n')
+
+hh=int(time[0:2])
+mm=time[3:5]
+    
+if hh!=00 and hh!=12:
+            if 0&lt;hh&lt;12:
+                        print('{0}:{1} am'.format(hh,mm))
+            else:
+                        if 12&lt;hh&lt;24:
+                                    time12=str(hh-12)
+                                    print('{0}:{1} pm'.format(time12,mm))
+elif hh==00 or hh==12:
+            if hh==00:
+                        newhh=str(hh+12)
+                        print('{0}:{1} am'.format(newhh,mm))
+            else:
+                        hh=str(hh)
+                        print('{0}:{1} pm'.format(hh,mm))&gt;&gt;&gt;&gt; file: VehicleClassifier.py
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match105-1.html#1" TARGET="1"><IMG SRC="../../bitmaps/tm_1_3.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+vehicle=' Vehicle classifier '
+print('{0:*^30}'.format( vehicle ))
+
+gvm=int(input('What is the gross vehicle mass (in kg)?\n'))
+trailer=input('Does the vehicle have a trailer?\n')
+if trailer=='y':
+    gvmtrailer=int(input('What is gross vehicle mass of the trailer (in kg)?\n'))
+    if 750&lt;gvmtrailer:
+</FONT>        if gvm&lt;=3500:
+            print ('This vehicle is class '+'E'+'B.')
+            
+        elif 3500&lt;gvm&lt;=16000:
+            print ('This vehicle is class '+'E'+'C1.')
+            
+        elif gvm&gt;16000:
+            print ('This vehicle is class '+'E'+'C.')
+    elif gvmtrailer&lt;=750:
+        if gvm&lt;=3500:
+            print ('This vehicle is class B.')
+            
+        elif 3500&lt;gvm&lt;=16000:
+            print ('This vehicle is class C1.')
+            
+        elif gvm&gt;16000:
+            print ('This vehicle is class C.')
+elif trailer=='n':
+    articulated=input('Is the vehicle articulated?\n')
+    if articulated=='y':
+        if gvm&lt;=3500:
+            print ('This vehicle is class '+'E'+'B.')
+                    
+        elif 3500&lt;gvm&lt;=16000:
+            print ('This vehicle is class '+'E'+'C1.')
+                    
+        elif gvm&gt;16000:
+            print ('This vehicle is class '+'E'+'C.')
+    elif articulated=='n':
+        if gvm&lt;=3500:
+            print ('This vehicle is class B.')
+                    
+        elif 3500&lt;gvm&lt;=16000:
+            print ('This vehicle is class C1.')
+                    
+        elif gvm&gt;16000:
+            print ('This vehicle is class C.')        
+</PRE>
+</PRE>
+</BODY>
+</HTML>

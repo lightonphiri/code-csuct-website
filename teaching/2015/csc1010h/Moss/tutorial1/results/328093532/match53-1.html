@@ -1,0 +1,31 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/1/raw/rmnmma003/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/1/raw/sngjia001/<p><PRE>
+&gt;&gt;&gt;&gt; file: CalculateChange.py
+# A program to calculate the minimal number of coins 
+# SNGJIA001 
+# 16 April 2015
+
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match53-0.html#0" TARGET="0"><IMG SRC="../../bitmaps/tm_0_55.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+def main():
+    
+    change = eval(input("Enter change amount:\n",))  #prompt the user to enter a change number
+    rand_5 = change // 5          #finding no of R5 coins
+    remainder_1 = change % 5      #fidning the remainder after the 5 coins is taken out 
+    rand_2 = remainder_1 // 2     #finding the no of R2 coins from the frist reminder
+    remainder_2 = (change % 5) % 2  #Finding the reminder after the 2 coins are taken out
+</FONT>    rand_1 = remainder_2 // 1     #finding the no of 1 rand coins
+    
+    print("The change:")           
+    print(rand_5, "R5 coins")
+    print(rand_2, "R2 coins")
+    print(rand_1, "R1 coins")
+main()</PRE>
+</PRE>
+</BODY>
+</HTML>

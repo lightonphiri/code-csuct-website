@@ -1,0 +1,181 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/4/raw/mktnta004/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/4/raw/mphfar001/<p><PRE>
+&gt;&gt;&gt;&gt; file: LongJump.py
+# Long jump 
+# Mphephu faresa 
+
+def names () :
+    print("{:*^40}".format(' Long Jump Information System '))
+    print("Please enter the names of competitors. (Press return when done.)")
+    
+    n  = 0  
+    _player_names_ = []
+    while True :
+        n+=1
+        print ("Competitor no. {}:".format(n))
+        _name_ = input("")
+        _player_names_.append(_name_)     
+        if not _name_ :   
+            _player_names_.remove("")
+            break 
+                       
+    print("Please enter the distances for each competitor.")    
+    player_highest ,highest , sort = {} , [] , []
+    
+  
+    for player in _player_names_ :
+        z=0
+        print ("Competitor {}:".format(player))
+        attempts = ['']
+        attempts.remove('')
+        for attempt in range(3) :
+            z +=1    
+            print("Attempt {}:".format(z))
+            
+            _attempt_ = input("")
+            
+            
+            
+            if _attempt_.isalpha() : 
+
+                attempts.append('No Jump')
+            else :
+                d = float(_attempt_)
+                attempts.append('{0:.2f}'.format(d)) 
+                sort.append('{0:.2f}'.format(d))
+                
+                
+        order = sorted(sort)       
+        player_highest[max(attempts)]=player
+        highest.append(max(attempts))
+        
+    #s_high = sorted(highest)
+    #print(order)    
+    #print(player_highest)
+     
+  #  if max(highest) == 0 : 
+   #     max(highest) == "No jump"
+   
+    print("")
+    print("{0:&lt;25}{1}".format("Competitor","Longest Distance"))
+    count = -1
+    #print(attempts)
+    for i in highest:
+        count+=1
+        print("{:25}{:}".format(player_highest[i],i))
+              
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match50-0.html#1" TARGET="0"><IMG SRC="../../bitmaps/tm_1_4.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    print("The winner is {} with a jump of {}.".format(player_highest[order[-1]],order[-1]))
+    print("")
+names()
+&gt;&gt;&gt;&gt; file: NikNaks.py
+import random
+def main():
+ print("Guess the mystery 4 letter code. (No letter occurs more than once.)")
+ difficulty=int(input('Choose difficulty level (4 to 26):\n'))
+ letters=list('abcdefghijklmnopqrstuvwxyz')[0: difficulty]
+ print('The letters in the code are chosen from: {}.'.format(letters))
+</FONT> secret_code=[]
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match50-0.html#0" TARGET="0"><IMG SRC="../../bitmaps/tm_0_7.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+ for i in range(4):
+   rand_index=random.randint(0, len(letters)-1)
+   letter=letters.pop(rand_index)
+   secret_code.append(letter)
+ number = secret_code[0]+secret_code[1]+secret_code[2]+secret_code[3]
+</FONT> #print(number)
+ n = 11 
+
+
+ c=-1
+ while n&gt;0 :
+  n -=1
+  if n == 0 :
+   
+   print("Sorry, you lose.")
+   print("The secret number was {}.".format(number))
+   break
+  
+  full_guess = []
+  f=-1
+  
+  nik , nak  = 0 , 4
+  print("You have" , n ,"guesses remaining.")
+  
+  guess =  input ("Enter your guess:\n")
+  for b in range (4):
+   f+=1 
+   full_guess.append(guess[f])
+ 
+  if full_guess == secret_code  : 
+   print("Correct!")
+   break 
+  
+  for g in range (4):
+    if secret_code[g] == full_guess[g] : 
+     nik += 1 
+     nak -=1
+    if not secret_code[g] == full_guess[g] and  full_guess[g] not in secret_code :
+     nak-=1   
+  if nak == 1 and nik != 1:
+   print('There are {} Niks and {} Nak.'.format(nik,nak)) 
+  if nik == 1 and nak == 1:
+   print('There is {} Nik and {} Nak.'.format(nik,nak)) 
+  if nik == 1 and nak != 1:
+   print('There is {} Nik and {} Naks.'.format(nik,nak)) 
+ 
+  if nik !=1 and nak != 1 :
+   print('There are {} Niks and {} Naks.'.format(nik,nak)) 
+ 
+  
+if __name__ == '__main__':
+ main()
+&gt;&gt;&gt;&gt; file: TurtleShape.py
+
+import turtle
+def main() :
+    turtle.color("green","yellow")
+    turtle.speed(0)
+    
+    
+    ui = turtle.numinput("Coefficient","Enter n--&gt;&gt;(1-10)")
+    x=int(90/ui)
+    for i in range(x) :
+        turtle.pensize(8)
+        turtle.pencolor("blue")
+        turtle.fd(x)
+        turtle.begin_fill()
+        turtle.right(45)
+        turtle.pensize(4)
+        turtle.pencolor("green")
+        turtle.circle(50)
+        turtle.fd(2)
+        turtle.pencolor("red")
+        
+        turtle.circle(23)
+        turtle.right(45)
+        turtle.fd(36)
+        turtle.left(15)
+        turtle.circle(5)
+          
+        turtle.end_fill()
+    
+        
+        
+        
+        
+       
+
+main()    
+turtle.exitonclick()
+
+</PRE>
+</PRE>
+</BODY>
+</HTML>

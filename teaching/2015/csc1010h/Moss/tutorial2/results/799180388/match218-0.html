@@ -1,0 +1,136 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/2/raw/mlxmog001/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/2/raw/mlxmog001/<p><PRE>
+&gt;&gt;&gt;&gt; file: CreditCard.py
+# Program to produce information about a credit card account
+# Mogase Maloa
+# MLXMOG001
+# 04 May 2015
+
+def main():
+    holder_name=input("Enter the card holder's name:\n")
+    card_number=input("Enter the 16 digit card number (no spaces please):\n")
+    num1=(card_number[0:4])
+    num2=(card_number[4:8])
+    num3=(card_number[8:12])
+    num4=(card_number[12:])
+    date_issue=input("Enter the date of issue (mm:yy):\n")
+    date_issue2=date_issue[0:2]
+    date_issue3=date_issue[3:]
+    expiry_date=input("Enter the expiry date (mm:yy):\n")
+    expiry_date2=expiry_date[0:2]
+    expiry_date3=expiry_date[3:]
+    security_code=int(input("Enter the 3 digit security code:\n"))
+    credit_limit=float(input("Enter the credit limit (Rand):\n"))
+    credit_limit1="{0:.2f}".format(credit_limit)
+    credit_limit2=str(credit_limit1)+" Rand"
+    balance=float(input("Enter the balance (Rand):\n"))
+    balance1="{0:.2f}".format(balance)
+    balance2=str(balance1)+" Rand"
+    available=float(credit_limit-balance)
+    available1="{0:.2f}".format(available)
+    available2=str(available1)+" Rand"
+    z='-'
+    s="|"
+    
+    x=' Credit Card Account '
+    print("+"+"{0:-^48}".format(x)+"+")
+    print("| Card holder:","  {0:32}".format(holder_name)+"|")
+    print("| Card number:","  {0}".format(num1),"{0}".format(num2),"{0}".format(num3),"{0:17}".format(num4)+"|")
+    print("| Date of issue:","{0}".format(date_issue2)+"/"+"{0}".format(date_issue3),"   Expiry date:","{0}".format(expiry_date2)+"/"+"{0:7}".format(expiry_date3)+"|")
+    print("| Security code:","{0:&lt;32}".format(security_code)+"|")
+    print("| Credit limit:"," {0:&lt;32}".format(credit_limit2)+"|")
+    print("| Available:","    {0:32}" .format(available2)+"|")
+    print("| Balance:","      {0:32}".format(balance2)+"|")
+    print("+"+"{0:-^48}".format(z)+"+")
+main()&gt;&gt;&gt;&gt; file: EugeneJunior.py
+# Program to interact with the user in a conversational manner
+# Mogase Maloa
+# MLXMOG001
+# 04 May 2015
+def main():
+    
+
+    print("Hello, I am Eugene Junior.")
+    first_name=input("What is your first name?\n")
+    last_name=input("What is your last name?\n")
+    print("Hi",first_name[:1].upper()+"."+last_name[:1].upper()+".!")
+    year=int(input("What year is this?\n"))
+    age=int(input("What age are you?\n"))
+    year_born1=str((year-age)-1)
+    year_born2=str((year-age))
+    print("Okay,","so you were born in",year_born1+'/'+(year_born2[-2:])+'.')
+    height=float(input("How tall are you (metres)?\n"))
+    height_feet=height*3.2808399
+    height_feet2=int(height_feet)
+    inches1=height_feet-height_feet2
+    inches2=inches1*12
+    inches3=int(round(inches2,0))
+    print("That's","{0}'".format(height_feet2)+'{0}"!'.format(inches3)) 
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match218-1.html#0" TARGET="1"><IMG SRC="../../bitmaps/tm_0_7.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    print("I'm going to tell you your Star Wars name.")
+    mother_name=input("What's your mother's first name?\n")
+    birth_city=input("What's the name of the city nearest to your place of birth?\n")
+    wars_firstname=last_name[0:3]+first_name[0:2]
+    wars_surname=mother_name[-2:]+birth_city[-3:]
+    print("Your Star Wars name is",wars_firstname.title(),wars_surname.title()+".")
+</FONT>
+main()&gt;&gt;&gt;&gt; file: HexagonArea.py
+# Program to calculate the area of a hexagon
+# Mogase Maloa
+# MLXMOG001
+# 04 May 2015
+from math import sqrt
+def main():
+    
+    side=int(input("Enter the length of the side (cm):\n"))
+
+    Area=(((3*sqrt(3))/2)*side**2)
+    print("The area of a hexagon of side",side,"is {0:&lt;1.3f}.".format(Area))
+main()
+&gt;&gt;&gt;&gt; file: Initials.py
+# Program to draw initials using python turtle
+# Mogase Maloa
+# MLXMOG001
+# 04 May 2015
+
+def main():
+    import turtle
+    turtle.penup()
+    turtle.left(90)
+    turtle.forward(120)
+    turtle.color('red')
+    turtle.pendown()
+    turtle.right(90)
+    turtle.forward(200)
+    turtle.right(150)
+    turtle.forward(100)
+    turtle.left(120)
+    turtle.forward(100)
+    turtle.right(150)
+    turtle.forward(200)
+    turtle.penup()
+    turtle.left(90)
+    turtle.forward(40)
+    turtle.color('blue')
+    turtle.pendown()
+    turtle.left(90)
+    turtle.forward(200)
+    turtle.right(90)
+    turtle.forward(100)
+    turtle.right(90)
+    turtle.forward(200)
+    turtle.right(90)
+    turtle.forward(100)
+    turtle.exitonclick()
+main()
+    
+    </PRE>
+</PRE>
+</BODY>
+</HTML>

@@ -1,0 +1,421 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/8/raw/mktnta004/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/8/raw/mtwmli002/<p><PRE>
+&gt;&gt;&gt;&gt; file: Lecture.py
+class Lecture:
+    
+    def __init__(self, n='unknown', sn='unknown'):
+            self.name = n
+            self.staff_number = sn
+            self.courses = []
+        
+    def __str__(self):
+        s = self.name + ', ' + self.staff_number
+        if len(self.courses)&gt;0:
+            s += ': '+str(self.courses[0])
+            for c in self.courses[1:]:
+                s += '; ' + str(c)
+        return s+'.'
+    
+    def add_course(self, c):
+        self.courses.append(c)
+    
+    def input(self):
+        self.name = input('Enter name: ')
+        self.staff_number = input('Enter staff number: ')
+        return self.name,self.staff_number
+
+    def display(self):
+        print('Name: ' + self.name)
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match85-0.html#0" TARGET="0"><IMG SRC="../../bitmaps/tm_0_1.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+        print('Staff number: ' + self.staff_number)    
+
+&gt;&gt;&gt;&gt; file: course.py
+class Course:
+
+    def __init__(self, cc='unknown', d='unknown'):
+        self.course_code = cc
+        self.description = d
+
+    def __str__(self):
+</FONT>        return self.course_code + ', ' + self.description
+
+    def input(self):
+        self.description = input('Enter description: ')
+        self.course_code = input('Enter course code: ')
+        return self.description,self.course_code
+    def display(self):
+        print('Course code: ' + self.course_code)
+        print('Description: ' + self.description)&gt;&gt;&gt;&gt; file: sortsearch.py
+"""
+Author: Gary Stewart
+Description: Simple Python implementation of sorting and searching algorithms
+Date: 27-09-2012
+Log:
+    fixed merge to iterative solution
+"""
+
+from random import *
+
+def generate_number_list(size): # generates list of random numbers
+    lst = []
+    for i in range(size):
+        lst.append(randint(0,size-1))
+    return lst
+
+def selection_sort(lst):
+    lst_len = len(lst)
+    for bottom_index in range(lst_len - 1):
+        min_index = bottom_index
+        for i in range(bottom_index+1,lst_len): # find min_index
+            if lst[i] &lt; lst[min_index]:
+                min_index = i
+        lst[bottom_index],lst[min_index] = lst[min_index],lst[bottom_index] # swap
+    return lst
+
+def merge(lst1,lst2):  # for mergesort
+    lst = []
+    while len(lst1) &gt; 0 and len(lst2) &gt; 0:
+        if lst1[0] &lt; lst2[0]:
+            lst.append(lst1[0])
+            del lst1[0]
+        else:
+            lst.append(lst2[0])
+            del lst2[0]
+    return lst + lst1 + lst2
+
+def merge_sort(lst):
+    if len(lst) &lt;= 1:
+        return lst  
+    else: 
+        return merge(merge_sort(lst[0:len(lst)//2]),merge_sort(lst[len(lst)//2:]))
+    
+def bubble_sort(lst):
+    swapped = True
+    top = len(lst) - 1
+    while top &gt; 0 and swapped == True:
+        i = 0
+        swapped = False
+        while i &lt; top:
+            if lst[i] &gt; lst[i+1]:
+                swapped = True
+                lst[i],lst[i+1] = lst[i+1],lst[i] # swap
+            i += 1
+        top -= 1
+    return lst
+
+
+
+# Heap sort (from https://en.wikipedia.org/wiki/Heapsort)
+def heap_sort(a):
+    # Heapify
+    start = ((len(a)-2)//2)
+    while start&gt;=0:
+        siftDown(a, start, len(a)-1)
+        start=start-1
+    end=len(a)-1
+    # Sort
+    while end&gt;0:
+        a[0], a[end] = a[end], a[0]
+        end=end-1
+        siftDown(a, 0, end)
+    return a
+
+def siftDown(a, start, end):
+    root = start
+    
+    while root*2+1&lt;=end:
+        child = root*2+1
+        swap = root
+        
+        if a[swap]&lt;a[child]:
+            swap = child
+        if child+1&lt;=end  and a[swap]&lt;a[child+1]:
+            swap = child+1
+        if swap==root:
+            return
+        else:
+            a[root], a[swap]=a[swap], a[root]
+            root = swap
+
+
+
+
+def linear_search(val,lst):
+    index = 0
+    found_index = None
+    while index &lt; len(lst) and found_index == None:
+        if val == lst[index]:
+            found_index = index
+            break
+        index += 1
+    return found_index
+
+def binary_search(val,lst,btm,top):
+    mdl = btm+(top-btm)//2
+    if lst == None or lst == [] or btm &gt; top:
+        return None  # val not found
+    elif val == lst[mdl]:
+        return mdl   # val found return position
+    elif val &lt; lst[mdl]:
+        return binary_search(val,lst,btm,mdl-1) # search bottom half
+    else:
+        return binary_search(val,lst,mdl+1,top) # search top half
+    
+def main():
+    print('Selection Sort')
+    lst1 = generate_number_list(20)
+    print(lst1)
+    print(selection_sort(lst1))
+    print('Merge Sort')
+    lst2 = generate_number_list(20)
+    print(lst2)
+    print(merge_sort(lst2))
+    print('Bubble Sort')
+    lst3 = generate_number_list(20)
+    print(lst3)
+    print(bubble_sort(lst3))
+    print('Linear Search')
+    lst4 = generate_number_list(20)
+    print(lst4)
+    print(linear_search(10,lst4))
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match85-0.html#1" TARGET="0"><IMG SRC="../../bitmaps/tm_1_1.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    print('Binary Search')
+    lst5 = merge_sort(generate_number_list(20)) # list needs to be sorted for binary search
+    print(lst5)
+    print(binary_search(15,lst5,0,len(lst5)-1))
+    
+if __name__ == "__main__":
+    main()
+&gt;&gt;&gt;&gt; file: sorttester.py
+# Mlingani Matiwane
+# 1 October 2015
+# Experiment
+
+from sortsearch import generate_number_list
+</FONT>from sortsearch import heap_sort
+from sortsearch import bubble_sort
+
+import sortsearch
+import time
+
+def main():
+    # List Size
+    lst_size = int(input("Enter the size of the list:\n")) 
+    generate_number_list(lst_size)
+   
+    # Type of sort
+    print("Choose the sort method:")
+    print("1. Heap Sort.")
+    print("2. Bubble Sort.")
+    sort_method = int(input())
+    # Time taken for sort
+    if sort_method == 1:
+        for i in range(3):
+            a = generate_number_list(lst_size)
+            print("Before: ", a)
+            
+            start_time= time.time()
+            sort_method = heap_sort(a)
+            end_time= time.time() - start_time
+            
+            print("After: ", heap_sort(a))
+            print(end_time)          
+    
+    elif sort_method == 2:
+        for i in range(3):
+            lst = generate_number_list(lst_size)
+            print("Before: ", lst)
+            
+            start_time= time.time()
+            sort_method = bubble_sort(lst)
+            end_time= time.time() - start_time
+        
+            print("After: ",bubble_sort(lst))
+            print(end_time)    
+        
+
+main()
+
+&gt;&gt;&gt;&gt; file: student.py
+class Student:
+    
+    def __init__(self, n='unknown', sn='unknown'):
+        self.name = n
+        self.student_number = sn
+        self.courses = []
+    
+    def __str__(self):
+        s = self.name + ', ' + self.student_number
+        if len(self.courses)&gt;0:
+            s += ': '+str(self.courses[0])
+            for c in self.courses[1:]:
+                s += '; ' + str(c)
+        return s+'.'
+    
+    def add_course(self, c):
+        self.courses.append(c)
+        return self.courses
+    
+    def input(self):
+        self.name = input('Enter name: ')
+        self.student_number = input('Enter student number: ')
+        return self.name,self.student_number
+
+    def display(self):
+        print('Name: ' + self.name)
+        print('Student number: ' + self.student_number)
+&gt;&gt;&gt;&gt; file: universitysystem.py
+# Mlingani Matiwane
+# October 2015
+# University System
+
+d_1 = {}
+d_2 = {}
+d_3 = {}
+p = []
+q = []
+diction = {}
+z = {}
+df = 0
+r = 0
+while True:
+    print("University Member System: ")
+    my_dictionary = {0:"Quit.", 1:"Input Course.", 2:"Input Lecturer.", 3:"Input Student.", 4:"Enrol Student on Course.", 5:"Assign Course to Lecturer.", 6:"Find Course.", 7:"Find Lecturer.", 8:"Find Student.", 9:"Display Courses.", 10:"Display Lecturers.", 11:"Display Students."}
+    for s in my_dictionary:
+        print(str(s)+".",my_dictionary[s])
+    _input_ = eval(input("&gt;"))
+    if _input_ == 0:
+        break
+    elif _input_ &gt; s or _input_ &lt; 0:
+        print("That selection was not recognised.")
+    else:
+        if _input_ == 1:
+            description = input("Enter description: ")
+            course_code = input("Enter course code: ")
+            d_1[course_code] = description
+        elif _input_ == 2:
+            name = input("Enter name: ")
+            staff_number = input("Enter staff number: ")
+            d_2[staff_number] = name
+        elif _input_ == 3:
+            name = input("Enter name: ")
+            student_number = input("Enter student number: ")
+            d_3[student_number] = name
+        if _input_ == 4:
+            if r == 0:
+                for f in d_3:
+                    z[f] = []
+            r += 1
+            from student import Student
+            student_number = input("Enter student number: ")
+            course_code = input("Enter course code: ")
+            if student_number in d_3:
+                a = Student(d_3[student_number], student_number)
+                if course_code in d_1:
+                    p.append(d_1[course_code])
+                    z[student_number]=z[student_number] + p
+                    p = []
+            else:
+                print("Could not find a student with that student number.")
+        elif _input_ == 5:
+            if df == 0:
+                for i in d_2:
+                    diction[i] = []
+            df += 1            
+            staff_number = input("Enter staff number: ")
+            course_code = input("Enter course code: ")
+            from Lecture import Lecture
+            if staff_number in d_2:
+                b = Lecture(d_2[staff_number], staff_number)
+                if course_code in d_1:
+                    q.append(d_1[course_code])
+                    diction[staff_number]=diction[staff_number] + q
+                    q = []
+            else:
+                print("Could not find a lecturer with that staff number.")
+        elif _input_ == 6:
+            course_code = input("Enter course code: ")
+            try:
+                print(course_code+", "+d_1[course_code])
+            except:
+                print("Could not find a course with that code.")
+        elif _input_ == 7:
+            from Lecture import Lecture
+            staff_number = input("Enter staff number: ")
+            if staff_number in d_2 and staff_number not in diction:
+                try:
+                    print(d_2[staff_number]+", "+staff_number+".")
+                except:
+                    print("Could not find a member of staff with that number.")
+            else:
+                if staff_number in d_2:
+                    print(d_2[staff_number]+", "+staff_number+": ",end="")
+                    a = 0
+                    for k in diction[staff_number]:
+                        a += 1
+                        for i in d_1:
+                            if d_1[i] == k:
+                                if a &lt; len(diction[staff_number]):
+                                    print(i+", "+k + "; ",end="")
+                                else:
+                                    print(i+", "+k,end="")
+                    print(".")
+                else:
+                    print("Could not find a member of staff with that number.")
+        elif _input_ == 8:
+            from student import Student
+            student_number = input("Enter student number: ")
+            if student_number in d_3 and z[student_number] == []:
+                print(d_3[student_number]+", "+student_number+".")
+            else:
+                if student_number in d_3:
+                    print(d_3[student_number]+", "+student_number+": ",end="")
+                    a = 0
+                    for k in z[student_number]:
+                        a += 1
+                        for i in d_1:
+                            if d_1[i] == k:
+                                if a &lt; len(z[student_number]):
+                                    print(i+", "+k + "; ",end="")
+                                else:
+                                    print(i+", "+k,end="")
+                    print(".")  
+                else:
+                    print("Could not find a student with that number.")
+        elif _input_ == 9:
+            from course import Course
+            a = []
+            for i in d_1:
+                a.append(i)
+            a.sort()
+            for i in a:
+                don = Course(i,d_1[i])
+                don.display()
+        elif _input_ == 10:
+            from Lecture import Lecture
+            a = []
+            for i in d_2:
+                a.append(i)
+            a.sort()
+            for k in a:            
+                tears = Lecture(d_2[k], k)
+                tears.display()
+        elif _input_ == 11:
+            from student import Student
+            e = []
+            for j in d_3:
+                e.append(j)
+            e.sort()
+            for s in a:
+                miss = Student(d_3[s], s)
+                miss.display()</PRE>
+</PRE>
+</BODY>
+</HTML>

@@ -1,0 +1,183 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/7/raw/mhkmal001/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/7/raw/sngxha002/<p><PRE>
+&gt;&gt;&gt;&gt; file: book_cypher.py
+# A program that outputs the encoded version of the message, which is the location of the words in a file.
+# Xhanti Singatha
+# 17 September 2015
+
+
+f = input('Enter filename:\n')
+
+message = input('Enter message:\n')
+
+output_file_name = input('Enter the output filename :\n')
+
+print()                            # prints space in between 
+
+f = open(output_file_name,'w')
+message = message.spit(" ")    # converts the message entered by the user to a list 
+
+x = 0                          
+
+print("BEGIN",file=output_file_name) # writes BEGIN to the output file
+print("BEGIN")
+
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match134-0.html#0" TARGET="0"><IMG SRC="../../bitmaps/tm_0_9.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+while message!=[]:
+    s  = open(f,'r')
+    p=0
+    l=2
+    for line in f:    # loops over lines 
+        if p == 9:
+            x = 0
+            break
+        x+=1
+        line=line.split(' ')        # converts lines in the file into a list 
+        for element in line:        # loops at every word in a line 
+            d = element
+            element = element.strip('?!.,;:)([]{}\'" \n')
+</FONT><A NAME="1"></A><FONT color = #00FF00><A HREF="match134-0.html#1" TARGET="0"><IMG SRC="../../bitmaps/tm_1_9.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+            line[line.index(d)]=element.lower()             # determines the position of the element  
+            if element.lower()==message[0]:
+                p=9                                         # breaks the for loop when the element is found
+                l=8                                         # breaks the for loop when the element is found
+                word =line.index(element.lower)+1-line[:line.index(element.lower())+1].count('')
+</FONT>                print('{}'-'{}'.format(x,word))
+                print(str(x)+'-'+str(word),file=output_file_name)
+                x = 0
+        if l!=8:
+            print(message[0])                      
+            print(message[0],file=output_file_name) # writes the location of the message to the output file 
+            message[1:]
+            print("END")
+            print("END",file=output_file_name)   # writes END to the output file 
+            f.close()
+            output_file_name.close()              # closes the output file 
+            &gt;&gt;&gt;&gt; file: leader_board.py
+# A program that prints leaderboard results and handles exceptions
+# Xhanti Singatha
+# leader_board.py
+
+def process_line(line):
+                parts = line.split(' ')
+                name = parts[0]
+                trials = int(parts[1])
+                average = float(parts[2])
+                return (name, trials, average)
+
+
+def get_max(entries):
+                max = entries[0]
+                for i in range(1, len(entries)):
+                                if entries[i][2] &lt;max[2]:
+                                                max = entries[i]
+                                                entries.remove(max)
+                                                return max
+        
+def sort(entries):
+                sorted_entries = []
+                while len(entries)&gt;0:
+                                sorted_entries.append(get_max(entries))
+                                return sorted_entries
+
+def output(entries):
+                print('Subject        | Average Time')
+                print('************** | ************')
+                for entry in entries:
+                                print('{:14} | {:.6}'.format(entry[0], entry[2]))
+              
+def main():
+                try:
+                                file_name = input('Enter the name of the file:\n')
+                                file_input = open(file_name, 'r')
+                                entries = []
+                                for line in file_input:
+                                                entries.append(process_line(line))
+                                                file_input.close()
+                                                entries = sort(entries)
+                                                output(entries)
+                except FileNotFoundError as ve:
+                                while True:
+                                                if file_name[-4:]!='.txt':
+                                                                print('Incorrect filename format',ve,'filename should be in this format filename.txt')
+                                else:
+                                                print('Incorrect filename please enter a Correct filename')
+main()
+    &gt;&gt;&gt;&gt; file: reaction_time.py
+# A program that calculates a particular subject's reaction time
+# Xhanti Singatha
+# 17 September 2015
+
+import random
+import time
+
+
+file_name = input('Enter the name of the output file:\n')
+file_name = open(file_name,'w')
+
+while True:  
+    
+    subject_name = input("Enter subject name (or press 'enter' to quit):\n")
+    
+    if subject_name == "":
+        break
+    
+    number_of_tests = int(input('Enter the number of tests:\n'))
+    
+    for i in range(number_of_tests):
+        
+        total = 0
+        
+        print('Get ready...')
+        
+        time.sleep(random.randint(1,5))
+        
+        start_time = time.time()        # starts the time
+        
+        n = input("Press 'enter' NOW!") # gets the user press enter 
+        
+        end_time = time.time()
+        
+        reaction_time = end_time-start_time  # time elasped 
+        
+        print('Reaction time: {0:1.6f}'.format(reaction_time))
+        
+        total += reaction_time # total reaction time
+        
+        average = total/number_of_tests  # calculates tghe average reaaction time 
+    
+
+    print(subject_name,number_of_tests,round(average,6),file=file_name) # prints results to a file 
+    print('Test Complete.')
+    print('Average reaction time {0:1.6f}'.format(average))
+
+file_name.close()
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    </PRE>
+</PRE>
+</BODY>
+</HTML>

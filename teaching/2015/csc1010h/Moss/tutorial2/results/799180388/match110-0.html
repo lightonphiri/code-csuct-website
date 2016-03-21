@@ -1,0 +1,141 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/2/raw/mphfar001/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/2/raw/mphfar001/<p><PRE>
+&gt;&gt;&gt;&gt; file: CreditCard.py
+# CreditCard
+# Mphephu Faresa 
+# 2015/04/23
+
+def main():
+    H_name_ ,C_numb_,I_date_= input("Enter the card holder's name:\n") , input("Enter the 16 digit card number (no spaces please):\n") ,input("Enter the date of issue (mm:yy):\n")
+    E_date_, S_code_,in_C_limit_=input("Enter the expiry date (mm:yy):\n"),  input("Enter the 3 digit security code:\n"), float(input("Enter the credit limit (Rand):\n"))
+
+
+    in_balance_  ,_caption_= float(input("Enter the balance (Rand):\n")) ,  " Credit Card Account "
+    _balance_=format(in_balance_,".2f")
+    C_limit_=format(in_C_limit_, ".2f")
+    sub_avail_ = in_C_limit_ - in_balance_
+    _avail_=format(sub_avail_,".2f")
+    P_H_name_,P_C_numb_,P_I_date_, P_E_date_= "Card holder:" ,  "Card number:" , "Date of issue:" , "Expiry date:"
+    Str_C_numb_   = str(C_numb_) 
+    Out_C_numb_= Str_C_numb_[0:4]+" "+Str_C_numb_[4:8]+" "+Str_C_numb_[8:12]+" "+Str_C_numb_[12:16]
+    
+    P_S_code_,P_C_limit_,P_avail_ ,P_balance_ = "Security code:","Credit limit:","Available:" , "Balance:"
+    Str_I_date_ , Str_E_date_ = str(I_date_) , str(E_date_) 
+    Out_I_date_ ,Out_E_date_ = Str_I_date_[0:2]+"/"+Str_I_date_[3:5] , Str_E_date_[0:2]+"/"+Str_E_date_[3:5]
+    _rand_,_end_,_bottom_  = " Rand" , "|", ""
+    Str_avail_,Str_C_limit_,Str_balance_= str(_avail_) , str(C_limit_) , str(_balance_) 
+    Out_avail_,Out_C_limit_,Out_balance_ = Str_avail_+" Rand",Str_C_limit_+" Rand",Str_balance_+" Rand"
+    
+    print("+{:-^48}+".format(_caption_))
+    print("| {0:15}{1:32}{2}".format(P_H_name_,H_name_,_end_))
+    print("| {0:15}{1:32}{2}".format(P_C_numb_,Out_C_numb_,_end_))
+    print("| {0:15}{1:9}{2:13}{3:10}{4}".format(P_I_date_,Out_I_date_,P_E_date_,Out_E_date_,_end_))      
+    print("| {0:15}{1:32}{2}".format(P_S_code_,S_code_,_end_))
+    print("| {0:15}{1:&lt;32}{2}".format(P_C_limit_,Out_C_limit_,_end_))
+    print("| {0:15}{1:&lt;32}{2}".format(P_avail_,Out_avail_,_end_))
+    print("| {0:15}{1:&lt;32}{2}".format(P_balance_,Out_balance_,_end_))
+    print("+{0:-^48}+".format(_bottom_))
+
+main()    &gt;&gt;&gt;&gt; file: EugeneJunior.py
+# EugeneJunior 
+# Mphephu Faresa
+# 2015/04/22
+import math
+
+def intro():
+    print('Hello, I am Eugene Junior.')    
+    U_name =  input("What is your first name?\n") #user name
+    UN_title = U_name.title()
+    U_surn = input('What is your last name?\n')
+    US_title = U_surn.title()
+    print('Hi',' ',UN_title[0],'.',US_title[0],".!",sep="")
+#def years():
+    current_year = eval(input("What year is this?\n"))
+    age = eval(input('What age are you?\n'))
+    birth_year = current_year-age-1
+    Y=str(birth_year)
+    X = Y[-2:]
+    OY=int(X)+1 
+    print("Okay, so you were born in ",birth_year,"/",OY,".",sep="")
+    meters=eval(input("How tall are you (metres)?\n"))
+    feet =meters*3.2808
+    x=str(feet)
+    i_feet = int(feet)
+    f=x[0:1]
+    D_x = feet - i_feet
+    
+    inch = D_x*12
+    Int_inch = round(inch)
+    P_inch = str(Int_inch)
+    print("That's ",f,"'",P_inch,'"!',sep="")
+#def starwars():
+    print("I'm going to tell you your Star Wars name.")
+    FN =input("What's your mother's first name?\n")
+    City = input("What's the name of the city nearest to your place of birth?\n")
+    
+    FSWN = U_surn[0:3]+U_name[0:2]
+    LSWN = FN[-2:]+City[-3:]
+    print("Your Star Wars name is ",FSWN.title(),' ',LSWN.title(),'.',sep='')
+    
+    
+
+intro()
+#years()
+#starwars()
+&gt;&gt;&gt;&gt; file: HexagonArea.py
+# HexagonArea
+# Mphephu Faresa
+# 02 May 2014
+import math 
+
+
+def main():
+    _side_ = eval(input("Enter the length of the side (cm):\n"))
+    _area_ = (3*math.sqrt(3)/2) * _side_**2
+    print("The area of a hexagon of side ",_side_," is ",format(round(_area_,3), ".3f"),sep="",end =".")
+main()&gt;&gt;&gt;&gt; file: Initials.py
+import turtle
+
+turtle.penup()
+turtle.left(90)
+turtle.color("magenta")
+turtle.speed(1)
+turtle.fd(125)
+turtle.pendown()
+turtle.right(90)
+turtle.fd(100)
+turtle.right(90)
+turtle.fd(75)
+turtle.penup()
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match110-1.html#0" TARGET="1"><IMG SRC="../../bitmaps/tm_0_9.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+turtle.home()
+turtle.left(90)
+turtle.fd(75)
+turtle.pendown()
+turtle.fd(50)
+turtle.left(90)
+turtle.fd(100)
+turtle.penup()
+turtle.home()
+turtle.right(180)
+turtle.fd(100)
+turtle.pendown()
+turtle.color("gold")
+turtle.right(180)
+turtle.fd(200)
+</FONT>turtle.right(150)
+turtle.fd(100)
+turtle.left(120)
+turtle.fd(100)
+turtle.right(150)
+turtle.fd(200)
+turtle.exitonclick()</PRE>
+</PRE>
+</BODY>
+</HTML>

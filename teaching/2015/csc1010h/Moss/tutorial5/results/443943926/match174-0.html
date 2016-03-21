@@ -1,0 +1,273 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/5/raw/mlxmog001/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/5/raw/mlxmog001/<p><PRE>
+&gt;&gt;&gt;&gt; file: calendar_utils.py
+# Program to print calendar
+#Mogase Maloa
+# MLXMOG001
+# 17 August 2015
+
+def is_leap_year(year):
+    if (year%4==0 and year%100!=0) or year%400==0:
+        return True
+    else:
+        False    
+    
+        
+def month_name(number):
+    if number==1:
+        return 'January'
+    elif number==2:
+        return 'February'
+    elif number==3:
+        return 'March'
+    elif number==4:
+        return 'April'
+    elif number==5:
+        return 'May'
+    elif number==6:
+        return 'June'
+    elif number==7:
+        return 'July'
+    elif number==8:
+        return 'August'
+    elif number==9:
+        return 'September'
+    elif number==10:
+        return 'October'
+    elif number==11:
+        return 'November' 
+    else:
+        return 'December'
+def days_in_month(month_number,year):
+    if month_number==1:
+            return 31
+    elif month_number==2:
+        
+        if is_leap_year(year)==True:
+            return 29
+        else:
+            return 28
+    elif month_number==3:
+        return 31
+    elif month_number==4:
+        return 30
+    elif month_number==5:
+        return 31
+    elif month_number==6:
+        return 30
+    elif month_number==7:
+        return 31
+    elif month_number==8:
+        return 31
+    elif month_number==9:
+        return 30
+    elif month_number==10:
+        return 31
+    elif month_number==11:
+        return 30
+    else:
+        return 31    
+def first_day_of_year(year):
+    day_1=5*((year-1)%4)
+    day_2=4*((year-1)%100)
+    day_3=6*((year-1)%400)
+    first_day=(1+day_1+day_2+day_3)%7 
+    if first_day==0:
+        return 0
+    elif first_day==1:
+        return 1
+    elif first_day==2:
+        return 2
+    elif first_day==3:
+        return 3
+    elif first_day==4:
+        return 4
+    elif first_day==5:
+        return 5
+    else:
+        return 6
+def first_day_of_month(month_number,year):
+    if month_number==1:
+        day_calc1=(2.6*((month_number-2)%12))-0.2
+        pre_year=(str(year-1))[2:]
+        day_calc2=5*(int(pre_year)%4)
+        day_calc3=4*((year-1)%100)
+        day_calc4=6*((year-1)%400)
+        first_day_of_month=(1+day_calc1+day_calc2+day_calc3+day_calc4)%7        
+        return int(first_day_of_month)
+    elif month_number==2:
+        day_calc1=(2.6*(12))-0.2
+        year2=(str(year-1))[2:]
+        day_calc2=5*(int(year2)%4)
+        day_calc3=4*((year-1)%100)
+        day_calc4=6*((year-1)%400)
+        first_day_of_month=(1+day_calc1+day_calc2+day_calc3+day_calc4)%7        
+        return int(first_day_of_month)         
+    else:
+        day_calc1=(2.6*((month_number-2)%12))-0.2
+        year2=(str(year))[2:]
+        day_calc2=5*(int(year2)%4)
+        day_calc3=4*((year)%100)
+        day_calc4=6*((year)%400)
+        first_day_of_month=(1+day_calc1+day_calc2+day_calc3+day_calc4)%7        
+        return int(first_day_of_month)
+&gt;&gt;&gt;&gt; file: morse_code.py
+# Program to output sounds representing morse code
+# Mogase Maloa
+# MLXMOG001
+# 17 August 2015
+
+import morse_utils
+
+def code_for(letter):
+    if letter =='a' or letter=='A':
+        return '.-'
+    elif letter=='b' or letter=='B':
+        return '-...'
+    elif letter=='c' or letter=='C':
+        return '-.-.'
+    elif letter=='d' or letter=='D':
+        return '-..'
+    elif letter=='e' or letter=='E':
+        return '.'
+    elif letter=='f' or letter=='F':
+        return '..-.'
+    elif letter=='g' or letter=='g':
+        return '--.'
+    elif letter=='h' or letter=='H':
+        return '....'
+    elif letter=='i' or letter=='I':
+        return '..'
+    elif letter=='j' or letter=='J':
+        return '.---'
+    elif letter=='k' or letter=='K':
+        return '-.-'
+    elif letter=='l' or letter=='L':
+        return '.-..'
+    elif letter=='m' or letter=='M':
+        return '--'
+    elif letter=='n' or letter=='N':
+        return '-.'
+    elif letter=='o' or letter=='O':
+        return '---'
+    elif letter=='p' or letter=='P':
+        return '.--.'
+    elif letter=='q' or letter=='Q':
+        return '--.-'
+    elif letter=='r' or letter=='R':
+        return '.-.'
+    elif letter=='s' or letter=='S':
+        return '...'
+    elif letter=='t' or letter=='T':
+        return '-'
+    elif letter=='u' or letter=='U':
+        return '..-'
+    elif letter=='v' or letter=='V':
+        return '...-'
+    elif letter=='w' or letter=='W':
+        return '.--'
+    elif letter=='x' or letter=='X':
+        return '-..-'
+    elif letter=='y' or letter=='Y':
+        return '-.--'
+    else:
+        return '--..'
+def transmit_letter(letter):
+    morse_code=code_for(letter)
+    num=0
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match174-1.html#1" TARGET="1"><IMG SRC="../../bitmaps/tm_1_2.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    for i in morse_code:
+        if i=='.':
+            morse_utils.beep(1000,100)
+            print(i,end='')
+        
+        elif i=='-':
+            morse_utils.beep(1000,300)
+            print(i,end='')
+</FONT>            
+        num+=1
+        if num&lt;len(morse_code):
+            morse_utils.sleep(0.1)
+            print('^',end='')
+        
+def transmit_word(word):
+    num=0
+    for k in word:
+        transmit_letter(k)
+        num+=1
+        if num&lt;len(word):
+            morse_utils.sleep(0.3)
+            print('|',end='')
+def word_pause():
+    morse_utils.sleep(0.7)
+    print('||',end='')&gt;&gt;&gt;&gt; file: technical_support.py
+
+# Tech Support
+# Stephan Jamieson
+# 5/1/2015
+responses={
+    'bluetooth':'Have you tried mouthwash?',
+    'windows':'Ah, I think I see your problem. What version?',
+    'apple':'You do mean the computer kind?',
+    'blue':'Ah, the blue screen of death. And then what happened?',
+    'spam':'You should see if your mail client can filter messages.',
+    'connection':'Contact Telkom.',
+    'crashed':'Are the drivers up to date?',
+    'hacked':'You should consider installing anti-virus software.'}
+
+
+def default_response():
+    return 'Curious, tell me more.'
+    
+def get_response(words):
+    
+    for word in words:
+        if word in responses:
+            return responses[word]
+    
+        
+    return default_response()
+    
+    
+
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match174-1.html#0" TARGET="1"><IMG SRC="../../bitmaps/tm_0_4.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+def print_welcome():
+    print('Welcome to the automated technical support system.')
+    print('Please describe your problem:')
+
+
+
+def get_input():
+    query = input().split(' ')
+    query2=[]
+    for i in query:
+        query3=i.lower()
+        
+        query2.append(query3)
+    
+    return query2
+
+def main():
+    print_welcome()
+</FONT>    
+    while True:
+        query2 = get_input()
+    
+        if query2==['quit']:
+            break
+        response=get_response(query2)
+        print(response)
+    
+        
+                    
+main()</PRE>
+</PRE>
+</BODY>
+</HTML>

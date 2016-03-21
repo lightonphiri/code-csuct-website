@@ -1,0 +1,118 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/8/raw/01445014/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/8/raw/mngsan021/<p><PRE>
+&gt;&gt;&gt;&gt; file: Lecturer.py
+#Sipho Ngqayimbana
+#Ngqsip007
+#Tutorial 8
+
+class Lecturer:
+    def __init__(self,n = "unknown", s = "unknown"):
+        self.name = n
+        self.courses = []
+        self.staff_number = s
+    def __str__(self):
+        s = self.name+','+self.staff_number
+        for b in self.courses:
+            s+=str(b)
+        return s
+    def add_course(self,b):
+        self.courses.append(b)
+    def input(self):
+        self.name = input('Enter name:')
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match183-0.html#0" TARGET="0"><IMG SRC="../../bitmaps/tm_0_8.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+        self.staff_number = input('Enter staff number:')
+        
+    def display(self):
+        
+        print('Name:' + self.name)
+        
+        print('Staff Number:' + self.staff_number)
+&gt;&gt;&gt;&gt; file: UniversityMemberSystem.py
+#Sipho Ngqayimbana
+#NGQSIP007
+#Tutorial 8
+
+from Lecturer import Lecturer
+from Sutdent import Student 
+</FONT>from Course import Course
+def main():
+    while True:
+        print('1. Input Course')
+        print('2. Input Lecturer')
+        print('3. Input Student')
+        print('4. Find Course')
+        print('5. FInd Lecturer')
+        print('6. Find Student')
+        print('7. Display Courses')
+        print('8. Display Lecturers')
+        print('9. display Students')
+        print('0. Quit')
+        choose = int(input("Choose from the menu:"))
+        if choose ==1:
+            c = Course()
+            print(c.input())
+        elif choose==2:
+            l = Lecturer()
+            print(l.input())
+        elif choose==3:
+            s = Student()
+        elif choose==4:
+            print(Course())
+        elif choose ==5:
+            print(Lecturer())
+        elif choose ==6:
+            print(Student())
+            print(s.input())
+        elif choose ==7:
+            print(c.display())
+        elif choose==8:
+            print(l.display())
+        elif choose ==9:
+            print(s.display())
+        elif choose==0:
+            break
+main()
+            
+        
+            &gt;&gt;&gt;&gt; file: testing_sorts.py
+#Sipho Ngqayimbana
+#ngqsip007
+#tutorial 8
+
+from sortsearch import*
+from time import*
+def main():
+    try:
+        sorting =''
+        option = input('Choose sort type(Selection sort, Merge sort or Bubble sort(write with no spaces between words):')
+        size = int(input('Enter size of the list:'))
+        start_time = time()
+        generate_number = generate_number_list(size)
+        if option == 'selectionsort':
+            print(generate_number)
+            sorting=selection_sort(generate_number)
+        elif option == 'mergesort':
+            sorting=merge_sort(generate_number)
+        elif option=='bubblesort':
+            sorting=bubble_sort(generate_number)
+        end_time=time()
+        time_taken = end_time-start_time
+        print(sorting)
+        print(time_taken)
+    except ValueError:
+        print('You entered a string instead of a integer(or otherwise).')
+    except:
+        print('Some unusual error was found.')
+main()
+        
+        
+        </PRE>
+</PRE>
+</BODY>
+</HTML>

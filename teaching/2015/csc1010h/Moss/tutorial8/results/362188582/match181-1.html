@@ -1,0 +1,180 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/8/raw/khnsim009/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/8/raw/xlxphi002/<p><PRE>
+&gt;&gt;&gt;&gt; file: lecturer.py
+# Program to create a class to store a lecturer details 
+# Phindile Xulu
+# 
+
+class Lecturer:
+    def __init__(self,n="unknown",num="unknown"):
+        self.staff_name =n
+        self.staff_no = num
+        self.courses= []
+        
+    def add_lecturer_course(self,a):
+        self.courses.append(a)
+
+    def __str__(self):
+        str_to_print = self.staff_name + ', ' + self.staff_no        
+        if len(self.courses)&gt;0:
+            str_to_print += ': '+str(self.courses[0])
+            for a in self.courses[1:]:
+                str_to_print += '; ' + str(a)
+            return str_to_print+'.'        
+
+    
+    def input(self):
+        self.staff_name=input("Enter name: ")
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match181-0.html#0" TARGET="0"><IMG SRC="../../bitmaps/tm_0_4.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+        self.staff_no=input("Enter staff number: ")
+        
+    def desplay(self):
+        print("Lecturer name: "+self.staff_name)
+        print("Staff number: "+self.staff_no)
+    
+    &gt;&gt;&gt;&gt; file: sorttester.py
+# Proggranm to measure the time it takes to sort a list of numbers
+# Phindile Xulu
+# 
+from time import *
+from sortsearch import *
+</FONT>from random import *
+def main():
+    size = int(input("Enter the size of the list:\n"))
+    num_list = []
+    for i in range( size):
+        num_list.append(randint(0,size))
+    sort_method= int(input("Choose the sort method:\n1. Heap Sort.\n2. Bubble Sort.\n"))
+    print("Before:",num_list)
+    if sort_method ==1:
+        start_time = time()
+        sorted_list=heap_sort((num_list))
+        end_time = time()
+    elif sort_method ==2:
+        start_time = time()
+        sorted_list=bubble_sort(num_list)
+        end_time = time()      
+   
+    print("After:",sorted_list)
+    print("Time:",end_time-start_time)
+    
+if __name__=="__main__":
+    main()&gt;&gt;&gt;&gt; file: universitysystem.py
+# Program to print out the student and staff information
+#Phindile Xulu
+#
+
+from course import Course
+from lecturer import Lecturer
+from student import Student
+
+students={}
+staff={}
+courses={}
+
+def display_dictionary_values(dic):
+    for i in dic:
+        print(i)
+        
+def main():
+    while True:
+        print("University Member System: ")
+        print("0. Quit.")
+        print("1. Input Course.")
+        print("2. Input Lecturer.")
+        print("3. Input Student.")
+        print("4. Enrol Student on Course.")
+        print("5. Assign Course to Lecturer.")
+        print("6. Find Course.")
+        print("7. Find Lecturer.")
+        print("8. Find Student.")
+        print("9. Display Courses.")
+        print("10. Display Lecturers.")
+        print("11. Display Students.")
+        option=input("&gt;")
+        
+        
+        if option=='0':
+            break
+        elif option=='1':
+            course = Course()
+            course.input()
+            courses[course.course_code]=course.description
+        elif option=='2':
+            lecturer=Lecturer()
+            lecturer.input()
+            staff[lecturer.staff_no]=lecturer.staff_name
+            
+        elif option=='3':
+            student = Student()
+            student.input()
+            students[student.student_number]=student.name
+        elif option=='4':
+            student_no = input("Enter student number: ")
+            corse_code = input("Enter course code: ")
+            try:
+                a= students[student_no]
+            except:
+                print("Could not find a student with that student number.")
+                continue
+            new_student=Student(a,student_no)
+            new_student.add_course(courses[corse_code])
+        elif option=='5':
+            staff_number = input("Enter staff number: ")
+            corse_code = input("Enter course code: ")
+            try:
+                a= staff[staff_number]
+            except:
+                print("Could not find a lecturer with that staff number.")
+                continue
+            new_staff=Lecturer(a,staff_number)
+            new_staff.add_lecturer_course(courses[corse_code]) 
+        elif option=='6':
+            course_to_find= input("Enter course code: ")
+            try:
+                print(courses[course_to_find])
+            except:
+                print("Could not find a course with that code.")
+                continue
+        elif option == '7':
+            lecturer_to_find= input("Enter staff number: ")
+            try:
+                print(staff[lecturer_to_find]+",",lecturer_to_find+".")
+            except:
+                print("Could not find a member of staff with that number.")
+                main()    
+           
+        elif option == '8':
+            student_to_find= input("Enter student number: ")
+            try:
+                print(students[student_to_find]+",", student_to_find+'.')
+            except:
+                print("Could not find a student with that number.")
+                continue
+           
+        elif option =='9':
+            for i in courses:
+                print("Course Code:",i)
+                print("Description:",courses[i])
+        elif option =='10':
+            for j in staff:
+                print("Name:",staff[j])
+                print("Staff number:",j)
+                
+        elif option=='11':
+            for k in students:
+                print("Name:",students[k])
+                print("Student number:",k)
+        else:
+            print("That selection was not recognised.")
+            
+main()</PRE>
+</PRE>
+</BODY>
+</HTML>

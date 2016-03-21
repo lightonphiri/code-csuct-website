@@ -1,0 +1,91 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/4/raw/khnsim009/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/4/raw/mkwnka001/<p><PRE>
+&gt;&gt;&gt;&gt; file: LongJump.py
+#
+#
+#
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match42-0.html#0" TARGET="0"><IMG SRC="../../bitmaps/tm_0_22.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+def main ():
+    print ("***** Long Jump Information System *****")
+    print("Please enter the names of competitors. (Press enter when done.)")
+    names=[]
+    competitor_no=1
+    while True :
+        comp_name= input("Competitor no. {}:\n".format(competitor_no))
+        if comp_name=='': break
+        competitor_no +=1
+        names.append(comp_name)
+    print("Please enter the distances for each competitor.")
+    attempts=0
+    maximum=[]
+    the_winner={}
+    for k in names:
+        print("Competitor",k)
+</FONT>        for j in range (3):
+            tries=input("Attempt {}:\n".format(j+1)) 
+            if tries =='': break
+            else :
+                float(tries)&gt; attempts
+                attempts= float(tries)
+                maximum.append(attempts)
+    the_winner[k]=attempts
+    count=0
+    for k in names:
+            print("{0:&lt;26}{1:16}".format(k))
+            count+=1
+    champion=max(maximum)
+    for k in the_winnner:
+        if the_winner [k]==champion:
+            print("The winner is",k,"with a jump of",champion)
+            
+                
+            
+            
+    
+main()
+        &gt;&gt;&gt;&gt; file: NikNaks.py
+#
+#
+#
+import random
+
+def main():
+    
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match42-0.html#1" TARGET="0"><IMG SRC="../../bitmaps/tm_1_20.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    print("Guess the mystery 4 letter code . (No letter occurs more than once.")
+    level=int(input("Choose difficulty level (4 to 26):\n"))
+    letters=list('abcdefghijklmnopqrstuvwxyz') [0: level]
+    print('The letter in the code are chosen from:{}.'.format(letters))
+    the_code=[]
+    your_guesses=10
+    for p in range (4):
+        rand_index= random.randint(0,len(letters)-1)
+        letter= letters.pop(rand_index)
+</FONT>        the_code.append(letter)
+    while True:
+        print("You have {} guesses remaining.".format(your_guesses))
+        your_guesses -=1
+        guess=input("Enter your guess:\n")
+     
+    
+    
+main()&gt;&gt;&gt;&gt; file: turtle_test.py
+import turtle
+def main():
+    turtle.position ()
+    turtle.heading()
+    turtle.circle(100)
+    turtle.speed("normal")
+    turtle.fillcolor('violet')
+main()
+    </PRE>
+</PRE>
+</BODY>
+</HTML>

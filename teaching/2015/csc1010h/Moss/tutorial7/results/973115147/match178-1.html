@@ -1,0 +1,137 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/7/raw/hrmwes003/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/7/raw/jkwviz001/<p><PRE>
+&gt;&gt;&gt;&gt; file: book_cypher.py
+
+
+
+def get_book_filename():
+    file_name = input("Enter the book filename: \n")
+    file = open(file_name, 'r')
+    
+def get_message():
+    message = input("Enter the message: \n")
+    
+def output_file():
+    output_file = input("Enter the output filename: \n")
+    
+def main():
+    get_book_filename()
+    get_message()
+    output_file()
+    print("BEGIN")
+    message.split()
+    message.strip('?!.,;:)([]{}\'"\n')
+    for word in message:
+        for line in file.readline():
+            word_index = file[word]
+            word_line = file[line]
+        print("{}-{}".format(word_line,word_index))
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match178-0.html#1" TARGET="0"><IMG SRC="../../bitmaps/tm_1_6.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    print("END")
+    file.close()
+main()&gt;&gt;&gt;&gt; file: leader_board.py
+# leader_board.py
+
+def process_line(line):
+    parts = line.split(' ')
+    name = parts[0]
+    trials = int(parts[1])
+</FONT>    average = float(parts[2])
+    return (name, trials, average)
+
+def get_max(entries):
+    max = entries[0]
+    for i in range(1, len(entries)):
+        if entries[i][2] &lt;max[2]:
+            max = entries[i]
+            
+    entries.remove(max)
+    return max
+
+def sort(entries):
+    sorted_entries = []
+    while len(entries)&gt;0:
+        sorted_entries.append(get_max(entries))
+    return sorted_entries
+
+def output(entries):
+    print('Subject        | Average Time')
+    print('************** | ************')
+    for entry in entries:
+        print('{:14} | {:.6}'.format(entry[0], entry[2]))
+              
+def main():
+    file_name = input('Enter the name of the file:\n')
+    try:
+        file_input = open(file_name, 'r')
+    except IOError as e:
+        while IOError == True:
+            print(str(e))
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match178-0.html#0" TARGET="0"><IMG SRC="../../bitmaps/tm_0_6.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+            file_name = input("Enter the correct file:\n")
+            file_input = open(file_name, 'r')
+    
+    entries = []
+    for line in file_input:
+        entries.append(process_line(line))
+    file_input.close()
+    
+    entries = sort(entries)
+</FONT>    output(entries)
+    
+main()
+    &gt;&gt;&gt;&gt; file: reaction_test.py
+import time
+import random
+
+
+def get_file():
+    file_name = input("Enter the name of the output file: \n")
+    file = open(file_name + ".txt","w")
+
+def get_subject():
+    subject = input("Enter subject name (or press 'enter' to quit): \n")
+
+def reaction_time():
+    num_of_tests = input("Enter the number of tests: \n")
+    reaction_times = 0
+    tests = 0
+    for test in range(num_of_tests):
+        print("Get ready...")
+        random_time = randint(1,5)
+        sleep(random_time*10)
+        print('Press \'enter\' NOW!')
+        time1 = time()
+        tap = input()
+        if tap == '':
+            time2 = time()
+            tests =+ 1
+        recorded_time = time2 - time1
+        reaction_times += recorded_time
+        
+        print("Reaction time:",recorded_time)
+    print("Tests complete")
+    aver_reaction_time = reaction_times/tests
+    print("Average reaction time:",str(aver_reaction_time))
+    file.write(str(aver_reaction_time) + '\n')
+    print()
+
+
+def main():
+    get_file()
+    subject = 0
+    while subject != '':
+        get_subject()
+        reaction_time()
+    file.close()
+main()</PRE>
+</PRE>
+</BODY>
+</HTML>

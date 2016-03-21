@@ -1,0 +1,177 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Dropbox/Projects/work/2016/csc1011h/Moss/tutorial1/raw/Rwaxa,_Nkululeko(rwxnku001)/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Dropbox/Projects/work/2016/csc1011h/Moss/tutorial1/raw/Xulu,_Phindile(xlxphi002)/<p><PRE>
+&gt;&gt;&gt;&gt; file: Appointment.py
+# Progam to create an appointment class
+# Phndile Xulu
+# 28/02/2016
+
+
+import datetime 
+
+class Appointment():
+    def __init__(self,id1="Unknown",id2="Unknown",t="Unknown"):
+        self.doc_id=id1
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match63-0.html#1" TARGET="0"><IMG SRC="../../bitmaps/tm_1_3.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+        self.pat_id=id2
+        self.time=t
+        
+    def __str__(self):
+        return (str(self.doc_id)+","+str(self.pat_id)+","+str(self.time))
+</FONT>    
+    def memo(self):
+        self.memo=input("Enter discription for the appointment:\n")
+        return ("Description: "+self.memo)
+    
+    def appointment_time(self):
+        self.appointment_time=datetime.datetime(int(self.time[0:4]),int(self.time[5:7]),int(self.time[8:10]),int(self.time[11:13]),int(self.time[14:16]))
+        return (self.appointment_time)
+    def display(self):
+        return ("Doctors I.D number: "+self.doc_id+"\n"+"Patient's I.D number: "+self.pat_id+"\n"+"Time: "+str(self.appointment_time())+"\n"+"Memo: "+self.memo+"\n"+"________________________")
+&gt;&gt;&gt;&gt; file: Clinic.py
+# Program to search, add or display patient, doctor or appointment
+#Phndile Xulu
+#28/02/2016
+
+from Person import Person
+from Doctor import Doctor
+from Patient import Patient
+from Appointment import Appointment
+import datetime
+
+def main():
+    patients,doctors,appointments=[],[],[]
+    while True:
+        print("Welcome to the Clinic. Please select an option:\n")
+        option=int(input("1.Add a doctor, patient or create an appointment.\n2.Search and dispay all patients, doctors or appointments.\n3.Search all appointments for a patient or a doctor.\n0.Quit.\n"))
+        if option==0:break
+        
+        elif option==1:                                                                 
+            option1=int(input("1.Add a doctor.\n2.Add Patient.\n3.Create appointment.\n"))
+            if option1==1:                                                              #Adding a doctor
+                d=Doctor()
+                d.name=input("Please enter doctor's name.\n")
+                d.age=input("Please enter doctor's age.\n")
+                d.doctor_id_no=input("Please enter doctor's I.D number.\n")
+                d.doctor_address=input("Please enter doctor's address.\n")
+                doctors.append(d)
+            elif option1==2:                                                            #Adding patient
+                p=Patient()
+                p.name=input("Please enter patient's name.\n")
+                p.age=input("Please enter patient's age.\n")
+                p.patient_id_no=input("Please enter patient's I.D number.\n")
+                p.patient_address=input("Please enter patient's address.\n")
+                patients.append(p)
+            elif option1==3:                                                            #creating an appointment
+                a=Appointment()
+                a.doc_id=input("Please enter doctor's I.D number.\n")
+                a.pat_id=input("Please enter patient's I.D number.\n")
+                a.time=input("Please enter date and time for the appointment(yyyy/mm/dd hh:mm)\n")
+                a.memo()
+                appointments.append(a)
+        elif option==2:
+            option2=int(input("1.Display doctors.\n2.Display patients.\n3.Display appointments.\n"))
+            if option2==1:
+                for i in doctors:
+                    print(i.display())
+            elif option2==2:
+                for i in patients:
+                    print(i.display())
+            elif option2==3:
+                for i in appointments:
+                    print(i.display())
+        elif option==3:
+            option3=int(input("1.Search for doctor's appointments.\n2.Search for patient's appointments"))
+            if option3==1:
+                doctor_id=input("Enter doctor's I.D number")
+                for i in doctors:
+                    if i.doctor_id_no==doctor_id:
+                        print(i.name)
+                        break
+                for j in doctors:
+                    for k in appointments:
+                        if j.doctor_id_no==k.doc_id:
+                            print(k.display())
+                
+            elif option3==2:
+                patient_id=input("Enter patient's I.D number")
+                for i in doctors:
+                    if i.patient_id_no==patient_id:
+                        print(i.name)
+                        break
+                    for j in patients:
+                        for k in appointments:
+                            if j.patient_id_no==k.pat_id:
+                                print(k.display())  
+                                
+main()        &gt;&gt;&gt;&gt; file: Doctor.py
+# Program to create a Doctor class
+# Phndile Xulu
+# 28/02/2016
+
+from Person import Person
+
+class Doctor(Person):
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match63-0.html#0" TARGET="0"><IMG SRC="../../bitmaps/tm_0_3.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    def __init__(self,id1="Unknown", add1="Unknown",n="Unknown",a="Unknown"):                            #initialisor
+            Person.__init__(self,n,a)
+            self.doctor_id_no=id1
+            self.doctor_address=add1
+            
+    def __str__(self):                                                                              #string conversion method                 
+        return (self.name+","+self.age+","+self.doctor_id_no+","+self.doctor_address)
+</FONT>       
+    def doctor_id_number(self):
+        return self.id_no
+    
+    def doctor_address(self):
+        return self.address    
+    
+    def display(self):
+        return("Name: "+self.name+"\n"+"Age: "+str(self.age)+"\n"+"I.D number: "+ str(self.doctor_id_no)+"\n"+"Address: "+self.doctor_address+"\n"+"___________________")
+               
+&gt;&gt;&gt;&gt; file: Patient.py
+# Program to create a Patient class
+# Phindile Xulu
+# 28/02/2016
+
+from Person import Person
+
+class Patient(Person):
+    def __init__(self,id2="Unknown", add2="Unknown", no_of_vi="Unknown",n="Unknown",a="Unknown"):                            #initialisor
+        Person.__init__(self,n,a)
+        self.patient_id_no=id2
+        self.patient_address=add2
+        self.no_of_visits=no_of_vi
+        
+        
+    def __str__(self):                                                                              #string conversion method                 
+        return (self.name+","+self.age+","+self.patient_id_no+","+self.patient_address+","+self.no_of_visits)
+    
+    def patient_id_number(self):
+        return self.patient_id_no
+    
+    def patient_address(self):
+        return self.patient_address
+    
+    def no_of_visits(self):
+        return self.no_of_visits
+    
+    def fees_owed(self):
+        self.fees_owed=200*int(self.no_of_visits)
+        return ("R"+str(self.fees_owed))
+    
+    def display(self):
+        return("Name: "+self.name+"\n"+"Age: "+str(self.age)+"\n"+"I.D number: "+str(self.patient_id_no)+"\n"+"Address: "+self.patient_address+"\n"+"Number of visits: "+str(self.no_of_visits)+"\n"+"Fees Owed: "+"R"+str(self.fees_owed)+"\n"+"______________________")
+       
+    
+</PRE>
+</PRE>
+</BODY>
+</HTML>

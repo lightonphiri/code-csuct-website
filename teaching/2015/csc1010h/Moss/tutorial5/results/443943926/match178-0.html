@@ -1,0 +1,171 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/5/raw/mfkref006/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/5/raw/mfkref006/<p><PRE>
+&gt;&gt;&gt;&gt; file: calendar_utils.py
+def is_leap_year(year):
+    first_half_year=str(year)[0:2]
+    second_half_year=str(year)[2:]
+    if int(first_half_year)%4==0 and int(second_half_year)%4==0:
+        return True
+    else:
+        return False
+def month_name(number):
+    month=['January','February', 'March', 'April', 'May', 'June','July',
+          'August', 'September', 'October', 'November', 'December']
+    if number==1:
+        return month[0]
+    if number==2:
+        return month[1]
+    if number==3:
+        return month[2]
+    if number==4:
+        return month[3]
+    if number==5:
+        return month[4]
+    if number==6:
+        return month[5]
+    if number==7:
+        return month[6]
+    if number==8:
+        return month[7]
+    if number==9:
+        return month[8]
+    if number==10:
+        return month[9]
+    if number==11:
+        return month[10]
+    if number==12:
+        return month[11]
+    
+def days_in_month(month_number, year):
+    month_with_30_days= [4, 6, 9, 11]
+    
+    if month_number == 2:
+        if is_leap_year(year) == True:
+            return 29
+        else:
+            return 28
+    elif month_number in month_with_30_days:
+        return 30
+    else:
+        return 31
+    
+def first_day_of_year(year):
+    a=5*((year-1) % 4)
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match178-1.html#0" TARGET="1"><IMG SRC="../../bitmaps/tm_0_4.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    b=4*((year-1)% 100)
+    c=6*((year-1)%400)
+    
+    day=(1+a+b+c)%7
+    
+    return day
+
+def first_day_of_month(month_number,year):
+</FONT>    counter=0
+    for i in range(month_number-1):
+        counter+=days_in_month(i+1,year)
+        
+    first_day=first_day_of_year(year)+counter%7-7
+    days=["s","m",'t','w','T','f',"S"]
+    dict={"s":0,"m":1,"t":2,"w":3,"T":4,"f":5,"S":6}
+    return dict[days[first_day]]
+      
+   
+    &gt;&gt;&gt;&gt; file: morse_code.py
+def code_for(letter):
+    letter=letter.lower()
+    letters={"a":".-","g":"--.","m":"--","s":"...","y":"-.--",
+       "b":"-...","h":"....","n":"-.","t":"-","z":"--..",
+       "c":"-.-.","i":"..","o":"---","u":"..-",
+       "d":"-..","j":".---","p":".--.","v":"...-",
+       "e":".","k":"-.-","q":"--.-","w":".--",
+       "f":"..-.","l":".-..","r":".-.","x":"-..-"}
+    return letters[letter]
+
+def transmit_letter(letter):
+    c=letter.lower()
+    letters={"a":".^-","g":"-^-^.","m":"-^-","s":".^.^.","y":"-^.^-^-",
+       "b":"-^.^.^.","h":".^.^.^.","n":"-^.","t":"-","z":"-^-^.^.",
+       "c":"-^.^-^.","i":".^.","o":"-^-^-","u":".^.^-",
+       "d":"-^.^.","j":".^-^-^-","p":".^-^-^.","v":".^.^.^-",
+       "e":".","k":"-^.^-","q":"-^-^.^-","w":".^-^-",
+       "f":".^.^-^.","l":".^-^.^.","r":".^-^.","x":"-^.^.^-"}
+    print(letters[c],end="")
+def transmit_word(word):
+    word=word.lower()
+    letters={"a":".^-","g":"-^-^.","m":"-^-","s":".^.^.","y":"-^.^-^-",
+       "b":"-^.^.^.","h":".^.^.^.","n":"-^.","t":"-","z":"-^-^.^.",
+       "c":"-^.^-^.","i":".^.","o":"-^-^-","u":".^.^-",
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match178-1.html#1" TARGET="1"><IMG SRC="../../bitmaps/tm_1_4.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+       "d":"-^.^.","j":".^-^-^-","p":".^-^-^.","v":".^.^.^-",
+       "e":".","k":"-^.^-","q":"-^-^.^-","w":".^-^-",
+       "f":".^.^-^.","l":".^-^.^.","r":".^-^.","x":"-^.^.^-"}
+    for i in word:
+        if i == word[0]:
+</FONT>            print(letters[i]+"|",end="")
+        elif i==word[-1]:
+            print(letters[i],end="")
+        else:
+            print(letters[i]+"|",end="")
+
+def word_pause():
+    print("||",end="")
+
+&gt;&gt;&gt;&gt; file: technical_support.py
+# Tech Support
+# Stephan Jamieson
+# 5/1/2015
+responses={
+    'bluetooth':'Have you tried mouthwash?',
+    'windows':'Ah, I think I see your problem. What version?',
+    'apple':'You do mean the computer kind?',
+    'blue':'Ah, the blue screen of death. And then what happened?',
+    'spam':'You should see if your mail client can filter messages.',
+    'connection':'Contact Telkom.',
+    'crashed':'Are the drivers up to date?',
+    'hacked':'You should consider installing anti-virus software.'}
+
+
+def default_response():
+    return 'Curious, tell me more.'
+    
+def get_response(words):
+    for word in words:
+        if word in responses:
+            return responses[word]
+    return default_response()
+    
+
+def print_welcome():
+    print('Welcome to the automated technical support system.')
+    print('Please describe your problem:')
+
+
+def get_input():
+    query = input().lower().split(' ')  #convert all inputs to lower case
+                                        # step over
+                                        # enter test case(words in responses)
+    return query                         
+                                        #if it does click step over
+                                        
+#start debugging- set a break point where you'd like the debugging to start
+
+def main():                    #1set break point by clicking the space next to the number of the line and where the code starts #2 click on the bug to start #3 click step over #4 click step into
+    print_welcome()            #step into (to see how function works)
+    query = get_input()        #step into (to see how function works)
+    while query!=['quit']:     # change == to != and Quit to quit
+        response=get_response(query) #step over
+        print(response)              #step over
+        query=get_input()      #enter test cases(words in responses,key or the value)
+main()
+        
+    </PRE>
+</PRE>
+</BODY>
+</HTML>

@@ -1,0 +1,199 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/3/raw/mblese001/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/3/raw/mblese001/<p><PRE>
+&gt;&gt;&gt;&gt; file: FeetMetres.py
+#converting feet to inches
+#anande mbulawa
+#may 2015
+
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match239-1.html#0" TARGET="1"><IMG SRC="../../bitmaps/tm_0_5.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+mini=eval(input('Enter the minimum number of feet (not less than 0):\n'))
+maxi=eval(input('Enter the maximum number of feet (not more than 99):\n'))
+
+for i in range(mini,maxi+1):
+    a_1=i*0.3048
+
+    
+    c=str(i)+'\''
+    print('   {0:&lt;3}|  {1:&gt;5.2f}m'.format(c,round(a_1,2)))
+</FONT>    
+    
+    
+    
+    
+&gt;&gt;&gt;&gt; file: InchesMetres.py
+#converting things
+#anande mbulawa
+#may 2015
+
+mini=eval(input('Enter the minimum number of inches (not less than 0):\n'))
+maxi=eval(input('Enter the maximum number of inches (not greater than 11):\n'))
+
+print('Inches:',end='')
+for i in range(mini,maxi+1):
+    
+    print('{0:5}'.format(i),end='')
+              
+print('')
+print('Metres:',end='')
+for i in range(mini,maxi+1):
+    
+    b=round(i*0.0254,2)
+    print('{0:5.2f}'.format(b),end='')    
+          &gt;&gt;&gt;&gt; file: TimeConvertor.py
+#converting time
+#anande mbulawa
+#may 2015
+
+a=input('Enter a time ([h]h:mm [am|pm]):\n')
+
+if len(a)==5:
+    if a[0]=='0':
+        if a[1]=='0':
+            print('12',a[2:5],' am',sep='')
+        else:
+            print(a[1:],'am')
+    
+    else:
+        if eval(a[:2])==12:
+            print('12',a[2:5],' pm',sep='')
+        else:
+            print(eval(a[:2])-12,a[2:],' pm',sep='')
+else:
+    if len(a)==8:
+        if a[6:]=='am':
+            if eval(a[:2])&lt;12 and eval(a[:2])!=12 :
+                print(a[:5])
+            else:
+                print('00',a[2:5],sep='')
+        else:
+            if a[:2]=='12':
+                print('12',a[2:5],sep='')
+            else:
+                print(eval(a[:2])+12,a[2:5],sep='')
+        
+    else:
+        if a[5:]=='am':
+            print('0',a[:4],sep='')
+        else:
+            print(eval(a[0])+12,a[1:4],sep='')
+    &gt;&gt;&gt;&gt; file: Twelve.py
+#converting time
+#anande mbulawa
+#may 2015
+
+a=input('Enter a time in 12 hour clock ([h]h:mm [am|pm]):\n')
+
+if len(a)==8:
+    if a[6:]=='am':
+        if eval(a[:2])&lt;12 and eval(a[:2])!=12 :
+            print(a[:5])
+        else:
+            print('00',a[2:5],sep='')
+    else:
+        if a[:2]=='12':
+            print('12',a[2:5],sep='')
+        else:
+            print(eval(a[:2])+12,a[2:5],sep='')
+    
+else:
+    if a[5:]=='am':
+        print('0',a[:4],sep='')
+    else:
+        print(eval(a[0])+12,a[1:4],sep='')
+    &gt;&gt;&gt;&gt; file: TwentyFour.py
+#converting time
+#anandembulawa
+#may 2015
+
+a=input('Enter a time in 24 hour clock (hh:mm):\n')
+
+if a[0]=='0':
+    if a[1]=='0':
+        print('12',a[2:5],' am',sep='')
+    else:
+        print(a[1:],'am')
+
+else:
+    if eval(a[:2])==12:
+        print('12',a[2:5],' pm',sep='')
+    else:
+        print(eval(a[:2])-12,a[2:],' pm',sep='')
+&gt;&gt;&gt;&gt; file: VehicleClassifier.py
+#classifying vehicles
+#anande mbulawa
+#may 2011
+
+print('***** Vehicle classifier *****')
+a=eval(input('What is the gross vehicle mass (in kg)?\n'))
+b=input('Does the vehicle have a trailer?\n')
+
+if a&lt;=3500:
+    if b=='y':
+        GVM_vehi=eval(input('What is gross vehicle mass of the trailer (in kg)?\n')) 
+        if GVM_vehi&gt;750:
+            print('This vehicle is class EB.')
+        else:
+            print('This vehicle is class B.')
+    else:
+        ART=input('Is the vehicle articulated?\n')
+        if ART=='y':
+            print('This vehicle is class EB.')
+        else:
+            print('This vehicle is class B.')
+            
+            
+elif 3500&lt;a&lt;=16000:
+    if b=='y':
+        GVM_vehi=eval(input('What is gross vehicle mass of the trailer (in kg)?\n'))
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match239-1.html#1" TARGET="1"><IMG SRC="../../bitmaps/tm_1_4.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+        if GVM_vehi &gt;750:
+            print('This vehicle is class EC1.')
+        else:
+            print('This vehicle is class C1.')
+    else:
+        ART=input('Is the vehicle articulated?\n')
+        if ART=='y':
+            print('This vehicle is class EC1.')
+        else:
+            print('This vehicle is class C1.')
+
+else:
+</FONT>        if b=='y':
+            GVM_vehi=eval(input('What is gross vehicle mass of the trailer (in kg)?\n'))
+            if GVM_vehi &gt;750:
+                print('This vehicle is class EC.')
+            else:
+                print('This vehicle is class C.')
+        else:
+            ART=input('Is the vehicle articulated?\n')
+            if ART=='y':
+                print('This vehicle is class EC.')
+            else:
+                print('This vehicle is class C.')
+            
+                
+            
+        
+            
+        
+        
+        
+             
+        
+        
+        
+            
+        
+            
+        
+        </PRE>
+</PRE>
+</BODY>
+</HTML>

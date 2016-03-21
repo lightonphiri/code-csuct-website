@@ -1,0 +1,154 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/5/raw/mchsim007/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/5/raw/msnsam009/<p><PRE>
+&gt;&gt;&gt;&gt; file: calendar_utils.py
+def is_leap_year(year):
+    if year%4==0:
+        if year%400==0:
+            return True
+        elif year%100!=0:
+            return True
+        else:
+            return False
+    else:
+        return False 
+def month_name(number):
+    month={1:'January',2:'February',3:'March',4:'April',5:'May',6:'June',7:'July',8:'August',9:'September',10:'October',11:'November',12:'December'}
+    return month[number]
+def days_in_month(month_number, year):
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match238-0.html#0" TARGET="0"><IMG SRC="../../bitmaps/tm_0_4.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    if is_leap_year(year):
+        days={1:31,2:29,3:31,4:30,5:31,6:30,7:31,8:31,9:30,10:31,11:30,12:31}
+</FONT>        return days[month_number]
+    else:
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match238-0.html#1" TARGET="0"><IMG SRC="../../bitmaps/tm_1_4.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+        days={1:31,2:28,3:31,4:30,5:31,6:30,7:31,8:31,9:30,10:31,11:30,12:31}
+</FONT><A NAME="1"></A><FONT color = #00FF00><A HREF="match238-0.html#1" TARGET="0"><IMG SRC="../../bitmaps/tm_1_4.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+        return days[month_number]        
+</FONT>def first_day_of_year(year):
+    r = (1+5*((year-1)%4)+4*((year-1)%100)+6*((year-1)%400))%7
+    return r
+def first_day_of_month(month_number, year):
+    if is_leap_year(year):
+        days={1:31,2:29,3:31,4:30,5:31,6:30,7:31,8:31,9:30,10:31,11:30,12:31}
+    else:
+        days={1:31,2:28,3:31,4:30,5:31,6:30,7:31,8:31,9:30,10:31,11:30,12:31}
+    a=[]
+    for i in days:
+        if i&lt;month_number:
+            a.append(days[i])
+    sumy=0
+    for j in a:
+        sumy+=j
+    sumy=sumy%7+first_day_of_year(year)-7
+    d = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
+    return d.index(d[sumy])&gt;&gt;&gt;&gt; file: morse_code.py
+def code_for(letter):
+    letter=letter.lower()
+    CODE = {'a': '.-',     'b': '-...',   'c': '-.-.', 
+        'd': '-..',    'e': '.',      'f': '..-.',
+        'g': '--.',    'h': '....',   'i': '..',
+        'j': '.---',   'k': '-.-',    'l': '.-..',
+        'm': '--',     'n': '-.',     'o': '---',
+        'p': '.--.',   'q': '--.-',   'r': '.-.',
+     	's': '...',    't': '-',      'u': '..-',
+        'v': '...-',   'w': '.--',    'x': '-..-',
+        'y': '-.--',   'z': '--..'}
+    return CODE[letter]
+  
+
+def transmit_letter(letter):
+    word=letter.lower()
+    CODE = {'a': '.^-','b': '-^.^.^.','c': '-^.^-^.', 
+                'd': '-^.^.','e': '.','f': '.^.^-^.',
+                'g': '-^-^.','h': '.^.^.^.','i': '.^.',
+                'j': '.^-^-^-','k': '-^.^-','l': '.^-^.^.',
+                'm': '-^-','n': '-^.','o': '-^-^-',
+                'p': '.^-^-^.','q': '-^-^.^-','r': '.^-^.',
+                's': '.^.^.','t': '-','u': '.^.^-',
+                'v': '.^.^.^-','w': '.^-^-','x': '-^.^.^-',
+                'y': '-^.^-^-','z': '-^-^.^.'}
+    
+    print(CODE[word],end="")
+def transmit_word(word):
+    letter=word.lower()
+    CODE = {'a': '.^-','b':'-^.^.^.','c': '-^.^-^.', 
+                'd': '-^.^.','e': '.','f': '.^.^-^.',
+                'g': '-^-^.','h': '.^.^.^.','i': '.^.',
+                'j': '.^-^-^-','k': '-^.^-','l': '.^-^.^.',
+                'm': '-^-','n': '-^.','o': '-^-^-',
+                'p': '.^-^-^.','q': '-^-^.^-','r': '.^-^.',
+                's': '.^.^.','t': '-','u': '.^.^-',
+                'v': '.^.^.^-','w': '.^-^-','x': '-^.^.^-',
+                'y': '-^.^-^-','z': '-^-^.^.'}
+    for i in letter:
+        if letter[0]==i:
+            print(CODE[i]+"|",end="")
+        elif letter[-1]==i:
+            print(CODE[i],end="")
+        else:
+            print(CODE[i]+"|",end="")
+    
+def word_pause():
+    print("||",end="")
+
+
+    
+    
+    
+     
+     
+    &gt;&gt;&gt;&gt; file: technical_support.py
+# Tech Support
+# Stephan Jamieson
+# 5/1/2015
+responses={
+    'bluetooth':'Have you tried mouthwash?',
+    'windows':'Ah, I think I see your problem. What version?',
+    'apple':'You do mean the computer kind?',
+    'blue':'Ah, the blue screen of death. And then what happened?',
+    'spam':'You should see if your mail client can filter messages.',
+    'connection':'Contact Telkom.',
+    'crashed':'Are the drivers up to date?',
+    'hacked':'You should consider installing anti-virus software.'}
+
+
+def default_response():
+    return 'Curious, tell me more.'
+    
+def get_response(words):
+    for word in words:
+        if  word in responses:
+            return responses[word]
+    return default_response()
+    
+
+def print_welcome():
+    print('Welcome to the automated technical support system.')
+    print('Please describe your problem:')
+
+
+def get_input():
+    query = (input()).lower().split(' ')
+    return query
+
+def main():
+    print_welcome()
+    query = get_input()
+    while query!=['quit']:
+        response=get_response(query)
+        print(response)
+        query=get_input()
+main()
+        
+    </PRE>
+</PRE>
+</BODY>
+</HTML>

@@ -1,0 +1,108 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/6/raw/mlylau001/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/6/raw/ndlmxo003/<p><PRE>
+&gt;&gt;&gt;&gt; file: fixed_mod.py
+import string
+
+def palindrome (s):
+   if len(s) == 1:
+      return s.isalpha()
+   elif s=='':
+      return True
+   elif s[0] in string.punctuation or s[0] in string.whitespace:
+      return palindrome(s[1:])
+   elif s[-1] in string.punctuation or s[-1] in string.whitespace:
+      return palindrome(s[:-1])
+   elif s[0].lower() == s[-1].lower():
+      return palindrome (s[1:-1])
+   else:
+      return False&gt;&gt;&gt;&gt; file: match_mod.py
+
+def equals(word_one, word_two):
+    if len(word_one)==0 and len(word_two) == 0:
+        return True
+    elif len(word_one)==0 or len(word_two) == 0:
+        return False
+    elif word_one[0]==word_two[0]:
+        return equals(word_one[1:],word_two[1:])
+    else:
+        return False
+        
+
+def query(pattern, word):
+    pettern=pattern.lower()
+    word=word.lower()
+    if len(pattern)==0 and len(word) == 0:
+        return True
+    elif pattern=="" and word=="":
+        return True
+    elif pattern[0] == word[0] or pattern[0] == "?":
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match154-0.html#1" TARGET="0"><IMG SRC="../../bitmaps/tm_1_5.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+        return query(pattern[1:],word[1:])
+    else:
+        return False
+
+           
+def match(pattern, word):
+   
+    if pattern == "*":
+        return True
+    elif pattern[0] == "*" and pattern[-1] != "*" and pattern[-1] != "?":
+</FONT>        if pattern[-1] == word[-1]:
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match154-0.html#0" TARGET="0"><IMG SRC="../../bitmaps/tm_0_8.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+            return match(pattern[:-1], word[:-1])
+        else:
+            return False
+            
+    elif pattern[-1] == "*" and pattern[0] != "*" and pattern[0] != "?":
+        if pattern[0] == word[0]:
+            return match(pattern[1:], word[1:])
+</FONT>        else:
+            return False
+        
+    elif pattern[0] == "*" and pattern[-1] == "*":
+        if pattern[1] == word[1]:
+            return match(pattern[2:], word[2:])
+        else:
+            return False
+            
+    elif pattern[0] == word[0]:
+        return match(pattern[1:], word[1:])
+    elif pattern[0]!="?" and  pattern[0]!="*":
+        if pattern[0]==word[0]:
+            return match(pattern[1:],word[1:])
+        else:
+            return False
+    elif pattern[0]=="?":
+        return True
+    else:
+        return False
+&gt;&gt;&gt;&gt; file: mongoose_mod.py
+# Mangoose recursive program
+# Ndlovu Mxoleleni
+# 26 August 2015
+
+
+def population(n):
+    if n&lt;3:
+        return 2
+    else:
+        return population((n-1))+population((n-2))&gt;&gt;&gt;&gt; file: sum_mod.py
+# sum to n program
+# Ndlovu Mxoleleni
+# 26 August 2015
+
+def sum_to_n(n):
+    if n== 0:
+        return 0
+    else:
+        return n + sum_to_n(n-1)</PRE>
+</PRE>
+</BODY>
+</HTML>

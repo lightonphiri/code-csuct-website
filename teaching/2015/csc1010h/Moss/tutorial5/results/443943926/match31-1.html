@@ -1,0 +1,350 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/5/raw/rndmar006/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/5/raw/vlknto001/<p><PRE>
+&gt;&gt;&gt;&gt; file: calendar_utils.py
+def first_day_of_year(n):
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match31-0.html#0" TARGET="0"><IMG SRC="../../bitmaps/tm_0_9.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    z = (1+(5*((n-1)%4)) + (4 *((n-1)%100))  + (6*((n-1)%400)))
+    f=z%7     
+         
+    if z== 0:
+        return 0
+    elif z==1:
+        return 1
+    elif z==2:
+        return 2
+    elif z==3:
+        return 3
+    elif z==4:
+        return 4
+    elif z==5:
+        return 5
+    elif z==6:
+        return 6    
+    
+
+
+def is_leap_year(year):
+</FONT>    year=eval(input("Enter the year"))
+    if year%4==0 and year%100==0 and year%400==0:
+        return True
+    else:
+        return False
+
+
+def month_name(number):
+    corres=""
+    number=eval(input("Enter the number"))
+    if number==1:
+        corres="January"
+        return corres
+    elif number==2:
+        corres="February"
+        return corres  
+    elif number==3:
+            corres="March"
+            return corres
+        
+    elif number==4:
+                corres="April"
+                return corres 
+    elif number==5:
+        corres="May"
+        return corres        
+    elif number==6:
+            corres="June"
+            return corres 
+    elif number==7:
+        corres="July"
+        return corres 
+    elif number==8:
+            corres="August"
+            return corres        
+    elif number==9:
+        corres="September"
+        return corres 
+    elif number==10:
+            corres="October"
+            return corres
+    elif number==11:
+        corres="November"
+        return corres        
+    elif number==12:
+            corres="December"
+            return corres        
+    
+  
+    
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match31-0.html#1" TARGET="0"><IMG SRC="../../bitmaps/tm_1_6.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+def days_in_month(month_number,year):
+    if month_number == 1:
+        return 31
+    elif month_number == 2:
+        k = (year-2000)%4
+        if k == 0:
+            return 29
+        else:
+            return 28
+    elif month_number ==3:
+        return 31
+         
+    elif month_number==4:
+        return 30
+    elif month_number ==5:
+</FONT>        return 31
+    elif month_number==6:
+        return 30
+    elif month_number == 7:
+        return 31
+    elif month_number==8:
+<A NAME="5"></A><FONT color = #FF0000><A HREF="match31-0.html#5" TARGET="0"><IMG SRC="../../bitmaps/tm_0_3.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+        return 31
+    elif month_number == 9:
+        return 30
+    elif month_number == 10:
+        return 31
+    elif month_number ==11:
+        return 30
+    else:
+        return 31    
+
+def first_day_of_month(month_number, year):
+</FONT><A NAME="2"></A><FONT color = #0000FF><A HREF="match31-0.html#2" TARGET="0"><IMG SRC="../../bitmaps/tm_2_4.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    y=0
+    for i in range(month_number-1):
+        z=days_in_month(i+1,year)
+        y+=z
+    d=first_day_of_year(year)+y%7-7
+    dct=['s','m','T','w','t','f','S']
+    lst={'s':0,"m":1,'T':2,'w':3,'t':4,'f':5,'S':6}
+</FONT><A NAME="6"></A><FONT color = #00FF00><A HREF="match31-0.html#6" TARGET="0"><IMG SRC="../../bitmaps/tm_1_2.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    return dct[lst[d]]
+   
+    
+                   &gt;&gt;&gt;&gt; file: morse_code.py
+def code_for(letter):
+    letter=letter.lower()
+    if letter == 'a':
+        return '.-'
+</FONT>          
+    if letter =='b':
+        return '-...'
+           
+    if letter =='c':
+        return '-.-.'
+       
+    if letter =='d':
+        return '-..'
+           
+    if letter == 'e':
+        return '.'
+           
+    if letter =='f':
+        return '..-.'
+           
+    if letter =='g':
+        return '--.'
+           
+    if letter =='h':
+        return '....'
+           
+    if letter == 'i':
+        return '..'
+           
+    if letter =='j':
+        return '.---'
+          
+    if letter == 'k':
+        return '-.-'
+       
+    if letter =='l':
+        return'.-..'
+           
+    if letter =='k':
+        return '-.-'
+        
+    if letter =='l':
+        return'.-..'
+       
+    if letter == 'm':
+        return'--'
+           
+    if letter =='n':
+        return '-.'
+        
+    if letter == 'o':
+        return '---'
+        
+    if letter =='p':
+        return '.--.'
+        
+    if letter =='q':
+        return '--.-'
+        
+    if letter =='r':
+        return  '.-.'
+        
+    if letter == 's':
+        return '...'
+        
+    if letter =='t':
+        return '-'
+      
+    if letter =='u':
+        return  '..-'
+           
+    if letter == 'v':
+        return '...-'
+       
+    if letter == 'w':
+        return '.--'
+       
+    if letter =='x':
+        return '-..-'
+        
+    if letter =='y':
+        return '-.--'
+           
+    if letter =='z':
+        return'--..'
+          
+    
+    
+    
+
+
+def transmit_letter(letter):
+    code=letter.lower()
+    morse={
+        'a':'.^-',
+        'b':'-^.^.^.',
+        'c':'-^.^-^.',
+        'd':'-^.^.',
+        'e':'.',
+        'f':'.^.^-^.',
+        'g':'-^-^.',
+        'h':'.^.^.^.',
+        'i':'.^.',
+        'j':'.^-^-^-',
+        'k':'-^.^-',
+        'l':'.^-^.^.',
+        'm':'-^-',
+        'n':'-^.',
+        'o':'-^-^-',
+        'p':'.^-^-^.',
+        'q':'-^-^.^-',
+        'r':'.^-^.',
+        's':'.^.^.',
+        't':'-',
+        'u':'.^.^-',
+        'v':'.^.^.^-',
+        'w':'.^-^-',
+        'x':'-^.^.^-',
+        'y':'-^.^-^-',
+        'z':'-^-^.^.'}
+    print(morse[code],end="")
+        
+        
+def transmit_word(word):
+    code={
+                'a':'.^-',
+                'b':'-^.^.^.',
+                'c':'-^.^-^.',
+                'd':'-^.^.',
+                'e':'.',
+                'f':'.^.^-^.',
+                'g':'-^-^.',
+                'h':'.^.^.^.',
+                'i':'.^.',
+                'j':'.^-^-^-',
+                'k':'-^.^-',
+                'l':'.^-^.^.',
+                'm':'-^-',
+                'n':'-^.',
+                'o':'-^-^-',
+                'p':'.^-^-^.',
+                'q':'-^-^.^-',
+                'r':'.^-^.',
+                's':'.^.^.',
+                't':'-',
+                'u':'.^.^-',
+                'v':'.^.^.^-',
+                'w':'.^-^-',
+                'x':'-^.^.^-',
+                'y':'-^.^-^-',
+                'z':'-^-^.^.'}
+<A NAME="3"></A><FONT color = #00FFFF><A HREF="match31-0.html#3" TARGET="0"><IMG SRC="../../bitmaps/tm_3_4.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    k=word.lower()
+    for i in k:
+        if i==k[-1]:
+            print(code[i],end="")
+        elif i==k[0]:
+            print(code[i]+"|",end="")
+</FONT>        else:
+            print(code[i]+"|",end="")
+    
+ 
+    
+def word_pause():
+    print("||",end="")
+&gt;&gt;&gt;&gt; file: technical_support.py
+# Tech Support
+# Stephan Jamieson
+# 5/1/2015
+responses={
+    'bluetooth':'Have you tried mouthwash?',
+    'windows':'Ah, I think I see your problem. What version?',
+    'apple':'You do mean the computer kind?',
+    'blue':'Ah, the blue screen of death. And then what happened?',
+    'spam':'You should see if your mail client can filter messages.',
+    'connection':'Contact Telkom.',
+    'crashed':'Are the drivers up to date?',
+    'hacked':'You should consider installing anti-virus software.'}
+
+
+def default_response():
+    return 'Curious, tell me more.'
+    
+def get_response(words):
+    for word in words:
+        if word in responses:
+            return responses[word]
+    return default_response()
+    
+            
+        
+    
+
+def print_welcome():
+    print('Welcome to the automated technical support system.')
+<A NAME="4"></A><FONT color = #FF00FF><A HREF="match31-0.html#4" TARGET="0"><IMG SRC="../../bitmaps/tm_4_4.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    print('Please describe your problem:')
+
+
+def get_input():
+    query = input().lower().split(' ')
+    return query
+
+def main():
+    print_welcome()
+    query = get_input()
+    while True:
+        if query==['quit']:break
+        response=get_response(query)
+        print(response)
+        query=get_input()
+</FONT>main()</PRE>
+</PRE>
+</BODY>
+</HTML>

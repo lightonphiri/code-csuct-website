@@ -1,0 +1,194 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/7/raw/mlxmog001/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/7/raw/mlxmog001/<p><PRE>
+&gt;&gt;&gt;&gt; file: book_cypher.py
+# programe to encode a message
+# Mogase Maloa
+# MLXMOG001
+# 21 September 2015
+
+file_name=input("Enter the book file name:\n")
+message=input("Enter the message:\n")
+message1=message.lower()
+output_file=input("Enter the output filename:\n")
+f=open(file_name,"r")
+output=open(output_file,"w")
+count=1
+index=1
+message2=message1.split(' ')
+message3=message1.split(' ')
+sentences=[]
+for line in f:
+    sentences.append(line)
+dict_of_encoding={}    
+for sentence in sentences:
+    items=sentence.split()
+    test=[]
+    for item in items:
+        item2=item.strip('?@#$%^*!.,;:)([]{}\'" \n')
+        item3=item2.lower()
+        test.append(item3)
+        if message2==[]:
+            break
+        
+        if item3 in message2:
+            dict_of_encoding[item3]=(str(count)+'-'+str(test.index(item3)+1))
+            message2.remove(item3)
+            
+    count+=1
+print("BEGIN")
+output.write("BEGIN"+'\n')
+for word in message3:
+    if word==[]:
+        break
+    if word in dict_of_encoding:
+        print(dict_of_encoding[word])
+        output.write(dict_of_encoding[word]+'\n')
+    else:
+        print(word)
+        output.write(word+'\n')
+print("END")
+output.write("END")
+f.close()
+output.close()
+    
+    
+
+    
+            
+   
+   
+
+                    
+    
+            
+    
+    
+    
+
+
+&gt;&gt;&gt;&gt; file: leader_board.py
+# leader_board.py
+
+def process_line(line):
+    parts = line.split(' ')
+    name = parts[0]
+    trials = int(parts[1])
+    average = float(parts[2])
+    return (name, trials, average)
+
+def get_max(entries):
+    max = entries[0]
+    for i in range(1, len(entries)):
+        if entries[i][2] &lt;max[2]:
+            max = entries[i]
+            
+    entries.remove(max)
+    return max
+
+def sort(entries):
+    sorted_entries = []
+    while len(entries)&gt;0:
+        sorted_entries.append(get_max(entries))
+    return sorted_entries
+
+def output(entries):
+    print('Subject        | Average Time')
+    print('************** | ************')
+    for entry in entries:
+        print('{:14} | {:.6}'.format(entry[0], entry[2]))
+              
+def main():
+    try:
+        
+        file_name = input('Enter the name of the file:\n')
+        file_input = open(file_name, 'r')
+    
+        entries = []
+        count=1
+        for line in file_input:
+            entries.append(process_line(line))
+            count+=1
+        file_input.close()
+            
+    
+        entries = sort(entries)
+        output(entries)
+    except IOError as ve:
+        print('file not found')
+        print('Enter another file name')
+        main()
+    except ValueError as ve:
+        print('line'+str(count)+':'+'The following Error occured:',ve)
+        print(line)
+        print('The number of tests conducted must be interger')
+    except IndexError as ve:
+        print('line'+str(count)+':'+'The following Error occured:',ve)
+        print(line)
+        print("The correct format should be: Name of user,number of tests, average reaction time")
+    except:
+        print("Some other error occured")
+main()
+    &gt;&gt;&gt;&gt; file: reaction_test.py
+
+# Program to calculate average reaction time
+# Mogase Maloa
+# MLXMOG001
+# 21 September 2015
+
+from random import *
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match174-1.html#1" TARGET="1"><IMG SRC="../../bitmaps/tm_1_4.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+from time import*
+
+def flush_input():
+    try:
+        import msvcrt
+        while msvcrt.kbhit():
+            msvcrt.getch()
+    except ImportError:
+        import sys, termios
+        termios.tcflush(sys.stdin, termios.TCIOFLUSH)
+</FONT>
+def main():   
+    file=input("Enter the name of the output file:\n")
+    f=open(file,"w")
+    f.write('Subject        | Average Time\n')
+    f.write('************** | ************\n')
+    f.close()
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match174-1.html#0" TARGET="1"><IMG SRC="../../bitmaps/tm_0_4.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    while True:
+        subject_name=input("Enter subject name (or press 'enter' to quit):\n")
+        if subject_name=='':
+            break
+        number_tests=int(input("Enter the number of tests:\n"))
+        sum_time=0
+        for i in range(number_tests):
+            print("Get ready...",flush=True)
+</FONT>            sleep(randint(1,5))
+            print("Press 'enter' NOW!",end='')
+            flush_input()
+            start_time=time()
+            response=input()
+            if response=='':
+                end_time=time()
+                reaction_time=float('{:.6}'.format(end_time-start_time))
+                sum_time+=(reaction_time)
+                print("Reaction time:",reaction_time)
+        average=float('{:.6}'.format(sum_time/number_tests))
+        print("Tests complete.")
+        print("Average reaction time:",average,'\n')
+        f=open(file,"a")
+        f.write('{:14} | {:.6}\n'.format(subject_name, average))
+        f.close()
+main()
+
+    </PRE>
+</PRE>
+</BODY>
+</HTML>

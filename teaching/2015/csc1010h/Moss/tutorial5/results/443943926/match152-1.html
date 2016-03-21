@@ -1,0 +1,315 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/5/raw/kmpmph001/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/5/raw/sngman009/<p><PRE>
+&gt;&gt;&gt;&gt; file: calendar_utils.py
+#mantele senoge
+
+import calendar
+def is_leap_year(year):
+    if year%4 != 0:
+        return False
+    elif year % 100 != 0:
+        return True
+    elif year % 400 != 0:
+        return False
+    else:
+        return True
+    
+def month_name(month_number):
+    if month_number == 1:
+        month = 'January'
+        return month
+    elif month_number == 2:
+        month = 'February'
+        return month 
+    elif month_number == 3:
+        month = 'March'
+        return month    
+    elif month_number == 4:
+        month = 'April'
+        return month   
+    elif month_number == 5:
+        month = 'May'
+        return month
+    elif month_number == 6:
+        month = 'June'
+        return month 
+    elif month_number == 7:
+        month = 'July'
+        return month    
+    elif month_number == 8:
+        month = 'August'
+        return month    
+    elif month_number == 9:
+        month = 'September'
+        return month
+    elif month_number == 10:
+        month = 'October'
+        return month 
+    elif month_number == 11:
+        month = 'November'
+        return month    
+    elif month_number == 12:
+        month = 'December'
+        return month   
+    
+def days_in_month(month_number, year):
+    if month_number == 1:
+        num_days = 31
+        return num_days
+    elif month_number == 2:
+        if is_leap_year(year) == True:
+            num_days = 29
+            return num_days
+        else:
+            num_days = 28
+            return num_days
+    elif month_number == 3:
+        num_days = 31
+        return num_days 
+    elif month_number == 4:
+        num_days = 30
+        return num_days
+    elif month_number == 5:
+        num_days = 31
+        return num_days            
+    elif month_number == 6:
+        num_days = 30
+        return num_days
+    elif month_number == 7:
+        num_days = 31
+        return num_days
+    elif month_number == 8:
+        num_days = 31
+        return num_days
+    elif month_number == 9:
+        num_days = 30
+        return num_days
+    elif month_number == 10:
+        num_days = 31
+        return num_days
+    elif month_number == 11:
+        num_days = 30
+        return num_days
+    elif month_number == 12:
+        num_days = 31
+        return num_days
+    
+def first_day_of_year(year):
+    year1 = year - 1
+    a = year1%4
+    b = year1%100
+    c = year1%400
+    d = 1 + 5*a + 4*b + 6*c 
+    e = d%7
+    return e 
+
+def first_day_of_month(month_number, year):
+    
+    the_tuple = (calendar.monthrange(year, month_number))
+    the_list = str(list(the_tuple))
+    if int(the_list[1]) &lt;= 5:
+        return(int(the_list[1]) + 1)
+    else:
+        return("0")
+    
+            
+
+
+&gt;&gt;&gt;&gt; file: morse_code.py
+
+#mantele 
+
+import morse_utils
+
+def code_for(letter):
+    if letter == 'a' or letter == 'A':
+        morsecode = ".-"
+        return morsecode
+    elif letter == 'b' or letter == 'B':
+        morsecode = "-..."
+        return morsecode
+    elif letter == 'c' or letter == 'C':
+        morsecode = "-.-."
+        return morsecode
+    elif letter == 'd' or letter == 'D':
+        morsecode = "-.."
+        return morsecode
+    elif letter == 'e' or letter == 'E':
+        morsecode = "."
+        return morsecode
+    elif letter == 'f' or letter == 'F':
+        morsecode = "..-."
+        return morsecode
+    elif letter == 'g' or letter == 'G':
+        morsecode = "--."
+        return morsecode
+    elif letter == 'h' or letter == 'H':
+        morsecode = "...."
+        return morsecode
+    elif letter == 'i' or letter == 'I':
+        morsecode = ".."
+        return morsecode
+    elif letter == 'j' or letter == 'J':
+        morsecode = ".---"
+        return morsecode
+    elif letter == 'k' or letter == 'K':
+        morsecode = "-.-"
+        return morsecode
+    elif letter == 'l' or letter == 'L':
+        morsecode = ".-.."
+        return morsecode
+    elif letter == 'm' or letter == 'M':
+        morsecode = "--"
+        return morsecode
+    elif letter == 'n' or letter == 'N':
+        morsecode = "-."
+        return morsecode
+    elif letter == 'o' or letter == 'O':
+        morsecode = "---"
+        return morsecode
+    elif letter == 'p' or letter == 'P':
+        morsecode = ".--."
+        return morsecode
+    elif letter == 'q' or letter == 'Q':
+        morsecode = "--.-"
+        return morsecode
+    elif letter == 'r' or letter == 'R':
+        morsecode = ".-."
+        return morsecode
+    elif letter == 's' or letter == 'S':
+        morsecode = "..."
+        return morsecode
+    elif letter == 't' or letter == 'T':
+        morsecode = "-"
+        return morsecode
+    elif letter == 'u' or letter == 'U':
+        morsecode = "..-"
+        return morsecode
+    elif letter == 'v' or letter == 'V':
+        morsecode = "...-"
+        return morsecode
+    elif letter == 'w' or letter == 'W':
+        morsecode = ".--"
+        return morsecode
+    elif letter == 'x' or letter == 'X':
+        morsecode = "-..-"
+        return morsecode
+    elif letter == 'y' or letter == 'Y':
+        morsecode = "-.--"
+        return morsecode
+    elif letter == 'z' or letter == 'Z':
+        morsecode = "--.."
+        return morsecode
+    else:
+        pass
+    
+def transmit_letter(letter):
+    
+    the_code = code_for(letter)
+    #print(the_code)
+    #print("Code printed")
+    lengthc = len(the_code)
+    for i in range (lengthc-1):
+        print(the_code[i] + "^", end="")
+        if the_code[i] == ".":
+            morse_utils.beep(1000,100)
+        elif the_code[i] == "-":
+            morse_utils.beep(1000,300)
+        morse_utils.sleep(0.1)
+    if the_code[lengthc-1] is not None:  
+        print(the_code[lengthc-1],end="")
+    if the_code[lengthc -1] == ".":
+        morse_utils.beep(1000,100)
+    else:
+        morse_utils.beep(1000,300)
+    
+    
+def transmit_word(word):
+    lengthw = len(word)
+    for i in range (lengthw-1):
+        if transmit_letter(word[i]) is not None:
+            print(transmit_letter(word[i]),end="")
+            #print("|", end="")
+        print("|", end="")
+        morse_utils.sleep(0.3)
+    if transmit_letter(word[lengthw-1]) is not None:    
+        print(transmit_letter(word[lengthw-1]))
+
+        
+
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match152-0.html#1" TARGET="0"><IMG SRC="../../bitmaps/tm_1_2.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+def word_pause():
+    print("||",end='')
+    morse_utils.sleep(0.7)
+        
+#transmit_word("Mantele")
+#print(code_for("s"))
+#transmit_letter("s")&gt;&gt;&gt;&gt; file: technical_support.py
+# Tech Support
+# Stephan Jamieson
+# 5/1/2015
+responses={
+    'bluetooth':'Have you tried mouthwash?',
+    'windows':'Ah, I think I see your problem. What version?',
+    'apple':'You do mean the computer kind?',
+    'blue':'Ah, the blue screen of death. And then what happened?',
+    'spam':'You should see if your mail client can filter messages.',
+    'connection':'Contact Telkom.',
+    'crashed':'Are the drivers up to date?',
+    'hacked':'You should consider installing anti-virus software.'}
+
+
+def default_response():
+    return 'Curious, tell me more.'
+    
+def get_response(words):
+</FONT>    check=''
+    for word in words:
+        if word.lower() in responses:
+            check = word.lower()
+            #return responses[word]
+        
+        else:
+            pass
+            #return default_response()
+            
+    if check in responses:
+        return responses[check]
+    
+    else:
+        
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match152-0.html#0" TARGET="0"><IMG SRC="../../bitmaps/tm_0_4.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+        return default_response()
+    
+
+def print_welcome():
+    print('Welcome to the automated technical support system.')
+    print('Please describe your problem:')
+
+
+def get_input():
+    query = input().split(' ')
+    return query
+
+def main():
+    print_welcome()
+    query = get_input()
+    #print(query)
+    while query[0].title() != 'Quit':
+        response=get_response(query)
+        print(response)
+        query=get_input()
+</FONT>        
+main()
+
+#print("spam" in responses)</PRE>
+</PRE>
+</BODY>
+</HTML>

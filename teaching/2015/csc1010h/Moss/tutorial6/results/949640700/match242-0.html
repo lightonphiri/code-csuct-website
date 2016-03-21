@@ -1,0 +1,194 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/6/raw/mblese001/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/6/raw/mblese001/<p><PRE>
+&gt;&gt;&gt;&gt; file: fixed_mod.py
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match242-1.html#1" TARGET="1"><IMG SRC="../../bitmaps/tm_1_4.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+import string
+def palindrome (s):
+    
+    if len(s) == 1 or len(s)==0:
+        return True
+    elif s[0] in string.punctuation or s[0] in string.whitespace:
+</FONT>        return palindrome(s[1:])
+    elif s[-1] in string.punctuation or s[-1] in string.whitespace:
+        return palindrome(s[:-1])
+    elif s[0].lower() == s[-1].lower():
+        return palindrome (s[1:-1])
+    else:
+        return False
+    
+    
+    return (palindrome(s))&gt;&gt;&gt;&gt; file: match_mod.py
+def equals(word_one, word_two):
+    if len(word_one)==1 and len(word_two)==1:
+        if word_one==word_two:
+            return True
+        
+    if word_one ==" " and word_two==" " :
+        return True
+    
+    elif word_one==" " and word_two!=" ":
+        return False
+    
+    elif word_two==" " and word_one!=" ":
+        return False
+    if len(word_one)!=len(word_two):
+        return False
+    else:
+        if word_one[0]==word_two[0]:
+            return equals(word_one[1:],word_two[1:])
+    
+        return False
+    
+#print(equals(word_one,word_two))  
+
+
+
+def query(pattern,word):
+    if len(pattern)!=len(word):
+        return False
+    
+    if len(pattern)==1 and len(word)==1 and pattern==word or pattern== "?" :
+        return True
+        
+    elif len(pattern)==1 and len(word)==1 and word!=pattern:
+        return False
+    
+    else:
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match242-1.html#0" TARGET="1"><IMG SRC="../../bitmaps/tm_0_4.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+        if pattern[0]==word[0] or pattern[0]=="?":
+            
+            return query(pattern[1:],word[1:])
+        else:
+            return False
+#print(query("le?d","led"))        
+   
+
+def match(pattern,word):
+</FONT>    
+
+    if len(pattern)==1 and len(word)==1 and pattern==word or pattern== "*":
+        return True
+    
+    #elif len(pattern)==1 and len(word)==1 and word!=pattern:
+     #   return False
+    
+    elif word==" " and pattern=="*":
+        return True
+    
+    
+    elif len(pattern)==1 and pattern=="*": 
+        return True
+    
+    else:
+        if pattern[0]=="*":
+            
+            if len(pattern)==1 and pattern=="*": 
+                return True            
+            
+            elif  pattern[-1]!=word[-1]:
+                return False
+            
+            else:
+                return match
+            (pattern[:-1],word[-1])
+                
+        elif pattern[0]==word[0]:
+            return match(pattern[1:],word[1:])
+
+        
+        
+        
+
+        
+    
+    
+    
+ 
+ 
+    
+    
+    &gt;&gt;&gt;&gt; file: mongoose_mod.py
+def population(n):
+    
+    if n&lt;3:
+        if n==1:
+            return 2
+        elif n==2:
+            return 2
+    else:
+        if n==1:
+            return 1
+        else:
+            return population(n-1)+population(n-2)   
+        
+    return population(n)&gt;&gt;&gt;&gt; file: sum_mod.py
+def sum_to_n(n):
+    if n==1:
+        return 1
+    else:
+        return n+ sum_to_n(n-1)
+    
+    return sum_to_n(n)    &gt;&gt;&gt;&gt; file: test_equals.py
+# Test equals
+import match_mod
+
+def main():
+    w_1 = input('Enter first word:\n')
+    w_2 = input('Enter second word:\n')
+    print(match_mod.equals(w_1, w_2))
+    
+main()&gt;&gt;&gt;&gt; file: test_fixed_mod.py
+# Test palindrome mod
+import fixed_mod
+
+def main():
+    s = input('Enter s:\n')
+    print(fixed_mod.palindrome(s))
+    
+main()&gt;&gt;&gt;&gt; file: test_match.py
+# Test match
+import match_mod
+
+def main():
+    p = input('Enter pattern:\n')
+    w = input('Enter word:\n')
+    print(match_mod.match(p, w))
+    
+main()
+    &gt;&gt;&gt;&gt; file: test_mongoose_mod.py
+# test mongoose
+
+import mongoose_mod
+
+def main():
+    n = int(input('Enter n:\n'))
+    print(mongoose_mod.population(n))
+
+main()&gt;&gt;&gt;&gt; file: test_query.py
+# Test query
+import match_mod
+
+def main():
+    p = input('Enter pattern:\n')
+    w = input('Enter word:\n')
+    print(match_mod.query(p, w))
+
+main()&gt;&gt;&gt;&gt; file: test_sum_mod.py
+# Test sum_mod
+import sum_mod
+
+def main():
+    n = int(input('Enter n:\n'))
+    print(sum_mod.sum_to_n(n))
+
+main()</PRE>
+</PRE>
+</BODY>
+</HTML>

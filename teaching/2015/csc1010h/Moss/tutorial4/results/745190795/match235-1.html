@@ -1,0 +1,228 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/4/raw/edwgar008/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/4/raw/rndmar006/<p><PRE>
+&gt;&gt;&gt;&gt; file: LongJump.py
+# Olivia Randriamady
+# Program to Determine Best Jumper
+
+
+print("***** Long Jump Information System *****")
+print("Please enter the names of competitors. (Press return when done.)")
+
+jumpers = []
+p = 1
+
+while True:
+    jumper = input("Competitor no. "+str(p)+":\n")
+    if jumper=="": break
+    p+=1
+    jumpers.append(jumper)
+print("Please enter the distances for each competitor.")
+
+total_jumpers = len(jumpers)
+
+m = 0
+lengths_jump=[]
+for i in range(total_jumpers):
+    f=0
+    jumper_i = print("Competitor "+jumpers[m]+":")
+    At1 = input("Attempt 1: \n")
+    if At1.isalpha():
+        f=f
+    else:
+        f = float(At1)
+    At2 = input("Attempt 2: \n")
+    if  At2.isalpha() :
+        f=f
+
+    else:
+        if float(At2) &gt;= float(f):
+            f = float(At2)
+        else:
+            f =f        
+    At3 = input("Attempt 3: \n")
+    if At3.isalpha() :
+        f=f
+
+    else:
+        if float(At3) &gt;= float(f):
+            f = float(At3)
+        else:
+            f =f         
+    lengths_jump.append(f)
+    m+=1
+
+
+
+
+total_jumpers = len(jumpers)
+g = 0
+r = 0
+l = ""
+print("\nCompetitor               Longest Distance")  
+for i in range(total_jumpers):
+    if str(lengths_jump[g])=='0':
+        j = 'No jump'
+        k = jumpers[g]
+        
+        print("{0:&lt;25}".format(k)+"{0:&lt;16}".format(j))
+    else:
+        j=jumpers[g]
+        x=lengths_jump[g]
+        print("{0:&lt;25}".format(j)+"{0:&lt;16.2f}".format(x)) 
+    if int(lengths_jump[g]) &gt; 0:
+        if float(lengths_jump[g]) &gt; float(r):
+            r = lengths_jump[g]
+            l = jumpers[g]
+            
+        
+            
+        else: 
+            pq = 8
+        
+    else:
+        sf = 0
+    g+=1
+
+P=r
+
+print("\nThe winner is "+l+" with a jump of "+"{0:1.2f}".format(P)+".")
+  
+    
+
+    
+    
+
+    
+        
+    
+    
+        
+    
+    &gt;&gt;&gt;&gt; file: NikNaks.py
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match235-0.html#0" TARGET="0"><IMG SRC="../../bitmaps/tm_0_2.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+import random
+print("Guess the mystery 4 letter code. (No letter occurs more than once.)")
+difficulty=int(input('Choose difficulty level (4 to 26):\n'))
+letters=list('abcdefghijklmnopqrstuvwxyz')[0: difficulty]
+print('The letters in the code are chosen from: {}.'.format(letters))
+secret_code=[]
+</FONT>for i in range(4):
+    rand_index = random.randint(0, len(letters)-1)
+    letter=letters.pop(rand_index)
+    secret_code.append(letter)
+
+word = secret_code[0]+secret_code[1]+secret_code[2]+secret_code[3]
+print("You have 10 guesses remaining.")
+t = 9
+for i in range(11):
+    if t==-1:
+        print('Sorry, you lose.\nThe secret number was '+word+'.')
+        break
+    Naks = 0
+    Niks = 0
+    guess = input("Enter your guess:\n")
+    if guess == word:
+        print('Correct!')
+        break
+    
+    else:
+        if guess[0] == word[0]:
+            Niks += 1
+        elif guess[0] == word[0] or guess[0]==word[1] or guess[0] == word[2] or guess[0] == word[3]:
+            Naks +=1
+            
+        else:
+            Nks = 0
+        if guess[1] == word[1]:
+            Niks += 1
+        elif guess[1] == word[0] or guess[1]==word[1] or guess[1] == word[2] or guess[1] == word[3]:
+            Naks +=1
+        else:
+            Nkks= 0
+        if guess[2] == word[2]:
+            Niks += 1
+        elif guess[2] == word[0] or guess[2]==word[1] or guess[2] == word[2] or guess[2] == word[3]:
+            Naks +=1
+        else:
+            Ns= 0     
+        if guess[3] == word[3]:
+            Niks += 1
+        elif guess[3] == word[0] or guess[3]==word[1] or guess[3] == word[2] or guess[3] == word[3]:
+            Naks +=1
+        else:
+            Ns= 0
+        if Naks == 1:
+            h = ' Nak'
+            
+        else:
+            h = ' Naks'
+            
+        if Niks == 1:
+            p = ' Nik'
+            o = 'is '
+        else:
+            p = ' Niks'   
+            o = 'are '
+
+
+        print("There "+o+str(Niks)+p+" and "+str(Naks)+h+".")
+        if t&gt;0:
+            print("You have "+str(t)+" guesses remaining.")
+        else:
+            continue
+           
+           
+    
+        t-=1
+
+        
+        
+&gt;&gt;&gt;&gt; file: PythonTurtle.py
+import turtle 
+
+marison = turtle.Turtle()
+
+marison.speed(10)
+marison.begin_fill()
+for i in range(180):
+    marison.pencolor('chocolate')
+    marison.forward(50)
+    marison.pencolor('blue')
+    marison.forward(50)
+    marison.pencolor('yellow')
+    marison.right(30)
+    marison.forward(20)
+    marison.left(60)
+    marison.forward(50)
+    marison.right(30)
+    
+    marison.penup()
+    marison.setposition(0, 0)
+    marison.pendown()
+    
+    marison.right(2)
+marison.pencolor('purple')
+marison.setposition(0,0)
+marison.forward(101)
+marison.right(90)
+marison.forward(101)
+marison.right(90)
+marison.forward(202)
+marison.right(90)
+marison.forward(202)
+marison.right(90)
+marison.forward(202)
+marison.right(90)
+marison.forward(101)
+marison.end_fill()
+    
+turtle.done()</PRE>
+</PRE>
+</BODY>
+</HTML>

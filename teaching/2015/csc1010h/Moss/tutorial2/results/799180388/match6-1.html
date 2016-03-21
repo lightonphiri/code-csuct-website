@@ -1,0 +1,82 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/2/raw/khnsim009/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/2/raw/mkwnka001/<p><PRE>
+&gt;&gt;&gt;&gt; file: EugeneJunior.py
+#uegene juniour
+#nkabeleng makwakwa
+#01 may 2015
+
+def main():
+    print('Hello, I am Eugene Junior.')
+    a=input('What is your first name?\n')
+    b=input('What is your last name?\n')
+    print('Hi',a[0:1]+'.'+b[0:1],end='.!\n')
+    c=int(input('What year is this?\n'))
+    d=int(input('What age are you?\n'))
+    the_age=(c-d)
+    the_year=(c-d-1)
+    print('Okay, so you were born in\n',str(the_year)+"/",str(the_age)[2:],sep='')
+    e=eval(input('How tall are you (metres)?\n'))
+    feet=(e * 3.28)
+    inches=(feet-int(feet))*12
+    print('That\'s',str(int(feet))+'\''+str(int(inches)),end='\"!\n')
+    print("I'm going to tell you your Star Wars name.")
+    e=input("What's your mother's name?\n")
+    f=input("What's the name of the city nearest to your place of birth?\n")
+    print("Your Star Wars is",b[0:3]+a.lower()[0:2],e.upper()[-2:-1]+e[-1:]+f[-3:],end='.')
+    
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match6-0.html#1" TARGET="0"><IMG SRC="../../bitmaps/tm_1_10.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+main()
+
+
+&gt;&gt;&gt;&gt; file: HexagonArea.py
+#calculating the area of a hexagon
+#nkabelengmakwakwa
+#01 may 2015
+
+import math
+def main():
+    a=eval(input("Enter the length of the side (cm) :\n"))
+    Area= ((3*math.sqrt(3))/2)*a**2
+    print("The area of a hexagon of side",a,'is',"{0:5.3f}".format(Area),end='.')
+main()
+</FONT>    
+    
+
+    &gt;&gt;&gt;&gt; file: creditCard.py
+# program to allow user to enter information about a credit card account
+# nkabeleng makwakwa
+# 02 may 2015
+
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match6-0.html#0" TARGET="0"><IMG SRC="../../bitmaps/tm_0_49.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+def main():
+    a = input("Enter the card holder's name:\n")
+    b = str(input("Enter the 16 digit card number (no spaces please):\n"))
+    c = input("Enter the date of issue (mm:yy):\n")
+    d = input("Enter the expiry date (mm:yy):\n")
+    e = input("Enter the 3 digit security code:\n")
+    f = float(input("Enter the credit limit (Rand):\n"))
+    g = float(input("Enter the balance (Rand):\n"))
+    k = str("{:.2f}".format(f))
+    h = f-g
+    m = str("{:.2f}".format(h))
+    n = str("{:.2f}".format(g))
+    print("+------------- Credit Card Account --------------+")
+    print("{:16}{:&lt;33}|".format("| Card holder:"," "+a))
+    print("{:16}{:&lt;4} {:&lt;4} {:&lt;4} {:&lt;17}|".format("| Card number:"," "+b[0:4],b[4:8],b[8:12],b[12:]))
+    print("{:16}{:&lt;10}{:&lt;23}|".format("| Date of issue:"," "+c[0:2]+"/"+c[3:],"Expiry date: "+d[:2]+"/"+d[3:]))
+    print("{:16}{:&lt;33}|".format("| Security code:"," "+e))
+    print("{:16}{:&lt;33}|".format("| Credit limit:"," "+k+" Rand"))
+    print("{:16}{:&lt;33}|".format("| Available:"," "+m+" Rand"))
+    print("{:16}{:&lt;33}|".format("| Balance:"," "+n+" Rand"))
+</FONT>    print("+------------------------------------------------+")         
+main()</PRE>
+</PRE>
+</BODY>
+</HTML>

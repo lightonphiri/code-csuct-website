@@ -1,0 +1,310 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/3/raw/mfkref006/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/3/raw/mfkref006/<p><PRE>
+&gt;&gt;&gt;&gt; file: FeetMetres.py
+#program converts feet to meters
+
+#prompt user
+min_=int(input('Enter the minimum number of feet (not less than 0):\n'))
+max_=int(input('Enter the maximum number of feet (not more than 99):\n'))
+metres=0          
+for i in range (min_,max_+1):
+    metres= i/3.28
+    print ("{0:&gt;4}' |   {1:.2f}m".format(i, metres))
+    #print ("{0:&gt;5}' |".format(i))
+   # print ("    {:.2f}m".format(metres))
+
+    &gt;&gt;&gt;&gt; file: FlowerPattern.py
+import turtle
+petal = turtle.numinput("Number of petals", "Enter the number of petals (must be an even number): ")
+stem = turtle.numinput("Stem length", "Enter the length of the stem: ")
+ptype = turtle.textinput("Petal Type","Enter the petal type (triangle, square, or pentagon): ")
+side = turtle.numinput("Side length","Enter the length of side: ")
+stem_colour=turtle.textinput("Stem colour","Enter the stem colour: ")
+first_petal = turtle.textinput("First Petal Colour","Enter the first petal colour: ")
+second_petal = turtle.textinput("Second Petal Colour","Enter the second petal colour: ")
+
+num = 0
+counter = 0
+if ptype == "triangle":
+    for i in range(int(petal)) :
+        turtle.pendown()
+        turtle.pencolor(stem_colour)
+        turtle.forward(stem)
+        turtle.left(30)
+        if counter == 0 or counter%2==0 :
+            turtle.color(second_petal)
+            turtle.forward(side)
+            turtle.right(120)
+            turtle.forward(side)
+            turtle.right(120)
+            turtle.forward(side)
+        else:
+            turtle.color(first_petal)
+            turtle.forward(side)
+            turtle.right(120)
+            turtle.forward(side)
+            turtle.right(120)
+            turtle.forward(side)
+        turtle.penup()
+        turtle.home()
+        petal = int(petal)
+        degree = 360/petal
+        num+=degree
+        turtle.right(num)
+        counter+=1
+    
+    
+elif ptype == "square":
+        num = 0
+        s = 0
+        for i in range(int(petal)): 
+            turtle.pendown()
+            turtle.pencolor(stem_colour)
+            turtle.forward(stem)
+            turtle.left(90)
+            if s == 0 or s%2 == 0:
+                turtle.color(second_petal)
+                turtle.forward(side/2)
+                for i in range(3):
+                    turtle.right(90)
+                    turtle.forward(side)
+            else:
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match191-1.html#1" TARGET="1"><IMG SRC="../../bitmaps/tm_1_2.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+                turtle.color(first_petal)
+                turtle.forward(side/2)
+                for i in range(3):
+                    turtle.right(90)
+                    turtle.forward(side)
+            turtle.right(90)
+            turtle.forward(side/2)        
+            turtle.penup()
+</FONT>            turtle.home()
+            petal = int(petal)
+            degree = 360/petal
+            num+=degree
+            turtle.right(num)
+            s+=1
+elif ptype == "pentagon":
+    b=0
+    num=0
+    for i in range (int(petal)):
+        turtle.pendown()
+        turtle.pencolor(stem_colour)
+        turtle.forward(stem)
+        turtle.left(36)
+        if b==0 or b%2==0 : 
+            turtle.pencolor(second_petal)
+            turtle.forward(side)
+            for i in range(4):
+                turtle.right(72)
+                turtle.forward(side)        
+        else:
+            turtle.pencolor(first_petal)
+            turtle.forward(side)
+            for i in range(4):
+                turtle.right(72)
+                turtle.forward(side)
+        turtle.penup()
+        turtle.home()
+        degree = 360/int(petal)
+        num+=degree
+        turtle.right(num)
+        b+=1
+        
+        
+turtle.exitonclick()&gt;&gt;&gt;&gt; file: InchesMetres.py
+#program that converts inches to metres
+import math
+
+#prompt user
+min_inches= int(input('Enter the minimum number of inches (not less than 0):\n'))
+max_inches= int(input('Enter the maximum number of inches (not greater than 11):\n'))
+
+metres= 0
+print('Inches: ',end='')
+for i in range (min_inches,max_inches +1):
+    print ("{0:&gt;4} ".format(i),end='')
+
+print ('\nMetres: ',end='')    
+for j in range (min_inches,max_inches +1):
+    metres=round(j/39.37,2)
+    print('{0:&gt;4.2f} '.format(metres), end="")
+        
+    
+    
+    &gt;&gt;&gt;&gt; file: TimeConvertor.py
+time=input('Enter a time ([h]h:mm [am|pm]):\n')
+
+if time[0:2]=="12" and time[6:]=="pm":
+    print(time[0:5])
+elif time[0:2] == "12" and time[6:]== "am":
+    print("00"+time[2:5])
+elif '1' &lt;= time[0:1] &lt;= '9' and time[5:]== "am":
+    print("0"+time[0:4])
+elif '1' &lt;= time[0:1] &lt;= '9' and time[5:]== "pm":
+    print (str(int(time[:1])+12)+time[1:4])
+elif '10' &lt;= time[:2] &lt;= '11' and time[6:]== 'am':
+    print (time[:5])
+elif '10' &lt;= time[:2] &lt;= '11' and time[6:]== 'pm':
+    print (str(int(time[:2])+12)+time[2:5])
+
+    
+elif '00:00'&lt;= time &lt; '01:00':
+    print ("12:{} am".format(time[3:6]))
+elif '12:00' &lt;= time &lt; '13:00':
+    print ("12:{} pm".format(time[3:6]))
+elif '13:00' &lt;=time&lt;'14:00':
+    print ("1:{} pm".format(time[3:6]))
+elif '14:00'&lt;= time &lt; '15:00':
+    print ('2:{} pm'.format(time[3:6]))
+elif '15:00' &lt;= time &lt; '16:00':
+    print ("3:{} pm".format(time[3:6]))
+elif '16:00' &lt;= time &lt; '17:00':
+    print ("4:{} pm".format(time[3:6]))
+elif '17:00' &lt;= time &lt; '18:00':
+    print ("5:{} pm".format(time[3:6]))
+elif '18:00' &lt;=time &lt; '19:00':
+    print ("6:{} pm".format (time[3:6]))
+elif '19:00' &lt;= time &lt;'20:00':
+    print ("7:{} pm".format(time[2:6]))
+elif '20:00' &lt;= time &lt; '21:00':
+    print ("8:{} pm".format (time[3:6]))
+elif '21:00' &lt;= time &lt; '22:00':
+    print ("9:{} pm".format (time[3:6]))
+elif '22:00' &lt;= time &lt; '23:00':
+    print ("10:{} pm".format(time[3:6]))
+elif '23:00' &lt;= time &lt;= '23:59':
+    print ('11:{} pm'.format(time[3:6]))
+else:
+    print ("{} am".format(time[1:]))
+    #else:
+        #print ( am'.format(time))
+        
+        
+        
+       
+    
+        
+        
+    
+        
+&gt;&gt;&gt;&gt; file: Twelve.py
+time=input("Enter a time in 12 hour clock ([h]h:mm [am|pm]):\n")
+
+if time[0:2]=="12" and time[6:]=="pm":
+    print(time[0:5])
+elif time[0:2] == "12" and time[6:]== "am":
+    print("00"+time[2:5])
+elif '1' &lt;= time[0:1] &lt;= '9' and time[5:]== "am":
+    print("0"+time[0:4])
+elif '1' &lt;= time[0:1] &lt;= '9' and time[5:]== "pm":
+    print (str(int(time[:1])+12)+time[1:4])
+elif '10' &lt;= time[:2] &lt;= '11' and time[6:]== 'am':
+    print (time[:5])
+elif '10' &lt;= time[:2] &lt;= '11' and time[6:]== 'pm':
+    print (str(int(time[:2])+12)+time[2:5])
+    
+    
+    
+    
+
+&gt;&gt;&gt;&gt; file: TwentyFour.py
+time= input('Enter a time in 24 hour clock (hh:mm):\n')
+
+if '00:00'&lt;= time &lt; '01:00':
+    print ("12:{} am".format(time[3:6]))
+elif '12:00' &lt;= time &lt; '13:00':
+    print ("12:{} pm".format(time[3:6]))
+elif '13:00' &lt;=time&lt;'14:00':
+    print ("1:{} pm".format(time[3:6]))
+elif '14:00'&lt;= time &lt; '15:00':
+    print ('2:{} pm'.format(time[3:6]))
+elif '15:00' &lt;= time &lt; '16:00':
+    print ("3:{} pm".format(time[3:6]))
+elif '16:00' &lt;= time &lt; '17:00':
+    print ("4:{} pm".format(time[3:6]))
+elif '17:00' &lt;= time &lt; '18:00':
+    print ("5:{} pm".format(time[3:6]))
+elif '18:00' &lt;=time &lt; '19:00':
+    print ("6:{} pm".format (time[3:6]))
+elif '19:00' &lt;= time &lt;'20:00':
+    print ("7:{} pm".format(time[2:6]))
+elif '20:00' &lt;= time &lt; '21:00':
+    print ("8:{} pm".format (time[3:6]))
+elif '21:00' &lt;= time &lt; '22:00':
+    print ("9:{} pm".format (time[3:6]))
+elif '22:00' &lt;= time &lt; '23:00':
+    print ("10:{} pm".format(time[3:6]))
+elif '23:00' &lt;= time &lt;= '23:59':
+    print ('11:{} pm'.format(time[3:6]))
+else:
+    print ("{} am".format(time[1:]))
+#else:
+    #print ( am'.format(time))
+    
+    
+    
+   
+
+    
+    
+
+    &gt;&gt;&gt;&gt; file: VehicleClassifier.py
+#program which calculates the class to which a vehicle belongs
+
+#prompt user
+print ("***** Vehicle classifier *****")
+gross_mass= int(input('What is the gross vehicle mass (in kg)?\n'))
+trailer= input('Does the vehicle have a trailer?\n')
+if trailer=='y':
+    gross_mass_t= int(input('What is gross vehicle mass of the trailer (in kg)?\n'))
+    if gross_mass &lt;= 3500:
+        if  gross_mass_t &gt; 750:
+            print ('This vehicle is class EB.')
+        else:
+            print ('This vehicle is class B.')
+    elif 3500 &lt;gross_mass&lt;= 16000:
+        if  gross_mass_t &gt; 750:
+            print ('This vehicle is class EC1.')
+        else:
+            print ('This vehicle is class C1.')
+    elif gross_mass &gt; 16000:
+        if  gross_mass_t &gt; 750:
+            print ('This vehicle is class EC.')
+        else:
+            print ('This vehicle is class C.')
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match191-1.html#0" TARGET="1"><IMG SRC="../../bitmaps/tm_0_2.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+elif trailer=='n':
+    articulated= input('Is the vehicle articulated?\n')
+    if articulated== 'y' and gross_mass &lt;= 3500:
+        print ('This vehicle is class EB.')
+    elif articulated== 'y' and 3500&lt; gross_mass &lt;= 16000:
+        print ('This vehicle is class EC1.')
+    elif articulated== 'y' and gross_mass &gt; 16000:
+</FONT>        print ('This vehicle is class EC.')   
+    elif articulated== 'n' and gross_mass &lt;= 3500:
+        print ('This vehicle is class B.')
+    elif articulated== 'n' and 3500&lt; gross_mass &lt;= 16000:
+        print ('This vehicle is class C1.')
+    elif articulated== 'n' and gross_mass &gt; 16000:
+        print ('This vehicle is class C.')   
+    
+        
+        
+                
+            
+        
+        
+        
+
+</PRE>
+</PRE>
+</BODY>
+</HTML>

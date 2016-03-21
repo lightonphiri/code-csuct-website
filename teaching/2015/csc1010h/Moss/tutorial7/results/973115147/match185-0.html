@@ -1,0 +1,138 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/7/raw/mtstha058/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/7/raw/mtstha058/<p><PRE>
+&gt;&gt;&gt;&gt; file: book_cypher.py
+file_name=input('Enter the book filename:\n')
+file=open(file_name,'r')
+lines=file.readlines()
+message=input('Enter the message:\n')
+mywords=[m.lower() for m in message.split()]
+output=input('Enter the output filename:\n')
+output_file=open(output,'w')
+output_file.write('BEGIN'+'\n')
+print('BEGIN')
+
+for h in mywords:
+    count=0
+    for i in lines:
+        low=i.lower()
+        count+=1
+        low1=low.strip('?!.,;:)([]{}\'" \n')
+        ilist=[m.strip('?!.,;:)([]{}\'" \n') for m in low1.split()]
+        #tmp_list = low1.split()
+        #ilist = []
+        #for m in tmp_list:
+            #x = m.strip('?!.,;:)([]{}\'" \n')
+            #ilist.append(x)
+        if h in ilist:
+            #print(ilist)
+            output_file.write(str(count)+'-'+str(ilist.index(h)+1)+'\n')
+            print(str(count)+'-'+str(ilist.index(h)+1))
+            #print(ilist.index(h)+1)
+            #print(count)
+            break
+output_file.write('END'+'\n')
+print('END')
+file.close()
+output_file.close()
+
+            
+            &gt;&gt;&gt;&gt; file: leader_board.py
+# leader_board.py
+
+def process_line(line):
+    parts = line.split(' ')
+    name = parts[0]
+    try:
+        trials = int(parts[1])
+    except ValueError:
+        print('Trials should be a number')
+    try:
+        average = float(parts[2])
+    except ValueError:
+        print('The avarage should also be a number')
+    return (name, trials, average)
+def get_max(entries):
+    max = entries[0]
+    for i in range(1, len(entries)):
+        if entries[i][2] &lt;max[2]:
+            max = entries[i]
+            
+    entries.remove(max)
+    return max
+
+def sort(entries):
+    sorted_entries = []
+    while len(entries)&gt;0:
+        sorted_entries.append(get_max(entries))
+    return sorted_entries
+
+def output(entries):
+    print('Subject        | Average Time')
+    print('************** | ************')
+    for entry in entries:
+        print('{:14} | {:.6}'.format(entry[0], entry[2]))
+              
+def main():
+    file_name = input('Enter the name of the file:\n')
+    try:
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match185-1.html#0" TARGET="1"><IMG SRC="../../bitmaps/tm_0_5.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+        file_input = open(file_name, 'r')
+    
+        entries = []
+        for line in file_input:
+            entries.append(process_line(line))
+        file_input.close()
+    
+        entries = sort(entries)
+        output(entries)
+    except:
+</FONT>        print('file name cannot be opened')
+        main()
+        
+    
+main()
+    &gt;&gt;&gt;&gt; file: reaction_test.py
+import time
+import random
+naming=input('Enter the name of the output file:\n')
+file_name=open(naming,'w')
+subject_name=input('Enter subject name (or press\'enter\' to quit):\n')
+test_no=int(input('Enter the number of tests:\n'))
+print(subject_name,file=file_name)
+print(str(test_no),file=file_name)
+time_list=[]
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match185-1.html#1" TARGET="1"><IMG SRC="../../bitmaps/tm_1_5.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+for i in range(test_no):
+    
+    print('Get ready...',flush=True)
+    sleep_time=random.randint(1,5)
+    time.sleep(sleep_time)
+    initial_time=time.time()
+    go=input('Press "enter" NOW!')
+</FONT>    final_time=time.time()
+    elasped_time=round(final_time-initial_time,6)
+    print('Reaction time:',elasped_time)
+    file_name.write(str(elasped_time)+'\n')
+    time_list.append(elasped_time)
+    
+print('Tests complete.')
+sums=0
+for j in time_list:
+    sums+=j
+print('Avarage time:',sums/test_no)
+print(sums/test_no,file=file_name)
+file_name.close()
+    
+
+
+</PRE>
+</PRE>
+</BODY>
+</HTML>

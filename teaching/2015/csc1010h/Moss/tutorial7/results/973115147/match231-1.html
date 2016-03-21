@@ -1,0 +1,148 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/7/raw/flndoc001/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/7/raw/mzbntw001/<p><PRE>
+&gt;&gt;&gt;&gt; file: book_cypher.py
+input_file=input("Enter the book filename:\n")                   
+message=input("Enter the message:\n").lower().split(" ")        
+output_file=input("Enter the output filename:\n")               
+opening_output_file=open(output_file,"w")                       
+print("BEGIN")                                                   
+print("BEGIN",file=opening_output_file)                         
+while message:
+    opening_input_file=open(input_file,"r")                     
+    list_of_bookfile=opening_input_file.readlines()             
+    counter = 0                                                 
+    for each_line in list_of_bookfile:
+        each_line=each_line.split(" ")                          
+        for each_word in each_line:
+            store=each_word                                      
+            each_word=each_word.strip('?!.,;:)([]{}\'" \n')      
+            each_line[each_line.index(store)]=each_word.lower() 
+        list_of_bookfile[counter]=each_line                      
+        counter += 1                                             
+    e = 10                                                       
+    for each_sublist in list_of_bookfile:
+        for each_word in each_sublist:
+            if message[0]==each_word:
+                e = 11                                           
+                print(str(list_of_bookfile.index(each_sublist)+1)+"-"+str(each_sublist.index(each_word)+1-each_sublist[:each_sublist.index(each_word)+1].count("")))
+                print(str(list_of_bookfile.index(each_sublist)+1)+"-"+str(each_sublist.index(each_word)+1-each_sublist[:each_sublist.index(each_word)+1].count("")),file=opening_output_file)
+                break
+        if e == 11: break                                        
+    if e==10:                                                    
+        print(message[0])
+        print(message[0],file=opening_output_file)                   
+    message=message[1:]                                         
+print("END")                                                    
+print("END",file=opening_output_file)                          
+opening_input_file.close()                                       &gt;&gt;&gt;&gt; file: leader_board.py
+# Modified by Ntwanano Mazibuko
+# Leader_board.py
+
+count=0
+def process_line(line):
+    parts = line.split(' ')
+    name = parts[0]
+    trials = int(parts[1])
+    average = float(parts[2])
+    return (name, trials, average)
+
+def get_max(entries):
+    max = entries[0]
+    for i in range(1, len(entries)):
+        if entries[i][2] &lt;max[2]:
+                max = entries[i]
+    entries.remove(max)
+    return max
+        
+def sort(entries):
+    sorted_entries = []
+    while len(entries)&gt;0:
+        sorted_entries.append(get_max(entries))
+    return sorted_entries
+
+def output(entries):
+    print('Subject        | Average Time')
+    print('************** | ************')
+    for entry in entries:
+        print('{:14} | {:.6}'.format(entry[0], entry[2]))
+              
+def main():
+    file_name = input('Enter the name of the file:\n')
+    counter=0
+    try:
+        file_input = open(file_name, 'r')
+        entries = []
+        for line in file_input:
+            counter+=1
+            entries.append(process_line(line))
+        file_input.close()
+    
+        entries = sort(entries)
+        output(entries)
+            
+    except IOError:
+        print('File not found')
+        print(main())
+        
+    except ValueError:
+        print('A value error occured in line',str(counter))
+    
+if __name__=='__main__':
+    main()&gt;&gt;&gt;&gt; file: reaction_test.py
+from time import *
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match231-0.html#0" TARGET="0"><IMG SRC="../../bitmaps/tm_0_8.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+from random import randint
+
+def flush_input():
+    try:
+        import msvcrt
+        while msvcrt.kbhit():
+            msvcrt.getch()
+    except ImportError:
+        import sys, termios
+        termios.tcflush(sys.stdin, termios.TCIOFLUSH)
+        
+def file():
+    file_name=input('Enter the name of the output file:\n')
+    f=open(file_name,'a')
+    
+    while True:
+        subject=input("Enter subject name (or press 'enter' to quit):\n")
+</FONT>        if subject != '':
+            num_of_tests=int(input('Enter the number of tests:\n'))
+            total_time=0
+            
+            for num in range(num_of_tests):
+                print('Get ready...', flush=True)
+                pause=randint(1,5)
+                sleep(pause)
+                start_time=time()
+                print("Press 'enter' NOW!",end='')
+                flush_input()
+                input()
+                end_time=time()
+                time_diff=end_time-start_time
+                print('Reaction time:',round(time_diff, 6))
+                total_time+=time_diff
+            print('Tests complete.')
+            
+            average_time=round(total_time/num_of_tests, 6)
+            print('Average reaction time:',round(average_time, 6),'\n')
+            f.write(subject+' '+str(num_of_tests)+' '+str(average_time)+'\n')    
+        else:
+            f.close()
+            break
+def main():
+    file()
+
+if __name__=='__main__':    
+    main()</PRE>
+</PRE>
+</BODY>
+</HTML>

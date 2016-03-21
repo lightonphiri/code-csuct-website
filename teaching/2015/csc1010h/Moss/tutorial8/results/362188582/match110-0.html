@@ -1,0 +1,242 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/8/raw/edwgar008/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/8/raw/edwgar008/<p><PRE>
+&gt;&gt;&gt;&gt; file: lecturer.py
+# Class to define a lecturer
+# Gareth Edwards EDWGAR008
+
+class Lecturer:
+    def __init__(self,name='Unknown',stn='unknown'):
+        self.name = name
+        self.staff_number = stn
+        self.courses = []
+        
+    def __str__(self):
+        s = self.name +', ' +self.staff_number
+        if len(self.courses)&gt;0:
+            s += ': '+str(self.courses[0])
+            for c in self.courses[1:]:
+                s += '; ' + str(c)
+        return s+'.'            
+    
+    def input(self):
+        self.name = input('Enter name: ')
+        self.staff_number = input('Enter staff number: ')
+
+    def add_course(self, c):
+        self.courses.append(c)
+        
+    def display(self):
+        print('Name: ' + self.name)
+        print('Staff number: ' + self.staff_number)
+
+        &gt;&gt;&gt;&gt; file: sorttester.py
+# testing heap sort vs bubble sort
+# Gareth Edwards
+# EDWGAR008
+
+import sortsearch
+import random
+import time
+
+size = int(input('Enter the size of the list: \n'))
+method = int(input('Choose the sort method:\n1. Heap Sort.\n2. Bubble Sort\n'))
+
+if method == 1:
+   lst = sortsearch.generate_number_list(size)
+   sortsearch.heap_sort(lst)
+   print('Before: ',lst)
+   
+   time.clock()
+   sorted_lst = sortsearch.heap_sort(lst)
+   
+   print('After:',sorted_lst)
+   print('Time: ',time.clock())   
+    
+elif method == 2:
+   lst = sortsearch.generate_number_list(size)
+   print('Before:',lst)
+   
+   time.clock()
+   sorted_lst = sortsearch.bubble_sort(lst)
+   
+   print('After:',sorted_lst)
+   print('Time: ',time.clock())
+   &gt;&gt;&gt;&gt; file: universitysystem.py
+# organising courses at uct
+# Gareth Edwards EDWGAR008
+
+
+from course import Course
+from lecturer import Lecturer
+from student import Student
+
+
+course_dict={}
+course_dict2={}                         # code:description pairs
+def input_course():
+    d = input('&gt;Enter description: ')    # getting information
+    cc = input('Enter course code: ')
+    
+    course = Course(cc,d)               # putting info into class
+    
+    course_dict[cc]=Course(cc,d)        # putting cc:lec object pairs in dictionary
+    course_dict2[cc]=d
+    return course_dict
+
+lecturer_dict={}
+def input_lecturer():
+    name = input('&gt;Enter name: ')
+    stn =  input('Enter staff number: ')
+    
+    lecture = Lecturer(name,stn)
+    
+    lecturer_dict[stn]=Lecturer(name,stn)
+    return lecturer_dict
+
+student_dict={}
+student_dict2={}
+def input_student():
+    n = input('&gt;Enter name: ')
+    sn = input('Enter student number: ')
+    
+    student_dict[sn]=Student(n,sn)
+    student_dict2[sn]=n
+    return student_dict
+
+student_dict3={}
+def enrol():
+    student_num = input('Enter student number: ')
+    cc = input('Enter course code: ')
+    while True:
+        try:
+            student = student_dict[student_num]                  # getting student object from student_dict
+            try:
+                cc_c = cc+', '+course_dict2[cc]                     # changing the course to cc, course 
+                student.add_course(cc_c)                            # appending course to student object
+                break
+            except:
+                print('Could not find a course with that code. ')
+                break
+        except:
+            print('Could not find a student with that number. ')
+            break
+    
+
+def assign():
+    staff_num = input('&gt;Enter staff number: ')
+    cc = input('Enter course code: ')
+    
+    while True:
+        try:
+            lecturer = lecturer_dict[staff_num]
+            try:
+                cc_c = cc+', '+course_dict2[cc]
+                lecturer.add_course(cc_c)
+                break
+            except:
+                print('Could not find a course with that code.')
+                break
+        except:
+            print('Could not find a lecturer with that staff number.')
+            break
+            
+
+
+def find_student():
+    student_num = input('&gt;Student number: ')
+    
+    try:
+        student = student_dict[student_num]                  # getting student object that corresponds with the student number given    
+        print(student)
+    except:
+        print('&gt;Could not find a student with that number.')
+
+def find_lecturer():
+    staff_num = input('&gt;Enter staff number: ')
+    
+    try:
+        lecturer = lecturer_dict[staff_num]
+        return print(lecturer)
+    except:
+        print('Could not find a member of staff with that number.')
+
+def find_course():
+    cc = input('&gt;Enter course code: ')
+    try:
+        return print(course_dict[cc])                          # getting course description that corresponds with the course code given
+    except:
+        print('Could not find a course with that code.')
+
+def display_dictionary_values(dictionary):
+    for i in dictionary:
+        dictionary[i].display()
+    
+def display_courses():
+    print('&gt;',end='')
+    display_dictionary_values(course_dict)
+
+def display_lec():
+    print('&gt;',end='')
+    display_dictionary_values(lecturer_dict)
+    
+def display_student():
+    print('&gt;',end='')
+    display_dictionary_values(student_dict)
+
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match110-1.html#0" TARGET="1"><IMG SRC="../../bitmaps/tm_0_6.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+def main():
+    while True:        
+        print('University Member System: ')
+        print('0. Quit.')
+        print('1. Input Course.')
+        print('2. Input Lecturer.')
+        print('3. Input Student.')
+        print('4. Enrol Student on Course.')
+        print('5. Assign Course to Lecturer.')
+        print('6. Find Course.')
+        print('7. Find Lecturer.')
+        print('8. Find Student.')
+        print('9. Display Courses.')
+        print('10. Display Lecturers.')
+        print('11. Display Students.')
+        num=int(input())
+       
+        if num == 0:
+            print('&gt;')
+            break
+       
+        elif num ==1:
+</FONT>            input_course()
+        elif num == 2:
+            input_lecturer()
+        elif num == 3:
+            input_student()
+        elif num == 4:
+            enrol()
+        elif num == 5:
+            assign()
+        elif num == 6:
+            find_course()
+        elif num == 7:
+            find_lecturer()
+        elif num == 8:
+            find_student()
+        elif num == 9:
+            display_courses()
+        elif num == 10:
+            display_lec()
+        elif num == 11:
+            display_student()
+        elif num&gt;=12 or num&lt;=-1:
+            print('&gt;That selection was not recognised.')
+        
+main()</PRE>
+</PRE>
+</BODY>
+</HTML>

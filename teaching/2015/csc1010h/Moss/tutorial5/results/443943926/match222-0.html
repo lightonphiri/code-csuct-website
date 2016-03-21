@@ -1,0 +1,121 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/5/raw/kgsfik001/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/5/raw/kgsfik001/<p><PRE>
+&gt;&gt;&gt;&gt; file: calendar_utils.py
+def is_leap_year(year):
+    year=str(year)
+    p=year[0:2]
+    q=year[2:]
+    if int(p)%4==0 and int(q)%4==0:
+        return True
+    else:
+        return False
+
+def month_name(number):
+    months={1:"January",2:"February",3:"March",4:"April",5:"May",6:"June",7:"July",8:"August",9:"September", 10:"October",11:"November",12:"December"}
+    return months[number]
+def days_in_month(month_number,year):
+    if month_number==1 or month_number==3 or month_number==5 or month_number==7 or month_number==8 or month_number==10 or month_number==12:
+        return 31
+    elif month_number==2:
+        if is_leap_year(year)==True:
+            return 29
+        else: 
+            return 28
+    else:
+        return 30
+def first_day_of_year(year):
+    day=(1+5*((year-1)%4)+4*((year-1)%100)+6*((year-1)%400))%7
+    return day
+def first_day_of_month (month_number,year):
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match222-1.html#0" TARGET="1"><IMG SRC="../../bitmaps/tm_0_8.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    x=0
+    for i in range(month_number-1):
+        y=days_in_month(i+1,year)
+        x+=y
+    fdm=first_day_of_year(year)+x%7-7
+    list=['s','m','t','w','th','f','st']
+    dict={'s':0,'m':1,'t':2,'w':3,'th':4,'f':5,'st':6}
+    return dict[list[fdm]]
+&gt;&gt;&gt;&gt; file: morse_code.py
+def code_for(letter):
+    letter=letter.lower()
+</FONT>    morse_code= {"a":".-","b":"-...","c":"-.-.","d":"-..","e":".","f":"..-.","g":"--.","h":"....","i":"..","j":".---","k":"-.-","l":".-..","m":"--","n":"-.","o":"---","p":".--.","q":"--.-","r":".-.","s":"...","t":"-","u":"..-","v":"...-","w":".--","x":"-..-","y":"-.--","z":"--.."}
+    return morse_code[letter]
+
+def transmit_letter(letter):
+    letter= letter.lower()
+    morse_code= {"a":".^-","b":"-^.^.^.","c":"-^.^-^.","d":"-^.^.","e":".","f":".^.^-^.","g":"-^-^.","h":".^.^.^.","i":".^.","j":".^-^-^-","k":"-^.^-","l":".^-^.^.","m":"-^-","n":"-^.","o":"-^-^-","p":".^-^-^.","q":"-^-^.^-","r":".^-^.","s":".^.^.","t":"-","u":".^.^-","v":".^.^.^-","w":".^-^-","x":"-^.^.^-","y":"-^.^-^-","z":"-^-^.^."}
+    print(morse_code[letter],end="")
+    
+def transmit_word(word):
+    word= word.lower()
+    morse_code= {"a":".^-","b":"-^.^.^.","c":"-^.^-^.","d":"-^.^.","e":".","f":".^.^-^.","g":"-^-^.","h":".^.^.^.","i":".^.","j":".^-^-^-","k":"-^.^-","l":".^-^.^.","m":"-^-","n":"-^.","o":"-^-^-","p":".^-^-^.","q":"-^-^.^-","r":".^-^.","s":".^.^.","t":"-","u":".^.^-","v":".^.^.^-","w":".^-^-","x":"-^.^.^-","y":"-^.^-^-","z":"-^-^.^."}    
+    for i in word:
+        if i== word[0]:
+            print(morse_code[i] +"|",end="")
+        elif i== word[-1]:
+            print(morse_code[i],end="")
+        else:
+            print(morse_code[i]+"|",end="")
+def word_pause():
+    print("||",end="")
+
+            
+    
+        
+    
+    
+    
+    &gt;&gt;&gt;&gt; file: technical_support.py
+# Tech Support
+# Stephan Jamieson
+# 5/1/2015
+responses={
+    'bluetooth':'Have you tried mouthwash?',
+    'windows':'Ah, I think I see your problem. What version?',
+    'apple':'You do mean the computer kind?',
+    'blue':'Ah, the blue screen of death. And then what happened?',
+    'spam':'You should see if your mail client can filter messages.',
+    'connection':'Contact Telkom.',
+    'crashed':'Are the drivers up to date?',
+    'hacked':'You should consider installing anti-virus software.'}
+
+
+def default_response():
+    return 'Curious, tell me more.'
+    
+def get_response(words):
+    for word in words:
+        if  word in responses:
+            return responses[word]
+    return default_response()
+    
+
+def print_welcome():
+    print('Welcome to the automated technical support system.')
+    print('Please describe your problem:')
+
+
+def get_input():
+    query = (input()).lower().split(' ')
+    return query
+
+def main():
+    print_welcome()
+    query = get_input()
+    while query!=['quit']:
+        response=get_response(query)
+        print(response)
+        query=get_input()
+main()
+        
+    </PRE>
+</PRE>
+</BODY>
+</HTML>

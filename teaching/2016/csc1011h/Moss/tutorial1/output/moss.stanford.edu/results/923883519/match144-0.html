@@ -1,0 +1,320 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Dropbox/Projects/work/2016/csc1011h/Moss/tutorial1/raw/Edwards,_Gareth(edwgar008)/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Dropbox/Projects/work/2016/csc1011h/Moss/tutorial1/raw/Edwards,_Gareth(edwgar008)/<p><PRE>
+&gt;&gt;&gt;&gt; file: Appointment.py
+# creating an appointment class
+# EDWGAR008
+
+from Person import Person
+from Patient import Patient
+from Doctor import Doctor
+
+
+class Appointment:
+    def __init__(self,ID='unknown',DID='unknown', time='unknown',des='No description'):
+        self.ID_num = ID
+        self.doc_ID = DID
+        self.timestamp = time
+        self.description = des
+        
+    def __str__(self):
+        return str(self.ID_num)+', '+str(self.doc_ID)+', '+str(self.timestamp)+', '+str(self.description)
+    
+    def ID(self):                             # returning patient ID for search function in Clinic program
+        return self.ID_num
+    
+    def DID(self):                            # returning doctor ID for search function in clinic program
+        return self.doc_ID
+    
+    
+        
+    
+    &gt;&gt;&gt;&gt; file: Clinic.py
+# Program to create patients doctors and appointments
+# EDWGAR008
+
+from Person import Person 
+from Patient import Patient
+from Doctor import Doctor
+from Appointment import Appointment
+from datetime import *
+import pickle
+
+patients = []
+doctors = []
+appointments = []
+
+def add_patient():
+    while True:
+        cond = input("Enter Patient(y/n)? ")
+        if cond == 'y':
+            n = input("Enter the name of the patient: ")
+            a = input("Enter the age of the patient: ")
+            ID = input("Patient ID number: ")
+            addr = input("Patient address: ")
+            numv = input("Number of visits of patient: ")
+            
+            P = Patient(n,a,ID,addr,numv)
+            patients.append(P)
+            
+        elif cond == 'n':break
+        
+def add_doctor():
+    while True:
+        
+        cond = input("Enter Doctor(y/n)? ")
+        if cond == 'y':
+            n = input("Enter the name of the doctor: ")
+            a = input("Enter the age of the doctor: ")
+            DID = input("Doctors ID number: ")
+            addr = input("Doctor address: ")  
+            
+            D = Doctor(n,a,DID,addr)
+            doctors.append(D)
+            
+        elif cond == 'n':break
+    
+def add_appointment():
+    while True:
+        cond = input("Enter an appointment (y/n)? ")
+        if cond == 'y':
+            ID = input("Patient ID number: ")
+            DID = input("Doctors ID number: ")
+            timestamp = datetime.now()
+            des = input("What is wrong with the patient: ")
+        elif cond=='n':break
+        
+        A = Appointment(ID,DID,timestamp,des)
+        appointments.append(A)
+        
+
+def display_patients():
+    for i in patients:
+        print(i)
+        
+def display_doctors():
+    for i in doctors:
+        print(i)
+        
+def display_appointments():
+    if len(appointments)&gt;=1:
+        for i in appointments:
+            print(i)
+    else:
+        print('No appointments')
+
+    
+def search_patients():                     # search for an appointment given the patient ID
+    pat_id = input("Patient ID: ")
+    for i in appointments:
+        if pat_id == i.ID():
+            print(i)
+            
+def search_doctors():                     # search for an appointment given the doctor ID
+    doc_id = input("Doctor ID: ")
+    for i in appointments:
+        if doc_id == i.DID():
+            print(i)
+    
+
+        
+def main():
+    
+    while True:
+        
+        print('1. Add Patient')
+        print('2. Add Doctor')
+        print('3. Add Appointment')
+        print('4. Display Patients')
+        print('5. Display Doctors')
+        print('6. Display Appointments')
+        print('7. search Appointments (patient ID)')
+        print('8. Search Appointments (doctors ID)')
+        num = input('Enter number (0 to quit): ')
+        
+        if num == '1':
+            add_patient()
+        elif num == '2':
+            add_doctor()
+        elif num == '3':
+            add_appointment()
+        elif num == '4':
+            display_patients()
+        elif num == '5':
+            display_doctors()
+        elif num == '6':
+            display_appointments()
+        elif num == '7':
+            search_patients()
+        elif num == '8':
+            search_doctors()
+        elif num =='0':
+            break
+    
+main()&gt;&gt;&gt;&gt; file: Clinic_mod.py
+# Program to create patients doctors and appointments (using pickle)
+# EDWGAR008
+
+from Person import Person 
+from Patient import Patient
+from Doctor import Doctor
+from Appointment import Appointment
+from datetime import *
+import pickle
+
+patients = []                         # empty lists for information to appended
+doctors = []
+appointments = []
+
+def add_patient():
+    while True:
+        cond = input("Enter Patient(y/n)? ")               # determines if function breaks or not
+        if cond == 'y':
+            n = input("Enter the name of the patient: ")
+            a = input("Enter the age of the patient: ")
+            ID = input("Patient ID number: ")
+            addr = input("Patient address: ")
+            numv = input("Number of visits of patient: ")
+            
+            P = Patient(n,a,ID,addr,numv)
+            patients.append(P)
+            
+        elif cond == 'n':break
+    
+    patient_file = open('patient.txt','wb')                      # opening a file for writing
+    pickle.dump(patients, patient_file)                          # dumping list of patient objects to the file opened
+    patient_file.close()                                         # closing file
+        
+def add_doctor():
+    while True:
+        
+        cond = input("Enter Doctor(y/n)? ")
+        if cond == 'y':
+            n = input("Enter the name of the doctor: ")
+            a = input("Enter the age of the doctor: ")
+            DID = input("Doctors ID number: ")
+            addr = input("Doctor address: ")  
+            
+            D = Doctor(n,a,DID,addr)
+            doctors.append(D)
+            
+        elif cond == 'n':break
+    
+    doctor_file = open('doctor.txt','wb')
+    pickle.dump(doctors, doctor_file)
+    doctor_file.close()    
+    
+def add_appointment():
+    cond = input("Enter an appointment (y/n)? ")
+    if cond == 'y':
+        ID = input("Patient ID number: ")
+        DID = input("Doctors ID number: ")
+        timestamp = datetime.now()
+        des = input("What is wrong with the patient: ")
+        
+        A = Appointment(ID,DID,timestamp,des)
+        appointments.append(A)
+        
+    appointment_file = open('appointment.txt','wb')
+    pickle.dump(appointments, appointment_file)
+    appointment_file.close()    
+        
+
+def display_patients():
+    for i in patients:
+        print(i)
+        
+def display_doctors():
+    for i in doctors:
+        print(i)
+        
+def display_appointments():
+    if len(appointments)&gt;=1:
+        for i in appointments:
+            print(i)
+    else:
+        print('No appointments')
+
+    
+#def search_appointment():
+    #pat_id = input("Patient ID: ")
+    
+
+        
+def main():
+    
+    while True:
+        
+        print('1. Add Patient')
+        print('2. Add Doctor')
+        print('3. Add Appointment')
+        print('4. Display Patients')
+        print('5. Display Doctors')
+        print('6. Display Appointments')
+        print('7. search Appointment')
+        num = input('Enter number (0 to quit): ')
+        
+        if num == '1':
+            add_patient()
+        elif num == '2':
+            add_doctor()
+        elif num == '3':
+            add_appointment()
+        elif num == '4':
+            display_patients()
+        elif num == '5':
+            display_doctors()
+        elif num == '6':
+            display_appointments()
+        elif num == '7':
+            search_appointment()
+        elif num =='0':
+            break
+    
+main()&gt;&gt;&gt;&gt; file: Doctor.py
+# creating a person class
+#EDWGAR008
+
+from Person import Person
+
+class Doctor(Person):
+    
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match144-1.html#0" TARGET="1"><IMG SRC="../../bitmaps/tm_0_2.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    def __init__(self,n='unknown',a=0,DID='unknown',addr='unknown'):
+        Person.__init__(self,n,a)
+        self.doc_ID = DID
+        self.address = addr
+        
+    def __str__(self):
+        return str(self.name)+', '+str(self.age)+', '+str(self.doc_ID)+', '+str(self.address)
+</FONT>    
+    &gt;&gt;&gt;&gt; file: Patient.py
+# creating a patient class
+# EDWGAR008
+
+from Person import Person
+
+class Patient(Person):
+    
+    def __init__(self,n='unknown',a=0,ID='unknown',addr='unknown',numv='unknown'):
+        Person.__init__(self,n,a)
+        self.ID_num = ID
+        self.address = addr
+        self.num_vis = numv
+        
+    def fees(self):
+        return int(self.num_vis) * 200
+    
+    def __str__(self):
+        return str(self.name) +', '+ str(self.age) + ', ' + str(self.ID_num) + ', ' + str(self.address) + ', ' + str(self.num_vis)
+
+
+    </PRE>
+</PRE>
+</BODY>
+</HTML>

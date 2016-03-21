@@ -1,0 +1,46 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/7/raw/vlknto001/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/7/raw/vlknto001/<p><PRE>
+&gt;&gt;&gt;&gt; file: reaction_test.py
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match129-1.html#0" TARGET="1"><IMG SRC="../../bitmaps/tm_0_96.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+import time
+from random import randint
+
+output = input("Enter the name of the output file:\n")
+f = open(output,'a')
+name = input("Enter subject name (or press 'enter' to quit):\n")
+
+while name !="" :
+    num = int(input("Enter the number of tests:\n"))
+    add = 0
+    for z in range (num) :
+        rand = randint(1,5)
+        
+        print("Get ready...")
+        
+        time.sleep(rand)
+        now = time.clock() 
+        rec = input("Press 'enter' NOW!")
+       
+        if (rec==""):
+            after = time.clock()
+            recT = after-now
+            print('{} {:.6}'.format("Reaction time:",recT))
+            add += recT
+            
+    average = add/num
+    print("Tests complete.")
+    print('{} {:.6}'.format('Average reaction time:',average),"\n")
+    print('{} {} {:.6}'.format(name,num,average),file = f)
+    
+    name = input("Enter subject name (or press 'enter' to quit):\n")
+</FONT>
+f.close()</PRE>
+</PRE>
+</BODY>
+</HTML>

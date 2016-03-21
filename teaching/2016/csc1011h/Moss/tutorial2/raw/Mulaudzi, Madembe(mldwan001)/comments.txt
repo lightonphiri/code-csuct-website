@@ -1,0 +1,2 @@
+<p>Your game is nice, but I don't think a player should be able to enter
+  a guess after they've got it right.</p>

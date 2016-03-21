@@ -1,0 +1,301 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/8/raw/mhlthe039/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/8/raw/vlpsip001/<p><PRE>
+&gt;&gt;&gt;&gt; file: course.py
+class Course:
+
+    def __init__(self, cc='unknown', d='unknown'):
+        self.course_code = cc
+        self.description = d
+    def __str__(self):
+        return str(self.course_code) + ', ' + self.description
+
+    def input(self):
+        self.description = input('Enter description: ')
+        self.course_code = int(input('Enter course code: '))
+        return self.description,self.course_code
+    def display(self):
+        print('Course code: ' + str(self.course_code))
+        print('Description: ' + self.description)
+    def course_code(self):
+        return self.course_code&gt;&gt;&gt;&gt; file: lecture.py
+class Lecture:
+    
+    def __init__(self, n='unknown', sn='unknown'):
+        self.name = n
+        self.staff_number = sn
+        self.courses = []
+       
+    
+    def __str__(self):
+        s = self.name + ', ' + self.staff_number
+        if len(self.courses)&gt;0:
+            s += ': '+str(self.courses[0])
+            for c in self.courses[1:]:
+                s += '; ' + str(c)
+        return s+'.'
+    
+    def add_course(self, c):
+        self.courses.append(c)
+    
+    def input(self):
+        self.name = input('Enter name: ')
+        self.staff_number = int(input('Enter staff number: '))
+        return  self.name,self.staff_number
+
+    def display(self):
+        print('Name: ' + self.name)
+        print('Staff number: ' + self.staff_number)&gt;&gt;&gt;&gt; file: sorttester.py
+from sortsearch import*
+import time
+def main():
+    size=int(input("Enter the size of the list:\n"))
+    print("Choose the sort method:")
+    print("1. Heap Sort.")
+    print("2. Bubble Sort.")
+    option=input()
+    if option=="1":
+        heap=generate_number_list(size)
+        print("Before:",heap)
+        time_before=time.clock()
+        y=heap_sort(heap)
+        time_after=time.clock()
+        print("After:",y)
+        td=time_after-time_before
+        print('Time: {0:.9f}'.format(td))
+        
+    elif option=="2":
+        bubble=generate_number_list(size)
+        print("Before:",bubble)
+        time_before=time.clock()
+        y=bubble_sort(bubble)
+        time_after=time.clock()
+        print("After:",y)
+        td=time_after-time_before
+        print('Time: {0:.9f}'.format(td))
+main()
+    
+    &gt;&gt;&gt;&gt; file: student.py
+class Student:
+    
+    def __init__(self, n='unknown', sn='unknown'):
+        self.name = n
+        self.student_number = sn
+        self.courses = []
+        
+    def __str__(self):
+        s = self.name + ', ' + self.student_number
+        if len(self.courses)&gt;0:
+            s += ': '+str(self.courses[0])
+            for c in self.courses[1:]:
+                s += '; ' + str(c)
+        return s+'.'
+    
+    def add_course(self, c):
+        self.courses.append(c)
+    
+    def input(self):
+        self.name = input('Enter name: ')
+        self.student_number = int(input('Enter student number: '))
+        return self.name,self.student_number
+
+    def display(self):
+        print('Name: ' + self.name)
+        print('Student number: ' + self.student_number)&gt;&gt;&gt;&gt; file: universitysystem.py
+class Lecture:
+    
+    def __init__(self, n='unknown', sn='unknown'):
+        self.name = n
+        self.staff_number = sn
+        self.courses = []
+    
+    def __str__(self):
+        s = self.name + ', ' + self.stuff_number
+        if len(self.courses)&gt;0:
+            s += ': '+str(self.courses[0])
+            for c in self.courses[1:]:
+                s += '; ' + str(c)
+        return s+'.'
+    
+    def add_course(self, c):
+        self.courses.append(c)
+    
+    def input(self):
+        self.name = input('Enter name: ')
+        self.staff_number = input('Enter staff number: ')
+        return self.name,self.staff_number
+    def display(self):
+        print('Name: ' + self.name)
+        print('Student number: ' + self.staff_number)
+
+class Course:
+    def __init__(self, cc='unknown', d='unknown'):
+        self.course_code = cc
+        self.description = d
+    def __str__(self):
+        return self.course_code + ', ' + self.description
+    def input(self):
+        self.description = input('Enter description: ')
+        self.course_code = input('Enter course code: ')
+        return self.description,self.course_code
+    def display(self):
+        print('Course code: ' + self.course_code)
+        print('Description: ' + self.description)
+    
+
+class Student:
+    def __init__(self, n='unknown', sn='unknown'):
+        self.name = n
+        self.student_number = sn
+        self.courses = []
+    def __str__(self):
+        s = self.name + ', ' + self.student_number
+        if len(self.courses)&gt;0:
+            s += ': '+str(self.courses[0])
+            for c in self.courses[1:]:
+                s += '; ' + str(c)
+        return s+'.'
+    def add_course(self, c):
+        self.courses.append(c)
+    def input(self):
+        self.name = input('Enter name: ')
+        self.student_number = input('Enter student number: ')
+        return self.name,self.student_number
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match192-0.html#0" TARGET="0"><IMG SRC="../../bitmaps/tm_0_1.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    def display(self):
+        print('Name: ' + self.name)
+        print('Student number: ' + self.student_number)
+
+dictionary1={}
+dictionary2={}
+dictionary3={}
+list1=[]
+list2=[]
+</FONT>
+def main():
+    options=['0. Quit.','1. Input Course.','2. Input Lecturer.','3. Input Student.','4. Enrol Student on Course.','5. Assign Course to Lecturer.','6. Find Course.','7. Find Lecturer.','8. Find Student.','9. Display Courses.','10. Display Lecturers.','11. Display Students.'] 
+    while True:
+        
+        print("University Member System: ")
+        for i in options:
+            print(i)
+        choice=int(input("&gt;"))
+        if choice==0:
+            break
+        elif choice&gt;11 or choice&lt;0:
+            print("That selection was not recognised.")
+        elif choice==1:
+            y=Course.input(Course)
+            dictionary1[y[1]]=y[0]
+        elif choice==2:
+            lec=Lecture.input(Lecture)
+            dictionary2[lec[1]]=lec[0]
+        elif choice==3:
+            st=Student.input(Student)
+            dictionary3[st[1]]=st[0]
+        elif choice==4:
+            std=int(input("Enter student number: "))
+            code=int(input("Enter course code: "))
+            lst=[]
+            for i in dictionary3:
+                i=int(i)
+                lst.append(i)
+            if std in lst:
+                v=code,std
+                list1.append(v)
+            else:
+                print("Could not find a student with that student number.")
+        elif choice==5:
+            stnumber=int(input("Enter staff number: "))
+            cod=int(input("Enter course code: "))
+            lst3=[]
+            for g in dictionary2:
+                g=int(g)
+                lst3.append(g)
+            if stnumber in lst3:
+                k=cod,stnumber
+                list2.append(k)
+            else:
+                print("Could not find a lecturer with that staff number.") 
+        elif choice==6:
+            cd1=input("Enter course code: ")
+            lst5=[]
+            for r in dictionary1:
+                lst5.append(int(r))
+            if int(cd1) in lst5:
+                print(cd1+",",dictionary1[cd1])
+            else:
+                print("Could not find a course with that code.")
+        elif choice==7:
+            try:
+                stfn2=input("Enter staff number: ")
+               
+                e=""
+                b=[]
+                for i in list2:
+                    if i[1]==int(stfn2):
+                        h=str(i[0])
+                        b.append(i)
+                        e+=" {}, {};".format(h,dictionary1[str(h)])
+                if b==[]:
+                    print(dictionary2[stfn2]+",",stfn2+".",end="")
+                    print()
+                else:
+                    print(dictionary2[stfn2]+",",stfn2,end=":")
+                    print(e.strip(";")+".")
+            except :
+                print("Could not find a member of staff with that number.")
+                
+        elif choice==8:
+            try:
+                stfn3=input("Enter student number: ")
+                
+                y=""
+                c=[]
+                for i in list1:
+                    if i[1]==int(stfn3):
+                        c.append(i)
+                        h=str(i[0])
+                        y+=" {}, {};".format(h,dictionary1[str(h)])
+                if c==[]:
+                    print(dictionary3[stfn3]+",",stfn3+".",end="")
+                    print()
+                else:
+                    print(dictionary3[stfn3]+",",stfn3,end=":")
+                    print(y.strip(";")+".")  
+            except:
+                print("Could not find a student with that number.")
+        elif choice==9:
+            sortedlst1=[]
+            for i in dictionary1:
+                i=int(i)
+                sortedlst1.append(i)
+            sortedlst1.sort()
+            for a in sortedlst1:
+                print("Course code:",a)
+                print("Description:",dictionary1[str(a)])
+        elif choice==10:
+            sortedlst2=[]
+            for p in dictionary2:
+                sortedlst2.append(int(p))
+            sortedlst2.sort()
+            for q in sortedlst2:
+                print("Name:",dictionary2[str(q)])
+                print("Staff number:",q)
+        elif choice==11:
+            sortedlst3=[]
+            for u in dictionary3:
+                sortedlst3.append(int(u))
+            sortedlst3.sort()
+            for y in sortedlst3:
+                print("Name:",dictionary3[str(y)])
+                print("Student number:",y)                                                      
+main()        </PRE>
+</PRE>
+</BODY>
+</HTML>

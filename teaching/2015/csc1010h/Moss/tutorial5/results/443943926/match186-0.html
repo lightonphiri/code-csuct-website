@@ -1,0 +1,187 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/5/raw/alldin001/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/5/raw/alldin001/<p><PRE>
+&gt;&gt;&gt;&gt; file: calendar_utils.py
+def is_leap_year(year):
+    if year%4!=0:       
+        return False
+    
+    if year%100==0 and year%400!= 0:   
+        return False
+    
+    if year%100==0 and year%400==0:     #if year evenly divisible by 100, is leap year when evenly divisible by 400 also
+            return True    
+
+    if year%4==0:                       #leap year if year is evenly divisible by 4   
+        return True
+            
+def month_name(number):
+    if number==1: return 'January'
+    elif number==2: return 'February'
+    elif number==3: return 'March'
+    elif number==4: return 'April'
+    elif number==5: return 'May'
+    elif number==6: return 'June'    
+    elif number==7: return 'July'        
+    elif number==8: return 'August'
+    elif number==9: return 'September'
+    elif number==10: return 'October'    
+    elif number==11: return 'November'        
+    elif number==12: return 'December'
+    
+def days_in_month(month_number, year):
+    if month_number == 2 and not is_leap_year(year):
+        return 28
+    elif month_number == 2 and is_leap_year(year):
+        return 29
+    elif month_number == 4 or month_number == 6 or month_number == 9 or month_number == 11:
+        return 30
+    elif month_number== 1 or month_number == 3 or month_number == 5 or month_number == 7 or month_number == 8 or month_number == 10 or month_number == 12:
+        return 31
+    
+def first_day_of_year(year):
+
+    day= 1
+    day= day+5*((year-1)%4)
+    day= day+4*((year-1)%100)
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match186-1.html#0" TARGET="1"><IMG SRC="../../bitmaps/tm_0_8.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    day= day+6*((year-1)%400)
+    day= day%7
+            
+    if day == 0: return 0
+                    
+    elif day == 1: return 1
+                    
+    elif day == 2: return 2
+                    
+    elif day == 3: return 3
+                    
+    elif day == 4: return 4
+                    
+    elif day == 5: return 5
+                    
+    elif day == 6: return 6
+
+def first_day_of_month(month_number, year):     #review useful concepts.docx
+</FONT>    if month_number==9 or month_number==12:
+        return (first_day_of_year(year)-2)%7
+    elif month_number==5:
+        return (first_day_of_year(year)+1)%7
+    elif month_number==6:
+        return (first_day_of_year(year)-3)%7
+        
+    elif is_leap_year(year): 
+        if month_number==1 or month_number==4 or month_number==7:
+            return (first_day_of_year(year))%7
+        elif month_number==2 or month_number==8:
+            return first_day_of_year(year)-4
+        elif month_number== 3 or month_number==11:
+            return (first_day_of_year(year)-3)%7
+        elif month_number==10:
+            return (first_day_of_year(year)+1)%7
+        
+    else: #common years
+        if month_number==1 or month_number==10:
+            return (first_day_of_year(year))%7
+        elif month_number==2 or month_number==3 or month_number==11:
+            return (first_day_of_year(year)-4)%7
+        elif month_number==4 or month_number==7:
+            return (first_day_of_year(year)-1)%7
+        elif month_number== 8:
+            return (first_day_of_year(year)+2)%7&gt;&gt;&gt;&gt; file: morse_code.py
+import morse_utils
+
+def code_for(letter):
+    letter= str(letter).lower()
+    code={'a':'.-','b':'-...','c':'-.-.','d':'-..','e':'.',
+          'f':'..-.','g':'--.','h':'....','i':'..','j':'.---',
+          'k':'-.-','l':'.-..','m':'--','n':'-.','o':'---',
+          'p':'.--.','q':'--.-','r':'.-.','s':'...','t':'-',
+          'u':'..-','v':'...-','w':'.--','x':'-..-','y':'-.--','z':'--..'}
+    
+    return code[letter]
+
+def transmit_letter(letter):
+    letter_string=str(code_for(letter))
+    count=0
+    for x in letter_string:
+        if x=='.':
+            morse_utils.beep(1000,100)
+                    
+        elif x=='-':
+            morse_utils.beep(1000,300)        
+        
+        print(x, end='')
+        count+=1
+        if len(letter_string)!=count:
+            morse_utils.sleep(0.1)
+            print('^', end='')
+
+def transmit_word(word):
+    count=0
+    for y in word:
+        transmit_letter(y)
+        count+=1
+        if len(word)!=count:
+            morse_utils.sleep(0.3)
+            print('|', end='')
+
+def word_pause():
+    morse_utils.sleep(0.7)
+    print('||',end='')&gt;&gt;&gt;&gt; file: technical_support.py
+# Tech Support
+# Stephan Jamieson
+# 5/1/2015
+responses={
+    'bluetooth':'Have you tried mouthwash?',
+    'windows':'Ah, I think I see your problem. What version?',
+    'apple':'You do mean the computer kind?',
+    'blue':'Ah, the blue screen of death. And then what happened?',
+    'spam':'You should see if your mail client can filter messages.',
+    'connection':'Contact Telkom.',
+    'crashed':'Are the drivers up to date?',
+    'hacked':'You should consider installing anti-virus software.'}
+
+
+def default_response():
+    return 'Curious, tell me more.'
+    
+def get_response(words):
+    for word in words:
+        if word.lower() in responses:       
+                                            # word.lower makes sure cases you type in dont matter
+            return word.lower()
+           
+    return str(words).lower()
+    
+
+def print_welcome():
+    print('Welcome to the automated technical support system.')
+    print('Please describe your problem:')
+    
+
+def get_input():
+    query = input().split(' ')
+    return query
+
+def main():
+    print_welcome()
+    query = get_input()
+    while True:          
+        response=get_response(query)
+        if response in responses: print(responses[response])
+        elif response=="['quit']":
+            break
+        else:
+            print(default_response())
+        query=get_input()
+        
+main()                              </PRE>
+</PRE>
+</BODY>
+</HTML>

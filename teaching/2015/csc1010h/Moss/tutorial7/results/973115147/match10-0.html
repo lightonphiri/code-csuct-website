@@ -1,0 +1,184 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/7/raw/mhlthe039/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/7/raw/mhlthe039/<p><PRE>
+&gt;&gt;&gt;&gt; file: book_cypher.py
+
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match10-1.html#0" TARGET="1"><IMG SRC="../../bitmaps/tm_0_48.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+def bookfile():
+    thefilename = input("Enter the book filename:\n") #allows the user to enter the filename
+    eiefile = open(thefilename, "r") #opens the file to read it
+    themess = (input("Enter the message:\n")).lower() #user enters the message
+    listarranged = themess.strip('?!.,;:)([]{}\'" \n') #creates the strip using the message in a sorted list
+    listarranged = listarranged.split() #splits the list
+    themess = themess.strip('?!.,;:)([]{}\'" \n') #the new message is the striped message
+    themess = themess.split(" ") # the new message is split
+    theoutputfilename = input("Enter the output filename:\n") #user enter files o which they would like output to be 
+    outcomes = open(theoutputfilename,"w") #opens the output file which the user opens and allows us to write in it
+    thenewlist = []
+    
+    for info in eiefile:
+        info = info.strip('?!.,;:)([]{}\'" \n') #looks at information within the file entered by user and strips it
+        thenewlist.append(info) #the informatio is added to the new list
+    no=1  
+    countline=1 
+    thewordfound={} 
+    
+    for sent2 in thenewlist: 
+        sent2=sent2.lower() #makes the sentence in the new list to lower case
+        sent2=sent2.strip('?!@#$%^*!.,;:)([]{}\'" \n') #strips the sentence
+        sent2=sent2.split() #splits the sentence
+        no=1
+        
+        for word in sent2: #checks the word in the sentence
+            word=word.strip('?!@#$%^*!.,;:)([]{}\'" \n') #strips the word
+            if word in themess: 
+                thewordfound[word]=str(countline)+"-"+str(no) 
+                themess.remove(word)
+            if word in themess:
+                if word in themess:
+                    thewordfound[word]=str(countline)+"-"+str(no)
+                    themess.remove(word)                  
+                    no+=1                
+            else:
+                no+=1
+        countline+=1
+        
+    print("BEGIN")
+    outcomes.write("BEGIN")
+    
+    for theoutput in listarranged:
+        if theoutput in thewordfound:
+            outcomes.write("\n")
+            outcomes.write(thewordfound[theoutput])
+            print(thewordfound[theoutput])
+        elif theoutput!=[]:
+            outcomes.write("\n") 
+            outcomes.write(theoutput)
+            print(theoutput)
+    
+    print("END")
+    outcomes.write("\n")
+    outcomes.write("END")
+    eiefile.close()
+    outcomes.close()
+    
+    
+bookfile()&gt;&gt;&gt;&gt; file: leader_board.py
+# leader_board.py
+
+def process_line(line):
+    parts = line.split(' ')
+    name = parts[0]
+    trials = int(parts[1])
+</FONT>    average = float(parts[2])
+    return (name, trials, average)
+
+def get_max(entries):
+    max = entries[0]
+    for i in range(1, len(entries)):
+        if entries[i][2] &lt;max[2]:
+            max = entries[i]
+            
+    entries.remove(max)
+    return max
+
+def sort(entries):
+    sorted_entries = []
+    while len(entries)&gt;0:
+        sorted_entries.append(get_max(entries))
+    return sorted_entries
+
+def output(entries):
+    print('Subject        | Average Time')
+    print('************** | ************')
+    for entry in entries:
+        print('{:14} | {:.6}'.format(entry[0], entry[2]))
+              
+def main():
+    while True:
+        
+        try:
+            file_name = input('Enter the name of the file:\n')
+            file_input = open(file_name, 'r') 
+            
+            entries = []
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match10-1.html#1" TARGET="1"><IMG SRC="../../bitmaps/tm_1_8.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+            number=0
+            for line in file_input: 
+                entries.append(process_line(line))
+                number+=1
+            file_input.close()
+            
+            entries = sort(entries)
+            output(entries)
+            break
+        
+        except IOError:
+            print("FILE NOT FOUND") #what it returns when input output error is found
+            
+        except ValueError as ve:
+            print("in the line number", count+1 ,"there is a problen known as",ve)
+            print(line , end="")
+            print("There should be 3 spaces between the name of the person and the average reaction time. You should start by the name of the person followed by the average reaction time. Make sure that you do not skip a line in your file")
+            
+            break
+</FONT>    
+main()
+    &gt;&gt;&gt;&gt; file: reaction_test.py
+import time #importing the time module
+<A NAME="4"></A><FONT color = #FF00FF><A HREF="match10-1.html#4" TARGET="1"><IMG SRC="../../bitmaps/tm_4_4.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+import random #importing the random module
+def reaction():
+    filename = input("Enter the name of the output file:")
+    f = open(filename,"w") #opening the filename and allowing to write
+    f.write("Subject        | Average Time") # writes this in the filename
+    f.write("\n")
+    f.write("************** | ************")
+
+    while True:
+</FONT>        totalvalue=0 #counter
+<A NAME="3"></A><FONT color = #00FFFF><A HREF="match10-1.html#3" TARGET="1"><IMG SRC="../../bitmaps/tm_3_5.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+        thesubject=input("Enter subject name (or press 'enter' to quit):")
+        
+        if thesubject == "quit" :
+            break
+        else:
+            totalvalue = 0
+            testvalue = eval(input("Enter the number of tests:"))
+            for i in range(test):
+                print("Get ready...")
+                random.randint(1,5)
+                tymbefore = time.time()
+</FONT>                input("Press 'enter' NOW!")
+<A NAME="2"></A><FONT color = #0000FF><A HREF="match10-1.html#2" TARGET="1"><IMG SRC="../../bitmaps/tm_2_6.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+                timeafter = time.time()
+                reactiontime = round(timeafter-tymbefore,6) #gets the reaction time by subtraction the time before from the time after
+                print("Reaction time:",reaction_time)
+                totalvalue += reactiontime #sums up the total value by adding the raection times
+                
+            aver=totalvalue/testvalue #calculates the average reaction time
+            print("Average reaction time:",round(aver,6))
+            f.write("\n")
+            theresult="{0:&lt;15}| {1}".format(thesubject,round(aver,6))
+            f.write(theresult)
+            
+    f.close()
+</FONT>        
+reaction()
+
+    
+    
+    
+</PRE>
+</PRE>
+</BODY>
+</HTML>

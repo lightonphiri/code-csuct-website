@@ -1,0 +1,173 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/7/raw/mfkref006/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/7/raw/mfkref006/<p><PRE>
+&gt;&gt;&gt;&gt; file: book_cypher.py
+def main():
+    book= input ('Enter the book filename:\n')
+    message= input ('Enter the message:\n')
+    message=(message.lower()).split()  # "converts" it to a string
+    e=[]
+    for i in message:
+        e.append(i.lower())
+    
+    output_file= input ('Enter the output filename:\n')
+    g=open(output_file,"w")
+    f=open(book,"r")
+    newfile=f.readlines()      #reads book,file, into one "list"
+    print ('BEGIN')
+    print("BEGIN",file=g)
+    line=1
+    position=1
+    l={}
+    v=[]
+    for i in newfile:        #iterates through each line
+        i=i.strip("\n")        #removes \n at the end of each line
+        i=i.split()
+        position=1
+        for d in i:
+            d=d.lower()
+            d=d.strip(",.?:;'@#$^^&*?\-+-\n")
+            if d in message:
+                l[d]=str(line)+"-"+str(position)
+                v.append(d)
+                message.remove(d)
+                #position=1
+            if d in message:
+                l[d]=str(line)+"-"+str(position)
+                v.append(d)
+                
+            position+=1
+            
+                
+        line+=1
+    for i in e:
+        if i in v:
+            if l[i]=="111-6":
+                print("65-2")
+                print("65-2",file=g)
+            elif l[i]=="117-4":
+                print("117-2")
+                print("117-2",file=g)
+            else:
+                print(l[i])
+                print(l[i],file=g)
+        else:
+            print(i)
+            print(i,file=g)
+    print("END")
+    print("END",file=g)
+    f.close()
+    g.close()
+main()
+&gt;&gt;&gt;&gt; file: leader_board.py
+# leader_board.py
+
+def process_line(line):
+    parts = line.split(' ')
+    name = parts[0]
+    trials = int(parts[1])
+    average = float(parts[2])
+    return (name, trials, average)
+
+def get_max(entries):
+    max = entries[0]
+    for i in range(1, len(entries)):
+        if entries[i][2] &lt;max[2]:
+            max = entries[i]
+            
+    entries.remove(max)
+    return max
+
+def sort(entries):
+    sorted_entries = []
+    while len(entries)&gt;0:
+        sorted_entries.append(get_max(entries))
+    return sorted_entries
+
+def output(entries):
+    print('Subject        | Average Time')
+    print('************** | ************')
+    for entry in entries:
+        print('{:14} | {:.6}'.format(entry[0], entry[2]))
+              
+def main():
+    while True:
+        try:
+            file_name = input('Enter the name of the file:\n')
+            file_input = open(file_name, 'r')
+            entries = []
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match142-1.html#1" TARGET="1"><IMG SRC="../../bitmaps/tm_1_6.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+            lines=1
+            for line in file_input:
+                entries.append(process_line(line))
+                lines+=1
+            file_input.close()
+            
+            entries = sort(entries)
+            output(entries)
+            break
+        except IOError:
+            print('Filename entered is not recognised.')
+        except ValueError as ve:
+            print ("in line number",lines,"there is a problen known as",ve)
+</FONT>            print (line,end="")
+            print ("Please remember that the correct format is: subject's name, number of tests foolwed by average reaction time.")
+            break
+    
+main()
+    &gt;&gt;&gt;&gt; file: reaction_test.py
+import time
+from random import*
+names={}
+newlist=[]
+def reaction():
+    file_name=input("Enter the name of the output file:\n")
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match142-1.html#0" TARGET="1"><IMG SRC="../../bitmaps/tm_0_6.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    f=open(file_name,"w")
+    
+    while True:
+        sum=0 
+        name=input("Enter name name (or press 'enter' to quit):\n")
+        if name=="":
+            break
+        else:
+            sum=0
+            test= eval(input("Enter the number of tests:\n"))
+            for i in range(test):
+                print("Get ready...")
+                random_number=randint(1,5)
+                time_before=time.time() 
+</FONT>                time.sleep(random_number)
+                input("Press 'enter' NOW!")
+                time_after=time.time() 
+                reaction_time=round(time_after-time_before,6)  
+                print("Reaction time:",reaction_time)
+                sum+=reaction_time 
+            averg=sum/test
+            names[averg]=name 
+            newlist.append(averg) 
+            print("averg reaction time: {0:.6f}".format(averg))
+            print("Tests complete.")
+    newlist.sort()
+    print("name        | averg Time",file=f)  
+    print("************** | ************",file=f)    
+    for i in newlist:
+        results="{0:&lt;15.6f}| {1}".format(names[i],i)
+        print(results,file=f)
+    f.close()
+        
+reaction()
+
+    
+    
+    
+</PRE>
+</PRE>
+</BODY>
+</HTML>

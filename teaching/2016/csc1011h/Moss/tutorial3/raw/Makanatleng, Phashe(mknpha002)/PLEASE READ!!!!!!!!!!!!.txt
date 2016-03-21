@@ -1,0 +1,9 @@
+The function in Line 77 of Main.py Opens report.py
+
+When the button Sales Report is clicked it should run the report.py file but it doesnt
+
+Reason for error: ImportError: No module named PyQt4
+
+when report.py is run alone. It works perfectly but when run from Main it generates this error
+
+Which Puzzles me because PyQt4 runs perfectly when report.py is run alone

@@ -1,0 +1,2 @@
+<p>Guess method handling not well implemented</p>
+  <p>new random number must be generated for each new game</p>

@@ -1,0 +1,29 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/1/raw/mtwmli002/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/1/raw/tknsan002/<p><PRE>
+&gt;&gt;&gt;&gt; file: CalculateChange.py
+#Program to calculate minimum amount of coins
+#Sandile Tukani
+#TKNSAN002
+#18 April 2015
+
+"""Program that calculates the minimum amount of coins in change in R5, R2,
+and R1 coins, given a total change amount in rand"""
+
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match46-0.html#0" TARGET="0"><IMG SRC="../../bitmaps/tm_0_39.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+def main():                                               #define main() function
+    change_amount= eval(input("Enter change amount:"))    #Prompt user to enter change value
+    fiveRAND= (change_amount)//5                          #Calculate minimum amount of coins of change in R5 coins
+    two_rand= (change_amount-fiveRAND*5)//2               #Calculate minimum amount of coins of change in R2 coins
+    rand1= ((change_amount)-(fiveRAND*5)-(two_rand*2))//1 #Calculate minimum amount of coins of change in R1 coins 
+</FONT>    
+    print("The change:\n",fiveRAND,"R5 coins\n",two_rand,"R2 coins\n",rand1,"R1 coins") #Print the output
+main()                                                    #Call main() function</PRE>
+</PRE>
+</BODY>
+</HTML>

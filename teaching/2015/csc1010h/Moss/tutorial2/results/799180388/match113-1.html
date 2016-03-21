@@ -1,0 +1,81 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/2/raw/mchsim007/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/2/raw/tknsan002/<p><PRE>
+&gt;&gt;&gt;&gt; file: EugeneJunior.py
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match113-0.html#1" TARGET="0"><IMG SRC="../../bitmaps/tm_1_7.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+import math
+def main():
+    print("Hello, I am Eugene Junior.")
+    name =input("What is your first name?\n")
+    sname=input("What is your last name?\n")
+    _name_=name[0:1]
+    s_name=sname[0:1]
+</FONT>    dot="."
+    excl="!"
+    print("Hi",_name_.upper()+dot+s_name.upper()+dot+excl)
+    current_year=int(input("What year is this?\n"))
+    age=int(input("What age are you?\n"))
+    birthyear=current_year-age
+    new_birthyear=(int(birthyear)+1)
+    slash_forward="/"
+    print("Okay, so you were born in",str((new_birthyear-1)-1)+slash_forward+str(new_birthyear-1)[-2:]+dot)
+    height=input("How tall are you (metres)?\n")
+    new_height=(eval(height)*3.2808399)
+    f=str(new_height).find(".")
+    feet=eval(str(new_height)[0:f])
+    inches=(new_height-feet)*12
+    
+    print("That\'s",str(feet)+"\'{0:1.0f}".format(inches)+"\"!\nI\'m going to tell you your Star Wars name.")
+    name_1=input("What\'s your mother\'s first name?\n")
+    city=input("What\'s the name of the city nearest to your place of birth?\n")
+    StarWarsname=sname[0:3]+name[0:2]
+    SWsname=name_1[-2:]+city[-3:]
+    print("Your Star Wars name is",StarWarsname.title(),SWsname.title()+'.')
+main()
+
+&gt;&gt;&gt;&gt; file: HexagonArea.py
+import math
+def main():
+    side=eval(input("Enter the length of the side (cm):\n"))
+    area=(1.5*math.sqrt(3)*side**2)
+    print("The area of a hexagon of side",side,"is {0:1.3f}.".format(area))
+main()
+&gt;&gt;&gt;&gt; file: Initials.py
+import turtle
+def main():
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match113-0.html#0" TARGET="0"><IMG SRC="../../bitmaps/tm_0_8.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    turtle.speed(0)
+    turtle.penup()
+    turtle.left(90)
+    turtle.forward(100)
+    turtle.right(90)
+    turtle.pendown()
+    turtle.right(90)
+    turtle.forward(100)
+</FONT>    turtle.left(90)
+    turtle.forward(110)
+    turtle.left(90)
+    turtle.forward(100)
+    turtle.right(90)
+    turtle.forward(110)
+    turtle.right(90)
+    turtle.forward(100)
+    turtle.penup()
+    turtle.forward(25)
+    turtle.pendown()
+    turtle.forward(100)
+    turtle.penup()
+    turtle.backward(50)
+    turtle.pendown()
+    turtle.right(90)
+    turtle.forward(220)
+main()</PRE>
+</PRE>
+</BODY>
+</HTML>

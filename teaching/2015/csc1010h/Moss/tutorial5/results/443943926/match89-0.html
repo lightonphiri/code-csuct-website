@@ -1,0 +1,281 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/5/raw/mktnta004/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/5/raw/mktnta004/<p><PRE>
+&gt;&gt;&gt;&gt; file: calendar_utils.py
+#Ntaoleng
+#2015/08/12
+#Calendar
+def is_leap_year(year):
+    year=str(year)
+    p=year[0:2]
+    q=year[2:]
+    if int(p)%4==0 and int(q)%4==0:
+        return True
+    elif int(p)%4!=0 and int(q)%4!=0:
+        return False
+    elif int(p)%4==0 and int(q)%4!=0:
+        return False
+    elif int(p)%4!=0 and int(q)%4==0:
+        return False
+def month_name(number):
+    if number == 1:
+        month = "January"
+        return month
+    elif number == 2:
+        month = "February"
+        return month
+    elif number == 3:
+        month = "March"
+        return month
+    elif number == 4 :
+        month = "April"
+        return month
+    elif number == 5:
+        month = "May"
+        return month
+    elif number == 6:
+        month = "June"
+        return month
+    elif number == 7:
+        month = "July"
+        return month
+    elif number == 8:
+        month = "August"
+        return month
+    elif number == 9:
+        month = "September"
+        return month
+    elif number == 10:
+        month = "October"
+        return month
+    elif number == 11:
+        month = "November"
+        return month
+    elif number == 12:
+        month = "December"
+        return month
+def days_in_month(month_number, year):
+    if is_leap_year(year)==True:
+        if month_number == 1 or month_number == 3 or month_number == 5 or month_number == 7 or month_number == 8 or month_number == 10 or month_number == 12 :
+            numdays = 31
+            return numdays
+        elif month_number == 4 or month_number == 6 or month_number == 9 or month_number == 11:
+            numdays = 30
+            return numdays
+        elif month_number == 2:
+            numdays = 29
+            return numdays
+    else:
+        if month_number == 1 or month_number == 3 or month_number == 5 or month_number == 7 or month_number == 8 or month_number == 10 or month_number == 12 :
+            numdays = 31
+            return numdays
+        elif month_number == 4 or month_number == 6 or month_number == 9 or month_number == 11:
+            numdays = 30
+            return numdays
+        elif month_number == 2:
+            numdays = 28
+            return numdays             
+        
+def first_day_of_year(year):
+    x = 5*((year-1)%4)
+    y = 4*((year-1)%100)
+    z = 6*((year-1)%400)
+    day = (1+x+y+z)%7
+    return day
+def first_day_of_month(month_number,year):
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match89-1.html#1" TARGET="1"><IMG SRC="../../bitmaps/tm_1_5.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    x=0
+    for i in range(month_number-1):
+        y=days_in_month(i+1, year)
+        x+=y
+    fdy=first_day_of_year(year)+x%7-7
+    list=['s','m','T','w','t','f','S']
+    dict={'s':0,"m":1,'T':2,'w':3,'t':4,'f':5,'S':6}
+</FONT>    return dict[list[fdy]]
+
+        
+   
+
+
+    
+    
+    
+    
+    
+    
+    
+&gt;&gt;&gt;&gt; file: morse_code.py
+def code_for(letter):
+    lmorse_code = letter.lower()
+    morse_code={
+        'a':'.-',
+        'b':'-...',
+        'c':'-.-.',
+        'd':'-..',
+        'e':'.',
+        'f':'..-.',
+        'g':'--.',
+        'h':'....',
+        'i':'..',
+        'j':'.---',
+        'k':'-.-',
+        'l':'.-..',
+        'm':'--',
+        'n':'-.',
+        'o':'---',       
+        'p':'.--.',
+        'q':'--.-',
+        'r':'.-.',
+        's':'...',
+        't':'-',
+        'u':'..-',
+        'v':'...-',
+        'w':'.--',
+        'x':'-..-',
+        'y':'-.--',
+        'z':'--..'}
+    return morse_code[lmorse_code]
+
+
+def transmit_letter(letter):
+    lmorse_code = letter.lower()
+    morse_code={
+           'a':'.^-',
+           'b':'-^.^.^.',
+           'c':'-^.^-^.',
+           'd':'-^.^.',
+           'e':'.',
+           'f':'.^.^-^.',
+           'g':'-^-^.',
+           'h':'.^.^.^.',
+           'i':'.^.',
+           'j':'.^-^-^-',
+           'k':'-^.^-',
+           'l':'.^-^.^.',
+           'm':'-^-',
+           'n':'-^.',
+           'o':'-^-^-',       
+           'p':'.^-^-^.',
+           'q':'-^-^.^-',
+           'r':'.^-^.',
+           's':'.^.^.',
+           't':'-',
+           'u':'.^.^-',
+           'v':'.^.^.^-',
+           'w':'.^-^-',
+           'x':'-^.^.^-',
+           'y':'-^.^-^-',
+           'z':'-^-^.^.'}    
+    print( morse_code[lmorse_code],end="")
+
+def transmit_word(word):
+    morse_code={
+           'a':'.^-',
+           'b':'-^.^.^.',
+           'c':'-^.^-^.',
+           'd':'-^.^.',
+           'e':'.',
+           'f':'.^.^-^.',
+           'g':'-^-^.',
+           'h':'.^.^.^.',
+           'i':'.^.',
+           'j':'.^-^-^-',
+           'k':'-^.^-',
+           'l':'.^-^.^.',
+           'm':'-^-',
+           'n':'-^.',
+           'o':'-^-^-',       
+           'p':'.^-^-^.',
+           'q':'-^-^.^-',
+           'r':'.^-^.',
+           's':'.^.^.',
+           't':'-',
+           'u':'.^.^-',
+           'v':'.^.^.^-',
+           'w':'.^-^-',
+           'x':'-^.^.^-',
+           'y':'-^.^-^-',
+           'z':'-^-^.^.'}     
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match89-1.html#0" TARGET="1"><IMG SRC="../../bitmaps/tm_0_5.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    l = word.lower()
+    for i in l:
+        if i==l[-1]:
+            print( morse_code[i],end="")
+        elif i==l[0]:
+            print( morse_code[i]+"|",end="")
+</FONT>        else:
+            print( morse_code[i]+"|",end="")
+            
+def word_pause():
+    print("||",end="")
+
+
+            
+    
+        
+       
+        
+        
+        
+    
+            
+            
+            
+            
+
+&gt;&gt;&gt;&gt; file: technical_support.py
+# Tech Support
+# Stephan Jamieson
+# 5/1/2015
+responses={
+    'bluetooth':'Have you tried mouthwash?',
+    'windows':'Ah, I think I see your problem. What version?',
+    'apple':'You do mean the computer kind?',
+    'blue':'Ah, the blue screen of death. And then what happened?',
+    'spam':'You should see if your mail client can filter messages.',
+    'connection':'Contact Telkom.',
+    'crashed':'Are the drivers up to date?',
+    'hacked':'You should consider installing anti-virus software.'}
+
+def default_response():
+    return 'Curious, tell me more.'
+    
+def get_response(words):
+    for word in words:
+        if word in responses:
+            res = responses[word]
+            return res
+    return default_response()
+    
+
+def print_welcome():
+    print('Welcome to the automated technical support system.')
+    print('Please describe your problem:')
+
+def get_input():
+    query = input()
+    query = query.lower()
+    query = query.split()
+<A NAME="2"></A><FONT color = #0000FF><A HREF="match89-1.html#2" TARGET="1"><IMG SRC="../../bitmaps/tm_2_3.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    return query
+
+def main():
+    print_welcome()
+    query = get_input()
+    while True:
+        if query==['quit']:break
+        response=get_response(query)
+        print(response)
+        query=get_input()
+</FONT>main()
+    </PRE>
+</PRE>
+</BODY>
+</HTML>

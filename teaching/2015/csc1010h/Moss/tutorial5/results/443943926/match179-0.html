@@ -1,0 +1,206 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/5/raw/mphfar001/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/5/raw/mphfar001/<p><PRE>
+&gt;&gt;&gt;&gt; file: calendar_utils.py
+# Mphephu Faresa
+# CSC1010H
+
+def is_leap_year(year) :
+    #code for leap year 
+    a =year%4
+    b =year%100
+    c = year%400
+    if  a==0 :
+        if b == 0 :
+            if c==0 : return True
+            else : return False             
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match179-1.html#0" TARGET="1"><IMG SRC="../../bitmaps/tm_0_9.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+        if b!=0 : return True 
+        
+    else: return False 
+    
+def month_name(number) :
+    month = {1:"January",2:"February",3 :'March' , 4:"April" , 5:"May" , 6:"June" , 7:"July",8:"August",9:"September",10:"October",11:'November',12:"December"}
+    return month[number]
+    #Given the number of a month, returns the corresponding name. 1 is January, ..., 12 is December.
+    
+def days_in_month(month_number,year) :
+    month = month_name(month_number)
+</FONT>    #print(month)
+    if month in {"January" , "March" , "May" ,'July' ,'August' , 'October' , "December" }:
+        return 31 
+    elif month in {"April", "June" ,"September" ,"November" }:  return 30
+    elif is_leap_year(year) == True and month_number == 2 : return 29
+    elif month_number == 2 :  return 28
+        
+    #Given month (in the form of a number) and (4 digit) year, return the number of days in the month (accounting, in the case of February, for whether or not it is a leap year).
+def first_day_of_year(year) :
+    z =(year-1)%4 
+    x= (year-1)%100
+    v = (year-1)%400
+    calc =  5*z + 1 + 4*x + 6*v 
+    return calc%7
+    
+def first_day_of_month(month_number, year) :
+    count = 0
+    days = {"Sunday":0,"Monday":1,"Tuesday":2,"Wednesday":3,"Thursday":4,"Friday":5,"Saturday":6}
+    z =(year-1)%4 
+    x= (year-1)%100
+    v = (year-1)%400
+    calc =  5*z + 1 + 4*x + 6*v 
+    day = calc%7    
+#print(day)
+    sto = 1
+    for month in range(month_number) :
+        #print(month)
+        if month == 0 :
+            if is_leap_year(year) == True :
+                sto+=5
+                sto+= days_in_month(month+1,year)
+                #print(sto)
+        if month == 1 :
+            if is_leap_year(year) == False : 
+                sto+=-1
+                day-=3
+                sto+= days_in_month(month+1,year)
+                #print("Month",month)
+            if is_leap_year(year) == True :     
+                sto+=2
+                day+=2
+                sto+= days_in_month(month+1,year)
+                #print("Month Leap",month)      
+        else :
+            sto+= days_in_month(month+1,year)
+        #print("Sto",sto)
+        
+    for i in range(sto):
+        day +=1   
+        if day &gt;=7 : day = 0
+   # print("day",day)    
+    return day 
+    
+    # Given a month (in the form of a number) and (4 digit) year, return the number of the day on which the first of that month falls. 0 is Sunday, …, 6 is Saturday.    
+
+#def main():
+ #   days_in_month(2,2016)
+    
+#main()&gt;&gt;&gt;&gt; file: morse_code.py
+import morse_utils
+
+code = {'a':".-",'b':"-...",'c':"-.-.",'d' :"-..",'e':"." ,'f':"..-.",'g':"--.",'h':"....",'i':"..",'j':".---",'k':"-.-",'l':".-..",'m':"--",'n':"-.",'o':"---",'p':".--.",'q':"--.-",'r':".-.",'s':"...",'t':"-",'u':"..-",'v':"...-",'w':".--",'x':"-..-",'y':"-.--",'z':"--.."}
+
+def code_for(letter) :
+    #k = letter.lower
+    return code[letter.lower()]
+
+def transmit_letter(letter) :
+    #p_string = ""
+    #for x in range (len(letter)) :
+    #    p_string =
+    count = 0 
+    for c in code_for(letter) :   
+        count +=1
+        #for i in range(len(code_for(letter))):
+        if c == "-" :
+            print(c,end="") 
+            morse_utils.beep(500,500)
+            #print("^",end ='') 
+    
+        if c == "." :
+            morse_utils.sleep(1)
+            print(".",end='')
+            morse_utils.beep(1000,100)
+                
+        if count &lt; len(code_for(letter)) :       
+            print("^",end ='')
+            #while i != (len(c)-1) :
+        #if c != :code_for(letter)[-1] :
+                #Sbreak
+        
+def transmit_word(word) :
+    for i in word :
+        transmit_letter(i)
+        print('|',end='')
+        
+def word_pause() :
+    print("||",end="")
+    morse_utils.sleep(.7)
+
+            
+#def main():
+ #   message = input("Enter your Message : \n").split(' ')    
+  #  for e in message :
+   #     transmit_word(e)
+    #    word_pause()
+    #print('')
+    #code_for(letter)
+    #transmit_letter(letter)
+    
+#main()&gt;&gt;&gt;&gt; file: technical_support.py
+# Tech Support
+# Stephan Jamieson
+# 5/1/2015
+responses={
+    'bluetooth':'Have you tried mouthwash?',
+    'windows':'Ah, I think I see your problem. What version?',
+    'apple':'You do mean the computer kind?',
+    'blue':'Ah, the blue screen of death. And then what happened?',
+    'spam':'You should see if your mail client can filter messages.',
+    'connection':'Contact Telkom.',
+    'crashed':'Are the drivers up to date?',
+    'hacked':'You should consider installing anti-virus software.'}
+
+def default_response():
+    return 'Curious, tell me more.'
+
+def print_welcome():
+    print('Welcome to the automated technical support system.')
+    print('Please describe your problem:')
+
+def get_input():
+    query = input("").split()
+    #print("Query :",query)
+    return query
+
+def get_response(x) :
+    for word in x:
+        word = word.lower()
+        if word== "quit" : return
+        if word in responses :
+           # print("Word = ",word)
+            #print (responses[word.lower()])
+            return responses[word]
+        
+        #else : pass
+    return default_response()
+        
+        
+        #print(word)
+        
+   # if word.lower()!= "quit" and word.lower() not in responses : 
+            
+        
+        
+
+
+def main():
+    print_welcome()
+    query = get_input()
+    #quit = query
+    get_response(query)
+    while True :
+        if query[0].lower() == 'quit' : break    
+        else :
+            print(get_response(query))
+            query=get_input()
+        
+main()
+    </PRE>
+</PRE>
+</BODY>
+</HTML>

@@ -1,0 +1,251 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/7/raw/khsman003/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/7/raw/qyxcal001/<p><PRE>
+&gt;&gt;&gt;&gt; file: 'book_cypher.py'.py
+#caleb Qoyo
+#book cypher programme
+#19 September 2015
+
+
+
+
+f = input('Enter filename:\n')                     #prompt to enter file name
+msg = input('Enter message:\n')                        #prompt for massage
+output_file_name = input('Enter the output filename :\n')
+print()
+f = open(output_file_name,'w')           #file opening
+message = msg.spit(" ")                            #saparate the diffrent words
+q= 0
+print("BEGIN",file=output_file_name)
+print("BEGIN")
+while message!=[]:           #initialise and set terminating condition for loop
+    s  = open(f,'r')         #file read
+    p=0
+    l=2
+    for line in f:
+        if p == 9:          #for loop terminating conditions by counter
+            q = 0
+            break
+        q+=1                #line number counter
+        line=line.split(' ')    #saparate words in line from book
+        for element in line:
+            d = element
+            element = element.strip('?!.,;:)([]{}\'" \n') #clear line of unwanted characters
+            line[line.index(d)]=element.lower()         #find index
+            if element.lower()==message[0]:
+                p=9
+                l=8
+                word =line.index(element.lower)+1-line[:line.index(element.lower())+1].count('')
+                print(str(x)+'-'+str(word))
+                print(str(x)+'-'+str(word),file=output_file_name)
+                x = 0
+        if l!=8:
+            print(message[0])
+            print(message[0],file=output_file_name)
+            message[1:]        #string splicing
+            print("END")
+            print("END",file=output_file_name)
+            f.close()                   #file closing
+            output_file_name.close()
+            &gt;&gt;&gt;&gt; file: book_cypher.py
+#caleb Qoyo
+#book cypher programme
+#19 September 2015
+
+
+
+
+f = input('Enter filename:\n')                     #prompt to enter file name
+msg = input('Enter message:\n')                        #prompt for massage
+output_file_name = input('Enter the output filename :\n')
+print()
+f = open(output_file_name,'w')           #file opening
+message = msg.split(" ")                            #saparate the diffrent words
+q= 0
+print("BEGIN",file=output_file_name)
+print("BEGIN")
+while message!=[]:           #initialise and set terminating condition for loop
+    s  = open(f,'r')         #file read
+    p=0
+    l=2
+    for line in f:
+        if p == 9:          #for loop terminating conditions by counter
+            q = 0
+            break
+        q+=1                #line number counter
+        line=line.split(' ')    #saparate words in line from book
+        for element in line:
+            d = element
+            element = element.strip('?!.,;:)([]{}\'" \n') #clear line of unwanted characters
+            line[line.index(d)]=element.lower()         #find index
+            if element.lower()==message[0]:
+                p=9
+                l=8
+                word =line.index(element.lower)+1-line[:line.index(element.lower())+1].count('')
+                print(str(x)+'-'+str(word))
+                print(str(x)+'-'+str(word),file=output_file_name)
+                x = 0
+        if l!=8:
+            print(message[0])
+            print(message[0],file=output_file_name)
+            message[1:]        #string splicing
+            print("END")
+            print("END",file=output_file_name)
+            f.close()                   #file closing
+            output_file_name.close()
+            &gt;&gt;&gt;&gt; file: book_cypher.py.py
+#caleb Qoyo
+#book cypher programme
+#19 September 2015
+
+
+
+
+f = input('Enter filename:\n')                     #prompt to enter file name
+msg = input('Enter message:\n')                        #prompt for massage
+output_file_name = input('Enter the output filename :\n')
+print()
+f = open(output_file_name,'w')           #file opening
+message = msg.spit(" ")                            #saparate the diffrent words
+q= 0
+print("BEGIN",file=output_file_name)
+print("BEGIN")
+while message!=[]:           #initialise and set terminating condition for loop
+    s  = open(f,'r')         #file read
+    p=0
+    l=2
+    for line in f:
+        if p == 9:          #for loop terminating conditions by counter
+            q = 0
+            break
+        q+=1                #line number counter
+        line=line.split(' ')    #saparate words in line from book
+        for element in line:
+            d = element
+            element = element.strip('?!.,;:)([]{}\'" \n') #clear line of unwanted characters
+            line[line.index(d)]=element.lower()         #find index
+            if element.lower()==message[0]:
+                p=9
+                l=8
+                word =line.index(element.lower)+1-line[:line.index(element.lower())+1].count('')
+                print(str(x)+'-'+str(word))
+                print(str(x)+'-'+str(word),file=output_file_name)
+                x = 0
+        if l!=8:
+            print(message[0])
+            print(message[0],file=output_file_name)
+            message[1:]        #string splicing
+            print("END")
+            print("END",file=output_file_name)
+            f.close()                   #file closing
+            output_file_name.close()
+            &gt;&gt;&gt;&gt; file: leader_board.py
+# leader_board.py
+
+def process_line(line):
+    parts = line.split(' ')
+    name = parts[0]
+    trials = int(parts[1])
+    average = float(parts[2])
+    return (name, trials, average)
+
+def get_max(entries):
+    max = entries[0]
+    for i in range(1, len(entries)):
+        if entries[i][2] &lt;max[2]:
+            max = entries[i]
+            
+    entries.remove(max)
+    return max
+
+def sort(entries):
+    sorted_entries = []
+    while len(entries)&gt;0:
+        sorted_entries.append(get_max(entries))
+    return sorted_entries
+
+def output(entries):
+    print('Subject        | Average Time')
+    print('************** | ************')
+    for entry in entries:
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match97-0.html#0" TARGET="0"><IMG SRC="../../bitmaps/tm_0_18.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+        print('{:14} | {:.6}'.format(entry[0], entry[2]))
+              
+def main():
+   
+    while True:
+        file_name = input('Enter the name of the file:\n')
+        try:
+            file_input = open(file_name, 'r')
+            entries = []
+            try:
+                n=1
+                for line in file_input:
+                    entries.append(process_line(line))
+                    n+=1
+                file_input.close()
+                break
+            except:
+                print("Error with file content format in line",n,".")
+                print(line)
+                print("Please ensure the folowing:")
+                print("(1)Starts with the contestant name,followed by number of tests and then avarge time.")
+                print("(2)There are 3 spaces between name,number of tests and avarage time") 
+                print("(3)there are no spaces between lines of text")
+            entries = sort(entries)
+            output(entries)
+        
+        except:
+            print("File name does not exist,please try again.")    
+    
+main()
+    &gt;&gt;&gt;&gt; file: reaction_test.py
+# caleb Qoyo
+# reaction tester
+# 09 September 2015
+ 
+from time import*
+from random import*
+file=input('Enter the name of the output file:\n') 
+f=open(file,"w") 
+while True:
+  name=input("Enter subject name (or press 'enter' to quit):\n")
+  
+  if name =="":
+    break
+  else:
+    number =eval(input("Enter the number of tests:\n"))
+    for i in range(number):
+      
+      print("Get ready...",flush=True)
+      
+      sleep(randint(1,5))
+      
+      start_time = time()
+      
+      p=input("Press 'enter' NOW!")
+      
+      end_time =time()
+      
+      reaction_time = end_time-start_time
+      
+      #f.write(str(reaction_time))
+      tim='Reaction time:{0:1.7f}'.format(reaction_time)
+      o=reaction_time
+      f.write(str(o))
+      total =+ reaction_time
+      print(tim)
+      
+      avarage=total/number
+      
+    print("Tests complete.")
+    print('Average reaction time:{0:1.7f}'.format(avarage))
+</FONT>f.close()</PRE>
+</PRE>
+</BODY>
+</HTML>

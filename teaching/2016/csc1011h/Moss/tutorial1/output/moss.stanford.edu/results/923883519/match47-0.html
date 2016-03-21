@@ -1,0 +1,171 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Dropbox/Projects/work/2016/csc1011h/Moss/tutorial1/raw/Ndlovu,_Mxoleleni(ndlmxo003)/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Dropbox/Projects/work/2016/csc1011h/Moss/tutorial1/raw/Ndlovu,_Mxoleleni(ndlmxo003)/<p><PRE>
+&gt;&gt;&gt;&gt; file: Appointment.py
+# Ndlovu Mxoleleni
+# NDLMXO003
+
+class Appointment:          # creating Appointment class
+    def __init__(self,pat_ID=0,Doc_ID=0,timestamp=0,memo="empty"):            # constructor object method for Appointment class
+        self.patient_ID = pat_ID            # initialising object variable
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match47-1.html#0" TARGET="1"><IMG SRC="../../bitmaps/tm_0_4.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+        self.Doctor_ID = Doc_ID             # initialising object variable
+        self.time_stamp = time_stamp            # initialising object variable
+        self.memo = memo            # initialising object variable
+        
+    def __str__(self):          # object method converting object to string
+        return(str(self.patient_ID)+","+str(self.Doctor_ID)+","+str(self.time_stamp)+","+self.memo)&gt;&gt;&gt;&gt; file: Clinic.py
+</FONT># Ndlovu Mxoleleni
+# NDLMXO003
+
+from Person import Person           # importing Person class
+from Doctor import Doctor           # importing Doctor class
+from Patient import Patient         # importing Patient class
+from Appointment import Appointment         # importing Appointment class
+import datetime                     # importing datetime
+from time import gmtime, strftime           # importing gmtime, strftime from time
+import pickle           # importing pickle
+
+def main():         #defining main function
+    
+    '''lists to store patients,doctors and appointments'''
+    patients = []
+    doctors = []
+    appointments = []
+    
+    print("*_*_*_*_*_CLINIC_*_*_*_*_*\n")
+    print("__OPTIONS TO SELECT__\n""1: Add patient.\n""2: Add doctor.\n""3: Add appointment.\n""4: Display all the patients, doctors or appointments.\n""5: search for and display all the appointments for a particular patient.\n""6: Quit.\n")            # menu to choose from
+    
+    while True:
+        option = int(input("Enter option: "))           # prompting the user to enter their option
+        '''adding a patient'''
+        if option == 1:
+            Patient.name = input("Enter name: ")
+            patients.append(Patient.name)
+            Patient.age = int(input("Enter age: "))
+            patients.append(Patient.age)
+            Patient.ID_number = int(input("Enter ID: "))
+            Patient.patient_address = input("Enter address: ")
+            patients.append(Patient.ID_number)
+            Patient.number_of_visits = int(input("Enter no. of visits: "))
+            patients.append(Patient.number_of_visits)
+            Appointment.memo = input("Enter memo: ")
+            appointments.append(Appointment.memo)            
+                       
+        elif option == 2:
+            '''adding a doctor'''
+            Doctor.name = input("Enter name: ")
+            doctors.append(Doctor.name)
+            Doctor.age = int(input("Enter age: "))
+            doctors.append(Doctor.age)
+            Doctor.ID_number = int(input("Enter ID: "))
+            doctors.append(Doctor.ID_number)
+            Doctor.doctors_address = input("Enter address: ")
+            doctors.append(Doctor.doctors_address)
+        
+        elif option == 3: 
+            '''adding an appointment''' 
+            Appointment.name = input("Enter name: ")
+            appointments.append(Appointment.name)
+            Appointment.age = int(input("Enter age: "))
+            appointments.append(Appointment.age)
+            Appointment.ID_number = int(input("Enter ID: "))
+            appointments.append(Appointment.ID_number)
+            Appointment.patient_address = input("Enter address: ")
+            appointments.append(Appointment.patient_address)
+            Appointment.time_stamp = strftime("%Y-%m-%d %H:%M:%S", gmtime())
+            appointments.append(Appointment.time_stamp)
+            Patient.number_of_visits = int(input("Enter no. of visits: "))
+            patients.append(Patient.number_of_visits)            
+            Appointment.memo = input("Enter memo: ")
+            appointments.append(Appointment.memo)
+            
+        elif option == 4:
+            '''displaying all the patients,doctors and appointments'''
+            print("Patients:",str(patients))
+            print("Doctors:",str(doctors))
+            print("Appointments:",str(appointments)+"\n")
+        
+            '''search for and display all the appointments for a particular patient'''
+        elif option ==5:
+            ID = input("Enter ID of patient or doctor: ")
+            if ID in (patients or doctors):
+                print(appointments)
+            
+        else:           # option to Quit
+            break
+        
+        '''putting patients,doctors and appointments in one list'''
+        combo_Lists = []            # empty list
+        combo_Lists.append(patients)
+        combo_Lists.append(doctors)
+        combo_Lists.append(appointments)
+        
+        '''pickling the code'''
+        outFile = open("pickle.txt", "wb")
+        pickle.dump(combo_Lists, outFile)
+        outFile.close()
+        
+        inFile = open("pickle.txt", "rb")
+        newlist = pickle.load(inFile)
+        inFile.close()
+            
+main()          # calling the main function&gt;&gt;&gt;&gt; file: Doctor.py
+# Ndlovu Mxoleleni
+# NDLMXO003
+
+from Person import Person            # importing Person class from Person module
+
+class Doctor(Person):           # creating Doctor class
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match47-1.html#1" TARGET="1"><IMG SRC="../../bitmaps/tm_1_4.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    def __init__(self,n='unknown',a=0,doc_ID=0,doc_addr="unknown"):        # constructor object method for Doctor class
+        Person.__init__(self,n,a)           # calling Person constructor
+        self.ID_number = doc_ID            # initialising object variable
+        self.doctors_address = doc_addr         # initialising object variable
+    
+    def __str__(self):          # object method converting object to string
+        return(self.name+","+str(self.age)+","+str(self.Doctors_ID)+","+self.Doctors_address)&gt;&gt;&gt;&gt; file: Patient.py
+</FONT># Ndlovu Mxoleleni
+# NDLMXO003
+
+from Person import Person           # importing Person class from Person module
+
+class Patient(Person):          # creating Patient class
+    def __init__(self,n='unknown',a=0,pat_ID=0,pat_addr="unknown",no_of_vis=0):          # constructor object method for Patient
+        Person.__init__(self,n,a)           # calling Person constructor
+        self.ID_number = pat_ID         # initialising object variable
+        self.patient_address = pat_addr            # initialising object variable 
+        self.number_of_visits = no_of_vis           # initialising object variable 
+        
+    def total_medical_fees_owed(self):          # object method for calculating the total medical fees
+        total_medical_fees_owed = self.number_of_visits*200
+        
+    def __str(self):            # object method converting object to string
+
+        return(self.name + "," + str(self.age)+","+str(self.ID_number)+","+self.patient_address+","+str(self.number_of_visits))&gt;&gt;&gt;&gt; file: Person.py
+class Person:
+    
+    def __init__(self,n='unknown',a=0):
+        self.name = n
+        self.age = a
+
+    def increment_age(self):
+        self.age += 1
+        
+    def __str__(self):
+        return(self.name + ',' + str(self.age))
+
+    def display(self):
+        print('Name:',self.name)
+        print('Age:',self.age)
+
+</PRE>
+</PRE>
+</BODY>
+</HTML>

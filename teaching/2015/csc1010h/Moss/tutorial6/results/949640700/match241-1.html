@@ -1,0 +1,118 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/6/raw/mcnmon001/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/6/raw/sngxha002/<p><PRE>
+&gt;&gt;&gt;&gt; file: fixed_mod.py
+import string
+
+def palindrome (s):
+   if len(s) == 1:
+      return True
+   elif len(s)==0:
+      return True
+   elif s[0] in string.punctuation or s[0] in string.whitespace:
+      return palindrome(s[:-1])
+   elif s[-1] in string.punctuation or s[-1] in string.whitespace:
+      return palindrome(s[:-1])
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match241-0.html#0" TARGET="0"><IMG SRC="../../bitmaps/tm_0_6.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+   elif s[0].lower() == s[-1].lower():
+      return palindrome (s[1:-1])
+   else:
+      return False
+
+&gt;&gt;&gt;&gt; file: match_mod.py
+# A program that determines if two strings are the same word recursively
+# Xhanti Singatha 
+# 27 August 2015
+
+def equals(word_one,word_two):
+    if word_one=="" and word_two=="":
+        return True
+</FONT>    elif len(word_one)!=len(word_two):
+        return False
+    else:
+        if word_one[0].lower() == word_two[0].lower():
+            return equals(word_one[1:],word_two[1:])
+        else:
+            return False
+
+
+def query(pattern,word):
+    if len(pattern)== 0 and len(word)== 0:
+        return True
+    elif len(pattern)!=len(word):
+        return False
+    else:
+        if pattern[0]==word[0]:
+            return query(pattern[1:-1],word[1:-1])
+        elif pattern[0]=='?' and word[0]!="":
+            pattern == word
+            return query(pattern[1:-1],word[1:-1])
+        else:
+            return False 
+
+def match(pattern,word):
+    if len(pattern)==0 and len(word)&gt;=0:
+        return True
+    elif pattern[0]=='*' and len(word)&gt;0:
+        return match(pattern[1:],word[1:])
+    elif pattern[0]==word[0]:
+        return match(pattern[1:],word[1:])
+    elif pattern[-2:]==word[-2] and pattern[-1:]==word[-1]:
+        return True
+    elif pattern[0]=='*' and pattern[-1]==word[-1]:
+        return True
+    elif len(pattern)==len(word) and pattern[0]!=word[0]:
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match241-0.html#1" TARGET="0"><IMG SRC="../../bitmaps/tm_1_5.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+        return False
+
+&gt;&gt;&gt;&gt; file: mongoose_mod.py
+# A program that calculates the population size of the mongoose species recursively
+# Xhanti Singatha
+# 27 August 2015
+
+def population(n):
+    if n&lt;=2:
+        return 2
+    else:
+        return population(n-1)+population(n-2)
+&gt;&gt;&gt;&gt; file: sum_mod.py
+# A program that sums integers recursively from 1 to n integers
+# Xhanti Singatha
+# 27 August 2015
+
+def sum_to_n(n):
+</FONT>    if n==1:
+        return 1
+    else:
+        return n + sum_to_n(n-1)
+
+
+
+&gt;&gt;&gt;&gt; file: test_match.py
+# Test match
+import match_mod
+
+def main():
+    p = input('Enter pattern:\n')
+    w = input('Enter word:\n')
+    print(match_mod.match(p, w))
+    
+main()
+    &gt;&gt;&gt;&gt; file: test_sum_mod.py
+# Test sum_mod
+import sum_mod
+
+def main():
+    n = int(input('Enter n:\n'))
+    print(sum_mod.sum_to_n(n))
+
+main()</PRE>
+</PRE>
+</BODY>
+</HTML>

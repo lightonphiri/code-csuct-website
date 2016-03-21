@@ -1,0 +1,168 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/3/raw/kmpmph001/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/3/raw/mtstha058/<p><PRE>
+&gt;&gt;&gt;&gt; file: TimeConvertor.py
+time=input('Enter a time ([h]h:mm [am|pm]):\n')
+
+<A NAME="3"></A><FONT color = #00FFFF><A HREF="match63-0.html#3" TARGET="0"><IMG SRC="../../bitmaps/tm_3_3.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+types=time[6:8]
+types1=time[5:7]
+hours=time[0:2]
+mins=time[3:5]
+
+if len(time)==7 and time[5:7]=="am":
+</FONT>    a=('0'+time[:1])
+    b=time.replace(time[:1],a)
+    print(b[0:2]+':'+time[2:4])
+    
+elif len(time)==7 and time[5:7]=="pm":
+    a=str(int(time[:1])+12)
+    b=time.replace(time[:1],a)
+    print(b[:5])
+elif len(time)==8 and time[6:9]=="am":
+    if time[:2]=='12':
+        print('00'+time[2:5])
+    else:
+        print(time[:5])
+elif len(time)==8 and time[6:9]=="pm":
+    if time[:2]=='12':
+        print(time[:5])
+    else:
+        a=str(int(time[:2])+12)
+        b=time.replace(time[:2],a)
+        print(b[:5])
+elif len(time)==5 and int(time[:2])&gt;=12:
+    if time[:2]=='12':
+        print('12'+':'+time[3:5],'pm')
+    else:
+        a=str(int(time[:2])-12)
+        b=time.replace(time[:2],a)
+        print(b,'pm')
+elif len(time)==5 and int(time[:2])&lt;12:
+    if time[0:2]=='00':
+        print('12'+':'+time[3:5],'am')
+    elif int(time[:2])&gt;=10:
+        print(time,'am')
+    else:
+        a=time.replace(time[:2],time[1:2])
+        print(a[:1]+':'+time[3:5],'am')
+    
+                   &gt;&gt;&gt;&gt; file: Twelve.py
+# Twelve hour to twenty hour clock convention
+# Thapelo Matsaung
+# 16-05-2015
+
+time=(input("Enter a time in 12 hour clock ([h]h:mm [am|pm]):\n"))
+<A NAME="4"></A><FONT color = #FF00FF><A HREF="match63-0.html#4" TARGET="0"><IMG SRC="../../bitmaps/tm_4_3.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+types=time[6:8]
+types1=time[5:7]
+hours=time[0:2]
+mins=time[3:5]
+
+if not(hours.isdigit()) and types1=='am':
+</FONT>    a='0'+time[0:1]
+    b=time.replace(hours,(a+':'))
+    print(b[0:5])
+elif not(hours.isdigit()) and types1=='pm':
+    a=str(int(time[0:1])+12)
+    b=time.replace(hours,a+':')
+    print(b[0:5])
+elif hours.isdigit() and types=='am':
+    if hours=='12':
+        print('00'+':'+mins)
+    else:
+        print(time[0:5])
+elif hours.isdigit() and types=='pm':
+    if hours=='12':
+        print(time[0:5])
+    else:
+        STR=time.replace(hours,str(int(hours)+12))
+        print(STR[0:5])
+    
+            &gt;&gt;&gt;&gt; file: TwentyFour.py
+# Twelve hour and twenty four hour time convention program
+# Thapelo Matsaung
+# 12-May-2015
+
+time=(input("Enter a time in 24 hour clock (hh:mm):\n"))
+time2=(time[0:2])
+if time2&gt;"12"and time2!="12":
+    time3=int(time2)-12
+    time4=time.replace(time[0:2],str(time3))
+    print(time4,"pm")
+elif time2=="12":
+    print(time,"pm")
+elif time2=="00":
+    print("12"+':'+time[3:5],"am")
+else:
+    a=time[1:2]
+    print(a+time[2:5],"am")
+
+    
+
+&gt;&gt;&gt;&gt; file: VehicleClassifier.py
+# Program to clasify cars
+# Thapelo Matsaung
+# 17-05-2015
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match63-0.html#1" TARGET="0"><IMG SRC="../../bitmaps/tm_1_4.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+print('***** Vehicle classifier *****')
+GVM=eval(input("What is the gross vehicle mass (in kg)?\n"))
+trailer=input("Does the vehicle have a trailer?\n")
+
+if GVM&lt;=3500:
+    if trailer=="y":
+        trailer_mass=eval(input("What is the trailer mass?\n"))
+        if trailer_mass&gt;750:
+            print("This vehicle is class EB.")
+        else:
+            print("This vehicle is class B.")
+</FONT><A NAME="0"></A><FONT color = #FF0000><A HREF="match63-0.html#0" TARGET="0"><IMG SRC="../../bitmaps/tm_0_4.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    else:
+        articul=input("Is the vehicle articulated?\n")
+        if articul=="y":
+            print('This vehicle is class EB.')
+        else:
+            print("This vehicle is class B.")
+elif 3500&lt;GVM&lt;=16000:
+    if trailer=="y":
+        trailer_mass=eval(input("What is the trailer mass?\n"))
+        if trailer_mass&gt;750:
+            print("This vehicle is class EC1.")
+</FONT>        else:
+            print("This vehicle is class C1.")
+    else:
+<A NAME="2"></A><FONT color = #0000FF><A HREF="match63-0.html#2" TARGET="0"><IMG SRC="../../bitmaps/tm_2_4.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+        articul=input("Is the vehicle articulated?\n")
+        if articul=="y":
+            print('This vehicle is class EC1.')
+        else:
+            print("This vehicle is class C1.")
+elif GVM&gt;16000:
+    if trailer=="y":
+        trailer_mass=eval(input("What is the trailer mass?\n"))
+        if trailer_mass&gt;750:
+            print("This vehicle is class EC.")
+</FONT>        else:
+            print("This vehicle is class C.")
+    else:
+        articul=input("Is the vehicle articulated?\n")
+        if articul=="y":
+            print('This vehicle is class EC.')
+        else:
+            print("This vehicle is class C.")    
+    
+    
+            
+</PRE>
+</PRE>
+</BODY>
+</HTML>

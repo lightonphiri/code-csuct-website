@@ -1,0 +1,337 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/3/raw/jkwviz001/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/3/raw/jkwviz001/<p><PRE>
+&gt;&gt;&gt;&gt; file: FeetMetres.py
+# Exercise 3
+# Part A
+# displays a conversion table for measurements in feet to measurements in metres
+
+
+# get minimum value
+
+min = int(input("Enter the minimum number of feet (not less than 0): \n"))
+
+# get maximum value
+
+max = int(input("Enter the maximum number of feet (not more than 99): \n"))
+
+if max&lt;0 or min&gt;99:
+    print("Error.")
+
+# multiply values by ()
+
+
+for i in range(min,max+1):
+    metres = i*0.3048
+    
+    print("  {:2}' |   {:&lt;.2f}m".format(i,metres))
+    &gt;&gt;&gt;&gt; file: FlowerPattern.py
+# Turtle program that draws a flower pattern
+# Exercise 4
+
+
+# get the number of petals
+
+no_of_petals = int(input("Enter the number of petals (must be an even number): \n"))
+
+# get the length of a stem
+
+length_stem = int(input("Enter the length of stem: \n"))
+
+# get the shape/type of petals
+
+petal_type = input("Enter the petal type (triangle, square, or pentagon): \n")
+
+# get the length of side
+
+length_side = int(input("Enter the length of side: \n"))
+
+# get the stem colour
+
+stem_colour = input("Enter the stem colour: \n")
+
+# get the first petal colour
+
+first_petal_colour = input("Enter the first petal colour: \n")
+
+# get the second petal colour
+
+second_petal_colour = input("Enter the second petal colour: \n")
+
+
+stem_angle = 2*(180-(360/no_of_petals))
+
+
+def turtle():
+    
+    # first half of petals
+    
+    for i in range(no_of_petals//2):
+        turtle.color(stem_color)
+        turtle.forward(length_stem)
+        if petal_type=='pentagon':
+            def pentagon():
+                turtle.color(first_petal_color)
+                turtle.left(54)
+                turtle.forward(length_side)
+                turtle.right(108)
+                turtle.forward(length_side)
+                turtle.right(108)
+                turtle.forward(length_side)
+                turtle.right(108)
+                turtle.forward(length_side)
+                turtle.right(108)
+                turtle.forward(length_side)
+                turtle.left(54)
+                turtle.color(stem_color)
+                turtle.forward(length_stem)
+                turtle.right(stem_angle)
+                turtle.home()
+            pentagon()
+        elif petal_type=='triangle':
+            def triangle():
+                turtle.color(first_petal_color)
+                turtle.left(30)
+                turtle.forward(length_side)
+                turtle.right(120)
+                turtle.forward(length_side)
+                turtle.right(120)
+                turtle.forward(length_side)
+                turtle.left(60)
+                turtle.color(stem_color)
+                turtle.forward(length_side)
+                turtle.left(stem_angle)
+                turtle.home()
+            triangle()
+        elif petal_type=='square':
+            def square():
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match229-1.html#0" TARGET="1"><IMG SRC="../../bitmaps/tm_0_6.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+                turtle.color(first_petal_color)
+                turtle.left(90)
+                turtle.forward(length_side/2)
+                turtle.right(90)
+                turtle.forward(length_side)
+                turtle.right(90)
+                turtle.forward(length_side)
+                turtle.right(90)
+                turtle.forward(length_side)
+                turtle.right(90)
+                turtle.forward(length_side/2)
+                turtle.left(90)
+                turtle.color(stem_color)
+                turtle.forward(stem_length)
+                turtle.left(stem_angle)
+</FONT>                turtle.home()
+            square()
+           
+        
+    # second half of petals
+    turtle.left(90)
+    for i in range(no_of_petals//2):
+        turtle.color(stem_color)
+        turtle.forward(length_stem)
+        if petal_type=='pentagon':
+            def pentagon():
+                turtle.color(second_petal_color)
+                turtle.left(54)
+                turtle.forward(length_side)
+                turtle.right(108)
+                turtle.forward(length_side)
+                turtle.right(108)
+                turtle.forward(length_side)
+                turtle.right(108)
+                turtle.forward(length_side)
+                turtle.right(108)
+                turtle.forward(length_side)
+                turtle.left(54)
+                turtle.color(stem_color)
+                turtle.forward(length_stem)
+                turtle.right(stem_angle)
+            pentagon()
+        elif petal_type=='triangle':
+            def triangle():
+                turtle.color(second_petal_color)
+                turtle.left(30)
+                turtle.forward(length_side)
+                turtle.right(120)
+                turtle.forward(length_side)
+                turtle.right(120)
+                turtle.forward(length_side)
+                turtle.left(60)
+                turtle.color(stem_color)
+                turtle.forward(length_side)
+                turtle.left(stem_angle)
+            triangle()
+        elif petal_type=='square':
+            def square():
+                turtle.color(second_petal_color)
+                turtle.left(90)
+                turtle.forward(length_side/2)
+                turtle.right(90)
+                turtle.forward(length_side)
+                turtle.right(90)
+                turtle.forward(length_side)
+                turtle.right(90)
+                turtle.forward(length_side)
+                turtle.right(90)
+                turtle.forward(length_side/2)
+                turtle.left(90)
+                turtle.color(stem_color)
+                turtle.forward(stem_length)
+                turtle.left(stem_angle)
+            square()
+            
+        turtle.exitonclick()
+turtle()&gt;&gt;&gt;&gt; file: InchesMetres.py
+# program that displays a conversion table for inches to metres
+# Exercise 3
+# Part B
+
+
+# get the values in a set
+
+values = []
+
+# get the minimum
+
+min = int(input("Enter the minimum number of inches (not less than 0): \n"))
+
+# get the maximum
+
+max = int(input("Enter the maximum number of inches (not more than 11): \n"))
+
+#for j in range(min,max+1):
+#    values.append = (j)
+
+# multiply and print using for loop and .format
+
+inch_set = []
+
+for i in range(min,max+1):
+    
+    inches = i*0.0254
+    inch_set.append = (inches)
+    print("Inches: {}".format(inch_set))
+    print(inches)&gt;&gt;&gt;&gt; file: Twelve.py
+def twelve():
+    time = input("Enter a time in 12 hour clock ([h]h:mm [am|pm]) : \n")
+    
+    if int(time[0:2])==12:
+        new_time1=12
+    elif 1&lt;=int(time[0])&lt;10:
+        new_time1 = abs(int(time[0:1]) + 12)
+    elif int(time[0:2])==11 or int(time[0:2])==10:
+        new_time1 = abs(int(time[0:2]) + 12)        
+        
+        
+        
+    #elif int(time[0])==1:
+    #    new_time1 = abs(int(time[0]) + 12)
+        
+    new_time2 = time[3:5]
+    #if 
+    print("{}:{}".format(new_time1,new_time2))
+twelve()&gt;&gt;&gt;&gt; file: TwentyFour.py
+def twentyfour():
+    time = input("Enter a time in 24 hour clock (hh:mm): \n")
+    
+    if int(time[0:2])==12:
+        new_time1 = 12
+    
+    elif int(time[0:2])!=12:
+        new_time1 = abs(int(time[0:2]) - 12)
+    
+    new_time2 = time[3:5]
+    if int(time[0:2])&lt;12:
+        print("{}:{} am".format(new_time1,new_time2))
+    elif int(time[0:2])&gt;12:
+            print("{}:{} pm".format(new_time1,new_time2))
+    #print("{}:{}".format(new_time1,new_time2))
+twentyfour()&gt;&gt;&gt;&gt; file: VehicleClassifier.py
+# Exercise two
+# gives the class of a vehicle when given a mass
+
+
+# get mass of vehicle from user
+
+print("***** Vehicle classifier *****")
+
+mass = int(input("What is the gross vehicle mass (in kg)? \n"))
+
+# determine if vehicle has a trailer
+
+trailer = input("Does the vehicle have a trailer? \n")
+
+if trailer == 'n' or trailer == 'N':
+    articulated = input("Is the vehicle articulated? \n")
+    
+    # get mass of trailer
+    
+if trailer == 'y' or trailer == 'Y':
+    mass_trailer = int(input("What is gross vehicle mass of the trailer (in kg)? \n"))
+    
+    
+# classify vehicle into appropriate class
+
+if mass&lt;=3500:
+    vehicle = 'B'
+    if trailer == 'y' or trailer == 'Y':
+        if mass_trailer &gt; 750:
+            vehicle = 'EB'
+        print("This vehicle is class {}.".format(vehicle))
+    elif trailer == 'n' or trailer == 'N':
+        if articulated == 'y' or articulated == 'Y':
+            vehicle = 'EB'           
+        print("This vehicle is class {}.".format(vehicle))
+    
+    
+elif 3500&lt;mass&lt;=16000:
+    vehicle = 'C1'
+    if trailer == 'y' or trailer == 'Y':
+        if mass_trailer &gt; 750:
+            vehicle = 'EC1'
+        print("This vehicle is class {}.".format(vehicle))
+        
+    elif trailer == 'n' or trailer == 'N':
+        if articulated == 'y' or articulated == 'Y':
+            vehicle = 'EC1'   
+        print("This vehicle is class {}.".format(vehicle))
+    
+elif 16000&lt;mass:
+    vehicle = 'C'
+    if trailer == 'y' or trailer == 'Y':
+        if mass_trailer &gt; 750:
+            vehicle = 'EC'
+        print("This vehicle is class {}.".format(vehicle))
+    elif trailer == 'n' or trailer == 'N':
+        if articulated == 'y' or articulated == 'Y':
+            vehicle = 'EC'
+        print("This vehicle is class {}.".format(vehicle))
+    
+    
+# print class of vehicle
+&gt;&gt;&gt;&gt; file: new.py
+# Obtain time from user
+
+user_time = input("Enter the time in 24 hour clock (hh:mm) : \n")
+
+
+# Subtract twelve from the given number(time)
+
+twelve_hr_time1 = int(user_time[1]) - 12
+
+# Add last two numbers
+
+twelve_hr_time = str(twelve_hr_time1) + twelve_hr_time1[2:6]
+
+# Print result
+
+print(twelve_hr_time,"pm")</PRE>
+</PRE>
+</BODY>
+</HTML>

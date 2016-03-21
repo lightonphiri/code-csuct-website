@@ -1,0 +1,163 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/6/raw/mtnqha001/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/6/raw/mtnqha001/<p><PRE>
+&gt;&gt;&gt;&gt; file: fixed_mod.py
+import string
+
+def palindrome (s):
+   if len(s)==0 or len(s) == 1:
+      return True
+   elif s[0] in string.punctuation or s[0] in string.whitespace:
+      return palindrome(s[:-1])
+   elif s[-1] in string.punctuation or s[-1] in string.whitespace:
+      return palindrome(s[:-1])
+   elif s[0].lower() == s[-1].lower():
+      return palindrome (s[1:-1])
+   else:
+      return False
+
+&gt;&gt;&gt;&gt; file: match_mod.py
+# word equavalence programme
+# qhawekazi mtini
+# august 2015
+
+def equals(word_one, word_two): #step 1
+    if len(word_one) == len(word_two): #base case 1
+        if word_one[0] == word_two[0]: #base case 2
+            return equals(word_one[1:], word_two[1:])
+        elif word_two == " " and word_one == " ": #base case 3
+            return True
+        else:
+            return False
+
+ 
+def query(pattern,word): #step 2 
+    if len(pattern) == len(word):
+        if pattern=="":
+            return True # base case
+        elif word[0]==pattern[0]:
+            return query(pattern[1:],word[1:])
+        elif pattern[0]=="?":
+            return query(pattern[1:],word[1:])
+        else:
+            return False
+
+def match(pattern, word): #step 3
+    if pattern=="" and word=="":
+        return True
+    elif "*" in pattern and len(pattern)&gt;len(word):
+        p=pattern.find("*")
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match130-1.html#0" TARGET="1"><IMG SRC="../../bitmaps/tm_0_11.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+        pattern= pattern[p+1:]+pattern[:p]
+        return match(pattern, word)
+    elif pattern=="*" and len(word)&gt;0:
+        return True
+    elif pattern[0]=="?":
+            return match(pattern[1:],word[1:])
+    elif pattern[0]=="*":
+        word = word[1:]
+        pattern =pattern [1:]
+        m= pattern[0]
+</FONT><A NAME="1"></A><FONT color = #00FF00><A HREF="match130-1.html#1" TARGET="1"><IMG SRC="../../bitmaps/tm_1_4.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+        word = word[word.find(m):]
+        return match(pattern, word)
+    elif word[0]==pattern[0]: #false cases
+        return match(pattern[1:],word[1:])
+</FONT>    elif pattern=="" and len(word)&gt;0:
+        return False
+    elif word=="" and len(pattern)&gt; 0:
+        return False
+    else: 
+        return False
+    
+    
+         
+    
+    
+
+
+          &gt;&gt;&gt;&gt; file: mongoose_mod.py
+# calculating mongoose 
+# qhawekazi mtini
+# august 2015
+
+def population(n):
+    if n &lt; 3:
+        return 2
+    else:
+        return population(n-1)+population(n-2)
+    
+    &gt;&gt;&gt;&gt; file: sum_mod.py
+#sum mod programme
+#qhawekazi mtini
+#August 2015
+
+def sum_to_n(n):
+    if n==1:
+        return 1
+    else: 
+        return n + sum_to_n(n-1)
+    
+    &gt;&gt;&gt;&gt; file: test_equals.py
+# Test equals
+import match_mod
+
+def main():
+    w_1 = input('Enter first word:\n')
+    w_2 = input('Enter second word:\n')
+    print(match_mod.equals(w_1, w_2))
+    
+main()&gt;&gt;&gt;&gt; file: test_fixed_mod.py
+# Test palindrome mod
+import fixed_mod
+
+def main():
+    s = input('Enter s:\n')
+    print(fixed_mod.palindrome(s))
+    
+main()&gt;&gt;&gt;&gt; file: test_match.py
+# Test match
+import match_mod
+
+def main():
+    p = input('Enter pattern:\n')
+    w = input('Enter word:\n')
+    print(match_mod.match(p, w))
+    
+main()
+    &gt;&gt;&gt;&gt; file: test_mongoose_mod.py
+# test mongoose
+
+import mongoose_mod
+
+def main():
+    n = int(input('Enter n:\n'))
+    print(mongoose_mod.population(n))
+
+main()&gt;&gt;&gt;&gt; file: test_query.py
+# Test query
+import match_mod
+
+def main():
+    p = input('Enter pattern:\n')
+    w = input('Enter word:\n')
+    print(match_mod.query(p, w))
+
+main()&gt;&gt;&gt;&gt; file: test_sum_mod.py
+# Test sum_mod
+import sum_mod
+
+def main():
+    n = int(input('Enter n:\n'))
+    print(sum_mod.sum_to_n(n))
+
+main()</PRE>
+</PRE>
+</BODY>
+</HTML>

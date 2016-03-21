@@ -1,0 +1,108 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/2/raw/msxman004/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/2/raw/nktphi002/<p><PRE>
+&gt;&gt;&gt;&gt; file: CreditCard.py
+txt="{:.2f}"
+
+name =input('Enter the card holder\'s name:\n')
+number = input('Enter the 16 digit card number (no spaces please):\n')
+num_ = number[0:4]+' '+number[4:8]+' '+number[8:12]+' '+number[12:16]
+issue = input('Enter the date of issue (mm:yy):\n')
+iss_ =issue[0:2]+'/'+issue[3:5]
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match32-0.html#0" TARGET="0"><IMG SRC="../../bitmaps/tm_0_7.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+expiry = input('Enter the expiry date (mm:yy):\n')
+exp_ =expiry[0:2]+'/'+expiry[3:5]
+code = input('Enter the 3 digit security code:\n')
+limit_str = float(input('Enter the credit limit (Rand):\n'))
+limit = str(limit_str)
+</FONT>balance_str = float(input('Enter the balance (Rand):\n'))
+balance = str(balance_str)
+avail = limit_str-balance_str
+avail_str = str(avail)
+
+
+print('+------------- Credit Card Account --------------+')
+print('| Card holder:   {0:32}'.format(name)+'|')
+print('| Card number:   {}'.format(num_),'{0:&gt;13}'.format('|'))
+print('| Date of issue: {}'.format(iss_),'   Expiry date: {}'.format(exp_),'{0:&gt;5}'.format('|'))
+print('| Security code: {}'.format(code),'{0:&gt;29}'.format('|'))
+print('| Credit limit:  {0:32}'.format(txt.format(limit_str)+' Rand')+'|')
+print('| Available:     {0:32}'.format(txt.format(avail)+' Rand')+'|')
+print('| Balance:       {0:32}'.format(txt.format(balance_str)+' Rand')+'|')
+print('+------------------------------------------------+')
+&gt;&gt;&gt;&gt; file: EugeneJunior.py
+
+
+print('Hello, I am Eugene Junior.')
+name = input('What is your first name?\n')
+surname = input('What is your last name?\n')
+print('Hi',name[0]+'.'+surname[0]+'.!')
+year =eval(input('What year is this?\n'))
+age = eval(input('What age are you?\n'))
+
+year1 = str(year-age-1)+'/'+str(year-1900-age)+'.'
+
+print('Okay, so you were born in',year1)
+height = eval(input('How tall are you (metres)?\n'))
+
+feet = height*3.28084
+inches =12*(feet - int(feet))
+print('That\'s',str(int(feet))+"'"+str(round(inches))+'"!')
+print('I\'m going to tell you your Star Wars name.')
+mother = input('What\'s your mother\'s first name?\n')
+place = input('What\'s the name of the city nearest to your place of birth?\n')
+
+m = len(mother)
+p = len(place)
+star_n = surname[0:3]+name[0:2]
+star_s = mother[m-2:m:1]+place[p-3:p:1]
+print('Your Star Wars name is',star_n.title()+' '+star_s.title(),end='.')&gt;&gt;&gt;&gt; file: HexagonArea.py
+from math import*
+side = eval(input('Enter the length of the side (cm):\n'))
+
+A = (side*side)*(sqrt(27)/2)
+
+print('The area of a hexagon of side',side,'is {:.3f}'.format(A),end='.')&gt;&gt;&gt;&gt; file: Initials.py
+import turtle
+<A NAME="2"></A><FONT color = #0000FF><A HREF="match32-0.html#2" TARGET="0"><IMG SRC="../../bitmaps/tm_2_6.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+turtle.penup()
+turtle.left(90)
+turtle.forward(105)
+turtle.right(90)
+turtle.pendown()
+turtle.pencolor('magenta')
+turtle.forward(200)
+</FONT>turtle.right(90)
+turtle.forward(100)
+turtle.right(90)
+turtle.forward(100)
+turtle.right(90)
+turtle.forward(100)
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match32-0.html#1" TARGET="0"><IMG SRC="../../bitmaps/tm_1_7.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+turtle.penup()
+turtle.left(90)
+turtle.forward(100)
+turtle.left(90)
+turtle.forward(110)
+turtle.pendown()
+turtle.pencolor('cyan')
+turtle.left(90)
+turtle.forward(200)
+</FONT>turtle.right(150)
+turtle.forward(224)
+turtle.left(150)
+turtle.forward(200)
+turtle.penup()
+turtle.exitonclick()
+
+</PRE>
+</PRE>
+</BODY>
+</HTML>

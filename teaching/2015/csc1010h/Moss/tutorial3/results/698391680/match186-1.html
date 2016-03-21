@@ -1,0 +1,302 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/3/raw/mtwmli002/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/3/raw/sngman009/<p><PRE>
+&gt;&gt;&gt;&gt; file: FeetMetres.py
+#mantele senoge
+#program to calculate feet to metre conversion
+
+def main():
+    minimum = int(input("Enter the minimum number of feet (not less than 0): \n"))
+    maximum = int(input("Enter the maximum number of feet (not more than 99): \n"))
+    for i in range(minimum, maximum + 1):
+        metres = i * 0.3048
+        metres2 = '{0:7.2f}'.format(metres)
+        print('{0:&gt;4}'.format(i) + "'" + " " + "|" + metres2 + "m")
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match186-0.html#0" TARGET="0"><IMG SRC="../../bitmaps/tm_0_3.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+main()&gt;&gt;&gt;&gt; file: FlowerPattern.py
+#mantele senoge
+
+import turtle
+
+def main(): 
+    petal = eval(input("Enter the number of petals (must be an even number): "))
+    stem = eval(input("Enter the length of stem: "))
+    petal_type = input("Enter the petal type (triangle, square, or pentagon):")
+    side = eval(input("Enter the length of side: "))
+    colourS = input("Enter the stem colour: ")
+    colour1 = input("Enter the first petal colour: ")
+    colour2 = input("Enter the second petal colour: ")
+    if petal_type == "triangle":
+        for i in range (petal):
+</FONT>            turtle.pendown()
+            turtle.color(colourS)
+            turtle.forward(stem)
+            turtle.right(30)
+            if (i+1)%2 != 0 :
+                turtle.color(colour1)
+            else:
+                turtle.color(colour2)
+            for n in range (3):
+                turtle.forward(side)   
+                turtle.left(120)
+            turtle.penup()
+            turtle.home()
+            turtle.right((360/petal)*(i+1))
+        turtle.exitonclick()
+            
+    elif petal_type == "square":
+        for i in range (petal):
+            turtle.pendown()
+            turtle.color(colourS)
+            turtle.forward(stem)
+            turtle.right(45)
+            if (i+1)%2 != 0 :
+                turtle.color(colour1)
+            else:
+                turtle.color(colour2)            
+            for n in range (4):
+                turtle.forward(side)    
+                turtle.left(90)
+            turtle.penup()
+            turtle.home()
+            turtle.right((360/petal)*(i+1))
+        turtle.exitonclick()
+    else:
+        for i in range (petal):
+            turtle.pendown()
+            turtle.color(colourS)
+            turtle.forward(stem)
+            turtle.right(36)
+            if (i+1)%2 != 0 :
+                turtle.color(colour1)
+            else:
+                turtle.color(colour2)            
+            for n in range (5):
+                turtle.forward(side)
+                turtle.left(72)
+            turtle.penup()
+            turtle.home()
+            turtle.right((360/petal)*(i+1))  
+        turtle.exitonclick()
+
+main()
+        
+    
+                &gt;&gt;&gt;&gt; file: InchesMetres.py
+#mantele senoge
+#program to convert from inches to metres
+
+def main():
+    min_num = int(input("Enter the minimum number of inches (not less than 0):\n"))
+    max_num = int(input("Enter the maximum number of inches (not greater than 11): \n"))
+    print("Inches:", end='')
+    for i in range(min_num, max_num + 1):
+        print('{0:&gt;5}'.format(i), end='')
+    print()
+    print("Metres:" , end = '')
+    for i in range(min_num, max_num + 1):
+        metres = (i * 0.0254)
+        metres2 = '{0:4.2f}'.format(metres)
+        print('{0:&gt;5}'.format(metres2), end='')
+    
+        
+
+main()&gt;&gt;&gt;&gt; file: TimeConvertor.py
+#mantele senoge
+#program to convert time
+
+time = input("Enter a time ([h]h:mm [am|pm]):\n")
+if len(time) &gt; 5:
+    when1 = time[-2]
+    last2 = time[-6:-3]
+    if when1 == "a":
+            time1 = time[0:2]
+            if time1 == "10" or time1 == "11":
+                print(time1 + last2)
+            elif time1 == "12":
+                print("00" + last2)
+            else:
+                firsttwo = "0" + time[0] 
+                print(firsttwo + last2)
+    else:
+        time1 = time[0:2]
+        if time1 == "12":
+                firsttwo = "12"
+                print(firsttwo + last2)
+        elif time1 == "11" or time1 == "10":
+                a = int(time1)
+                b = str(a + 12)
+                print(b + last2)
+        else:
+                time2 = int(time[0])
+                a = str(time2 + 12)
+                print(a + last2)    
+else:
+    time1 = time[0:2] 
+    time2 = time[2:5]
+    time3 = time[0]
+    if time3 == "0":
+            if time1 == "00":
+                first2 = "12"
+                last2 = time2
+                print(first2 + last2 + " am")
+            else:
+                time4 = time[1]
+                print(time4 + time2 + " am")
+    else:
+            if time1 == "11":
+                print(time + " am")
+            elif time1 == "12":
+                print(time + " pm")
+            else:
+                a = int(time1)
+                b = str(a - 12)
+                print(b + time2 + " pm")
+    &gt;&gt;&gt;&gt; file: Twelve.py
+#mantele senoge
+#program to convert time to 24 hour clock
+
+def main():
+    time = input("Enter a time in 12 hour clock ([h]h:mm [am|pm]):\n")
+    when1 = time[-2]
+    last2 = time[-6:-3]
+    if when1 == "a":
+        time1 = time[0:2]
+        if time1 == "10" or time1 == "11":
+            print(time1 + last2)
+        elif time1 == "12":
+            print("00" + last2)
+        else:
+            firsttwo = "0" + time[0] 
+            print(firsttwo + last2)
+    else:
+        time1 = time[0:2]
+        if time1 == "12":
+            firsttwo = "12"
+            print(firsttwo + last2)
+        elif time1 == "11" or time1 == "10":
+            a = int(time1)
+            b = str(a + 12)
+            print(b + last2)
+        else:
+            time2 = int(time[0])
+            a = str(time2 + 12)
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match186-0.html#1" TARGET="0"><IMG SRC="../../bitmaps/tm_1_2.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+            print(a + last2)
+            
+main()
+            
+            
+            
+        
+            
+            
+    
+        
+        
+    
+    
+    
+    
+&gt;&gt;&gt;&gt; file: TwentyFour.py
+#mantele senoge
+#program to convert time
+
+def main():
+    time = input("Enter a time in 24 hour clock (hh:mm): \n")
+    time1 = time[0:2] 
+    time2 = time[2:5]
+</FONT>    time3 = time[0]
+    if time3 == "0":
+        if time1 == "00":
+            first2 = "12"
+            last2 = time2
+            print(first2 + last2 + " am")
+        else:
+            time4 = time[1]
+            print(time4 + time2 + " am")
+    else:
+        if time1 == "11":
+            print(time + " am")
+        elif time1 == "12":
+            print(time + " pm")
+        else:
+            a = int(time1)
+            b = str(a - 12)
+            print(b + time2 + " pm")
+
+main()
+            
+            &gt;&gt;&gt;&gt; file: VehicleClassifier.py
+#prgram to determine vehicle class
+#mantele senoge
+
+def main():
+    print('{0:*^30}'.format(" Vehicle classifier "))
+    mass = eval(input("What is the gross vehicle mass (in kg)? \n"))
+    trailer = input("Does the vehicle have a trailer?\n")
+    if mass &lt;= 3500:
+        classtype = "B"
+        whether_trailer = trailer[0]
+        if whether_trailer == "y":
+            gvm_trailer = eval(input("What is gross vehicle mass of the trailer (in kg)?\n"))
+            if gvm_trailer &gt; 750:
+                classtype2 = "E" + classtype
+                print("This vehicle is class " + classtype2 + ".")
+            else:
+                print("This vehicle is class " + classtype + ".")
+        else:
+            articulated = input("Is the vehicle articulated?\n")
+            whether_arti = articulated[0]
+            if whether_arti == "y":
+                classtype2 = "E" + classtype
+                print("This vehicle is class " + classtype2 + ".") 
+            else:
+                print("This vehicle is class " + classtype + ".")
+    elif 3500 &lt; mass &lt;= 16000:
+        classtype = "C1"
+        whether_trailer = trailer[0]
+        if whether_trailer == "y":
+                    gvm_trailer = eval(input("What is gross vehicle mass of the trailer (in kg)?\n"))
+                    if gvm_trailer &gt; 750:
+                        classtype2 = "E" + classtype
+                        print("This vehicle is class " + classtype2 + ".")
+                    else:
+                        print("This vehicle is class " + classtype + ".")
+        else:
+                    articulated = input("Is the vehicle articulated?\n")
+                    whether_arti = articulated[0]
+                    if whether_arti == "y":
+                        classtype2 = "E" + classtype
+                        print("This vehicle is class " + classtype2 + ".") 
+                    else:
+                        print("This vehicle is class " + classtype + ".")        
+    else:
+        classtype = "C"
+        whether_trailer = trailer[0]
+        if whether_trailer == "y":
+                    gvm_trailer = eval(input("What is gross vehicle mass of the trailer (in kg)?\n"))
+                    if gvm_trailer &gt; 750:
+                        classtype2 = "E" + classtype
+                        print("This vehicle is class " + classtype2 + ".")
+                    else:
+                        print("This vehicle is class " + classtype + ".")
+        else:
+                    articulated = input("Is the vehicle articulated?\n")
+                    whether_arti = articulated[0]
+                    if whether_arti == "y":
+                        classtype2 = "E" + classtype
+                        print("This vehicle is class " + classtype2 + ".") 
+                    else:
+                        print("This vehicle is class " + classtype + ".")
+
+main()</PRE>
+</PRE>
+</BODY>
+</HTML>

@@ -1,0 +1,195 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/8/raw/mblese001/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/8/raw/mblese001/<p><PRE>
+&gt;&gt;&gt;&gt; file: course.py
+class Course:
+
+    def __init__(self, cc='unknown', d='unknown'):
+        self.course_code = cc
+        self.description = d
+
+    def __str__(self):
+        return self.course_code + ', ' + self.description
+
+    def input(self):
+        self.description = input('Enter description: ')
+        self.course_code = input('Enter course code: ')
+        
+    def display(self):
+        print('Course code: ' + self.course_code)
+        print('Description: ' + self.description)&gt;&gt;&gt;&gt; file: lecturer.py
+class Lecturer:
+    
+     def __init__(self, n='unknown', stuff_no='unknown'):
+          self.name = n
+          self.stuff_number = stuff_no
+          self.courses = []
+     
+     def __str__(self):
+          v = self.name + ', ' + self.stuff_number
+          if len(self.courses)&gt;0:
+               v += ': '+str(self.courses[0])
+               for course in self.courses[1:]:
+                    v += '; ' + str(course)
+          return v +'.'
+  
+     def add_course(self, course):
+          self.courses.append(course)
+       
+     def input(self):
+          self.name = input('Enter name: ')
+          self.stuff_number = input('Enter staff number: ')
+ 
+     def display(self):
+          print('Name: ' + self.name)
+          print('Staff number: ' + self.stuff_number)
+  
+&gt;&gt;&gt;&gt; file: student.py
+class Student:
+    
+    def __init__(self, n='unknown', sn='unknown'):
+        self.name = n
+        self.student_number = sn
+        self.courses = []
+    
+    def __str__(self):
+        s = self.name + ', ' + self.student_number
+        if len(self.courses)&gt;0:
+            s += ': '+str(self.courses[0])
+            for c in self.courses[1:]:
+                s += '; ' + str(c)
+        return s+'.'
+    
+    def add_course(self, c):
+        self.courses.append(c)
+    
+    def input(self):
+        self.name = input('Enter name: ')
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match172-1.html#0" TARGET="1"><IMG SRC="../../bitmaps/tm_0_4.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+        self.student_number = input('Enter student number: ')
+
+    def display(self):
+        print('Name: ' + self.name)
+        print('Student number: ' + self.student_number)
+&gt;&gt;&gt;&gt; file: universitysystem.py
+# University System
+# Mandla Kenny Zondo
+# ZNDMAN003
+# 26 September 2015
+
+from student import Student
+from course import Course
+</FONT>from lecturer import Lecturer
+
+def begin():
+    print("""University Member System: 
+0. Quit.
+1. Input Course.
+2. Input Lecturer.
+3. Input Student.
+4. Enrol Student on Course.
+5. Assign Course to Lecturer.
+6. Find Course.
+7. Find Lecturer.
+8. Find Student.
+9. Display Courses.
+10. Display Lecturers.
+11. Display Students.""")
+
+
+begin()
+selec = eval(input("&gt;"))
+
+l = {}
+s = {}
+c= {}
+
+while selec!=0 :
+    
+    if selec == 1 :  # Adding a course
+        co = Course()
+        co.input()
+        c[co.course_code] = co
+        
+    elif selec == 2 : # adding a lecturer
+        lect = Lecturer()
+        lect.input()
+        l[lect.stuff_number] = lect
+        
+    elif selec == 3 : # adding a student
+        studen = Student()
+        studen.input()
+        s[studen.student_number] = studen
+    
+    elif selec == 4 : # enrol studdent on a course
+        stu_no = input("Enter student number: ")
+        cos_code = input("Enter course code: ")
+        
+        if stu_no not in s:
+            print("Could not find a student with that student number.")
+            
+        else:
+            s[stu_no].add_course(c[cos_code])
+            
+    elif selec == 5 :  # lecture to a course
+        stuff_no = input("Enter staff number: ")
+        cos_code = input("Enter course code: ")
+                
+        if stuff_no not in l:
+            print("Could not find a lecturer with that staff number.")
+                    
+        else:
+            l[stuff_no].add_course(c[cos_code])    
+            
+    elif selec == 6 : # find a course
+        cos_code = input("Enter course code: ")
+        
+        if cos_code not in c:
+            print("Could not find a course with that code.")
+        
+        else:
+            print(c[cos_code])
+        
+    elif selec == 7 : # find a lecture 
+        stuff_no = input("Enter staff number: ")
+                
+        if stuff_no not in l:
+            print("Could not find a member of staff with that number.")
+                
+        else:
+            print(l[stuff_no]) 
+            
+    elif selec == 8 : # find student
+        stu_no = input("Enter student number: ")
+                  
+        if stu_no not in s:
+            print("Could not find a student with that student number.")
+                    
+        else:
+            print(s[stu_no])
+    
+    elif selec == 9 : # display course:
+        for co in c :
+            c[co].display()
+    
+    elif selec == 10 : # display lecture
+        for lect in l :
+            l[lect].display()
+    
+    elif selec == 11 : # display student
+        for studen in s :
+            s[studen].display()
+            
+    else:
+        print("That selection was not recognised.")
+        
+    begin()
+    selec = eval(input("&gt;"))</PRE>
+</PRE>
+</BODY>
+</HTML>

@@ -1,0 +1,193 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/8/raw/mhlnal005/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/8/raw/mhlnal005/<p><PRE>
+&gt;&gt;&gt;&gt; file: lecturer.py
+# lecturer class created
+# naledi mahlaba
+# 03 october 2015
+
+class Lecturer:
+
+    def __init__(self, n='unknown', sn='unknown'):
+        self.name = n
+        self.staff_number =sn
+        self.courses = []
+    
+    def __str__(self):
+        s = self.name + ', ' + self.staff_number
+        if len(self.courses)&gt;0:
+            s += ': '+str(self.courses[0])
+            for c in self.courses[1:]:
+                s += '; ' + str(c)
+        return s+'.'    
+    
+    def add_course(self, c):
+        self.courses.append(c)    
+    
+    def input(self):
+        self.name = input('Enter name: ')
+        self.staff_number=input('Enter staff number: ')
+    
+    def display(self):
+        print('Name: ' + self.name)
+        print('Staff number: ' + self.staff_number)&gt;&gt;&gt;&gt; file: sorttester.py
+# program for time taken to sort a given size list by Bubble Sort and Heap sort 
+# naledi mahlaba
+# 03 october 2015
+import time
+import sortsearch 
+ 
+def main():
+    size=int(input('Enter the size of the list:\n'))
+    method=int(input('Choose the sort method:\n1. Heap Sort.\n2. Bubble Sort.\n'))
+    if method==1:
+        list1=sortsearch.generate_number_list(size)
+        print('Before:' ,list1)
+        start_time=time.clock()
+        after=sortsearch.heap_sort(list1)
+        end_time=time.clock()
+        time_taken = end_time-start_time
+        print('After:',after)
+        
+    elif method==2:
+        list2=sortsearch.generate_number_list(size)
+        print('Before:',list2)
+        start_time=time.clock()
+        after=sortsearch.bubble_sort(list2)
+        end_time=time.clock()
+        time_taken = end_time-start_time
+        print('After:',after)
+
+    print('Time: {:.9f}'.format(time_taken))
+    
+main()
+             &gt;&gt;&gt;&gt; file: universitysystem.py
+# program that manages memmbers of the university community
+# naledi mahlaba 
+# 03 october 2015
+
+from course import Course
+from student import Student
+from lecturer import Lecturer
+import collections
+
+def menu():
+    print('University Member System: ')
+    print('0. Quit.')
+    print('1. Input Course.')
+    print('2. Input Lecturer.')
+    print('3. Input Student.')
+    print('4. Enrol Student on Course.')
+    print('5. Assign Course to Lecturer.')
+    print('6. Find Course.')
+    print('7. Find Lecturer.')
+    print('8. Find Student.')
+    print('9. Display Courses.')
+    print('10. Display Lecturers.')
+    print('11. Display Students.')
+    
+def display_dictionary_values(dictionary):
+    print('&gt;',end='')
+    counter=len(dictionary)
+    for i in dictionary:
+        a=dictionary[i]
+        a.display()            
+         
+def main():
+    courses=collections.OrderedDict()      
+    lecturers=collections.OrderedDict()
+    students=collections.OrderedDict() 
+    
+    while True:
+        menu()
+        option=int(input())
+        
+        if option==0:
+            print('&gt;')
+            break
+        
+        elif option==1:
+            course_info=Course()
+            print('&gt;',end='')
+            course_info.input()
+            a=Course(course_info.course_code,course_info.description)
+            courses[course_info.course_code]=a
+            
+        elif option==2:
+            lecturer_info=Lecturer()
+            print('&gt;',end='')
+            lecturer_info.input()
+            lecturer= Lecturer(lecturer_info.name,lecturer_info.staff_number)
+            lecturers[lecturer_info.staff_number]=lecturer
+        
+        elif option==3:
+            student_info=Student()
+            print('&gt;',end='')
+            student_info.input()
+            student=Student(student_info.name,student_info.student_number)
+            students[student_info.student_number]=student
+           
+        elif option==4:
+            try:
+                student_number= input('&gt;Enter student number: ')
+                course_code= input('Enter course code: ')
+                student=students[student_number]
+                student.add_course(courses[course_code])
+                
+            except:
+                print('Could not find a student with that student number.')
+
+        elif option==5:
+            try:
+                staff_number= input('&gt;Enter staff number: ')
+                course_code= input('Enter course code: ')
+                lecturer=lecturers[staff_number]
+                lecturer.add_course(courses[course_code])
+                
+            except:
+                print('Could not find a lecturer with that staff number.')
+                    
+        elif option==6:
+            try:
+                find_course=input('&gt;Enter course code: ')
+                print(courses[find_course])
+            except:
+                print('Could not find a course with that code.')
+  
+        elif option==7:
+            try:
+                find_lecturer=input('&gt;Enter staff number: ')
+                print(lecturers[find_lecturer])
+            except:
+                print('Could not find a member of staff with that number.')
+
+        elif option==8:
+            try:
+                find_student=input('&gt;Enter student number: ')
+                print(students[find_student])
+            
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match248-1.html#0" TARGET="1"><IMG SRC="../../bitmaps/tm_0_4.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+            except:
+                print('Could not find a student with that number.')
+            
+        elif option==9:
+            display_dictionary_values(courses)
+                
+        elif option==10:
+            display_dictionary_values(lecturers)
+                 
+        elif option==11:
+            display_dictionary_values(students)
+                
+        else:
+</FONT>            print("&gt;That selection was not recognised.")
+main()  
+</PRE>
+</PRE>
+</BODY>
+</HTML>

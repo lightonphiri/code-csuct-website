@@ -1,0 +1,269 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/3/raw/kdmkho001/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/3/raw/mhkmal001/<p><PRE>
+&gt;&gt;&gt;&gt; file: FeetMetres.py
+# convert feet to meters
+# malebo mahoko
+# 17 May 2015
+
+def main():
+    min = int(input("Enter the minimum number of feet (not less than 0):\n"))
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match189-0.html#1" TARGET="0"><IMG SRC="../../bitmaps/tm_1_1.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    max = int(input("Enter the maximum number of feet (not more than 99):\n"))
+    
+    for i in range(min,max+1):
+        metre = i*0.3048
+        print("{0:4}' |   {1:.2f}m".format(i,metre))
+main()&gt;&gt;&gt;&gt; file: FlowerPattern.py
+</FONT>import turtle
+
+def main():
+    turtle.title("Draw flowers")
+    no_petals = turtle.numinput("Number of petal","Enter the number of petals (must be an even number): ")
+    l_stem = turtle.numinput("length of stem","Enter the length of stem: ")
+    petal_t = turtle.textinput("petal type","Enter the petal type (triangle, square, pentagon): ")
+    l_sides = turtle.numinput("length of sides","Enter the length of side: ")
+    stem_co = turtle.textinput("stem colour","Enter the stem colour: ")
+    f_petal_co = turtle.textinput("first petal colour","Enter the first petal colour: ")
+    s_petal_co = turtle.textinput("second petal colour","Enter the second petal colour: ")
+    m = 0
+    if petal_t=="triangle":
+        for k in range(int(no_petals)):
+            turtle.pencolor(stem_co)
+            turtle.fd(l_stem)        
+            if k %2 !=0:
+                turtle.pencolor(f_petal_co)
+            else:
+                turtle.pencolor(s_petal_co)
+            
+            turtle.left(30)        
+            turtle.fd(l_sides)
+            turtle.right(120)
+            turtle.fd(l_sides)
+            turtle.right(120)
+            turtle.fd(l_sides)
+            turtle.left(30)
+            turtle.pencolor(stem_co)
+            turtle.fd(l_stem)
+            turtle.home()
+            m = m + 360/no_petals
+            turtle.right(m)
+    elif petal_t=="pentagon":
+        for k in range(int(no_petals)):
+            turtle.pencolor(stem_co)
+            turtle.fd(l_stem)        
+            if k %2 !=0:
+                turtle.pencolor(f_petal_co)
+            else:
+                turtle.pencolor(s_petal_co)
+            turtle.left(54)        
+            turtle.fd(l_sides)
+            turtle.right(72)
+            turtle.fd(l_sides)
+            turtle.right(72)
+            turtle.fd(l_sides)
+            turtle.right(72)
+            turtle.fd(l_sides)
+            turtle.right(72)
+            turtle.fd(l_sides)
+            turtle.pencolor(stem_co)
+            turtle.home()
+            m = m + 360/no_petals
+            turtle.right(m)
+    elif petal_t=="square":
+        for k in range(int(no_petals)):
+            turtle.pencolor(stem_co)
+            turtle.fd(l_stem)        
+            if k %2 !=0:
+                turtle.pencolor(f_petal_co)
+            else:
+                turtle.pencolor(s_petal_co)
+            turtle.left(45)        
+            turtle.fd(l_sides)
+            turtle.right(90)
+            turtle.fd(l_sides)
+            turtle.right(90)
+            turtle.fd(l_sides)
+            turtle.right(90)
+            turtle.fd(l_sides)
+            turtle.pencolor(stem_co)
+            turtle.left(45)
+            turtle.home()
+            m = m + 360/no_petals
+            turtle.right(m)            
+    turtle.exitonclick()
+    
+main()&gt;&gt;&gt;&gt; file: InchesMetres.py
+# converts inches to meters
+# mahoko malebo
+# 17 May 2015
+
+def main():
+        a = "Inches:"
+        b = "Metres:"
+        min = int(input("Enter the minimum number of inches (not less than 0):\n"))
+        max = int(input("Enter the maximum number of inches (not greater than 11):\n"))
+        for i in range(1):
+                print(a, end='')
+                for j in range(min,max+1):
+                        print('{:5}'.format(j), end='')
+                for p in range(1):
+                        print()
+                        print(b, end='')
+                        for k in range(min,max+1):
+                                metre = k*0.0254
+                                print('{:5.2f}'.format(metre), end='')
+main()&gt;&gt;&gt;&gt; file: TimeConvertor.py
+# converts time
+# mahoko malebo
+# 17 May 2015
+
+def main():
+    time12 = input("Enter a time ([h]h:mm [am|pm]):\n")
+    if "12:00" &lt;= time12 &lt;= "12:59" and time12[-1:]!="m":
+        print(time12[0:5],"pm")
+    elif '13:00' &lt;= time12 &lt;= '23:59'and time12[-1:]!="m" :
+        cast = int(time12[0:2])
+        min = time12[3:]
+        hour = str(cast -12)
+        print(hour + ':'+min,'pm')
+    elif "00:00" &lt;= time12 &lt; "00:59" and time12[-1:]!="m" :
+        cast = int(time12[0:2])
+        min = time12[3:]
+        hour = str(cast +12)       
+        print(hour+':'+min,"am")    
+    elif time12 &gt; "00:59"and time12[-1:]!="m" :
+        print(time12[1]+':'+time12[3:5],'am')    
+    elif "1:00 pm" &lt;= time12 &lt;= "9:59 pm" and time12[-2:]=="pm":
+        cast = int(time12[0])
+        min = time12[2:4]
+        hour = str(cast + 12)
+        print(hour + ":"+ min)    
+    elif "1:00 am" &lt;= time12 &lt;= "9:59 am" and time12[-2:]=="am" :
+        min = time12[2:4]
+        print("0"+time12[0]+":"+min)              
+    elif "10:00 am" &lt;= time12 &lt;= "11:59 am" and time12[-2:]=="am" :
+        print(time12[0:5])
+    elif "12:00 pm" &lt;= time12 &lt;= "12:59 pm" and time12[-2:]=="pm":
+        print(time12[0:5])
+    elif '12:00 am' &lt;= time12 &lt;= '12:59 am' and time12[-2:]=="am" :
+        cast = int(time12[0:2])
+        min = time12[3:5]
+        hour = str(cast -12)
+        print("0"+hour+":"+min)    
+    elif "10:00 pm" &lt;= time12 &lt;= "11:59 pm" and time12[-2:]=="pm":
+        cast = int(time12[0:2])
+        min = time12[3:5]
+        hour = str(cast + 12)
+        print(hour + ":" + min )
+    else:
+        print("00:"+time12[3:5])        
+    
+main()&gt;&gt;&gt;&gt; file: Twelve.py
+# converts time from 12 hour clock to 24 hour clock
+# malebo mahoko
+# 13 May 2015
+
+def main():
+    time12 = input("Enter a time in 12 hour clock ([h]h:mm [am|pm]):\n")
+    
+    if "1:00 pm" &lt;= time12 &lt;= "9:59 pm" and time12[-2:]=="pm":
+            cast = int(time12[0])
+            min = time12[2:4]
+            hour = str(cast + 12)
+            print(hour + ":"+ min)    
+    elif "1:00 am" &lt;= time12 &lt;= "9:59 am" and time12[-2:]=="am" :
+        min = time12[2:4]
+        print("0"+time12[0]+":"+min)              
+    elif "10:00 am" &lt;= time12 &lt;= "11:59 am" and time12[-2:]=="am" :
+        print(time12[0:5])
+    elif "12:00 pm" &lt;= time12 &lt;= "12:59 pm" and time12[-2:]=="pm":
+        print(time12[0:5])
+    elif '12:00 am' &lt;= time12 &lt;= '12:59 am' and time12[-2:]=="am" :
+                cast = int(time12[0:2])
+                min = time12[3:5]
+                hour = str(cast -12)
+                print("0"+hour+":"+min)    
+    elif "10:00 pm" &lt;= time12 &lt;= "11:59 pm" and time12[-2:]=="pm":
+        cast = int(time12[0:2])
+        min = time12[3:5]
+        hour = str(cast + 12)
+        print(hour + ":" + min )
+    else:
+        print("00:"+time12[3:5])        
+main()&gt;&gt;&gt;&gt; file: TwentyFour.py
+# converts 24 hour time to 12 hour time
+# malebo mahoko
+# 17 May 2015
+
+def main():
+    hour24 = input("Enter a time in 24 hour clock (hh:mm):\n")
+    if "12:00" &lt;= hour24 &lt;= "12:59":
+        print(hour24[0:5],"pm")
+    elif '13:00' &lt;= hour24 &lt;= '23:59':
+        cast = int(hour24[0:2])
+        min = hour24[3:]
+        hour = str(cast -12)
+        print(hour + ':'+min,'pm')
+    elif "00:00" &lt;= hour24 &lt; "00:59":
+            cast = int(hour24[0:2])
+            min = hour24[3:]
+            hour = str(cast +12)       
+            print(hour+':'+min,"am")    
+    elif hour24 &gt; "00:59":
+        print(hour24[1]+':'+hour24[3:5],'am')
+    
+main()&gt;&gt;&gt;&gt; file: VehicleClassifier.py
+# calculate the class to which a car be
+# malebo mahoko
+# 13 May 2015
+
+def main():
+    print("***** Vehicle classifier *****")
+    gvm = eval(input("What is the gross vehicle mass (in kg)?\n"))
+    trailer = input("Does the vehicle have a trailer?\n")
+    
+    if trailer[0]=="y":
+        mass_trailer = eval(input("What is gross vehicle mass of the trailer (in kg)?\n"))
+        if mass_trailer &gt; 750:
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match189-0.html#0" TARGET="0"><IMG SRC="../../bitmaps/tm_0_3.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+            if gvm &lt;= 3500:
+                print("This vehicle is class EB.")
+            elif 3500 &lt; gvm &lt;= 16000:
+                print("This vehicle is class EC1.")
+            elif 16000 &lt; gvm:
+                print("This vehicle is class EC.")
+        else:
+            if gvm &lt;= 3500:
+                print("This vehicle is class B.")
+            elif 3500 &lt; gvm &lt;= 16000:
+                print("This vehicle is class C1.")
+            elif 16000 &lt; gvm:
+</FONT>                print("This vehicle is class C.")            
+    else:
+        art = input("Is the vehicle articulated?\n")
+        if art[0]=="y":
+            if gvm &lt;= 3500:
+                print("This vehicle is class EB.")
+            elif 3500 &lt; gvm &lt;= 16000:
+                print("This vehicle is class EC1.")
+            elif 16000 &lt; gvm:
+                print("This vehicle is class EC.")
+        else:
+            if gvm &lt;= 3500:
+                print("This vehicle is class B.")
+            elif 3500 &lt; gvm &lt;= 16000:
+                print("This vehicle is class C1.")
+            elif 16000 &lt; gvm:
+                print("This vehicle is class C.")            
+           
+main()</PRE>
+</PRE>
+</BODY>
+</HTML>

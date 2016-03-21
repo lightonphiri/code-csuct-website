@@ -1,0 +1,192 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/4/raw/hrmwes003/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/4/raw/hrmwes003/<p><PRE>
+&gt;&gt;&gt;&gt; file: LongJump.py
+import math
+num=1
+names=[]
+best_attempts={}
+high=[]
+first=[]
+print("***** Long Jump Information System *****")
+print("Please enter the names of competitors. (Press return when done.)")
+while True:
+    print("Competitor no. ", num, ":", sep="")
+    num+=1
+    name=input("")
+    names.append(name)
+    if name=="":
+        names.remove(names[-1])
+        break
+print("Please enter the distances for each competitor.")
+for i in names:
+    print("Competitor", i+":")
+    at1=input("Attempt 1:\n")
+    at2=input("Attempt 2:\n")
+    at3=input("Attempt 3:\n")
+    
+    if at1=="foul":
+        at1=0
+    if at2=="foul":
+        at2=0
+    if at3=="foul":
+        at3=0
+        
+        
+    highest=max(float(at1), float(at2), float(at3))
+    first.append(highest)
+
+    high.append(highest)
+    
+        
+    best_attempts[i]=highest
+
+win=float(max(first))
+position=first.index(win)
+pos_name=names[position]
+count=int(0)
+print()
+print("{0: &lt;24} {1}".format("Competitor", "Longest Distance"))
+for i in best_attempts:
+    if best_attempts[i]==0:
+        print("{0: &lt;24} {1:0&lt;4}".format(i, "No jump"))
+    else:
+        print("{0: &lt;24} {1:0&lt;4}".format(i, best_attempts[i]))
+#    if int(best_attempts[i])&gt;count:
+#        winner=best_attempts[i]
+#        count=winner
+print()
+print("The winner is {0} with a jump of {1:0&lt;4}.".format(pos_name, win))&gt;&gt;&gt;&gt; file: NikNaks.py
+#NikNaks
+#Wesley Herman
+#22 July 2015
+
+import random
+def main():
+    remaining=10
+
+    print("Guess the mystery 4 letter code. (No letter occurs more than once.)")
+    difficulty=int(input('Choose difficulty level (4 to 26):\n'))
+    letters=list('abcdefghijklmnopqrstuvwxyz')[0: difficulty]
+    print('The letters in the code are chosen from: {}.'.format(letters))
+    code=[]
+    for i in range(4):
+        rand_index=random.randint(0, len(letters)-1)
+        letter=letters.pop(rand_index)
+        code.append(letter)
+
+    one=code[0]
+    two=code[1]
+    three=code[2]
+    four=code[3]
+    while remaining!=0:
+        nik=0
+        nak=0    
+        
+        if remaining!=0:
+            print("You have", remaining, "guesses remaining.")
+            
+        guess=input("Enter your guess:\n")
+    
+
+        guess_one=guess[0]
+        guess_two=guess[1]
+        guess_three=guess[2]
+        guess_four=guess[3]
+
+        guess_list=[]
+
+        guess_list.append(guess_one)
+        guess_list.append(guess_two)
+        guess_list.append(guess_three)
+        guess_list.append(guess_four)
+
+        count_guess1=guess_list.count(one)
+        count_guess2=guess_list.count(two)
+        count_guess3=guess_list.count(three)
+        count_guess4=guess_list.count(four)
+        nak=count_guess1+count_guess2+count_guess3+count_guess4
+
+        if guess_one==one:
+            nak-=1
+            nik+=1
+        if guess_two==two:
+            nak-=1
+            nik+=1 
+        if guess_three==three:
+            nak-=1
+            nik+=1
+        if guess_four==four:
+            nak-=1
+            nik+=1
+    
+        if nik==4:
+            print("Correct!") 
+            break
+        if nik!=1 and nak!=1:
+            print("There are", nik, "Niks and", nak, "Naks.")
+        elif nik==1:
+            print("There is", nik, "Nik and", nak, "Naks.")
+        elif nak==1:
+            print("There are", nik, "Niks and", nak, "Nak.")
+        elif nik==1 and nak==1:
+            print("There is", nik, "Nik and", nak, "Nak.")
+            
+        
+        remaining-=1
+
+    if remaining==0:
+            print("Sorry, you lose.")
+            print("The secret number was", code[0]+code[1]+code[2]+code[3]+".")
+        
+if __name__ == '__main__':
+    main()
+    &gt;&gt;&gt;&gt; file: turtlePlay.py
+import turtle
+
+turtle.pu()
+turtle.left(90)
+turtle.forward(40)
+turtle.right(90)
+turtle.left(180)
+turtle.forward(40)
+turtle.left(180)
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match123-1.html#0" TARGET="1"><IMG SRC="../../bitmaps/tm_0_4.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+turtle.pd()
+for i in range(4):
+    turtle.left(90)
+    turtle.forward(50)
+    turtle.right(90)
+    turtle.left(35)
+    turtle.forward(100)
+    turtle.right(125)
+    turtle.forward(100)
+</FONT>
+turtle.pu()
+turtle.home()
+turtle.pd()
+turtle.circle(10)
+
+turtle.pu()
+turtle.right(90)
+turtle.forward(50)
+turtle.write("I'm on a roll")
+turtle.forward(80)
+turtle.shape("circle")
+turtle.fillcolor("blue")
+turtle.stamp()
+turtle.right(50)
+turtle.forward(25)
+turtle.stamp()
+turtle.forward(25)
+turtle.bgcolor("red")
+
+turtle.exitonclick()</PRE>
+</PRE>
+</BODY>
+</HTML>

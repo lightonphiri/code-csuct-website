@@ -1,0 +1,82 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Dropbox/Projects/work/2016/csc1011h/Moss/tutorial3/raw/Mahoko,_Malebo(mhkmal001)/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Dropbox/Projects/work/2016/csc1011h/Moss/tutorial3/raw/Matsaung,_Thapelo(mtstha058)/<p><PRE>
+&gt;&gt;&gt;&gt; file: POS.py
+from sqlite3 import*
+db=connect('Point of sale.db')
+db.execute('create table if not exists Stock(stock_code text,item_name text,description text,cost_price real,sales_price real,quantity int,PRIMARY KEY(stock_code))')
+db.execute('insert into Stock values("BAR","Bar one","chocolate",9.50,13.00,12)')
+db.execute('insert into Stock values("RED","Red Bull", "Energy drink",12.00,16.00,25)')
+db.execute('insert into Stock values("COKE","Coca-cola","Soft drink",9.00,13.50,25)')
+db.execute('insert into Stock values("TEN","Tennis","Biscuits",7.20,11.00,30)')
+db.execute('insert into Stock values("AQUA","Aquelle","Bottled water", 3.00,5.00,20)')
+db.execute('insert into Stock values("BON","Bonaqua","Bottled water", 3.50,6.00,20)')
+db.execute('insert into Stock values("CREAM","Lemons Creams","Biscuits",9.5,13.00,30)')
+db.execute('insert into Stock values("SIM","Simba","Potato chips",8.50,12.00,35)')
+db.execute('insert into Stock values("ORE","Oreo","Biscuits",8.50,12.00,35)')
+db.execute('insert into Stock values("DOR","Doritos","Potato chips",8.50,12.00,35)')
+
+
+
+
+db.commit()&gt;&gt;&gt;&gt; file: gui.py
+import sys
+from PyQt4 import QtGui
+from PyQt4 import QtCore
+from sqlite3 import*
+
+
+class POS(QtGui.QWidget):
+    def __init__(self,parent=None):
+        QtGui.QWidget.__init__(self,parent)
+        self.setGeometry(300,300,400,400)
+        self.setWindowTitle('Point of Sale')
+        
+        combo=QtGui.QComboBox()
+        db1=connect('Point of sale.db')
+        self.db2=db1.execute('select stock_code from Stock')
+        for i in self.db2:
+            combo.addItem(str(i))
+        label=QtGui.QLabel('Quantity:')
+        label1=QtGui.QLabel('Select Stock code:')
+        edit=QtGui.QLineEdit()
+        ok=QtGui.QPushButton('OK')
+        report=QtGui.QPushButton('report')
+        self.cancel=QtGui.QPushButton('Close')
+        grid=QtGui.QGridLayout()
+        grid.addWidget(combo,0,1)
+        grid.addWidget(label1,0,0)
+        grid.addWidget(label,1,0)
+        grid.addWidget(edit,1,1)
+        grid.addWidget(ok,2,0)
+        grid.addWidget(self.cancel,2,1)
+        grid.addWidget(report)
+        self.setLayout(grid)
+        
+        
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match118-0.html#0" TARGET="0"><IMG SRC="../../bitmaps/tm_0_6.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+        self.connect(self.cancel,QtCore.SIGNAL('clicked()'), self.buttonClicked)
+    def buttonClicked(self):
+        self.close()
+        
+        
+        
+        
+def main():
+    app=QtGui.QApplication(sys.argv)
+    P=POS()
+    P.show()
+</FONT>    
+    sys.exit(app.exec_())
+main()
+        
+
+</PRE>
+</PRE>
+</BODY>
+</HTML>

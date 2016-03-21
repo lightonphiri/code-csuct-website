@@ -1,0 +1,145 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/8/raw/khslin005/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/8/raw/khslin005/<p><PRE>
+&gt;&gt;&gt;&gt; file: Lecturer.py
+class Lecturer:
+    def __init__(self, n='unknown', sn='unknown'):
+        self.name = n
+        self.staff_number = sn
+        self.courses = []
+       
+    def __str__(self):
+        s = self.name + ', ' + self.staff_number
+        if len(self.courses)&gt;0:
+            s += ': '+str(self.courses[0])
+            for c in self.courses[1:]:
+                s += '; ' + str(c)
+                return s+'.'
+       
+    def add_course(self, c):
+        self.courses.append(c)
+       
+    def input(self):
+        self.name = input('Enter name: ')
+        self.staff_number= input('Enter staff number: ')
+   
+    def display(self):
+        print('Name: ' + self.name)
+        print('Staff number: ' + self.staff_number)
+    
+    
+    &gt;&gt;&gt;&gt; file: universitysystem.py
+from Lecturer import Lecturer
+from course import Course
+from student  import Student
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match19-1.html#1" TARGET="1"><IMG SRC="../../bitmaps/tm_1_9.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+print("""University Member System:
+0. Quit.
+1. Input Course.
+2. Input Lecturer.
+3. Input Student.
+4. Enrol Student on Course.
+5. Assign Course to Lecturer.
+6. Find Course.
+7. Find Lecturer.
+8. Find Student.
+9. Display Courses.
+</FONT>10. Display Lecturers.
+11. Display Students.""")
+<A NAME="3"></A><FONT color = #00FFFF><A HREF="match19-1.html#3" TARGET="1"><IMG SRC="../../bitmaps/tm_3_6.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+karabo=eval(input("&gt;"))
+course={}
+lecturer={}
+student={}
+
+
+
+while karabo!=0 :
+
+    if karabo==1 :
+        cos=Course()
+        cos.input()
+        course[cos.course_code]=cos
+    elif karabo==2:
+</FONT>        lec=Lecturer()
+        lec.input()
+        lecturer[lec.staff_number]=lec
+<A NAME="2"></A><FONT color = #0000FF><A HREF="match19-1.html#2" TARGET="1"><IMG SRC="../../bitmaps/tm_2_6.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    elif karabo==3:
+        stu=Student()
+        stu.input()
+        student[stu.student_number]=stu
+        
+    elif karabo==4:
+        studentN=input("Enter student number: ")
+        cosr=input("Enter course code: ")
+        if studentN not in student:
+            print("Could not find a student with that student number.")
+        else:
+</FONT>                student[studentN].add_course(cosr)
+    elif karabo==5:
+        staffN=input("Enter staff number: ")
+        cosr=input("Enter course code: ")
+        if staffN not in lecturer:
+            print("Could not find a lecturer with that staff number.")
+        else :   
+            lecturer[staffN].add_course(cosr)
+            
+    elif karabo==6:
+        cosr=input("Enter course code: ")
+        if cosr not in course:
+            print("Could not find a course with that code.")
+        else :   
+            print(course[cosr])
+            
+    elif karabo==7:
+        lect=input("Enter staff number: ")
+        if lect not in lecturer:
+            print("Could not find a member of staff with that number.")
+        else :   
+            print(lecturer[lect]) 
+            
+    elif karabo==8:
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match19-1.html#0" TARGET="1"><IMG SRC="../../bitmaps/tm_0_10.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+        stud=input("Enter student number: ")
+        if stud not in student:
+            print("Could not find a student with that number.")
+        else :   
+            print(student[stud])
+            
+    elif karabo==9:
+        for i in course:
+            course[i].display()
+    elif karabo==10:
+        for i in lecturer:
+            lecturer[i].display() 
+    elif karabo==11:
+        for i in student:
+</FONT>            student[i].display()  
+    elif karabo&gt;11:
+        print("That selection was not recognised.")
+    print("""University Member System:
+0. Quit.
+1. Input Course.
+2. Input Lecturer.
+3. Input Student.
+4. Enrol Student on Course.
+5. Assign Course to Lecturer.
+6. Find Course.
+7. Find Lecturer.
+8. Find Student.
+9. Display Courses.
+10. Display Lecturers.
+11. Display Students.""")
+    karabo=eval(input("&gt;"))</PRE>
+</PRE>
+</BODY>
+</HTML>

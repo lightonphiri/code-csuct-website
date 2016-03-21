@@ -1,0 +1,36 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/1/raw/mlxmog001/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/1/raw/mlxmog001/<p><PRE>
+&gt;&gt;&gt;&gt; file: CalculateChange.py
+# Program to calculate the minimum amount of coins in change
+# Mogase Maloa
+# MLXMOG001
+# 18 April 2015
+
+def main() :
+    # prompt user,enter amount change amount
+    change_amount=int(input("Enter change amount:\n"))
+    # calculate minimum amount of coins in change in R5 coins
+    num_R5coins=(change_amount)//5
+    # display the answer
+    print("The change:")
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match83-1.html#0" TARGET="1"><IMG SRC="../../bitmaps/tm_0_55.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    print(num_R5coins,"R5 coins")
+    # calculate minimum amount of coins in change in R2 coins
+    change_amount2=(change_amount)%5
+    num_R2coins=(change_amount2)//2
+    # dispay the answer
+    print(num_R2coins,"R2 coins")
+    # calculate minimum amount of coins in change in R1 coins
+    change_amount3=(change_amount2)%2
+    num_R1coins=(change_amount3)//1
+    print(num_R1coins,"R1 coins")
+</FONT>main()</PRE>
+</PRE>
+</BODY>
+</HTML>

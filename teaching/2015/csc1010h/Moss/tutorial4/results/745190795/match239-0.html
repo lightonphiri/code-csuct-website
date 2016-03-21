@@ -1,0 +1,173 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/4/raw/rwxnku001/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/4/raw/rwxnku001/<p><PRE>
+&gt;&gt;&gt;&gt; file: LongJump.py
+def main():
+    x=" Long Jump Information System "
+    print("{:*^40}".format(x),"\nPlease enter the names of competitors. (Press enter when done.)")
+    comp_list=[]
+    comp_dic={}
+    attempt_list=[[],[],[]]
+    count=1
+    while True:
+        print("Competitor no.",str(count)+":")
+        name=input()
+        comp_list.append(name)
+        if name!="":
+            count+=1
+        else:
+            count+=0
+        if name=="":
+            comp_list.remove(name)
+            count=count-1
+            print("Please enter the distances for each competitor.")
+            break
+    for i in range(count):
+        print("Competitor",comp_list[i])
+        for j in range(3):
+            print("Attemp",str(j+1)+":")
+            attempt=input(
+            attempt_list[j].append(attempt)
+    head="Long Distance"
+    print("Competitor{0:&gt;30}".format(head))
+    for k in range(count):
+        print(comp_list[k])
+            
+    
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+main()&gt;&gt;&gt;&gt; file: NikNaks.py
+import random
+def main():
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match239-1.html#0" TARGET="1"><IMG SRC="../../bitmaps/tm_0_6.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    letters=["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
+</FONT><A NAME="0"></A><FONT color = #FF0000><A HREF="match239-1.html#0" TARGET="1"><IMG SRC="../../bitmaps/tm_0_6.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    print("Guess the mystery 4 letter code. (No letter occurs more than once.)")
+</FONT>    difficulty=int(input("Choose difficulty level (4 to 26):\n"))
+    chosen_letters=letters[0:difficulty]
+    print("The letters in the code are chosen from:",str(chosen_letters)+".")
+    count=10
+    correct_count=0
+    incorrect_count=0
+    random_chosen_letters=[]
+    while count&gt;0:
+        print("You have",count,"guesses remaining.")
+        count-=1
+        guess=input("Enter you guess:\n")
+        guess=list(guess)
+main()&gt;&gt;&gt;&gt; file: PythonTurtle.py
+from turtle import*
+def main():
+    speed(0)
+    pensize(4)
+    penup()
+    setx(-200)
+    sety(-150)
+    pendown()
+    circle(100)
+    penup()
+    setx(150)
+    pendown()
+    circle(100)
+    penup()
+    sety(-50)
+    left(115)
+    pendown()
+    forward(175)
+    right(115)
+    forward(50)
+    penup()
+    goto(-200,-50)
+    pendown()
+    forward(170)
+    left(40)
+    forward(170)
+    left(140)
+    forward(170)
+    penup()
+    goto(-200,-50)
+    right(140)
+    pendown()
+    forward(171)
+    penup()
+    right(110)
+    pendown()
+    forward(117)
+    right(180)
+    forward(130)
+    right(110)
+    forward(30)
+    for i in range(3):
+        left(180)
+        forward(60)
+        pensize()    
+   
+    
+        
+    penup()
+    goto(-200,-50)
+    right(180)
+    forward(150)
+    right(90)
+    pendown()
+    circle(20)
+    left(90)
+    forward(20)
+    left(90)
+    penup()
+    forward(20)
+    pendown()
+    forward(30)
+    right(90)
+    forward(20)
+    left(180)
+    forward(20)
+    left(90)
+    forward(30)
+    penup()
+    forward(20)
+    pendown()
+    forward(40)
+    right(90)
+    forward(20)
+    penup()
+    goto(-200,-50)
+    forward(10)
+    left(90)
+    pendown()
+    circle(10)
+    penup()
+    goto(-200,-60)
+    pendown()
+    left(87)
+    forward(172)
+    penup()
+    goto(-200,-40)
+    left(6)
+    pendown()
+    forward(172)
+    penup()
+    goto(-200,-40)
+    home()
+    exitonclick()
+main()</PRE>
+</PRE>
+</BODY>
+</HTML>

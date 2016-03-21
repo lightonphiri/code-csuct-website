@@ -1,0 +1,414 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/5/raw/mmlfhu003/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/5/raw/sngsaj001/<p><PRE>
+&gt;&gt;&gt;&gt; file: calendar.py
+# sngsaj001
+# calender
+# 16 august 2015
+
+import calendar_utils
+
+
+def to_string(n, e):
+        if n&lt;1 or n&gt;e:
+                return '  '
+        else:
+                return '{:&gt;2}'.format(n)
+        
+def row(i, s, e):
+        start = i*7+s
+        result=to_string(start, e)
+        for column in range(start+1, start+7):
+                result+=' '+to_string(column, e)  
+        return result
+
+def row_of_months(i, start_month, year):
+        
+        start_day=(calendar_utils.first_day_of_month(start_month, year)-1)%7
+        days=calendar_utils.days_in_month(start_month, year)
+        
+        result=row(i, 1-start_day, days)
+
+        for month in range(start_month+1, start_month+3):
+                result+='   '
+                start_day=(start_day+days)%7
+                days=calendar_utils.days_in_month(month, year)
+                result+=row(i, 1-start_day, days)
+
+        return result
+
+def print_year(year):
+        print('{0:^69}'.format(year))
+        
+def print_month_names(start_month):
+        print('{0:^20}   {1:^20}   {2:^20}'.format(calendar_utils.month_name(start_month), calendar_utils.month_name(start_month+1), calendar_utils.month_name(start_month+2)).title())
+
+def print_month_days():
+        week='Mo Tu We Th Fr Sa Su'
+        print('{0:^20}   {1:^20}   {2:^20}'.format(week, week, week))
+        
+def print_months(start_month, year):
+        print_month_names(start_month)
+        print()
+        print_month_days()
+        
+        for r in range(0, 6):
+                print(row_of_months(r, start_month, year))
+                
+def main():
+        year=int(input('Enter the year:\n'))
+        
+        print_year(year)
+        print()
+        print_months(1, year)
+        for month in range(4, 13, 3):
+                print()
+                print_months(month, year)
+                
+
+if __name__ == "__main__":
+        main()&gt;&gt;&gt;&gt; file: calendar_utils.py
+# CalUtils
+# SNGSAJ001
+# 15/182015
+
+def is_leap_year(year):
+    if year%4==0 and year%100!=0:
+            if year%400==0:
+                return True
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match249-0.html#1" TARGET="0"><IMG SRC="../../bitmaps/tm_1_1.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    elif year%4!=0:
+            return False   
+
+def month_name(number):
+    monthname = { 1: "January",2: "February",3:"March",4:"April",5:"May",6:"June",7:"July",8:"August",9:"September",10:"October",11:"November",12:"December"}
+</FONT>    return monthname.get(number)
+
+def days_in_month(month_number, year):
+    if(month_number==2):
+        if( is_leap_year(year)):
+            return 29
+        else:
+            return 28
+    elif(month_number==1 or month_number==3 or month_number==5 or month_number==7 or month_number==8 or month_number==10 or month_number==12 ):
+        return 31
+    else:
+        return 30
+    
+def first_day_of_year(year):
+    a=(year-1)%4
+    b=(year-1)%100
+    c=(year-1)%400
+    day=(5*a+4*b+6*c)%7
+    return day
+
+def first_day_of_month(month_number, year):
+    first_jan= first_day_of_year(year)
+    sum_days=first_jan
+    for i in range(1,month_number+1):
+        sum_days=sum_days+days_in_month(i, year)
+    return sum_days%7
+        
+
+&gt;&gt;&gt;&gt; file: morse_code.py
+
+# sngsaj001
+# morse code
+
+
+
+import time
+
+duration = 100
+
+def transmit_letter(letter):
+    letter = letter.lower()
+    B = code_for(letter)
+    C = ""
+    D = 0
+    for each in B:
+        D += 1
+        if D != len(B):
+            C += each + "^"
+        else:
+            C += each
+    
+    time.sleep((duration/1000)*3)
+    print(C,end="")
+    return C
+
+
+
+
+
+
+
+
+
+
+
+def code_for(letter):
+    A={'a':'.-','b':'-...','c':'-.-.','d':'-..','e':'.','f':'..-.','g':'--.','h':'....','i':'..','j':'.---','k':'-.-','l':'.-..','m':'--','n':'-.','o':'---','p':'.--.','q':'--.-','r':'.-.','s':'...','t':'-','u':'..-','v':'...-','w':'.--','x':'-..-','y':'-.--','z':'--..'}
+    letter = letter.lower()
+    return A[letter]
+
+
+
+
+
+
+
+
+
+def word_pause():
+    print("||",end="")
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+def transmit_word(word):
+    A = ""
+    B = ""
+    E = 0
+    G = 0
+    word = word.lower()
+    D = ""
+    for C in word: 
+        G += 1
+        for L in C:
+            F = code_for(L)
+            for i in F:
+                E += 1
+                if E != len(F):
+                    D += (i + "^")
+                else:
+                    D += i
+            E = 0
+            if G != len(word):
+                D += "|"
+    time.sleep((7*duration)/1000)
+    print(D,end="")
+    return A
+    &gt;&gt;&gt;&gt; file: morse_translator.py
+import morse_code
+
+
+def main():
+    message=input('Enter message:\n')
+    
+    words=message.split(' ')
+    
+    word=words[0]
+    morse_code.transmit_word(word)
+    words=words[1:]
+    for word in words:
+        morse_code.word_pause()
+        morse_code.transmit_word(word)
+    
+main()&gt;&gt;&gt;&gt; file: morse_utils.py
+# Wrapper round time and winsound functions required for automarker.
+import time
+import winsound
+
+def sleep(duration):
+    time.sleep(duration)
+    
+def beep(frequency, duration):
+    winsound.Beep(frequency, duration)&gt;&gt;&gt;&gt; file: technical_support.py
+# sngsaj001
+# calender
+# 16 august 2015
+
+
+
+def print_welcome():
+    print('Welcome to the automated technical support system.')
+    print('Please describe your problem:')
+    
+
+def aninput():
+    return input().lower()
+
+def main():
+    
+    print_welcome()
+    problem = aninput()
+    
+    responses={'bluetooth':'Have you tried mouthwash?',
+        'windows':'Ah, I think I see your problem. What version?',
+        'apple':'You do mean the computer kind?',
+        'blue':'Ah, the blue screen of death. And then what happened?',
+        'spam':'You should see if your mail client can filter messages.',
+        'connection':'Contact Telkom.',
+        'crashed':'Are the drivers up to date?',
+        'hacked':'You should consider installing anti-virus software.'}    
+    
+    while problem!='quit':
+        problem=problem.split()
+        for word in problem:
+            if word in responses:
+                break
+        if word in responses:
+            print(responses[word])
+        else:
+            print('Curious, tell me more. ')
+            
+        problem = aninput()
+        
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match249-0.html#0" TARGET="0"><IMG SRC="../../bitmaps/tm_0_2.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+if __name__ =='__main__':
+    
+    main()
+                &gt;&gt;&gt;&gt; file: test_calendar_utils.py
+# test_calendar_utils.py
+# Stephan Jamieson
+# 4/8/2015
+
+def print_welcome():
+    print('Test harness for calendar_utils');
+    
+def get_selection():
+    print('\nChoose from the following options:')
+    print('0. quit')
+    print('1. Test is_leap_year().')
+    print('2. Test month_name().')
+    print('3. Test days_in_month().')
+    print('4. Test first_day_of_year().')
+    print('5. Test first_day_of_month().')
+    return int(input())
+</FONT>
+def test_leap_year():
+    from calendar_utils import is_leap_year
+
+    year = int(input('Enter the year (4 digits):\n'))
+    if is_leap_year(year):
+        print('The year '+str(year)+' is a leap year.')
+    else:
+        print('The year '+str(year)+' is not leap year.')
+
+def test_month_name():
+    from calendar_utils import month_name
+    
+    for month_number in range(1, 13):
+        print('Month number '+str(month_number)+ ' is '+month_name(month_number)+'.')
+        
+
+def test_days_in_month():
+    from calendar_utils import days_in_month
+
+    year = int(input('Enter the year (4 digits):\n'))
+    for month_number in range(1, 12):
+        print('The days in the month with number '+str(month_number)+ ' in year '+str(year)+' is '+str(days_in_month(month_number, year))+'.')
+        
+def test_first_day_year():
+    from calendar_utils import first_day_of_year
+    
+    year = int(input('Enter the year (4 digits):\n'))
+    print('The first day of '+str(year)+' is '+str(first_day_of_year(year))+'.')
+    
+def test_first_day_month():
+    from calendar_utils import first_day_of_month
+    
+    month = int(input('Enter the month (1 for January, ..., 12 for December):\n'))
+    year = int(input('Enter the year (4 digits):\n'))
+    print('The first day of month '+str(month)+' in '+str(year)+' is '+str(first_day_of_month(month, year))+'.')
+    
+def main():
+    print_welcome()
+    
+    selection = get_selection()
+    while not selection==0:
+
+        if selection==1:
+            test_leap_year()
+        elif selection==2:
+            test_month_name()
+        elif selection==3:
+            
+            test_days_in_month()
+        elif selection==4:
+            test_first_day_year()
+        elif selection==5:
+            test_first_day_month()
+        else:
+            print('That selection was not recognised.')
+
+        selection = get_selection()
+        
+        
+main()
+&gt;&gt;&gt;&gt; file: test_morse_code.py
+# test_morse_code.py
+# Stephan Jamieson
+# 12/1/2015, 4/2015
+
+def print_welcome():
+    print('Test harness for morse_code');
+    
+def get_selection():
+    print('\nChoose from the following options:')
+    print('0. quit')
+    print('1. Test code_for().')
+    print('2. Test transmit_letter().')
+    print('3. Test transmit_word().')
+    print('4. Test word_pause().')
+    return int(input())
+
+def test_code_for():
+    from morse_code import code_for
+    for letter in "abcdefghijklmnopqrstuvwxyz":
+        print(letter, code_for(letter))
+        
+def test_transmit_letter():
+    from morse_code import transmit_letter
+    for letter in "abcdefghijklmnopqrstuvwxyz":
+        print(letter, ':', end='')
+        transmit_letter(letter)
+        print()
+               
+def test_transmit_word():
+    from morse_code import transmit_word
+    word = input("Enter test word:\n")
+    transmit_word(word)
+    
+def test_word_pause():
+    from morse_code import word_pause    
+    word_pause()
+
+
+def main():
+    print_welcome()
+    selection = get_selection()
+    
+    while not selection==0:
+        if selection==1:
+            test_code_for()
+        elif selection==2:
+            test_transmit_letter()
+        elif selection==3:
+            test_transmit_word()
+        elif selection==4:
+            test_word_pause()
+        else:
+            print('Sorry, that selection was not recognised.')
+            
+        selection = get_selection()
+main()</PRE>
+</PRE>
+</BODY>
+</HTML>

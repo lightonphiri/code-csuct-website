@@ -1,0 +1,192 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/8/raw/mchsim007/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/8/raw/mchsim007/<p><PRE>
+&gt;&gt;&gt;&gt; file: Lecturer.py
+# Class Lecturer
+# Simpiwe Mchunu
+# 03 October 2015
+
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match64-1.html#0" TARGET="1"><IMG SRC="../../bitmaps/tm_0_5.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+class Lecturer:
+    def __init__ (self, name = 'unknown', staff_number = 0):
+        self.name = name
+        self.staff_number = staff_number
+        self.courses = []
+    def __str__(self):
+            s = self.name + ', ' + self.staff_number
+</FONT>            if len(self.courses)&gt;0:
+                s += ': '+str(self.courses[0])
+                for c in self.courses[1:]:
+                    s += '; ' + str(c)
+            return s+'.'
+    def add_course (self, c):
+        self.courses.append(c)
+    def input(self):
+            self.name = input('Enter name: ')
+            self.staff_number = input('Enter staff number: ')
+    def display(self):
+        print('Name: ' + self.name)
+        print('Staff number: ' + self.staff_number) 
+
+&gt;&gt;&gt;&gt; file: sorttester.py
+# sorttester 2
+# Simphiwe Mchunu
+# 04 October 2015
+def main():
+    import time 
+    import sortsearch    
+    list_size = eval(input('Enter the size of the list:\n'))
+    print('Choose the sort method:')
+    print('1. Heap Sort.')
+    print('2. Bubble Sort.')
+    sort_method = eval(input())
+    if sort_method == 1:
+        unsorted_list = sortsearch.generate_number_list(list_size)
+        print('Before:',unsorted_list)
+        time1 = time.clock()
+        sorted_list = sortsearch.heap_sort(unsorted_list)
+        print('After:',sorted_list)
+        time2 = time.clock()
+        final_time = time2 - time1
+        print('Time:','{0:.9f}'.format(final_time))
+    elif sort_method == 2:
+        unsorted_list2 = sortsearch.generate_number_list(list_size)
+        print('Before:',unsorted_list2)
+        time3 = time.clock()
+        sorted_list2 = sortsearch.bubble_sort(unsorted_list2)
+        print('After:',sorted_list2)
+        time4 = time.clock()
+        final_time = time4 - time3
+        print('Time:','{0:.9f}'.format(final_time))        
+    else:
+        print('Invalid input supplied. Try again!!')
+        print('-----------------------------------')
+        main()
+main()
+    &gt;&gt;&gt;&gt; file: universitysystem.py
+
+
+from course import Course
+from student import Student
+from Lecturer import Lecturer
+import collections
+
+def options():
+    print('University Member System: ')
+    print('0. Quit.')
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match64-1.html#1" TARGET="1"><IMG SRC="../../bitmaps/tm_1_4.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    print('1. Input Course.')
+    print('2. Input Lecturer.')
+    print('3. Input Student.')
+    print('4. Enrol Student on Course.')
+    print('5. Assign Course to Lecturer.')
+    print('6. Find Course.')
+    print('7. Find Lecturer.')
+    print('8. Find Student.')
+    print('9. Display Courses.')
+    print('10. Display Lecturers.')
+    print('11. Display Students.')
+    
+def display_dictionary_values(dictn):
+</FONT>    print('&gt;',end='')
+    for i in dictn:
+        xn=dictn[i]
+        xn.display()            
+         
+def display_options():     
+    k=collections.OrderedDict() # collection for lecturers
+    l=collections.OrderedDict()  # collection for students
+    m=collections.OrderedDict()   # collection for courses
+    
+    while True:
+        options()
+        choose_option=input()
+        
+        if choose_option=='0':
+            print('&gt;')
+            break
+        
+        elif choose_option=='1':
+            course_info=Course()
+            print('&gt;',end='')
+            course_info.input()
+            pk=Course(course_info.course_code,course_info.description)
+            m[course_info.course_code]=pk
+            
+        elif choose_option=='2':
+            lecturer_information=Lecturer()
+            print('&gt;',end='')
+            lecturer_information.input()
+            bn= Lecturer(lecturer_information.name,lecturer_information.staff_number)
+            k[lecturer_information.staff_number]=bn
+        
+        elif choose_option=='3':
+            student_information=Student()
+            print('&gt;',end='')
+            student_information.input()
+            zn=Student(student_information.name,student_information.student_number)
+            l[student_information.student_number]=zn
+           
+        elif choose_option=='4':
+            try:
+                student_number= input('&gt;Enter student number: ')
+                course_code= input('Enter course code: ')
+                student=l[student_number]
+                student.add_course(m[course_code])
+                
+            except:
+                print('Could not find a student with that student number.')
+
+        elif choose_option=='5':
+            try:
+                staff_number= input('&gt;Enter staff number: ')
+                course_code= input('Enter course code: ')
+                lecturer=k[staff_number]
+                lecturer.add_course(m[course_code])
+                
+            except:
+                print('Could not find a lecturer with that staff number.')
+                    
+        elif choose_option=='6':
+            try:
+                find_course=input('&gt;Enter course code: ')
+                print(m[find_course])
+            except:
+                print('Could not find a course with that code.')
+  
+        elif choose_option=='7':
+            try:
+                find_lecturer=input('&gt;Enter staff number: ')
+                print(k[find_lecturer])
+            except:
+                print('Could not find a member of staff with that number.')
+
+        elif choose_option=='8':
+            try:
+                find_student=input('&gt;Enter student number: ')
+                print(l[find_student])
+            
+            except:
+                print('Could not find a student with that number.')
+            
+        elif choose_option=='9':
+            display_dictionary_values(m)
+                
+        elif choose_option=='10':
+            display_dictionary_values(k)
+                 
+        elif choose_option=='11':
+            display_dictionary_values(l)
+                
+        else:
+            print("&gt;That selection was not recognised.")
+display_options()                               </PRE>
+</PRE>
+</BODY>
+</HTML>

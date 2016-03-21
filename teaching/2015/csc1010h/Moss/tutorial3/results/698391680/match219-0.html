@@ -1,0 +1,179 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/3/raw/bthlin016/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/3/raw/bthlin016/<p><PRE>
+&gt;&gt;&gt;&gt; file: FeetMetres.py
+#program that displays a conversion table for measurements in feet to measurements in metres.
+#Linda Bathembu
+#16 May 2015
+
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match219-1.html#0" TARGET="1"><IMG SRC="../../bitmaps/tm_0_4.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+min_feet=int(input("Enter the minimum number of feet (not less than 0):\n"))
+max_feet=int(input("Enter the maximum number of feet (not more than 99):\n"))
+if min_feet&gt;=0 and max_feet&lt;=99:
+    for i in range (min_feet,max_feet+1):
+        n=i*0.3048
+        
+    
+        print('{0:&gt;4}'.format(str(i))+"' |  "+str(('{0:5.2f}'.format(n)))+"m")
+</FONT>else:
+    pass&gt;&gt;&gt;&gt; file: InchesMetres.py
+#program that displays a conversion table for inches to metres.
+#Linda Bathembu
+#16 May 2015
+
+min_inch=int(input('Enter the minimum number of inches (not less than 0):\n'))
+max_inch=int(input('Enter the maximum number of inches (not greater than 11):\n'))
+print('Inches:',end="")  
+for i in range(min_inch,max_inch+1):
+    
+    print('{0:&gt;5}'.format(i),end="")
+print("")
+
+
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match219-1.html#1" TARGET="1"><IMG SRC="../../bitmaps/tm_1_3.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+print('Metres:',end="")
+for i in range(min_inch,max_inch+1):
+    metre=i*0.0254
+    
+    print('{0:&gt;5}'.format(('{0:5.2f}'.format(metre))),end="")
+</FONT>&gt;&gt;&gt;&gt; file: TimeConvertor.py
+#program that converts times expressed in 24 hour clock to 12 hour clock and that converts times expressed in 12 hour clock to 24 hour clock.
+#Linda Bathembu
+#14 May 2015
+
+time=input("Enter a time ([h]h:mm [am|pm]):\n")
+time3=time[2:]
+time4=time3[5:]   #:00 am slice 5 times to get 'm'
+
+if time4 == 'm' or time3[4:]=='m':
+    if time == '12'+time[2:6]+'am':
+        print('00'+time[2:5])
+    elif time[6:7+1]=='am':
+        print(time[:5])
+    elif time[5:6+1]=='am':
+        print('0'+time[:4])
+        
+    if time=='12'+time[2:6]+'pm':
+        print(time[:5])
+    elif time[6:8]=='pm':
+        newtime=int(time[:2])+12
+        print(str(newtime)+time[2:5])
+    
+    elif time[5:6+1]=='pm':
+        newtime=int(time[:1])+12
+        print(str(newtime)+time[1:4])
+    
+else:
+    if time=='00'+time[2:]:
+        print('12'+time[2:] +' am')
+    
+    if 00&lt;int(time[:2])&lt;10:
+        print(time[1:],"am")
+    if 12&gt;int(time[:2])&gt;=10:
+        print(time,"am")    
+    if int(time[:2])&gt;12:
+        time2=int(time[:2])-12
+        print(str(time2)+time[2:]+" "+"pm")
+    if int(time[:2])==12:
+        print(time,"pm")&gt;&gt;&gt;&gt; file: Twelve.py
+#program that converts times expressed in 12 hour clock to 24 hour clock.
+#Linda Bathembu
+#08 May 2015
+
+time=input("Enter a time in 12 hour clock ([h]h:mm [am|pm]):\n")
+
+if time == '12'+time[2:6]+'am':
+    print('00'+time[2:5])
+elif time[6:7+1]=='am':
+    print(time[:5])
+elif time[5:6+1]=='am':
+    print('0'+time[:4])
+    
+if time=='12'+time[2:6]+'pm':
+    print(time[:5])
+elif time[6:8]=='pm':
+    newtime=int(time[:2])+12
+    print(str(newtime)+time[2:5])
+
+elif time[5:6+1]=='pm':
+    newtime=int(time[:1])+12
+    print(str(newtime)+time[1:4])
+
+    
+
+
+
+    
+
+&gt;&gt;&gt;&gt; file: TwentyFour.py
+#program that converts times expressed in 24 hour clock to 12 hour clock.
+#Linda Bathembu
+#08 May 2015
+
+time=input("Enter a time in 24 hour clock (hh:mm):\n")
+if time=='00'+time[2:]:
+    print('12'+time[2:] +' am')
+
+if 00&lt;int(time[:2])&lt;10:
+    print(time[1:],"am")
+if 12&gt;int(time[:2])&gt;=10:
+    print(time,"am")    
+if int(time[:2])&gt;12:
+    time2=int(time[:2])-12
+    print(str(time2)+time[2:]+" "+"pm")
+if int(time[:2])==12:
+    print(time,"pm")
+&gt;&gt;&gt;&gt; file: VehicleClassifier.py
+#program that can calculate the class to which a vehicle belongs.
+#Linda Bathembu
+#15 May 2015
+print('***** Vehicle classifier *****')
+gvm=int(input('What is the gross vehicle mass (in kg)?\n'))
+tralor=input('Does the vehicle have a trailer?\n')
+text='This vehicle is class'
+
+if tralor=='y':
+    gvmt=int(input('What is gross vehicle mass of the trailer (in kg)?\n'))
+    if gvmt&gt;750 and gvm&lt;=3500:
+        print(text,'EB.')
+    elif gvmt&gt;750 and 3500&lt;gvm&lt;=16000:
+        print(text,'EC1.')
+    elif gvmt&gt;750 and 16000&lt;gvm:
+            print(text,'EC.') 
+    elif gvmt&lt;=750 and gvm&lt;=3500:
+        print(text,'B.')
+    elif gvmt&lt;=750 and 3500&lt;gvm&lt;=16000:
+        print(text,'C1.')
+        
+    elif gvmt&lt;=750 and 16000&lt;gvm:
+        print(text,'C.')
+        
+if tralor=='n':
+    articulated=input('Is the vehicle articulated?\n')
+    if articulated=='n':
+        if gvm&lt;=3500:
+            print(text,'B.')
+        elif 3500&lt;gvm&lt;=16000:
+            print(text,'C1.')
+        elif 16000&lt;gvm:
+            print(text,'C.')    
+    if articulated=='y':
+        
+        if gvm&lt;=3500:
+            print(text,'EB.')
+        elif 3500&lt;gvm&lt;=16000:
+            print(text,'EC1.')
+        elif 16000&lt;gvm:
+            print(text,'EC.')        
+    
+    
+</PRE>
+</PRE>
+</BODY>
+</HTML>

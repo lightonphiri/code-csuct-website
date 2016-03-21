@@ -1,0 +1,27 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/1/raw/nktphi002/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/1/raw/pswlel001/<p><PRE>
+&gt;&gt;&gt;&gt; file: CalculateChange.py
+# Program of calculating change
+# Lelethu Poswa
+# April 2015 
+
+def main():
+    change = eval(input("Enter change amount:\n")) # entering the change value
+    print("The change:")
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match30-0.html#0" TARGET="0"><IMG SRC="../../bitmaps/tm_0_68.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    n = change//5     # is the change divisible by 5 
+    print(n, 'R5 coins') # if so print the whole number 
+    b = (change - (n*5)) //2  # is the change divisible by 2
+    print(b, "R2 coins") # if so print the whole number
+    c = (change - (n*5) - (b*2))//1 # is the change minus the 5 and the 2 still divisible by 1
+    print (c, "R1 coins") # if so print that whole number
+</FONT>main()</PRE>
+</PRE>
+</BODY>
+</HTML>

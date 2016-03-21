@@ -1,0 +1,203 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/8/raw/01445014/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/8/raw/01445014/<p><PRE>
+&gt;&gt;&gt;&gt; file: lecturer.py
+# Lecturer.py
+class Lecturer:
+    
+    def __init__(self, n='unknown', sn='unknown'):
+        self.name = n
+        self.staff_number = sn
+        self.courses = []
+    
+    def __str__(self):
+        s = self.name + ', ' + self.staff_number
+        if len(self.courses)&gt;0:
+            s += ': '+str(self.courses[0])
+            for c in self.courses[1:]:
+                s += '; ' + str(c)
+        return s+'.'
+    
+    def add_course(self, c):
+        self.courses.append(c)
+    
+    def input(self):
+        self.name = input('Enter name: ')
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match185-1.html#0" TARGET="1"><IMG SRC="../../bitmaps/tm_0_3.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+        self.staff_number = input('Enter staff number: ')
+
+    def display(self):
+        print('Name: ' + self.name)
+        print('Staff number: ' + self.staff_number)&gt;&gt;&gt;&gt; file: university_system.py
+# UniversityMemberSystem.py
+from course import Course
+from lecturer import Lecturer
+</FONT>from student import Student
+
+def display_dictionary_values(dictionary):
+    for k in dictionary.keys():
+        dictionary[k].display()
+
+    
+menu = {1:'Input Course.', 2:'Input Lecturer.', 3:'Input Student.', 4:'Find Course.', 5:'Find Lecturer.', 6:'Find Student.', 7:'Display Courses.', 8:'Display Lecturers.', 9:'Display Students.', 0:'Quit.'}
+
+def print_menu():
+    print('University Member System: ')
+    for k in menu.keys():
+        print('{}. {}'.format(k, menu[k]))
+        
+    
+def main():
+    students = {}
+    lecturers = {}
+    courses = {}
+    
+    print_menu()
+    selection = int(input("&gt;"))
+    while selection!=0:
+        if selection==1:
+            course = Course()
+            course.input()
+            courses[course.course_code]=course
+        elif selection==2:
+            lecturer = Lecturer()
+            lecturer.input()
+            lecturers[lecturer.staff_number] = lecturer
+        elif selection==3:
+            student = Student()
+            student.input()
+            students[student.student_number] = student
+        elif selection==4:
+            course_code = input('Enter course code: ').strip()
+            if course_code in courses.keys():
+                print(courses[course_code])
+            else:
+                print('Could not find a course with that code.')
+        elif selection==5:
+            staff_number = input('Enter staff number: ').strip()
+            if staff_number in lecturers.keys():
+                print(lecturers[staff_number])
+            else:
+                print('Could not find a member of staff with that number.')
+        elif selection==6:
+            student_number = input('Enter student number: ').strip()
+            if student_number in students.keys():
+                print(students[student_number])
+            else:
+                print('Could not find a student with that number.')
+        elif selection==7:
+            display_dictionary_values(courses)
+        elif selection==8:
+            display_dictionary_values(lecturers)
+        elif selection==9:
+            display_dictionary_values(students)
+        else:
+            print('That selection was not recognised.')
+        
+        print_menu()
+        selection = int(input('&gt;'))
+    
+main()
+    &gt;&gt;&gt;&gt; file: universitysystem.py
+# UniversityMemberSystem.py
+from course import Course
+from lecturer import Lecturer
+from student import Student
+
+def display_dictionary_values(dictionary):
+    for entry in sorted(dictionary):
+        dictionary[entry].display()
+
+    
+menu = {1:'Input Course.', 2:'Input Lecturer.', 3:'Input Student.', 4:'Enrol Student on Course.', 5:'Assign Course to Lecturer.', 6:'Find Course.', 7:'Find Lecturer.', 8:'Find Student.', 9:'Display Courses.', 10:'Display Lecturers.', 11:'Display Students.', 0:'Quit.'}
+
+def print_menu():
+    print('University Member System: ')
+    for k in menu.keys():
+        print('{}. {}'.format(k, menu[k]))
+        
+    
+def main():
+    students = {}
+    lecturers = {}
+    courses = {}
+    
+    print_menu()
+    selection = int(input("&gt;"))
+    while selection!=0:
+        if selection==1:
+            course = Course()
+            course.input()
+            courses[course.course_code]=course
+        elif selection==2:
+            lecturer = Lecturer()
+            lecturer.input()
+            lecturers[lecturer.staff_number] = lecturer
+        elif selection==3:
+            student = Student()
+            student.input()
+            students[student.student_number] = student
+        elif selection==4:
+            student_number = input('Enter student number: ')
+            course_code = input('Enter course code: ')
+            if student_number in students.keys() and course_code in courses.keys():
+                student = students[student_number]
+                course = courses[course_code]
+                student.courses.append(course)
+            else:
+                if student_number not in students.keys():
+                    print('Could not find a student with that student number.')
+                if course_code not in courses.keys():
+                    print ('Could not find a course with that code.')
+        elif selection==5:
+            staff_number = input('Enter staff number: ')
+            course_code = input('Enter course code: ')
+            if staff_number in lecturers.keys() and course_code in courses.keys():
+                lecturer = lecturers[staff_number]
+                course = courses[course_code]
+                lecturer.courses.append(course)
+            else:
+                if staff_number not in lecturers.keys():
+                    print('Could not find a lecturer with that staff number.')
+                if course_code not in courses.keys():
+                    print ('Could not find a course with that code.')
+        elif selection==6:
+            course_code = input('Enter course code: ').strip()
+            if course_code in courses.keys():
+                print(courses[course_code])
+            else:
+                print('Could not find a course with that code.')
+        elif selection==7:
+            staff_number = input('Enter staff number: ').strip()
+            if staff_number in lecturers.keys():
+                print(lecturers[staff_number])
+            else:
+                print('Could not find a member of staff with that number.')
+        elif selection==8:
+            student_number = input('Enter student number: ').strip()
+            if student_number in students.keys():
+                print(students[student_number])
+            else:
+                print('Could not find a student with that number.')
+        elif selection==9:
+            display_dictionary_values(courses)
+        elif selection==10:
+            display_dictionary_values(lecturers)
+        elif selection==11:
+            display_dictionary_values(students)
+        else:
+            print('That selection was not recognised.')
+        
+        print_menu()
+        selection = int(input('&gt;'))
+    
+main()
+    </PRE>
+</PRE>
+</BODY>
+</HTML>

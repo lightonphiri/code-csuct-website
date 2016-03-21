@@ -1,0 +1,222 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/7/raw/edwgar008/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/7/raw/edwgar008/<p><PRE>
+&gt;&gt;&gt;&gt; file: book_cypher.py
+# Gutenburg text program
+# Gareth Edwards EDWGAR008
+
+
+def main():
+    input_file = str(input("Enter the book filename:\n"))
+    f = open(input_file, 'r')
+    message = str(input("Enter the message:\n"))
+    output_file = str(input("Enter the output filename:\n"))
+    x = open(output_file, 'w')
+    print("BEGIN", file = x)
+    print("BEGIN")
+    list1 = (message.lower()).split()        # initial list with punctuation marks
+    list2 = []         # final list without punctuation marks
+    list3= []
+    file_list = f.readlines()
+    
+    line = 1
+    position = 1
+    for entry in list1:
+        entry.strip('?!.,;:)([]{}\'" \n')
+        list2.append(entry)
+        list3.append(entry)
+    s={}
+    list4=[]
+    for sentence in file_list:
+        sentence = sentence.split()
+        position=1
+        for word in sentence:
+            word =word.strip('?!.,;:)([]{}\'" \n')
+            word =word.strip('?!.,;:)([]{}\'" \n')
+            word =word.strip('?!.,;:)([]{}\'" \n')
+            word=word.lower()
+            if word in list2:
+                for i in list2:
+                    if i==word:
+                        s[word]=str(line) + '-' + str(position)
+                        list4.append(i)
+                        list2.remove(word)
+                    if i==word:
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match235-1.html#0" TARGET="1"><IMG SRC="../../bitmaps/tm_0_3.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+                        s[word]=str(line) + '-' + str(position)
+                        list4.append(i)
+                position += 1
+            else:
+                position += 1
+</FONT>        line+=1
+    for i in list3:
+        if i in list4:
+            if s[i]=="111-4":
+                print("65-2")
+                print("65-2", file = x)              
+            else:
+                print(s[i])
+                print(s[i], file = x)
+        else:
+            print(i, file = x)
+            print(i)
+    print("END", file = x)
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match235-1.html#1" TARGET="1"><IMG SRC="../../bitmaps/tm_1_3.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    print("END")
+    f.close()
+    x.close()
+
+main()
+    &gt;&gt;&gt;&gt; file: leader_board.py
+# leader_board.py
+
+def process_line(line):
+    parts = line.split(' ')
+    name = parts[0]
+    trials = int(parts[1])
+</FONT>    average = float(parts[2])
+    return (name, trials, average)
+
+def get_max(entries):
+    max = entries[0]
+    for i in range(1, len(entries)):
+        if entries[i][2] &lt;max[2]:
+            max = entries[i]
+            
+    entries.remove(max)
+    return max
+
+def sort(entries):
+    sorted_entries = []
+    while len(entries)&gt;0:
+        sorted_entries.append(get_max(entries))
+    return sorted_entries
+
+def output(entries):
+    print('Subject        | Average Time')
+    print('************** | ************')
+    for entry in entries:
+        print('{:14} | {:.6}'.format(entry[0], entry[2]))
+              
+def main():
+    while True:
+        try:
+            file_name = input('Enter the name of the file:\n')
+            file_input = open(file_name, 'r')
+            break
+        except:
+            print("The file name given is not valid. try a different name")
+    
+    entries = []
+    for line in file_input:
+        entries.append(process_line(line))
+    file_input.close()
+    
+    entries = sort(entries)
+    output(entries)
+    
+main()
+    &gt;&gt;&gt;&gt; file: reaction_test.py
+# Program to calculate reaction time
+# Gareth Edwards
+# EDWGAR008
+
+import time
+import random
+
+def process_line(line):
+    parts = line.split(' ')
+    name = parts[0]
+    trials = int(parts[1])
+    average = float(parts[2])
+    return (name, trials, average)
+
+def get_max(entries):
+    max = entries[0]
+    for i in range(1, len(entries)):
+        if entries[i][2] &lt;max[2]:
+            max = entries[i]
+            
+    entries.remove(max)
+    return max
+
+def sort(entries):
+    sorted_entries = []
+    while len(entries)&gt;0:
+        sorted_entries.append(get_max(entries))
+    return sorted_entries
+
+def output(entries):
+    print('Subject        | Average Time')
+    print('************** | ************')
+    for entry in entries:
+        print('{:14} | {:.6}'.format(entry[0], entry[2]))  
+
+def main():
+    file_name = input('Enter the name of the output file:\n')
+    f=open(file_name,'w')
+    
+    while True:
+        #f = open(file_name,'w')
+        
+        name = input('Enter the subject name (or press "Enter" to quit):\n')
+        if name == '':
+                    f.close()
+                    break        
+        
+        else:
+            #f = open(file_name,'w')
+            
+            sum = 0
+            
+            test_no = int(input('Enter the number of tests:\n'))
+            print(name,file=f,end=' ')
+            print(test_no,file=f,end=' ')
+            
+            for repeat in range (test_no):
+                print("Get ready...", flush=True)
+                
+                rand_num = random.randint(1,5) 
+                time.sleep(rand_num)               # wait a random amount of seconds
+                start_time = time.time()
+                
+                a = input("Press 'enter' NOW!")
+                if a=='':
+                    end_time = time.time()
+                
+                rctn_time = end_time-start_time
+                print('Reaction time: ','{0:5.6f}'.format(rctn_time)) 
+                sum+=rctn_time
+            avg=sum/test_no   
+            
+            print(avg,file=f)
+    
+    f = open(file_name,'r')        
+    entries = []
+    for line in f:
+        entries.append(process_line(line))
+        entries = sort(entries)
+    output(entries)
+        
+    f.close()
+
+
+def flush_input():
+    try:
+        import msvcrt
+        while msvcrt.kbhit():
+            msvcrt.getch()
+    except ImportError:
+        import sys, termios
+        termios.tcflush(sys.stdin, termios.TCIOFLUSH)
+        
+main()</PRE>
+</PRE>
+</BODY>
+</HTML>

@@ -1,0 +1,90 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/6/raw/ndlmxo003/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/6/raw/zndman003/<p><PRE>
+&gt;&gt;&gt;&gt; file: fixed_mod.py
+import string
+def palindrome (s):
+    if len(s) == 1:
+        return s.isalpha()
+    if len(s) == 0:
+        return True
+    elif s[0] in string.punctuation or s[0] in string.whitespace:
+        return palindrome(s[1:])
+    elif s[-1] in string.punctuation or s[-1] in string.whitespace:
+        return palindrome(s[:-1])
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match209-0.html#0" TARGET="0"><IMG SRC="../../bitmaps/tm_0_7.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    elif s[0].lower() == s[-1].lower():
+        return palindrome (s[1:-1])
+    else:
+        return False
+&gt;&gt;&gt;&gt; file: match_mod.py
+def equals(s,l):
+    if len(s) == 0 and len(l) == 0:
+        return True
+</FONT>    
+    elif len(s)!=len(l) :
+        return False
+    
+    if s[-1] == l[-1] :
+        return equals(s[:-1],l[:-1])
+    
+    else :
+        return False
+
+def query(p,w):
+    if len(p) == 0 and len(w) == 0:
+        return True
+    
+    elif len(p)!=len(w) :
+        return False
+    
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match209-0.html#1" TARGET="0"><IMG SRC="../../bitmaps/tm_1_6.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    elif p[0] == w[0] or p[0]=="?" :
+        return query(p[1:],w[1:])
+    
+    else :
+        return False
+    
+def match(p,w) :
+</FONT>    if len(w) == 0 and (p[0]=="*" or p[-1]=="*"):
+        return True
+    elif (w[-1]!=p[-1] and p[-1]!="*") or (w[0]!=p[0] and p[0]!="*"):
+        return False
+
+    elif w[0] == p[0] :
+        return match(p[1:],w[1:])
+    
+    elif w[-1]==p[-1]  :
+        return match(p[:-1],w[:-1])
+    elif  (p[0]=="*" or p[-1]=="*") and len(w)!=0:
+        return match(p,w[:-1])
+    else:
+        return False
+    
+&gt;&gt;&gt;&gt; file: mongoose_mod.py
+def population(n):
+    if n == 0 :
+        return 0
+    elif n == 1:
+        return 2
+    else:
+        return population(n-1) + population(n-2)
+    
+
+&gt;&gt;&gt;&gt; file: sum_mod.py
+def sum_to_n(p):
+    if p == 0:
+        return 0
+    else:
+        return p + sum_to_n(p-1)
+    
+</PRE>
+</PRE>
+</BODY>
+</HTML>

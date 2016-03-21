@@ -1,0 +1,175 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/4/raw/mhlnal005/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/4/raw/mhlnal005/<p><PRE>
+&gt;&gt;&gt;&gt; file: LongJump.py
+# program that records results
+# naledi mahlaba
+# 02 August 2015
+
+def jump():
+    '''heading'''
+    title=" Long Jump Information System "                          # create a heading
+    print("{:*^40}".format(title))                                  # print heading
+    print("Please enter the names of competitors. (Press return when done.)")
+    
+    '''code to read in a seies of names'''
+    number=0                                                # display purposes
+    competitors=[]                                          # create a list for names
+    while True :                                            # getting the names of competitors using a loop
+        name=input("Competitor no. {}:\n".format(number+1)) # prompt user names
+        if name=="":                                   # terminating condition
+            break
+        competitors.append(name)                            # add each name to the list
+        number+=1                   
+        
+    '''code to read a seies of distances,storing the maximum'''
+    
+    longest=[]                                              # create a list to store the longest number
+    display={}
+    best=0# create a dictionary with name and max numbers
+    print("Please enter the distances for each competitor.")  
+    for item in competitors:                                # for loop,to access each competitor
+        print("Competitor {}:".format(item))                # print commpetitors name
+        for i in range(3):                                  # inner loop record attempts
+            distance=input("Attempt {}:\n".format(i+1))     # prompt user , attempts
+            longest.append(distance)                        # add value into the list
+            
+        if longest.count('foul')==3:                        # once the loop is done, check if items on the list are all 'Foul'
+            display[item]="No jump"                         # add No Jump into the dictinary with name
+            longest=[]                                      # initialize longest ,to restart looop with new values
+        elif longest.count('foul')==0:                      # else if 'foul' is not on the list
+            best=max(longest)                               # find the maximum value on the list
+            display[item]=best                              # add value into the dictionary with corresponding name
+            longest=[]                                      # initialize longest to restart loop with new values
+        else:                                               # else remove 'foul' on the list to find the maximum value 
+            new_list= [x for x in longest if x != 'foul']         # remove fouls      
+            best=max(new_list)                            # find maximum value
+            display[item]=best                              # add value into dictionary with corresponding name
+            longest=[]                                      # initialize longest to restart loop with new values
+            
+    '''code that print names and longest distaces'''
+    print("\n{:&lt;25}{}".format('Competitor','Longest Distance'))     # print the headig for the table
+    for item in competitors:  # loop to print the items on the dictionary
+        if display[item] == 'No jump':
+            print('{:&lt;25}{}'.format(item,(display[item])))
+        else:
+            print('{:&lt;25}{:.2f}'.format(item,(float(display[item]))))
+    
+    '''code that finds the maximun number overall/ the winner'''
+    best=0                                                  # initialize a variable to store the best jump               
+    name=''                                                 # variable to store the key corresponding to the max value
+    for n in display:                                       # for each key in the dictionary
+        if display[n]=='No jump':                           # check if the value = 'No Jump'
+            continue                                        # then continue ( restart loop)
+        elif float(display[n])&gt;float(best):                 # else if the value is greater than the initialised value
+            best= display[n]                                # then the initialised value will be replaced with that value
+            name=n     # store the corresponding key into a variable
+    
+    print("\nThe winner is {} with a jump of {:.2f}.".format(name,float(best)))  # print the resuts
+
+jump()&gt;&gt;&gt;&gt; file: NikNaks.py
+#program that allows user to play a game of nik naks
+#naledi mahlaba
+#02 August 2015
+import random
+def main():
+    code=''
+    print("Guess the mystery 4 letter code. (No letter occurs more than once.)")
+    difficulty=int(input('Choose difficulty level (4 to 26):\n'))
+    letters=list('abcdefghijklmnopqrstuvwxyz')[0: difficulty]
+    print('The letters in the code are chosen from: {}.'.format(letters))
+    secret_code=[]
+    for i in range(4):
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match167-1.html#0" TARGET="1"><IMG SRC="../../bitmaps/tm_0_5.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+        rand_index=random.randint(0, len(letters)-1)
+        letter=letters.pop(rand_index)
+        secret_code.append(letter)
+    # To check things are working, uncomment this print line to see the
+    # code that has been created.
+    #print(secret_code)  
+    
+     
+    guesses=10                    # number of guesses remaining
+    niks=0                        # initialise a count variable, niks
+    naks=0 
+    t=0# initialise a count variable, naks
+</FONT>    while guesses&gt;0:             #create a loop,only repeats 10 times
+        print("You have {} guesses remaining.".format(guesses)) #print the number of guesses left
+        guess=input("Enter your guess:\n")   #prompt user, enter guess
+        for m in secret_code:                 # outer loop,each value in secret_code
+            for n in guess:                   # inner loop, each value in guess
+                if m==n and secret_code.index(m)==t:  # if there are similar letters and in same postion
+                    niks+=1  # add one to niks
+                elif m==n and secret_code.index(m)!=t:  # else if there are similar letters and not in the same postion
+                    naks+=1  # add one to Naks
+                #print(secret_code.index(m))
+                #print(t)
+                t+=1
+                
+            t=0
+        
+        if niks==4:          # if niks equals to 4
+            print("Correct!")  #print correct then break
+            break
+        elif niks==1 and naks==1:
+            print("There is {} Nik and {} Nak.".format(niks,naks))  #else print results, tthe number of niks and naks
+        elif niks==1 and naks!=1:
+            print("There is {} Nik and {} Naks.".format(niks,naks))  #else print results, tthe number of niks and naks
+        elif niks!=1 and naks==1:
+            print("There are {} Niks and {} Nak.".format(niks,naks))  #else print results, tthe number of niks and naks           
+        else:
+            print("There are {} Niks and {} Naks.".format(niks,naks))  #else print results, tthe number of niks and naks
+        guesses-=1
+        naks=0
+        niks=0
+        
+
+    if guesses==0:
+        for letter in secret_code:
+            code+=letter
+            
+        print('Sorry, you lose.')
+        print('The secret number was {}.'.format(code))
+if __name__ == '__main__':
+    main()    
+
+
+&gt;&gt;&gt;&gt; file: PythonTurtle.py
+#drawing a star and spirals
+#naledi mahlaba
+#02 August 2015
+
+def main():
+   import turtle
+   new_turtle = turtle.Screen()
+   new_turtle.bgcolor("grey")
+   mike= turtle.Turtle()
+   nic= turtle.Turtle()
+   mike.shape("circle")
+   mike.color("red")
+   mike.penup()
+   turtle.color('white', 'gold')
+   turtle.begin_fill()
+   turtle.setpos(60,30)
+   size = 10
+   lenght=100
+   for i in range(20):  
+      mike.stamp()             
+      size = size + 5         
+      mike.forward(size)       
+      mike.right(30)           
+      turtle.forward(lenght)
+      turtle.right(144)
+      lenght=lenght+20
+   turtle.end_fill() 
+   turtle.exitonclick()
+   
+main()</PRE>
+</PRE>
+</BODY>
+</HTML>

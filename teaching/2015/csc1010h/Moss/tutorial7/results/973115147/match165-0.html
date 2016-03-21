@@ -1,0 +1,211 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/7/raw/mchsim007/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/7/raw/mchsim007/<p><PRE>
+&gt;&gt;&gt;&gt; file: book_cypher.py
+# Book cypher 
+# Simphiwe Mchunu
+# 19 September 2015
+def book_cypher():
+    filename = input('Enter the book filename:\n')
+    f = open(filename)
+    message = input('Enter message:\n').lower().split(" ")
+    file = input('Enter the output file:\n')
+    fs = open(file,'w')
+    
+    a = 0
+    print()
+    print("BEGIN")
+    print("BEGIN",file=fs)
+    while True:
+        if message==[]:
+            break
+        d = 0
+        f = open(filename)
+        a=0
+        for line in f:
+            a += 1
+            line = line.split(' ')
+            if message!=[]:
+                temp=message[0]
+            for word in line:
+                j = word
+                word = word.strip('?!.,;:)([]{}\'"\n').lower()
+                if j!="":
+                    line[line.index(j)]= word.lower()
+                if message!=[]:
+                    if word == message[0]:
+                        d+=1
+                        while '' in line[:line.index(word)+1]:
+                            line=line[:line.index('')]+line[line.index('')+1:]
+                        if word!='':
+                            print(str(a)+"-"+str(line.index(word)+1))
+                            print(str(a)+"-"+str(line.index(word)+1),file=fs)
+                        message=message[1:]
+                        break
+            if message!=[]:
+                if message[0] != temp: break
+        if d==0:
+            a=0
+            print(message[0])
+            print(message[0],file=fs)
+        if message!=[]:
+            if message[0]==temp:
+                message=message[1:]
+    print("END")
+    print("END",file=fs)
+    fs.close()
+    f.close()
+book_cypher()
+
+&gt;&gt;&gt;&gt; file: leader_board.py
+# leader_board.py
+
+def process_line(line):
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match165-1.html#0" TARGET="1"><IMG SRC="../../bitmaps/tm_0_4.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    parts = line.split(' ')
+    name = parts[0]
+    trials = parts[1]
+    average= parts[2]
+    try:
+        trials = int(parts[1])
+    except ValueError :
+        print(line)
+</FONT>        print("Check if line is a correct formart, No space between numbers")
+    try:    
+        average = float(parts[2])
+    except ValueError:
+        print(line)
+        print("Check if line is a correct formart, No space between numbers")  
+    except IndexError as ve:
+        print("you need time reaction") 
+    return name, trials, average
+
+def get_max(entries):
+    max = entries[0]
+    for i in range(1, len(entries)):
+        if entries[i][2] &lt;max[2]:
+            max = entries[i]
+            
+    entries.remove(max)
+    return max
+
+def sort(entries):
+    sorted_entries = []
+    while len(entries)&gt;0:
+        sorted_entries.append(get_max(entries))
+    return sorted_entries
+
+def output(entries):
+    print('Subject        | Average Time')
+    print('************** | ************')
+    for entry in entries:
+        print('{:14} | {:.6}'.format(entry[0], entry[2]))
+              
+def leader_board():
+    file = input('Enter the name of the file:\n')
+    try:
+        a = open(file) # file opened for reading
+    except IOError as t: # file error handled
+        print("Error: Input supplied of the file is not valid: ",t)
+        print('Please enter the correct format!')
+        while True:
+            file = input('Enter filename:\n')
+            try:
+                file = open(file)
+            except:
+                print("Error: Input supplied of the file is not valid. Enter the correct filename!")
+            else:
+                break
+            
+    empty_lst = []
+    i=0
+    for j in a:
+        i+=1
+        try:
+            empty_lst.append(process_line(j))
+        except ValueError as p: # value errors that exists inside a file 
+            print("ERROR: Value error ocured: ",p)
+            print(j)
+            print("line format must be of the form of string, interger or float")
+        except:
+            print('Error: Other form of error occured...')
+            print('Please enter the valid input!')
+        finally:
+            print('Python is cool!!')
+    a.close()
+    
+    empty_lst = sort(empty_lst)
+    output(empty_lst)
+leader_board()&gt;&gt;&gt;&gt; file: reaction_test.py
+# reaction_test
+# Simphiwe Mchunu
+# 11 September 2015
+
+from time import*
+from random import*
+
+def flush_input():
+    try:
+        import msvcrt
+        while msvcrt.kbhit():
+            msvcrt.getch()
+    except ImportError:
+        import sys, termios
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match165-1.html#1" TARGET="1"><IMG SRC="../../bitmaps/tm_1_3.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+def file_():
+    file_ = open('results.txt', 'w')
+    print("Subject        | Average Time", file = file_)
+    print("************** | ************", file = file_)
+    file_.close()
+
+def print_to_screen():
+    file_()
+    output_file = input('Enter the name of the output file:\n')
+</FONT>    f = open(output_file, 'a')
+    empty_dict={}
+    lst_1=[]    
+    while output_file=='results.txt':
+            subject = input('Enter subject name (or press "enter" to quit):\n')
+            if subject == '': break
+            test_number= eval(input('Enter the number of tests:\n'))
+            a = 0
+            b = 0
+            c = 0
+            for i in range(test_number):
+                print('Get ready...')
+                #print('Get ready...',file=filename)
+                sleep(randint(1,5))
+                initial_time = time()
+                print('Press "enter" NOW!',end='')
+                #print('Press "enter" NOW!',end='',file=filename)
+                flush_input()
+                sc = input()
+                if sc=='':
+                    temination_time = time()
+                reaction_time = temination_time - initial_time
+                a+=reaction_time
+                print('Reaction time:','{0:.6f}'.format(reaction_time))
+                #print('Reaction time:','{0:.6f}'.format(reaction_time),file=filename)
+            average = '{0:.6f}'.format(a / test_number)
+            empty_dict[average] = subject
+            lst_1.append(average)            
+            print('Tests complete.')
+            #print('Tests complete.',file=filename)
+            print('Average reaction time:',average)
+            print()
+    lst_1.sort()
+    for j in empty_dict:
+        print("{0:&lt;14} | {1:&lt;12}".format(empty_dict[j], j), file = f)   # prints to results file    
+    f.close()
+    
+print_to_screen()
+</PRE>
+</PRE>
+</BODY>
+</HTML>

@@ -1,0 +1,224 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/8/raw/dkgtha005/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/8/raw/dkgtha005/<p><PRE>
+&gt;&gt;&gt;&gt; file: Course.py
+class Course:
+
+    def __init__(self, cc='unknown', d='unknown'):
+        self.course_code = cc
+        self.description = d
+
+    def __str__(self):
+        return self.course_code + ', ' + self.description
+
+    def input(self):
+        self.description = input('Enter description: ')
+        self.course_code = input('Enter course code: ')
+        
+    def display(self):
+        print('Course code: ' + self.course_code) 
+        print('Description: ' + self.description)
+&gt;&gt;&gt;&gt; file: Lecturer.py
+class Lecturer:
+    
+    def __init__(self,n='unknown',sfn='unknown'):
+        self.name=n
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match101-1.html#0" TARGET="1"><IMG SRC="../../bitmaps/tm_0_5.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+        self.staff_number=sfn
+        self.courses=[]
+        
+    def __str__(self):
+        s=self.name +', ' + str(self.staff_number)
+        if len(self.courses)&gt;0:
+            s += ': '+str(self.courses[0])
+            for c in self.courses[1:]:
+</FONT>                s += '; ' + str(c)
+        return s+'.'
+        
+        
+    
+    def add_course(self, c):
+        self.courses.append(c)
+            
+    def input(self):
+        self.name = input('Enter name: ')
+        self.staff_number = input('Enter staff number: ')
+        
+    def display(self):
+        print('Name: ' + self.name)
+        print('Staff number: ' + self.staff_number)  
+        
+        
+          
+      &gt;&gt;&gt;&gt; file: Student.py
+class Student:
+    
+    def __init__(self, n='unknown', sn='unknown'):
+        self.name = n
+        self.student_number = sn
+        self.courses = []
+    
+    def __str__(self):
+        s = self.name + ', ' + self.student_number
+        if len(self.courses)&gt;0:
+            s += ': '+str(self.courses[0])
+            for c in self.courses[1:]:
+                s += '; ' + str(c)
+        return s+'.'
+    
+    def add_course(self, c):
+        self.courses.append(c)
+    
+    def input(self):
+        self.name = input('Enter name: ')
+        self.student_number = input('Enter student number: ')
+
+    def display(self):
+        print('Name: ' + self.name)
+        print('Student number: ' + self.student_number)  
+&gt;&gt;&gt;&gt; file: sorttest.py
+import sortsearch
+from time import*
+
+size=int(input('Enter the size of the list: \n'))
+print('Choose sort method:')
+print('1. Heap Sort.')
+print('2. Bubble Sort.')
+method=int(input())
+
+alist=sortsearch.generate_number_list(size)
+print('Before:',alist)
+
+if method==1:
+    start=time()
+    sortsearch.heap_sort(alist)
+    stop=time()
+    time_elapsed=stop-start
+    print('After:',alist)
+    print('Time:',time_elapsed)   
+    
+elif method==2:
+    start=time()
+    sortsearch.bubble_sort(alist)
+    stop=time()
+    time_elapsed=stop-start
+    print('After:',alist)
+    print('Time:',time_elapsed)
+&gt;&gt;&gt;&gt; file: universitysystem.py
+from Student import Student
+from Course import Course
+from Lecturer import Lecturer
+
+dcourse={}
+dlecturer={}
+dstudent={}
+
+
+obj1='abcdefghijklmno'
+alst_lec=[]
+n=0
+
+obj2='pqrstuvwxz'
+alst_stu=[]
+t=0
+
+def display_dictionary_values(dictionary):
+    for i in dictionary:
+        if dictionary is dcourse:
+            objct=Course(str(i),dcourse[i])
+            objct.display()
+        elif dictionary is dlecturer:
+            objct=Lecturer(dlecturer[i],str(i))
+            objct.display()
+        elif dictionary is dstudent:
+            objct=Student(dstudent[i],str(i))
+            objct.display()
+
+def menu():
+    print('University Member System:')
+    print('0. Quit.')
+    print('1. Input Course.')
+    print('2. Input Lecturer.')
+    print('3. Input Student.')
+    print('4. Enrol Student on Course.')
+    print('5. Assign Course to Lecturer.')
+    print('6. Find Course.')
+    print('7. Find Lecturer.')
+    print('8. Find Student.')
+    print('9. Display Courses.')
+    print('10. Display Lecturers.')
+    print('11. Display Students.')  
+
+while True:
+    menu()
+    option=int(input('&gt;'))
+    if option&lt;0 or option&gt;11:
+        print('That selection was not recognised.') 
+    elif option==0:
+        break
+    elif option==1:
+        k=Course()
+        k.input()
+        dcourse[int(k.course_code)]=k.description
+    elif option==2:
+        alst_lec.append(obj1[n])
+        alst_lec[n]=Lecturer()
+        alst_lec[n].input()       
+        dlecturer[int(alst_lec[n].staff_number)]=alst_lec[n].name       
+        n+=1
+    elif option==3:
+        alst_stu.append(obj2[t])
+        alst_stu[t]=Student()
+        alst_stu[t].input()
+        dstudent[int(alst_stu[t].student_number)]=alst_stu[t].name
+        t+=1        
+    elif option==4:
+        st_number=int(input('Enter student number: '))
+        course_code=input('Enter course code: ')
+        
+        if st_number not in dstudent:
+            print('Could not find a student with that student number.')
+        else:
+            alst_stu[st_number-1].add_course(Course(course_code,dcourse[int(course_code)]))
+    elif option==5:
+        stf_number=int(input('Enter staff number: '))
+        course_code=input('Enter course code: ')
+        
+        if stf_number not in dlecturer:
+            print('Could not find a lecturer with that staff number.')
+        else:
+            alst_lec[stf_number-1].add_course(Course(course_code,dcourse[int(course_code)])) 
+    elif option==6:
+        course_code=int(input('Enter course code: '))
+        if course_code not in dcourse:
+            print('Could not find a course with that code.')
+        else:
+            k=Course(str(course_code),dcourse[course_code])
+            print(k)
+    elif option==7:
+        stf_number=int(input('Enter staff number: '))
+        if stf_number not in dlecturer:
+            print('Could not find a member of staff with that number.')
+        else:           
+            print(alst_lec[stf_number-1])
+    elif option==8:
+        std_number=int(input('Enter student number: '))
+        if std_number not in dstudent:
+            print('Could not find a student with that number.')
+        else:
+            print(alst_stu[std_number-1])               
+              
+    elif  option==9:
+        display_dictionary_values(dcourse)
+    elif  option==10:
+        display_dictionary_values(dlecturer)   
+    elif  option==11:
+        display_dictionary_values(dstudent)    </PRE>
+</PRE>
+</BODY>
+</HTML>

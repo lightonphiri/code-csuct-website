@@ -1,0 +1,167 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/2/raw/mchsim007/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/2/raw/mchsim007/<p><PRE>
+&gt;&gt;&gt;&gt; file: CreditCard.py
+# program which prompts the user's input and displays a formated card
+# Simphiwe Mchunu
+# 21 April 2015
+
+def main():
+    a = input("Enter the card holder's name:\n") # prompts the user to enter the card holder's name
+    b = input("Enter the 16 digit card number (no spaces please):\n") # prompts the user to enter their card number
+    c = input("Enter the date of issue (mm:yy):\n") # prompts the user to enter the issue date
+    d = input("Enter the expiry date (mm:yy):\n") # prompts the user to enter the card expiry date
+    e = input("Enter the 3 digit security code:\n") # prompts the user to enter the 3 digit security code
+    f = int(input("Enter the credit limit (Rand):\n")) # prompts the user to enter card credit limit
+    g = int(input("Enter the balance (Rand):\n")) # prompts the user to enter balance 
+    
+    name = " Credit Card Account " # create variable called name and store credit card accound in it
+    avl = f - g # available balance
+    h_1 = b[0:4] # slices the first 4 digits of card number
+    h_2 = b[4:8] # slices the 2nd 4 digits of card number
+    h_3 = b[8:12] # slices the 3rd 4 digits of card number
+    h_4 = b[12:16] # slices the 4rd 4 digits of card number
+    i_1 = c[0:2] # slices the 1st 2 digits of date of issue
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match114-1.html#1" TARGET="1"><IMG SRC="../../bitmaps/tm_1_3.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    i_2 = c[3:5] # slices the last 2 digits of date of issue with no colon
+    j_1 = d[0:2] # slices the 1st 2 digits of date of expiry
+    j_2 = d[3:5] # slices the last 2 digits of date of expiry with no colon
+    
+    sp = "" # variable which stores spaces
+</FONT>    r = ".00 Rand" 
+    x = str(f) # credit limit casted into a string
+    y = str(avl) # available balance casted into a string
+    z = str(g) # balance casted into a string
+    
+    print("+""{0:-^48}".format(name)+"+")
+    print("| Card holder:   ""{0:&lt;31} |".format(a))
+    print("| Card number:""{0:^26}".format(h_1+" " +h_2+" "+h_3+" "+ h_4),"{0:&gt;8}".format(sp)+"|")
+    print("| Date of issue:""{0:^8}".format(i_1+"/"+i_2)," ""Expiry date:", j_1+"/"+j_2,"{0:&gt;4}".format(sp)+"|")
+    print("| Security code:""{0:^6}".format(e),"{0:&gt;26}".format(sp)+"|")
+    print("| Credit limit:  ""{0:&lt;31} |".format(x+str(r)))
+    print("| Available:     ""{0:&lt;31} |".format(y+str(r)))
+    print("| Balance:       ""{0:&lt;31} |".format(z+str(r)))
+    print("+""{0:-^48}".format(sp)+"+")
+      
+main()
+    
+    
+    
+    &gt;&gt;&gt;&gt; file: EugeneJunior.py
+# program which prompts the user's input and predict the user's star war
+# Simphiwe Mchunu
+# 21 april 2015
+
+def main():
+    print("Hello, I am Eugene Junior.")
+    name = input("What is your first name?\n") # prompts user's input of their first name
+    surname = input("What is your last name?\n") # prompts the user's input of their last name
+    a = name[0:1] # slices the first alphabet of their first name 
+    b = surname[0:1] # slices the first alphabet of their last name
+    print("Hi",a+"."+b, end= ".!\n") # prints out the initials as a result of string concatenation
+    year =int(input("What year is this?\n")) # prompts the user to enter the current year
+    age = int(input("What age are you?\n")) # prompts the user to enter their age
+    birth_year = year - age 
+    birth_year2 = (year-1) - age 
+    print("Okay, so you were born in", str(birth_year2)+ "/"+str(birth_year)[-2:],end= ".""\n") # prints out the approximation of the year of birth
+    height = input("How tall are you (metres)?\n") # prompts the user to input their height in metres
+    height_0 = float(height) # converts height into a floating point number 
+    height_1 = height_0*3.28084 # converts the floated height to inches
+    height_2 = int(height_1) # converts the inches to an integer
+    feet = (height_1 - height_2) * float(12.5) # calculates the height in feet 
+    feet_2 = int(feet) # feets casted to integer
+    print("That's {}'{}\"!".format(height_2,feet_2)) # prints out the height in inches and feet
+    print("I'm going to tell you your Star Wars name.")
+    mname = input("What's your mother's first name?\n") # prompts the user to enter their mother's first name
+    ncity = input("What's the name of the city nearest to your place of birth?\n") # prompts the user to enter the nearest city closest to their birth place
+    c = surname[:3] # slices the first 3 letters of their last name
+    d = name[:2] # slices the first 2 letters their first name 
+    e = mname[-2:] # slices the last 2 letters of the user's mother's name
+    f = ncity[-3:] # slices the last 3 letters of the nearest city
+    g = c + d +" " + e + f # concentinate the sliced parts
+    print("Your Star Wars name is", g.title(),end= ".") # prints out the output of the star wars name
+    
+    
+main()&gt;&gt;&gt;&gt; file: HexagonArea.py
+# program which calculates the area of an hexagon by prompting the user to enter the lenghth if a side
+# simphiwe mchunu
+# 21 april 2015
+
+def main():
+   l = eval(input("Enter the length of the side (cm):\n")) # prompts the user to enter length of side in cm
+   a = 3*3**0.5 # numerator for the formula of the area of the hexagon
+   Area = (a/2)*l**2 # are of the hexagon
+   print("The area of a hexagon of side", l,"is {0:5.3f}".format(Area), end= ".") # prints out the output
+main()
+
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+      &gt;&gt;&gt;&gt; file: initials.py
+# program which uses a turtle to draw initials
+# Simphiwe Mchunu
+# 21 April 2015
+
+import turtle
+
+def initials():
+    turtle.color("purple")
+    turtle.pensize(3)
+    turtle.penup()
+    turtle.back(100)
+    turtle.right(90)
+    turtle.back(200)
+    turtle.pendown()
+    turtle.forward(150)
+    turtle.left(90)
+    turtle.forward(100)
+    turtle.left(90)
+    turtle.forward(150)
+    turtle.right(90)
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match114-1.html#0" TARGET="1"><IMG SRC="../../bitmaps/tm_0_4.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    turtle.forward(100)
+    turtle.right(90)
+    turtle.forward(150)
+    
+    turtle.color("cyan")
+    turtle.penup()
+    turtle.forward(97)
+    turtle.right(90)
+    turtle.forward(200)
+    turtle.left(180)
+</FONT>    turtle.pendown()
+    turtle.forward(200)
+    turtle.right(90)
+    turtle.penup()
+    turtle.forward(150)
+    turtle.right(90)
+    turtle.forward(200)
+    turtle.left(180)
+    turtle.pendown()
+    turtle.forward(200)
+    turtle.left(130)
+    turtle.forward(90)
+    turtle.right(75)
+    turtle.forward(98)
+    turtle.penup()
+    turtle.left(125)
+    turtle.forward(200)
+   
+    turtle.exitonclick()
+initials()    </PRE>
+</PRE>
+</BODY>
+</HTML>

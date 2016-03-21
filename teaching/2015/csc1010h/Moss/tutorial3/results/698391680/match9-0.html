@@ -1,0 +1,256 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/3/raw/lfluna002/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/3/raw/lfluna002/<p><PRE>
+&gt;&gt;&gt;&gt; file: FeetMetre.py
+
+
+import math
+mini_feet = eval(input("Enter the minimum number of feet (not less than 0):\n"))
+maxi_feet = eval(input("Enter the maximum number of feet (not more than 99):\n"))
+for i in range (mini_feet,maxi_feet+1):
+    feet = (i*0.3048)
+    
+    y ="|"
+<A NAME="5"></A><FONT color = #FF0000><A HREF="match9-1.html#5" TARGET="1"><IMG SRC="../../bitmaps/tm_0_3.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    print("{0:&gt;6}".format(str(i) +"' ")+y,"{0:&gt;5.3f}".format(feet)+"m",sep="")
+&gt;&gt;&gt;&gt; file: FlowerPattern.py
+
+
+
+import turtle
+
+petal= int(input("Enter the number of petals (must be an even number): "))
+length= int(input("Enter the length of stem: "))
+types= input("Enter the petal type (triangle, square, or pentagon): ")
+side= int(input("Enter the length of side: "))
+colour= input("Enter the stem colour: ")
+first= input("Enter the first petal colour: ")
+second= input("Enter the second petal colour: ")
+if types == "triangle":
+    turtle.right(360/petal)
+</FONT>    for i in range (petal//2):
+        turtle.pencolor(colour)
+        turtle.fd(length)
+        turtle.pencolor(first)
+        turtle.left(30)
+        turtle.fd(side)
+        turtle.right(120)
+        turtle.fd(side)
+        turtle.right(120)
+        turtle.fd(side)
+<A NAME="6"></A><FONT color = #00FF00><A HREF="match9-1.html#6" TARGET="1"><IMG SRC="../../bitmaps/tm_1_2.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+        turtle.left(30)
+        turtle.pencolor(colour)
+        turtle.fd(length)
+        turtle.left(180-(360/petal))
+        turtle.pencolor(colour)
+        turtle.fd(length)
+        turtle.pencolor(second)
+        turtle.left(30)
+</FONT>        turtle.fd(side)
+        turtle.right(120)
+        turtle.fd(side)
+        turtle.right(120)
+        turtle.fd(side)
+        turtle.left(30)
+        turtle.pencolor(colour)
+        turtle.fd(length)
+        turtle.left(180-(360/petal))        
+    turtle.left(360//petal)
+    turtle.exitonclick()
+elif types == "square" :
+<A NAME="7"></A><FONT color = #0000FF><A HREF="match9-1.html#7" TARGET="1"><IMG SRC="../../bitmaps/tm_2_1.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    turtle.right(360//petal)
+    for i in range(petal//2):
+        turtle.pencolor(colour)
+        turtle.fd(length)
+        turtle.pencolor(first)
+        turtle.left(45)
+</FONT>        turtle.fd(side)
+        turtle.right(90)
+        turtle.fd(side)
+        turtle.right(90)
+        turtle.fd(side)
+        turtle.right(90)
+        turtle.fd(side)
+        turtle.left(45)
+        turtle.pencolor(colour)
+        turtle.fd(length)
+        turtle.left(180-(360//petal))
+        turtle.pencolor(colour)
+        turtle.fd(length)
+        turtle.pencolor(second)
+        turtle.left(45)
+        turtle.fd(side)
+        turtle.right(90)
+        turtle.fd(side)
+        turtle.right(90)
+        turtle.fd(side)
+        turtle.right(90)
+        turtle.fd(side)
+        turtle.left(45)
+        turtle.pencolor(colour)
+        turtle.fd(length) 
+        turtle.left(180-(360//petal))
+    turtle.left(360//petal)
+    turtle.exitonclick()
+elif types == "pentagon":
+    turtle.right(360/petal)
+    for i in range (petal//2):
+        turtle.pencolor(colour)
+        turtle.fd(length)
+        turtle.pencolor(first)
+        turtle.left(54)
+        turtle.fd(side)
+        turtle.right(72)
+        turtle.fd(side)
+        turtle.right(72)
+        turtle.fd(side)
+        turtle.right(72)
+        turtle.fd(side)
+        turtle.right(72)
+        turtle.fd(side)
+<A NAME="8"></A><FONT color = #00FFFF><A HREF="match9-1.html#8" TARGET="1"><IMG SRC="../../bitmaps/tm_3_1.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+        turtle.pencolor(colour)
+        turtle.left(54)
+        turtle.fd(length)
+        turtle.left(180-(360/petal))
+        turtle.pencolor(colour)
+        turtle.fd(length)
+</FONT>        turtle.pencolor(second)
+        turtle.left(54)
+        turtle.fd(side)
+        turtle.right(72)
+        turtle.fd(side)
+        turtle.right(72)
+        turtle.fd(side)
+        turtle.right(72)
+        turtle.fd(side)
+        turtle.right(72)
+        turtle.fd(side)
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match9-1.html#1" TARGET="1"><IMG SRC="../../bitmaps/tm_1_7.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+        turtle.pencolor(colour)
+        turtle.left(54)
+        turtle.fd(length)
+        turtle.left(180-(360/petal))
+    turtle.left(360/petal)
+    turtle.exitonclick()
+     
+&gt;&gt;&gt;&gt; file: InchesMetres.py
+a = int (input("Enter the minimum number of inches (not less than 0):\n"))
+b = int (input("Enter the maximum number of inches (not greater than 11):\n"))
+c = 0
+print("Inches:",end=" ")
+for i in range(a,b+1):
+               print("{0:4}".format(i),end=" ")
+print()
+print("Metres:",end=" ")
+for u in range(a,b+1):
+               m =u/39.37
+               print("{0:4.2f}".format(m),end=" ")&gt;&gt;&gt;&gt; file: Squares.py
+k= eval (input ("How many squares do you want to draw?\n"))
+</FONT><A NAME="4"></A><FONT color = #FF00FF><A HREF="match9-1.html#4" TARGET="1"><IMG SRC="../../bitmaps/tm_4_3.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+s = eval (input ("Enter the length of the side\n"))
+import turtle
+turtle.speed(0)
+turtle.pencolor("red")
+for i in range(k):
+    for j in range(4):
+        turtle.fd(s)
+        turtle.right(90)
+    turtle.right(360/k)
+turtle.exitonclick()&gt;&gt;&gt;&gt; file: TimeConvertor.py
+</FONT><A NAME="0"></A><FONT color = #FF0000><A HREF="match9-1.html#0" TARGET="1"><IMG SRC="../../bitmaps/tm_0_21.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+a = input ("Enter a time ([h]h:mm [am|pm]):\n")
+if int(a[:a.find(":")]) == 12:
+    if a[-2:] == "am":
+        print("00"+a[a.find(":"):a.find(" ")])
+    elif a[-2:] == "pm":
+        print(a[:a.find(" ")])
+elif a[-2:] == "pm" and 0 &lt; int(a[:a.find(":")]) &lt; 12:
+    print(int(a[:a.find(":")])+12,a[a.find(":"):a.find(" ")],sep="")
+elif 0 &lt; int(a[:a.find(":")]) &lt; 12 and a[-1] != "m":
+    if a[0] == "0":
+        print(a[1:]+" am")
+    else:
+        print(a)
+elif int(a[:a.find(":")]) == 0:
+    print("12"+a[a.find(":"):]+" am")
+elif 12 &lt; int(a[:a.find(":")]) &lt; 24:
+    print(int(a[:a.find(":")])-12,a[a.find(":"):],sep="")
+elif 0 &lt; int(a[:a.find(":")]) &lt; 12 and a[-1] == "m":
+    if len(a[:a.find(":")]) != 2:
+        print("0"+a[:a.find(" ")])
+    else:
+        print(a[:a.find(":")])&gt;&gt;&gt;&gt; file: TwentyFour.py
+
+
+time= input("Enter a time in 24 hour clock (hh:mm):\n")
+</FONT>    
+if time[0:2]=="00":
+    print(str(int(time[1:2])+12)+time[2:]+" am")
+elif time[0:2]=="12":
+    print(time+ " pm")
+elif 13&lt;=int(time[0:2])&lt;=23:
+    print(str(int(time[0:2])-12)+time[2:]+" pm")
+elif 1&lt;=int(time[1:2])&lt;=11 :
+<A NAME="2"></A><FONT color = #0000FF><A HREF="match9-1.html#2" TARGET="1"><IMG SRC="../../bitmaps/tm_2_6.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+            print(time[1:]+" am")
+&gt;&gt;&gt;&gt; file: VehicleClassify.py
+
+
+print("{0:*^30}".format(" Vehicle classifier "))
+GVM = float (input("What is the gross vehicle mass (in kg)?\n"))
+b = input("Does the vehicle have a trailer?\n")
+a = ""
+if GVM &lt;= 3500:
+    a+="B"
+elif 3500 &lt; GVM &lt;= 16000:
+    a+="C1"
+else:
+    a+="C"
+if b[0] == "y":
+    c = float (input("What is gross vehicle mass of the trailer (in kg)?\n"))
+    if a == "B" and c &lt;= 750:
+        print("This vehicle is class B.")
+    elif a == "B" and c &gt; 750:
+        print("This vehicle is class EB.")
+    elif a == "C1" and c &lt;= 750:
+</FONT>        print("This vehicle is class C1.")
+    elif a == "C1" and c &gt; 750:
+        print("This vehicle is class EC1.")    
+<A NAME="3"></A><FONT color = #00FFFF><A HREF="match9-1.html#3" TARGET="1"><IMG SRC="../../bitmaps/tm_3_4.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    elif a == "C" and c &lt;= 750:
+        print("This vehicle is class C.")
+    elif a == "C" and c &gt; 750:
+        print("This vehicle is class EC.")    
+elif b[0] == "n":
+    d = input("Is the vehicle articulated?\n")
+    if d[0] == "y" and a == "B":
+        print("This vehicle is class EB.")
+    elif d[0] == "n" and a == "B":
+</FONT>        print("This vehicle is class B.")
+    elif d[0] == "y" and a == "C1":
+        print("This vehicle is class EC1.")
+    elif d[0] == "n" and a == "C1":
+            print("This vehicle is class C1.")
+    elif d[0] == "y" and a == "C":
+        print("This vehicle is class EC.")
+    elif d[0] == "n" and a == "C":
+        print("This vehicle is class C.")</PRE>
+</PRE>
+</BODY>
+</HTML>

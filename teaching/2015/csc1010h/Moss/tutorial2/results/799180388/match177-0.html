@@ -1,0 +1,192 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/2/raw/flndoc001/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/2/raw/flndoc001/<p><PRE>
+&gt;&gt;&gt;&gt; file: CreditCard.py
+#PROGRAMME TO DISPLAY FORMATTED OUTPUT OF INFORMATION
+# 30 APRIL 2015
+#DOCTOR FULANI
+
+def main():
+    name=input("Enter the card holder's name:\n")
+    card16=input("Enter the 16 digit card number (no spaces please):\n")
+    a=card16[0:4]
+    b=card16[4:8]
+    c=card16[8:12]
+    d=card16[12:16]
+    issue=input("Enter the date of issue (mm:yy):\n")
+    e=issue[0:2]
+    f=issue[3:5]
+    expiry=input("Enter the expiry date (mm:yy):\n")
+    g=e+"/"+f
+    i=expiry[0:2]
+    j=expiry[3:5]
+    h=i+"/"+j
+    security=input("Enter the 3 digit security code:\n")
+    credit=float(input("Enter the credit limit (Rand):\n"))
+    credit1="{0:1.2f}".format(credit)
+    k=str(credit1)+" "+"Rand"
+    balance=float(input("Enter the balance (Rand):\n"))
+    balance1="{0:1.2f}".format(balance)
+    l=str(balance1)+" "+"Rand"
+    available=float(credit1)-float(balance1)
+    available1="{0:1.2f}".format(available)
+    av=str(available1)+" "+"Rand"
+    print("+------------- Credit Card Account --------------+")
+    print("| Card holder:"," ","{0:&lt;31}".format(name),"|")
+    print("| Card number:"," ",a,b,c,d,"{0:&gt;13}".format("|"))
+    print("| Date of issue:",g,"  ","Expiry date:",h,"{0:&gt;5}".format("|"))
+    print("| Security code:", security,"{0:&gt;29}".format("|"))
+    print("| Credit limit:","","{0:&lt;31}".format(k),"|")
+    print("| Available:","   ","{0:&lt;31}".format(av),"|")
+    print("| Balance:","     ","{0:&lt;31}".format(l),"|")
+    print("+------------------------------------------------+")
+    
+    
+
+main()
+
+    
+    
+    
+                &gt;&gt;&gt;&gt; file: EugeneJunior.py
+#PROGRAMME TO DETERMINE STAR WAR NAME OF ANY INDIVIDUAL
+#29 APRIL 2015
+#DOCTOR FULANI
+def main():
+    print("Hello, I am Eugene Junior.")
+    name=input("What is your first name?\n")
+    surname=input("What is your last name?\n")
+    a=name[0]
+    b=surname[0]
+    c=a+"."+b+"."+"!"
+    print("Hi",c)
+    
+    year=eval(input("What year is this?\n"))
+    age=eval(input("What age are you?\n"))
+    year1=str(year-age)
+    year2=int(year1)-1
+    year3=year1[2:4]
+    years=str(year2)+"/"+str(year3)+"."
+    print("Okay, so you were born in",years)
+    
+    height=eval(input("How tall are you (metres)?\n"))
+    feet=3.2808399*height
+    feets=int(feet)
+    inche=feet%1
+    inches=int(12.4*inche)
+    incfeet=str(feets)+"'"+str(inches)+"\""+"!"
+    print("That's",incfeet)
+    
+    print("I'm going to tell you your Star Wars name.")
+    mother=input("What's your mother's first name?\n")
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match177-1.html#0" TARGET="1"><IMG SRC="../../bitmaps/tm_0_3.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    city=input("What's the name of the city nearest to your place of birth?\n")
+    
+    surname3=surname[0:3]
+    name3=name[0:2]
+    name4=name3.lower()
+    name5=surname3+name4
+</FONT>    
+    mother2=mother[:-3:-1]
+    mom=mother2[::-1]
+    city3=city[:-4:-1]
+    cit=city3[::-1]
+    city4=mom+cit
+    city5=city4.title()+"."
+    print("Your Star Wars name is",name5,city5)
+    
+
+main()
+
+
+    
+    
+    
+    
+
+
+
+&gt;&gt;&gt;&gt; file: HexagonArea.py
+#Programm to calculate area of hexagon
+#30 April 2015
+#Doctor Fulani
+
+import math
+def main():
+    area=math.sqrt(3)
+    length=eval(input("Enter the length of the side (cm):\n"))
+    area2=3*area
+    area3=area2/2
+    area4=area3*(length*length)
+    area5="{:1.3f}".format(area4)
+    area6=str(area5)+"."
+    print("The area of a hexagon of side",length,"is",area6)
+main()
+    
+    
+    
+    
+    &gt;&gt;&gt;&gt; file: Initials.py
+#Programme to draw initials
+#30 APRIL 2015
+#DOCTOR FULANI
+
+import turtle
+
+def main():
+    
+    #name="Doctor"
+    #Surname="Fulani"
+    turtle.hideturtle()
+    turtle.pensize(20)
+    
+    turtle.pencolor("red")
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match177-1.html#1" TARGET="1"><IMG SRC="../../bitmaps/tm_1_3.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    turtle.left(90)
+    turtle.penup()
+    turtle.fd(120)
+    turtle.pendown()
+    turtle.right(90)
+    
+    
+    
+    turtle.left(90)
+    turtle.fd(100)
+</FONT>    turtle.right(90)
+    turtle.fd(200)
+    turtle.right(90)
+    turtle.fd(100)
+    turtle.right(45)
+    turtle.fd(100)
+    turtle.right(45)
+    turtle.fd(60)
+    turtle.right(45)
+    turtle.fd(100)
+    turtle.right(45)
+        
+        
+    turtle.pencolor("green")
+    turtle.penup()
+    turtle.bk(200)
+    turtle.pendown()
+    turtle.right(90)
+    turtle.fd(200)
+    turtle.right(90)
+    turtle.fd(150)
+    turtle.right(151.928)
+    turtle.penup()
+    turtle.fd(170)
+    turtle.left(151.928)
+    turtle.pendown()
+    turtle.fd(120)
+    turtle.exitonclick()
+main()</PRE>
+</PRE>
+</BODY>
+</HTML>

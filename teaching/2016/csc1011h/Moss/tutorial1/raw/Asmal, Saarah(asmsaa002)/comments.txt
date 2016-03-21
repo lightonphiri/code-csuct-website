@@ -1,0 +1,2 @@
+<p>The clinic system wasn't set up at all. Please consult tutors if you
+  do not understand something concerning the assignments.</p>

@@ -1,0 +1,382 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/8/raw/flndoc001/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/8/raw/rwxnku001/<p><PRE>
+&gt;&gt;&gt;&gt; file: sorttester.py
+"""
+Author: Gary Stewart
+Description: Simple Python implementation of sorting and searching algorithms
+Date: 27-09-2012
+Log:
+    fixed merge to iterative solution
+"""
+
+from random import *
+
+def generate_number_list(size): # generates list of random numbers
+    lst = []
+    for i in range(size):
+        lst.append(randint(0,size-1))
+    return lst
+
+def selection_sort(lst):
+    lst_len = len(lst)
+    for bottom_index in range(lst_len - 1):
+        min_index = bottom_index
+        for i in range(bottom_index+1,lst_len): # find min_index
+            if lst[i] &lt; lst[min_index]:
+                min_index = i
+        lst[bottom_index],lst[min_index] = lst[min_index],lst[bottom_index] # swap
+    return lst
+
+def merge(lst1,lst2):  # for mergesort
+    lst = []
+    while len(lst1) &gt; 0 and len(lst2) &gt; 0:
+        if lst1[0] &lt; lst2[0]:
+            lst.append(lst1[0])
+            del lst1[0]
+        else:
+            lst.append(lst2[0])
+            del lst2[0]
+    return lst + lst1 + lst2
+
+def merge_sort(lst):
+    if len(lst) &lt;= 1:
+        return lst  
+    else: 
+        return merge(merge_sort(lst[0:len(lst)//2]),merge_sort(lst[len(lst)//2:]))
+    
+def bubble_sort(lst):
+    swapped = True
+    top = len(lst) - 1
+    while top &gt; 0 and swapped == True:
+        i = 0
+        swapped = False
+        while i &lt; top:
+            if lst[i] &gt; lst[i+1]:
+                swapped = True
+                lst[i],lst[i+1] = lst[i+1],lst[i] # swap
+            i += 1
+        top -= 1
+    return lst
+
+
+
+# Heap sort (from https://en.wikipedia.org/wiki/Heapsort)
+def heap_sort(a):
+    # Heapify
+    start = ((len(a)-2)//2)
+    while start&gt;=0:
+        siftDown(a, start, len(a)-1)
+        start=start-1
+    end=len(a)-1
+    # Sort
+    while end&gt;0:
+        a[0], a[end] = a[end], a[0]
+        end=end-1
+        siftDown(a, 0, end)
+    return a
+
+def siftDown(a, start, end):
+    root = start
+    
+    while root*2+1&lt;=end:
+        child = root*2+1
+        swap = root
+        
+        if a[swap]&lt;a[child]:
+            swap = child
+        if child+1&lt;=end  and a[swap]&lt;a[child+1]:
+            swap = child+1
+        if swap==root:
+            return
+        else:
+            a[root], a[swap]=a[swap], a[root]
+            root = swap
+
+
+
+
+def linear_search(val,lst):
+    index = 0
+    found_index = None
+    while index &lt; len(lst) and found_index == None:
+        if val == lst[index]:
+            found_index = index
+            break
+        index += 1
+    return found_index
+
+def binary_search(val,lst,btm,top):
+    mdl = btm+(top-btm)//2
+    if lst == None or lst == [] or btm &gt; top:
+        return None  # val not found
+    elif val == lst[mdl]:
+        return mdl   # val found return position
+    elif val &lt; lst[mdl]:
+        return binary_search(val,lst,btm,mdl-1) # search bottom half
+    else:
+        return binary_search(val,lst,mdl+1,top) # search top half
+    
+#def main():
+    #print('Selection Sort')
+    #lst1 = generate_number_list(20)
+    #print(lst1)
+    #print(selection_sort(lst1))
+    #print('Merge Sort')
+    #lst2 = generate_number_list(20)
+    #print(lst2)
+    #print(merge_sort(lst2))
+    #print('Bubble Sort')
+    #lst3 = generate_number_list(20)
+    #print(lst3)
+    #print(bubble_sort(lst3))
+    #print('Linear Search')
+    #lst4 = generate_number_list(20)
+    #print(lst4)
+    #print(linear_search(10,lst4))
+    #print('Binary Search')
+    #lst5 = merge_sort(generate_number_list(20)) # list needs to be sorted for binary search
+    #print(lst5)
+    #print(binary_search(15,lst5,0,len(lst5)-1))
+    
+#if __name__ == "__main__":
+    #main()
+
+from time import*
+def main():
+    list_size=int(input("Enter the size of the list:\n"))
+    print("Choose the sort method:")
+    print("1. Heap Sort.")
+    print("2. Bubble Sort.")
+    
+    option=int(input())
+    start_time=time()
+    if option==1:
+        number_list=generate_number_list(list_size)
+        print("Before:",number_list)
+        print("After:",heap_sort(number_list))
+        
+    elif option==2:
+        number_list=generate_number_list(list_size)
+        print("Before:",number_list)
+        print("After:",bubble_sort(number_list))
+    end_time=time()
+    time_taken=end_time-start_time
+    print("Time:",time_taken)
+    print(round(time_taken,5))
+main()&gt;&gt;&gt;&gt; file: universitysystem.py
+class Lecture:
+    
+    def __init__(self, n='unknown', sn='unknown'):
+        self.name = n
+        self.staff_number = sn
+        self.courses = []
+    
+    def __str__(self):
+        s = self.name + ', ' + self.stuff_number
+        if len(self.courses)&gt;0:
+            s += ': '+str(self.courses[0])
+            for c in self.courses[1:]:
+                s += '; ' + str(c)
+        return s+'.'
+    
+    def add_course(self, c):
+        self.courses.append(c)
+    
+    def input(self):
+        self.name = input('Enter name: ')
+        self.staff_number = input('Enter staff number: ')
+        return self.name,self.staff_number
+    def display(self):
+        print('Name: ' + self.name)
+        print('Student number: ' + self.staff_number)
+
+class Course:
+    def __init__(self, cc='unknown', d='unknown'):
+        self.course_code = cc
+        self.description = d
+    def __str__(self):
+        return self.course_code + ', ' + self.description
+    def input(self):
+        self.description = input('Enter description: ')
+        self.course_code = input('Enter course code: ')
+        return self.description,self.course_code
+    def display(self):
+        print('Course code: ' + self.course_code)
+        print('Description: ' + self.description)
+    
+
+class Student:
+    def __init__(self, n='unknown', sn='unknown'):
+        self.name = n
+        self.student_number = sn
+        self.courses = []
+    def __str__(self):
+        s = self.name + ', ' + self.student_number
+        if len(self.courses)&gt;0:
+            s += ': '+str(self.courses[0])
+            for c in self.courses[1:]:
+                s += '; ' + str(c)
+        return s+'.'
+    def add_course(self, c):
+        self.courses.append(c)
+    def input(self):
+        self.name = input('Enter name: ')
+        self.student_number = input('Enter student number: ')
+        return self.name,self.student_number
+    def display(self):
+        print('Name: ' + self.name)
+        print('Student number: ' + self.student_number)
+
+dictionary1={}
+dictionary2={}
+dictionary3={}
+list1=[]
+list2=[]
+
+def main():
+    while True:
+        print("University Member System: ")
+        print('0. Quit.')
+        print('1. Input Course.')
+        print('2. Input Lecturer.')
+        print('3. Input Student.')
+        print('4. Enrol Student on Course.')
+        print('5. Assign Course to Lecturer.')
+        print('6. Find Course.')
+        print('7. Find Lecturer.')
+        print('8. Find Student.')
+        print('9. Display Courses.')
+        print('10. Display Lecturers.')
+        print('11. Display Students.')
+        
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match207-0.html#0" TARGET="0"><IMG SRC="../../bitmaps/tm_0_1.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+        choice=int(input("&gt;"))
+        
+        if choice==0:
+            break
+        elif choice&gt;11 or choice&lt;0:
+            print("That selection was not recognised.")
+        elif choice==1:
+            y=Course.input(Course)
+</FONT>            dictionary1[y[1]]=y[0]
+        elif choice==2:
+            lec=Lecture.input(Lecture)
+            dictionary2[lec[1]]=lec[0]
+        elif choice==3:
+            st=Student.input(Student)
+            dictionary3[st[1]]=st[0]
+        elif choice==4:
+            std=int(input("Enter student number: "))
+            code=int(input("Enter course code: "))
+            lst=[]
+            for i in dictionary3:
+                i=int(i)
+                lst.append(i)
+            if std in lst:
+                v=code,std
+                list1.append(v)
+            else:
+                print("Could not find a student with that student number.")
+        elif choice==5:
+            stnumber=int(input("Enter staff number: "))
+            cod=int(input("Enter course code: "))
+            lst3=[]
+            for g in dictionary2:
+                g=int(g)
+                lst3.append(g)
+            if stnumber in lst3:
+                k=cod,stnumber
+                list2.append(k)
+            else:
+                print("Could not find a lecturer with that staff number.") 
+        elif choice==6:
+            cd1=input("Enter course code: ")
+            lst5=[]
+            for r in dictionary1:
+                lst5.append(int(r))
+            if int(cd1) in lst5:
+                print(cd1+",",dictionary1[cd1])
+            else:
+                print("Could not find a course with that code.")
+        elif choice==7:
+            try:
+                stfn2=input("Enter staff number: ")
+               
+                e=""
+                b=[]
+                for i in list2:
+                    if i[1]==int(stfn2):
+                        h=str(i[0])
+                        b.append(i)
+                        #print(h+",",dictionary1[str(h)],end="; ")
+                        e+=" {}, {};".format(h,dictionary1[str(h)])
+                
+                if b==[]:
+                    print(dictionary2[stfn2]+",",stfn2+".",end="")
+                    print()
+                else:
+                    print(dictionary2[stfn2]+",",stfn2,end=":")
+                    print(e.strip(";")+".")
+            except :
+                print("Could not find a member of staff with that number.")
+                
+        elif choice==8:
+            try:
+                stfn3=input("Enter student number: ")
+                
+                y=""
+                c=[]
+                for i in list1:
+                    if i[1]==int(stfn3):
+                        c.append(i)
+                        h=str(i[0])
+                        y+=" {}, {};".format(h,dictionary1[str(h)])
+                if c==[]:
+                    print(dictionary3[stfn3]+",",stfn3+".",end="")
+                    print()
+                else:
+                    print(dictionary3[stfn3]+",",stfn3,end=":")
+                    print(y.strip(";")+".")
+                #print(c)
+                                
+                
+            except:
+                print("Could not find a student with that number.")
+        elif choice==9:
+            sortedlst1=[]
+            for i in dictionary1:
+                i=int(i)
+                sortedlst1.append(i)
+            sortedlst1.sort()
+            for a in sortedlst1:
+                print("Course code:",a)
+                print("Description:",dictionary1[str(a)])
+        elif choice==10:
+            sortedlst2=[]
+            for p in dictionary2:
+                sortedlst2.append(int(p))
+            sortedlst2.sort()
+            for q in sortedlst2:
+                print("Name:",dictionary2[str(q)])
+                print("Staff number:",q)
+        elif choice==11:
+            sortedlst3=[]
+            for u in dictionary3:
+                sortedlst3.append(int(u))
+            sortedlst3.sort()
+            for y in sortedlst3:
+                print("Name:",dictionary3[str(y)])
+                print("Student number:",y)
+             
+                
+                                                       
+main()        </PRE>
+</PRE>
+</BODY>
+</HTML>

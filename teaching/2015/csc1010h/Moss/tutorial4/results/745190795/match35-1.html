@@ -1,0 +1,186 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/4/raw/mblese001/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2015/uct-cs-csc1010h/tutorials/4/raw/msmmuk001/<p><PRE>
+&gt;&gt;&gt;&gt; file: LongJump.py
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match35-0.html#0" TARGET="0"><IMG SRC="../../bitmaps/tm_0_40.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+def main():
+    competitors=[]
+    distance=[]
+    print("***** Long Jump Information System *****")
+    print("Please enter the names of competitors. (Press return when done.)")
+    
+    count=2
+    print("Competitor no. 1:")
+    jumper=input()
+    while jumper!="" :
+        competitors.append(jumper)
+        
+        print("Competitor no. "+str(count)+":")
+        count+=1
+        jumper=input()
+        
+    print("Please enter the distances for each competitor.")
+    
+    #print(competitors)
+    dictionery={}
+    
+    for i in competitors:
+        print("Competitor "+str(i)+":")
+        x=[]
+        for r in range(1,4):
+            print("Attempt "+str(r)+":")
+            attempt=input()
+            
+            if attempt=="Foul" or attempt=="foul" or attempt=="FOUL":
+                pass
+         
+            else:
+                pls=format(eval(attempt),'.2f')
+                x.append(pls) 
+            
+        
+        if x==[]:
+            dictionery[i]="No jump"
+        
+        else:
+
+                
+            dictionery[i]=max(x)
+            
+        
+    
+            
+    print("\n"+"Competitor {:&lt;14}Longest Distance".format(""))
+      
+    for z in dictionery:
+        print("{:&lt;20}{:&gt;5}{:&lt;16}".format(z,"",(dictionery[z])))  
+        
+        
+        
+            
+            
+        
+        del x[:]    
+            
+    
+     
+    team=dictionery.values()
+    temp = []
+    for g in team:
+        if g=="No jump":
+            pass
+        
+        else:
+            temp.append(g)
+     
+     
+            
+    winner=max(temp)       
+     
+    
+            
+            
+    for  w in dictionery:
+        if dictionery[w]==winner:
+            print("\n"+"The winner is",w,"with a jump of "+str(winner)+".")
+</FONT><A NAME="1"></A><FONT color = #00FF00><A HREF="match35-0.html#1" TARGET="0"><IMG SRC="../../bitmaps/tm_1_5.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+            
+main()       
+        
+            
+&gt;&gt;&gt;&gt; file: NikNaks.py
+import random
+
+def main():
+    print("Guess the mystery 4 letter code. (No letter occurs more than once.)")
+    difficulty=int(input("Choose difficulty level (4 to 26):\n"))
+    letters=list("abcdefghijklmnopqrstuvwxyz")[0: difficulty]
+    print("The letters in the code are chosen from: {}.".format(letters))
+</FONT>    secret_code=[]
+    for i in range(4):
+        rand_index=random.randint(0, len(letters)-1)
+        letter=letters.pop(rand_index)
+        secret_code.append(letter)
+    
+    for r in range(10,0,-1):
+        print("You have",r, "guesses remaining.")
+        guess=input("Enter your guess:\n")
+        if list(guess)==secret_code:
+            print("Correct!")
+        
+        else:
+            
+            count=0
+            count_2=0
+            for i in range(4):
+                if secret_code[i]==guess[i]:
+                    count+=1
+                    
+                elif secret_code[i]!=guess[i] and guess[i] in secret_code:
+                 
+                    count_2+=1
+                
+             
+             
+            if count==1 and count_2==1:
+                print("There is",count,"Nik and",count_2,"Nak.")
+                
+            elif count==1 and count_2!=1:
+                print("There is",count,"Nik and",count_2,"Naks.")
+                 
+            elif count!=1 and count_2!=1:
+                print("There are",count,"Niks and",count_2,"Naks.")
+            elif count!=1 and count_2==1:
+                print("There are",count,"Niks and",count_2,"Nak.")
+                
+        
+    
+            
+        if list(guess)==secret_code:
+            break
+        
+        elif list(guess)!=secret_code and r==1:
+            print("Sorry, you lose.")
+            x=""
+            for l in secret_code:
+                x+=l
+            print("The secret number was "+str(x)+".")
+            
+            
+            
+if __name__=='__main__':
+    main()
+            
+                
+                
+            
+        
+        
+            
+        
+        
+                   
+    &gt;&gt;&gt;&gt; file: pattern print.py
+import turtle
+
+def main():
+    for i in range(10):
+        turtle.forward(20)
+        turtle.penup()
+        turtle.forward(10)
+        turtle.pendown()
+        turtle.forward(20)
+        turtle.home()
+        turtle.right(36)
+    turtle.exitonclick()
+
+main()</PRE>
+</PRE>
+</BODY>
+</HTML>
