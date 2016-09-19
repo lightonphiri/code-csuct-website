@@ -5,9 +5,26 @@ body {
   background-color: #f0f0f0;
 }
 
-a {
-  color: blue;
+a:link {
+  color: #338caf;
+  text-decoration: none;
 }
+
+a:visited {
+  color: #338caf;
+  text-decoration: none;
+}
+
+a:hover {
+  color: blue;
+  text-decoration: none;
+}
+
+a:active {
+  color: blue;
+  text-decoration: none;
+}
+
 
 .project {
   clear: both;
