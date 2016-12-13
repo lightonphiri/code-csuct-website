@@ -1,0 +1,159 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial7/raw/mshnon016/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial7/raw/rmjhrs001/<p><PRE>
+&gt;&gt;&gt;&gt; file: book_cypher.py
+# book cypher program
+
+def main():
+    bookname = input("Enter the book filename:\n")
+    bookfile = open(bookname,'r')
+    message = input("Enter the message:\n")
+    message = message.lower().split()
+    output_filename = input("Enter the output filename:\n")
+    output_file = open(output_filename,"w")
+    bookarray0 = []
+    bookarray1 = [] 
+    
+    for lines in bookfile:
+        bookarray0.append(lines.lower().strip('?!.,;:)([]{}\'" \n'))
+    
+    for lines in bookarray0:
+        lines = lines.replace(",","")
+        lines = lines.replace(".","")
+        lines = lines.replace("?","")
+        lines = lines.replace("!","")
+        bookarray1.append(lines)
+        
+    bookfile.close()
+    print("\n")
+    print("BEGIN")
+    print("BEGIN",file=output_file)
+    
+    for ele in message:
+        for line in bookarray1:
+            if ele in line:
+                position_line = bookarray1.index(line) + 1
+                line_array = line.split()
+                postion_word = line_array.index(ele) + 1                
+                string = "{}-{}".format(position_line , postion_word)
+                print(string)
+                print(string,file=output_file)
+                break
+            
+    
+    print("END")
+    print("END",file=output_file)
+    output_file.close()
+    
+main()&gt;&gt;&gt;&gt; file: leader_board.py
+# leader_board.py
+
+def process_line(line):
+    parts = line.split(' ')
+    name = parts[0]
+    trials = int(parts[1])
+    average = float(parts[2])
+    return (name, trials, average)
+
+def get_max(entries):
+    max = entries[0]
+    for i in range(1, len(entries)):
+        if entries[i][2] &lt;max[2]:
+            max = entries[i]
+            
+    entries.remove(max)
+    return max
+
+def sort(entries):
+    sorted_entries = []
+    while len(entries)&gt;0:
+        sorted_entries.append(get_max(entries))
+    return sorted_entries
+
+def output(entries):
+    print('Subject        | Average Time')
+    print('************** | ************')
+    for entry in entries:
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match134-0.html#0" TARGET="0"><IMG SRC="../../bitmaps/tm_0_8.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+        print('{:14} | {:.6}'.format(entry[0], entry[2]))
+              
+def main():
+    try:
+        file_name = input('Enter the name of the file:\n')
+        file_input = open(file_name, 'r')
+        
+        entries = []
+        for line in file_input:
+            entries.append(process_line(line))
+        file_input.close()
+        
+        entries = sort(entries)
+        output(entries)
+    except IOError:
+        print("File not found,enter another filename.")
+</FONT>        main()
+    except IndexError as index_error:
+        print("Problem with line",index_error)
+    except:
+        print("Something went wrong")
+main()  &gt;&gt;&gt;&gt; file: reaction_test.py
+# Reaction time test
+import time
+import random
+import sys
+
+def flush_input():
+    try:
+        import msvcrt
+        while msvcrt.kbhit():
+            msvcrt.getch()
+    except ImportError:
+        import sys, termios
+        termios.tcflush(sys.stdin, termios.TCIOFLUSH)
+
+def main():
+    filename = input("Name of file to save results:\n")
+    file = open(filename,"w")
+    file.close()
+    name = input("Enter subject name (or press 'enter' to quit):\n")
+    if name == "":
+        quit
+    else:
+        reps = int(input("Enter the number of tests:\n"))
+        while name != "":
+            times = []
+        for i in range(reps):
+            avgtime = 0
+            print("Get ready...",flush=True)
+            time.sleep(random.randrange(1,6))
+            print("Press 'enter NOW!",end="")
+            t1 = time.time()
+            user_response = input()
+            t2 = time.time()
+            print("Reaction time:",round(t2-t1,6))
+            times.append(t2-t1)
+            
+        print("Tests complete.")  
+        for ele in times:
+            avgtime = avgtime + ele
+                
+        avgtime = round(avgtime/reps,6)
+        print("Average reaction time:",avgtime,"\n")
+        result_file = open("results.txt","a")
+        print(name+" "+str(avgtime),file= result_file)
+        result_file.close()
+            
+        name = input("Enter subject name (or press 'enter' to quit):\n")
+        
+    file.close()
+    
+if __name__ == "__main__":
+    main()</PRE>
+</PRE>
+</BODY>
+</HTML>

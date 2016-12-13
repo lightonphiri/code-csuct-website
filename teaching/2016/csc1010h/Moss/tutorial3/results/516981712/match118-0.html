@@ -1,0 +1,232 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial3/raw/gnxulr001/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial3/raw/gnxulr001/<p><PRE>
+&gt;&gt;&gt;&gt; file: FeetMetres.py
+#Display a conversion table for feet to metres
+#Ulrich Geen
+#gnxulr001
+#11 May 2016
+
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match118-1.html#1" TARGET="1"><IMG SRC="../../bitmaps/tm_1_2.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+def main():
+    #Get start and stop points for conversion table
+    minimum=int(input("Enter the minimum number of feet (not less than 0):\n"))
+    maximum=int(input("Enter the maximum number of feet (not more than 99):\n"))    
+    #Loop to print conversion table
+    for feet in range(minimum,maximum+1):
+        metres=feet*0.3048
+</FONT>        print("{:&gt;4}".format(feet)+"' |"+"{:&gt;7.2f}".format(metres)+"m")
+    
+    
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match118-1.html#0" TARGET="1"><IMG SRC="../../bitmaps/tm_0_3.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+main()&gt;&gt;&gt;&gt; file: FlowerPattern.py
+#Displays a flower pattern based on users decisions using python turtle
+#Ulrich Geen
+#gnxulr001
+#12 May 2016
+
+from turtle import *
+
+def main():
+    #Get information from the user
+    petal_number=int(input("Enter the number of petals (must be even number): "))
+    stem_length=int(input("Enter the length of stem: "))
+    petal_type=input("Enter the petal type (triangle, square, or pentagon): ")
+    side_length=int(input("Enter the length of the side: "))
+    stem_colour=input("Enter the stem colour: ")
+</FONT>    first_petal_colour=input("Enter the first petal colour: ")
+    second_petal_colour=input("Enter the second petal colour: ")
+    speed(0) #Change turtle speed and hide turtle
+    hideturtle()
+    pencolor(stem_colour) #Change pen color to stem colour
+    #Check which petal type
+    if petal_type=="triangle":
+        external_angle=360/3  #Calculate Internal and external angles
+        internal_angle=180-external_angle        
+        #Draw the flower
+        for stem_count in range(petal_number): #For loop draws stem
+            forward(stem_length)
+            left(internal_angle/2)
+            if (stem_count+1)%2==1: pencolor(first_petal_colour) #Change to first petal colour 
+            else: pencolor(second_petal_colour) #Change to second petal colour            
+            for petal_count in range(3): #For loop draws petal
+                forward(side_length)
+                right(external_angle)
+            pencolor(stem_colour) #Change back to stem colour
+            left(180-(internal_angle/2)) #Moves to start point
+            forward(stem_length)
+            left(180)
+            right(360/petal_number)
+            
+    elif petal_type=="square":
+        external_angle=360/4  #Calculate Internal and external angles
+        internal_angle=180-external_angle
+        for stem_count in range(petal_number): #For loop draws stem
+            if (stem_count+1)%2==1: pencolor(first_petal_colour) #Change to first petal colour 
+            else: pencolor(second_petal_colour) #Change to second petal colour            
+            forward(stem_length)
+            left(internal_angle/2)
+            for petal_count in range(4): #For loop draws petal
+                forward(side_length)
+                right(external_angle)
+            pencolor(stem_colour) #Change back to stem colour
+            left(180-(internal_angle/2)) #Moves to start point
+            forward(stem_length)
+            left(180)
+            right(360/petal_number)        
+    else:
+        external_angle=360/5  #Calculate Internal and external angles
+        internal_angle=180-external_angle
+        for stem_count in range(petal_number): #For loop draws stem
+            if (stem_count+1)%2==1: pencolor(first_petal_colour) #Change to first petal colour 
+            else: pencolor(second_petal_colour) #Change to second petal colour        
+            forward(stem_length)
+            left(internal_angle/2)
+            for petal_count in range(5): #For loop draws petal
+                forward(side_length)
+                right(external_angle)
+            pencolor(stem_colour) #Change back to stem colour
+            left(180-(internal_angle/2)) #Moves to start point
+            forward(stem_length)
+            left(180)
+            right(360/petal_number)
+    exitonclick()
+    
+main()&gt;&gt;&gt;&gt; file: InchesMetres.py
+#Displays a conversion table for inches and metres
+#Ulrich Geen
+#gnxulr001
+#11 May 2016
+
+def main():
+    #initialise list
+    inches_list=[]
+    #Get start and stop points for conversion table
+    minimum=int(input("Enter the minimum number of inches (not less than 0):\n"))
+    maximum=int(input("Enter the maximum number of inches (not greater than 11):\n"))
+    #Check if values given in are range
+    if minimum&gt;0 and maximum&lt;100:
+        #Display inches
+        print("Inches:",end="")
+        for inches in range(minimum,maximum+1):
+            print("{:&gt;5}".format(inches),end="")
+            inches_list.append(inches)
+            #Display metres
+        print("\nMetres:",end="")    
+        for inches in inches_list:
+            metres=inches*0.0254
+            print("{:&gt;5.2f}".format(metres),end="")
+    else: print("Invalid minimum and/or maximum value entered")
+    
+main()&gt;&gt;&gt;&gt; file: TimeConvertor.py
+#Convert time from 24 hour clock to 12 hour clock and vice versa
+#Ulrich Geen
+#GNXULR001
+#6 May 2016
+
+def main():
+    #Get time from user
+    time=input("Enter a time ([h]h:mm [am|pm]):\n")
+    #Separate hours and minutes
+    colon_position=time.find(":")
+    hours=int(time[:colon_position])
+    minutes=time[colon_position:colon_position+3]
+    #Check if 24 hour clock time or 12 hour clock time.
+    #If 12 hour check if am or pm
+    if time.endswith("am"):
+        if hours==12: time="0"+str(hours-12)+minutes
+        elif hours==11 or hours==10: time=str(hours)+minutes
+        else: time="0"+str(hours)+minutes
+    elif time.endswith("pm"):
+        if hours==12: time=str(hours)+minutes
+        else: time=str(hours+12)+minutes     
+        #If 24 hour convert to 12 hour
+    else:
+        if hours&lt;12 and hours&gt;0: time=str(hours)+minutes+" am"
+        elif hours&gt;12 and hours&lt;=23: time=str(int(hours)-12)+minutes+" pm"
+        elif hours==12: time=str(hours)+minutes+" pm"
+        else: time=str(int(hours)+12)+minutes+" am"
+        
+    #Display the converted time
+    print(time,"\n")  
+        
+main()&gt;&gt;&gt;&gt; file: Twelve.py
+#Convert the time in 12 hour clock and 24 hour clock
+#Ulrich Geen
+#GNXULR001
+#5 May 2016
+
+def main():
+    #Get time from user
+    time=input("Enter a time in 12 hour clock ([h]h:mm [am|pm]):\n")
+    #Separate hours and minutes
+    position_colon=time.find(":")
+    hours=int(time[:position_colon])
+    minutes=time[position_colon:position_colon+3]
+    #Check if am or pm
+    if time.endswith("am"): #checks if am
+        if hours==12: time="0"+str(hours-12)+minutes
+        elif hours==11 or hours==10: time=str(hours)+minutes
+        else: time="0"+str(hours)+minutes
+        #if not am then pm
+    else: 
+        if hours==12: time=str(hours)+minutes
+        else: time=str(hours+12)+minutes
+        #Display the time in 24 hour clock format
+    print(time,"\n")
+    
+main()&gt;&gt;&gt;&gt; file: TwentyFour.py
+#Convert times expressed in 24 hour clock to 12 hour clock
+#Ulrich Geen
+#GNXULR001
+#5 May 2016
+
+def main():
+    #Get time from user
+    time=input("Enter a time in 24 hour clock (hh:mm):\n")
+    #Separate the hours and minutes
+    hours=time[:2]
+    minutes=time[2:]
+    #Check if the hours is &lt;12, &gt;12, =12 or 00
+    if int(hours) &lt; 12 and int(hours) &gt; 0: time=str(int(hours))+minutes+" am"
+    elif int(hours)&gt;12 and int(hours)&lt;=23: time=str(int(hours)-12)+minutes+" pm"
+    elif int(hours)==12: time=hours+minutes+" pm"
+    else: time=str(int(hours)+12)+minutes+" am"
+    #Display time in 12 hour clock format
+    print(time,"\n")
+
+main()&gt;&gt;&gt;&gt; file: VehicleClassifier.py
+#Calculate what class a vehicle belongs to
+#Ulrich Geen
+#GNXULR001
+#10 May 2016
+
+def main():
+    articulated=0
+    trailer_mass=0
+    #Get mass of vehicle from user
+    gross_vehicle_mass=int(input("What is the gross vehicle mass (in kg)?\n"))
+    #Determine the class of the vehicle
+    if gross_vehicle_mass&lt;=3500: vehicle_class="class B"
+    elif gross_vehicle_mass&lt;=16000: vehicle_class="class C1"
+    else: vehicle_class="class C"
+    #Check if the vehicle has a trailer
+    trailer=input("Does the vehicle have a trailer?\n")
+    #If yes get trailer mass
+    if trailer=="y": trailer_mass=int(input("What is gross vehicle mass of the trailer (in kg)?\n"))
+    #If no check if the vehicle is articulated
+    else: articulated=input("Is the vehicle articulated?\n")
+    #If articulated or trailer mass greater than or equal to 750kg change class
+    if trailer_mass&gt;750 or articulated=="y": vehicle_class=vehicle_class.replace(" ", " E")
+    print("This vehicle is "+vehicle_class+".")
+
+main()</PRE>
+</PRE>
+</BODY>
+</HTML>

@@ -1,0 +1,116 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial2/raw/khznom017/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial2/raw/khznom017/<p><PRE>
+&gt;&gt;&gt;&gt; file: CreditCard.py
+
+
+C_holder=input("Enter the card holder's name:\n")
+digits=input("Enter the 16 digit card number (no spaces please):\n")
+issue_date=input("Enter the date of issue (mm:yy):\n")
+exp_date=input("Enter the expiary date(mm:yy):\n")
+scrty_digits= int(input("Enter the 3 digit security code:\n"))
+cred_limit=float(input("Enter the credit limit (Rand):\n"))
+credit_limit_new= str("{0:&lt;.2f}".format(cred_limit)+" "+'Rand')
+
+balance=float(input("Enter the balance (Rand):\n"))
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match43-1.html#1" TARGET="1"><IMG SRC="../../bitmaps/tm_1_6.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+balance_new=str("{0:&lt;.2f}".format(balance)+" "+ 'Rand')
+
+
+
+issue_date_new= str(issue_date[0:2])+"/"+str(issue_date[3:5])
+</FONT>exp_date_new=str(exp_date[0:2])+"/"+str(exp_date[3:5])
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match43-1.html#0" TARGET="1"><IMG SRC="../../bitmaps/tm_0_9.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+digits_new=str(digits[0:4])+" "+str(digits[4:8])+" "+str(digits[8:12])+" "+str(digits[12:17])
+</FONT><A NAME="0"></A><FONT color = #FF0000><A HREF="match43-1.html#0" TARGET="1"><IMG SRC="../../bitmaps/tm_0_9.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+available = cred_limit - balance
+</FONT>available_new= str("{0:&lt;.2f}".format(available)+" "+ 'Rand')
+line = '|'
+print("+------------- Credit Card Account --------------+")
+print("| Card holder:   {0:32}".format(C_holder)+line)
+print("| Card Number:   {0:&lt;32}".format(digits_new)+line)
+print("| Date of issue: {0:&lt;9}".format(issue_date_new)+"Expiry date: {0:&lt;10}".format(issue_date,exp_date)+ line)
+print("| Security code: {0:&lt;32}".format(scrty_digits)+line)
+print("| Credit limit:  {0:&lt;32}".format(credit_limit_new)+line)
+print("| Available:     {0:&lt;32}".format(available_new)+line)
+print("| Balance:       {0:&lt;32}".format(balance_new)+line)
+print("+------------------------------------------------+")
+
+
+
+&gt;&gt;&gt;&gt; file: EugeneJunior.py
+
+print("Hello, I am Eugene Junior.")
+f_name=input("What is your first name?\n")
+
+l_name=input("What is your last name?\n")
+print("Hi {}.{}.!".format(f_name[0],l_name[0])) #displaying the initials of the user
+
+year=int(input("What year is this?\n"))
+age=int(input("What age are you?\n"))
+
+birth_year1 = year-age-1 #working out the age of the user
+birth_year2 = year-age
+
+print("Okay, so you were born in {}/{}.".format(birth_year1,str(birth_year2)[2:4]))
+      
+height = float(input("How tall are you (metres)?\n"))
+height_feet = height*3.2808
+height_inches = (height_feet-int(height_feet))*12
+print("That's {}'{}\"!".format(int(height_feet),round(height_inches)))
+
+
+
+print("I'm going to tell you your Star Wars name.")
+mom_name=input("What's your mother's first name?\n")
+city_name=input("What's the name of the city nearest to your place of birth?\n")
+star_wars_f_name = str(l_name[0:3])+ str(f_name[0:2])
+star_wars_l_name = str(mom_name[len(mom_name)-2:len(mom_name)]+str(city_name)[len(city_name)-3:len(city_name)])
+
+
+
+print("Your Star Wars name is",star_wars_f_name.title() ,star_wars_l_name.title(),end=".")
+
+            
+
+             
+            
+             
+             
+
+
+
+
+
+
+
+            
+             
+
+
+
+
+
+&gt;&gt;&gt;&gt; file: HexagonArea.py
+#calculating area of a hexagon
+#Nomagugu Khuzwayo
+import math
+
+side=int(input("Enter the length of the side (cm):\n "))
+area= 3*math.sqrt(3)/2*side**2
+print("The area of a hexagon of side {0} is {1:.3f}.".format(side,area))
+
+
+
+
+</PRE>
+</PRE>
+</BODY>
+</HTML>

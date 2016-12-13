@@ -1,0 +1,138 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial3/raw/chkvut006/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial3/raw/chkvut006/<p><PRE>
+&gt;&gt;&gt;&gt; file: FeetMetres.py
+minimum=int(input("Enter the minimum number of feet (not less than 0):\n"))
+maximum=int(input("Enter the maximum number of feet (not more than 99):\n"))
+for num in range(minimum,maximum+1):
+    metres=num*0.3048
+    print("{0:&gt;3}' | {1:&gt;7.2f}m".format(num ,metres))&gt;&gt;&gt;&gt; file: InchesMetres.py
+minimum=int(input("Enter the minimum number of feet (not less than 0) :\n"))
+maximum=int(input("Enter the maximum number of feet (not greater than 11) :\n"))
+print("Inches:",end='')
+
+for num in range(minimum,maximum+1):
+    metres=num*0.0254
+    print("{0:&gt;5}".format(num),end='')
+print()
+    
+<A NAME="2"></A><FONT color = #0000FF><A HREF="match57-1.html#2" TARGET="1"><IMG SRC="../../bitmaps/tm_2_4.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+print("Metres:",end='')
+for num in range(minimum,maximum+1):
+    metres=num*0.0254
+    print("{0:&gt;5.2f}".format(metres),end='')&gt;&gt;&gt;&gt; file: TimeConvertor.py
+
+
+
+
+time=input("Enter a time ([h]h:mm [am|pm]):\n")
+</FONT>if time[6:8]=="am":
+    hour=int(time[0:2])
+    if 1&lt;=hour&lt;=11:
+        print(time[0:5])
+    else:
+        midnight=hour-12
+        print(str(midnight)+"0"+":"+time[3:5])
+elif time[6:8]=="pm":
+    hour=int(time[0:2])
+    if 1&lt;=hour&lt;=11:
+        hr=hour+12
+        print(str(hr)+":"+time[3:5])
+    else:
+        print(time[0:5])
+else:
+    hour=int(time[0:2])
+    if 1&lt;=hour&lt;=11:
+        print(time,'am')
+    elif hour==0:
+        print("12:"+time[3:5],"am")
+    elif hour==12:
+        print(time,"pm")
+    else:
+        hr=hour-12
+        print(str(hr)+":"+time[3:5],"pm")    &gt;&gt;&gt;&gt; file: Twelve.py
+time=input("Enter a time in 12 hour clock ([h]h:mm [am|pm]):\n")
+if time[6:8]=="am":
+    hour=int(time[0:2])
+    if 1&lt;=hour&lt;=11:
+        print(time[0:5])
+    else:
+        midnight=hour-12
+        print(str(midnight)+"0"+":"+time[3:5])
+else:
+    hour=int(time[0:2])
+    if 1&lt;=hour&lt;=11:
+        hr=hour+12
+        print(str(hr)+":"+time[3:5])
+    else:
+        print(time[0:5])&gt;&gt;&gt;&gt; file: TwentyFour.py
+time=input("Enter a time in 24 hour clock (hh:mm):\n")
+hour=int(time[0:2])
+if 1&lt;=hour&lt;=9:
+    print(time[1::],'am')
+elif 10&lt;=hour&lt;=11:
+    print(time,'am')
+    
+elif hour==0:
+    print("12:"+time[3:5],"am")
+elif hour==12:
+    print(time,"pm")
+else:
+    hr=hour-12
+    print(str(hr)+":"+time[3:5],"pm")&gt;&gt;&gt;&gt; file: VehicleClassifier.py
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match57-1.html#1" TARGET="1"><IMG SRC="../../bitmaps/tm_1_4.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+GVM=float(input("What is the gross vehicle mass (in kg)?\n"))
+if GVM&lt;=3500:
+    trailer=input("Does the vehicle have a trailer?\n")
+    if trailer=="y":
+        trailer_mass=float(input("What is gross vehicle mass of the trailer (in kg)?\n"))
+        if trailer_mass&gt;750:
+            print("This vehicle is class EB.")
+</FONT>        else:
+            print("This vehicle is class B.")
+    else:
+        articulated=input("Is the vehicle articulated?\n")
+        if articulated=="y":
+            print("This vehicle is class EB.")
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match57-1.html#0" TARGET="1"><IMG SRC="../../bitmaps/tm_0_4.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+        else:
+            print("This vehicle is class B.")
+elif 3500&lt;GVM&lt;=16000:
+    trailer=input("Does the vehicle have a trailer?\n")
+    if trailer=="y":
+        trailer_mass=float(input("What is gross vehicle mass of the trailer (in kg)?\n"))
+        if trailer_mass&gt;750:
+</FONT>            print("This vehicle is class EC1.")
+        else:
+            print("This vehicle is class C1.")
+    else:
+        articulated=input("Is the vehicle articulated?\n")
+        if articulated=="y":
+            print("This vehicle is class EC1.")
+        else:
+            print("This vehicle is class C1.")
+else:
+    trailer=input("Does the vehicle have a trailer?\n")
+    if trailer=="y":
+        trailer_mass=float(input("What is gross vehicle mass of the trailer (in kg)?\n"))
+        if trailer_mass&gt;750:
+            print("This vehicle is class EC.")
+        else:
+            print("This vehicle is class C.")
+    else:
+        articulated=input("Is the vehicle articulated?\n")
+        if articulated=="y":
+            print("This vehicle is class EC.")
+        else:
+            print("This vehicle is class C.")
+    </PRE>
+</PRE>
+</BODY>
+</HTML>

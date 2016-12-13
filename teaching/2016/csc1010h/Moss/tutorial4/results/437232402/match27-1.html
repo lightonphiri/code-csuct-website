@@ -1,0 +1,129 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial4/raw/iscabd011/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial4/raw/nyttha008/<p><PRE>
+&gt;&gt;&gt;&gt; file: LongJump.py
+#Thato Nyati
+#29 July 2016
+#Long jump question
+
+def main():#create dict and prompt user to enter name and distance
+    names={}
+    print("***** Long Jump Information System *****)")
+    
+    print("Please enter the names of competitors. (Press enter when done.)")
+    x=1
+    while True:
+        person=input("Competitor no. "+str(x)+":\n")
+        x+=1
+        if person=="":#when user doesnt enter anything
+            break
+        names[person] = ""
+        #else:
+            #distance=input("enter thr distance:")
+            #names[person]=distance#create keys and assign values
+    print("Please enter the distances for each competitor.")
+    for a in names:
+        print(" Competitor "+ a)
+        a1 = input("Attempt 1:\n")
+        a2 = input("Attempt 2:\n")
+        a3 = input("Attempt 3:\n")
+        list_attempts=[a1,a2,a3]
+        while "Foul" in list_attempts:
+            list_attempts.remove("Foul")
+        if len(list_attempts)==0:
+            names[a]="No jump"
+        else:
+            names[a]=max(list_attempts)
+        print(names)
+        
+    print("{0:&lt;26} {1:&lt;26}".format("Competitor","Longest Distance"))
+    
+    for a in names:
+        print("{0:&lt;26} {1:&lt;26}".format(a,names[a]))
+    
+main()&gt;&gt;&gt;&gt; file: NikNaks.py
+#Thato Nyati
+#NikNaks program
+
+import random
+
+def main():
+    difficulty=int(input('Choose difficulty level (4 to 26):\n'))     
+    letters=list('abcdefghijklmnopqrstuvwxyz')[0: difficulty]     
+    print('The letters in the code are chosen from: {}.'.format(letters))     
+    secret_code=[]     
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match27-0.html#1" TARGET="0"><IMG SRC="../../bitmaps/tm_1_7.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    for i in range(4):         
+        rand_index=random.randint(0, len(letters)-1)         
+        letter=letters.pop(rand_index)         
+        secret_code.append(letter)  
+        # To check things are working, uncomment this print line to see the     # code that has been created.
+    print(secret_code)#code that user is supposed to guess
+</FONT>    fg
+    user_guess=input("Enter your guess:\n").split(",")
+    
+    for a in range(len(secret_code)):#iterates over letters in secret code
+        niks=0
+        naks=0
+        if secret_code[a]==user_guess[a]:
+            niks+=1
+        else:
+            naks+=1
+    if naks==0:#if they are all the same therefore all niks 
+        print("Correct!")
+        
+    else:#if at least one naks 
+        for i in range(10,0,-1):#from 10 to 1
+            
+            if naks!=0:
+                print("You have",i,"guesses remaining")
+            else:#if naks equal to zero
+                n
+   
+    
+    
+        
+    
+    
+        
+        
+if __name__ == '__main__':
+    main() &gt;&gt;&gt;&gt; file: initials.py
+#Thato Nyati
+#Python Turtle
+
+import turtle
+
+def main():
+
+    turtle.forward(200)
+    turtle.left(90)
+    turtle.forward(100)
+    turtle.back(200)
+    turltle.left(90)
+    turtle.penup()
+    turtle.forward(200)
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match27-0.html#0" TARGET="0"><IMG SRC="../../bitmaps/tm_0_10.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    turtle.right(90)
+    turtle.forward(50)
+    turtle.left(90)
+    turtle.pendown()
+    turtle.forward(200)
+    turtle.right(90)
+    turtle.forward(200)
+    turtle.right(90)
+    turtle.forward(200)
+    turtle.exitonclick()
+</FONT>
+main()
+
+</PRE>
+</PRE>
+</BODY>
+</HTML>

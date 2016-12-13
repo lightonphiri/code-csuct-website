@@ -1,0 +1,83 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial3/raw/msktha020/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial3/raw/rvlmuk001/<p><PRE>
+&gt;&gt;&gt;&gt; file: FeetMetres.py
+mini = int(input("Enter the minimum number of feet (not less than 0):\n"))
+maxi = int(input("Enter the maximum number of feet (not more than 99):\n"))
+meter = 0
+
+for i in range (mini,maxi+1):
+    meter = round(i/3.28084,2)
+    print("  {:&gt;2}' {}   {:.2f}m".format(i,"|",meter))&gt;&gt;&gt;&gt; file: TwentyFour.py
+a= input("Enter a time in 24 hour clock (hh:mm):\n")
+
+aa = a[0:2]
+b= int(aa)
+c= a[3:]
+a = (c)
+cc = int(c)
+d = b - 12
+
+
+    
+if b == 00:
+    b = 12
+    print("{:&gt;}:{:&gt;} am".format(b,a))
+elif b ==12:
+    print("{:&gt;}:{:} pm".format(aa,c))
+elif b&gt;12:
+    print("{:&gt;}:{:&gt;} pm".format(d,c))
+elif b&lt;12 and  b !=00:
+    print("{:&gt;}:{:&gt;} am".format(b,c))
+    
+
+    &gt;&gt;&gt;&gt; file: VehicleClassifier.py
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match209-0.html#0" TARGET="0"><IMG SRC="../../bitmaps/tm_0_12.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+gvm = int(input("What is the gross vehicle mass (in kg)?\n"))
+trailer = input("Does the vehicle have a trailer?\n")
+
+if trailer == "y":
+    gvmtr = int(input("What is gross vehicle mass of the trailer (in kg)? \n"))
+    if gvm &lt;= 3500 and gvmtr&lt;=750:
+        print("This vehicle is class B.")
+    elif gvm &lt;=3500 and gvmtr&gt;750:
+</FONT>        print("This vehicle is class EB.")
+    elif 3500&lt;gvm&lt;=16000 and gvmtr&lt;=750:
+        print("This vehicle is class C1.")
+    elif gvm&gt;16000 and gvmtr&lt;=750:
+        print("This vehicle is class C.")
+    elif 3500&lt;gvm&lt;=16000 and gvmtr&gt;750:
+        print("This vehicle is class EC1.")
+    elif 16000&lt;gvm&lt;18000 and gvmtr&gt;750:
+        print("This vehicle is class EC.")
+    
+if trailer == "n":
+    art = input("Is the vehicle articulated?\n")
+    if art =="y" and gvm&lt;=3500:
+        print("This vehicle is class EB.")
+    elif art =="y" and 3500&lt;gvm&lt;=16000:
+        print("This vehicle is class EC1.")
+    elif art =="y" and 16000&lt;gvm&lt;18000:
+        print("This vehicle is class EC.")
+        
+    if art =="n" and gvm &lt;=3500:
+        print("This vehicle is class B.")
+    elif art =="n" and 3500&lt;gvm&lt;=16000:
+        print("This vehicle is class C1.")
+    elif art =="n" and gvm&gt;16000:
+        print("This vehicle is class C.")
+
+        
+        
+    
+    
+    
+    </PRE>
+</PRE>
+</BODY>
+</HTML>

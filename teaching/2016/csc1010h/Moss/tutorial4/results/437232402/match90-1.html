@@ -1,0 +1,191 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial4/raw/admhla001/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial4/raw/mbyfan001/<p><PRE>
+&gt;&gt;&gt;&gt; file: LongJump.py
+#Fanelesibonge Mbuyazi
+#31 July 2016
+#Program that will be used to log the results of an athletics long jump contest.
+
+
+def main():
+    print('***** Long Jump Information System *****')
+    print("Please enter the names of competitors. (Press return when done.)")
+    comp_name = []
+    high_v={}
+    num=1
+    while True:
+        name = input("Competitor no. "+str(num)+":\n")
+        if name == "": break
+        comp_name.append(name)
+        num+=1
+        
+    print('Please enter the distances for each competitor.')
+    
+    fouls = 0
+    for i in range(len(comp_name)):
+        print('Competitor '+str(comp_name[i])+':')
+        attempt_1=input("Attempt 1:\n")
+        attempt_2=input("Attempt 2:\n")
+        attempt_3=input("Attempt 3:\n")
+        name = comp_name[i]
+        if attempt_1.isalpha() and attempt_2.isalpha() and attempt_3.isalpha():
+            fouls=3
+            high_v[name]="no jump"
+            
+            
+    
+        else:
+            if attempt_1.isalpha():
+                attempt_1=0
+            if attempt_2.isalpha():
+                attempt_2=0                
+            if attempt_3.isalpha():
+                attempt_3=0                  
+                
+ 
+            if float(attempt_1) &gt; float(attempt_2) and float(attempt_1)&gt; float(attempt_3):
+                high_v[name]=float(attempt_1)
+            elif float(attempt_2) &gt; float(attempt_1) and float(attempt_2) &gt;float(attempt_3):
+                high_v[name]=float(attempt_2)
+            else:
+                high_v[name]=float(attempt_3) 
+     
+    hi = 0   
+    winner =""
+    print("\n{0:&lt;25}{1:}".format("Competitor","Longest Distance"))
+    for i in range(len(high_v)):
+        name = comp_name[i]
+        
+        if(high_v[name]=="no jump"):
+            pass
+        else:
+            if float(high_v[name])&gt;hi:
+                hi = float(high_v[name])
+                winner = name
+                
+        if(high_v[name]=="no jump"):
+            print(('{0:&lt;25}{1:}'.format(str(name),'No jump')))
+        else:
+            print('{0:&lt;23}'.format(name),'{0:&gt;5.2f}'.format(high_v[name]))
+    
+          
+    print("\nThe winner is" ,winner , "with a jump of",str(('{0:&lt;4.2f}'.format(hi))+'.'))
+        
+main()&gt;&gt;&gt;&gt; file: NikNaks.py
+#Fanelesibonge Mbuyazi
+#Program that allows a person to play a game of Niknaks against the computer
+#31 July 2016
+
+import random
+
+def main():
+   
+    print('Guess the mystery 4 letter code. (No letter occurs more than once.)')
+    difficulty=int(input('Choose difficulty level (4 to 26):\n'))
+    letters=list('abcdefghijklmnopqrstuvwxyz')[0: difficulty]
+    print('The letters in the code are chosen from: {}.'.format(letters))
+    secret_code=[]
+    
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match90-0.html#0" TARGET="0"><IMG SRC="../../bitmaps/tm_0_5.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    for i in range(4):
+            rand_index=random.randint(0, len(letters)-1)
+            letter=letters.pop(rand_index)
+            secret_code.append(letter)
+    password = ""
+    for i in secret_code:
+        password+=i
+    
+    guess_num=11
+</FONT>    
+    for p in range(11,0,-1):
+        n=guess_num
+        
+        if guess_num==1:
+            print('Sorry, you lose.')
+            print('The secret number was',password+'.')
+        else:
+            print('You have' , guess_num-1 ,'guesses remaining.')
+            guess=input('Enter your guess:\n')
+            k=0
+            total= 0
+            
+            
+            
+            
+            
+            naks=0
+            s=0
+            niks=0
+            g =0
+            for c in guess:
+                if c in secret_code:
+                    if secret_code.index(c) ==g:
+                        niks+=1
+                    else:
+                        naks+=1
+                g+=1
+                s+=1
+            for k in secret_code:
+                for j in guess:
+                    if k==j:
+                        total+=1
+            
+           
+        
+        
+            if niks==4:
+                print('Correct!') 
+                break
+            else:
+                if niks==1 and naks==1:
+                    print('There is',niks,'Nik and' ,naks,'Nak.')
+                    
+                elif niks==1 and naks!=1:
+                    print('There is',niks,'Nik and',naks,'Naks.')
+                    
+                elif niks !=1 and naks==1:
+                    print('There are',niks,'Niks and',naks,'Nak.')
+                    
+                else:
+                    print('There are',niks,'Niks and' ,naks,'Naks.')
+            
+            guess_num-=1
+        
+    
+if __name__=='__main__':
+    main()&gt;&gt;&gt;&gt; file: PythonTurtle.py
+#Fanelesibonge Mbuyazi
+#01 August 2016
+#Draw olympiad rings
+from turtle import*
+wheel=2
+
+def main():
+    begin_poly()
+    speed(8)
+    fillcolor("magenta")
+    shape("circle")
+    
+    for i in range (wheel):
+        pensize(20)
+        rt(180);pu();fd(190);pd()
+        pencolor("yellow");circle(140,360);pu();home();rt(180);pu;fd(-150);pd();
+        pencolor("green");circle(140,360);pu();home();lt(180);fd(500);lt(90) ;fd(-10);pd()
+        pencolor("blue");circle(140,360);pu();home();fd(120);lt(90);fd(10);pd();
+        pencolor("black");circle(140,360);pu();home();fd(460);lt(90);fd(10);pd();
+        pencolor("red");circle(140,360)
+        
+    end_poly()
+    p=get_poly()
+    register_shape=("Olympiads",p)
+
+    exitonclick()
+main()</PRE>
+</PRE>
+</BODY>
+</HTML>

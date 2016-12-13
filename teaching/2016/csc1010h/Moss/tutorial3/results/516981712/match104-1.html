@@ -1,0 +1,312 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial3/raw/mdnyan002/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial3/raw/mmpteb003/<p><PRE>
+&gt;&gt;&gt;&gt; file: FeetMetres.py
+# Coverting inches
+# Author: Tebogo Mampuru
+# 2 May 2016
+import math
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match104-0.html#1" TARGET="0"><IMG SRC="../../bitmaps/tm_1_2.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+mini = int(input('Enter the minimum number of feet (not less than 0):\n'))
+maxi = int(input('Enter the maximum number of feet (not more than 99):\n'))
+
+for i in range(mini,maxi+1):
+    metre = i * 0.3048
+    w = str(i)
+</FONT>    t = metre
+    print('  {0:2}\' |  '.format(i),'{0:&gt;5.2f}'.format(t),'m',sep= '')
+    
+    
+    
+    
+    
+
+&gt;&gt;&gt;&gt; file: FlowerPattern.py
+# Coverting in am time
+# Author: Tebogo Mampuru
+# 2 May 2016
+import turtle
+
+def  main():
+    n = eval(input("Enter the number of petals (must be an even number): "))
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match104-0.html#0" TARGET="0"><IMG SRC="../../bitmaps/tm_0_2.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    stem = eval(input('Enter the length of stem: '))
+    petal = input('Enter the petal type (triangle, square, or pentagon): ')
+    length = eval(input('Enter the length of side: '))
+    colour1 = (input('Enter the stem colour: '))
+    colour2 = input('Enter the first petal colour: ')
+    colour3 = input('Enter the second petal colour: ')
+    
+    if petal == ('triangle'):
+        for i in range(n):
+</FONT>            j = i%2
+            if j == 0:
+                color1 = colour2
+            else:
+                color1 = colour3        
+            for i in range(1):
+                turtle.speed(1)
+                turtle.color(colour1)
+                turtle.forward(stem)
+                turtle.right(30)
+                turtle.color(color1)
+                turtle.forward(length)
+                turtle.left(120)
+                turtle.forward(length)
+                turtle.left(120)
+                turtle.forward(length)
+                turtle.right(30)
+                turtle.color(colour1)
+                turtle.forward(stem)
+                turtle.right(180)
+            x = 360/n
+            turtle.right(x)
+        turtle.exitonclick()
+    elif petal == ('square'):
+            for i in range(n):
+                j = i%2
+                if j == 0:
+                    color1 = colour2
+                else:
+                    color1 = colour3
+                for i in range(1):
+                    turtle.speed(0)
+                    turtle.color(colour1)
+                    turtle.forward(stem)
+                    turtle.right(90)
+                    turtle.color(color1)
+                    turtle.forward(length/2)
+                    turtle.left(90)
+                    turtle.forward(length)
+                    turtle.left(90)
+                    turtle.forward(length)
+                    turtle.left(90)
+                    turtle.forward(length)
+                    turtle.left(90)
+                    turtle.forward(length/2)
+                    turtle.right(90)
+                    turtle.color(colour1)
+                    turtle.forward(stem)
+                    turtle.right(180)
+                x = 360/n
+                turtle.right(x)
+            turtle.exitonclick() 
+    else:
+        for i in range(n):
+            j = i%2
+            if j == 0:
+                color1 = colour2
+            else:
+                color1 = colour3            
+            for i in range(1):
+                turtle.speed(0)
+                turtle.color(colour1)
+                turtle.forward(stem)
+                turtle.right(54)
+                turtle.color(color1)
+                turtle.forward(length)
+                turtle.left(72)
+                turtle.forward(length)
+                turtle.left(72)
+                turtle.forward(length)
+                turtle.left(72)
+                turtle.forward(length)
+                turtle.left(72)
+                turtle.forward(length)
+                turtle.right(54)
+                turtle.color(colour1)
+                turtle.forward(stem)
+                turtle.right(180) 
+                    
+            x = 360/n
+            turtle.right(x)
+        turtle.exitonclick()               
+main()
+            
+        &gt;&gt;&gt;&gt; file: InchesMetres.py
+# Coverting inches
+# Author: Tebogo Mampuru
+# 2 May 2016
+import math
+mini = int(input('Enter the minimum number of inches (not less than 0):\n'))
+maxi = int(input('Enter the maximum number of inches (not greater than 11):\n'))
+
+print('Inches:',end='')
+for i in range(mini,maxi+1):
+    metre = i * 0.0254
+    t = round(metre,2)
+    print('{0:&gt;5}'.format(i),end ='')
+print() 
+print('Metres:',end='')
+for i in range(mini,maxi+1):
+    metre = i * 0.0254
+    t = metre
+    print('{0:&gt;5.2f}'.format(t),end='')&gt;&gt;&gt;&gt; file: TimeConvertor.py
+# Coverting in am time
+# Author: Tebogo Mampuru
+# 2 May 2016
+
+def main():
+    time = input('Enter a time ([h]h:mm [am|pm]):\n')
+    time1 = time[:-3:-1]
+    if time1 == 'ma' or time1 == 'mp':
+        time9 = time[0:2]
+        time7 =time[-7::-1]
+        time8 = time7[::-1]
+        if time1 == ('ma'):
+            if time9 == '12':
+                t = '00'+time[2:5]
+                print(t)                
+            else:
+                time2 = '0'+time[:4]
+                print(time2)
+        else:
+            time4 = int(time8)
+            time5 = int(time8)
+            if 12 &gt;time5 &gt;= 10:
+                u = (time5 + 12)
+                v = str(u)+ time[2:5]
+                print(v)
+            elif time5 == 12:
+                time11 = '12'+time[2:5]
+                print(time11)
+            elif 0&lt;time4 &lt; 10:
+                time2 = time4 + 12
+                time3 = str(time2) + time[1:5]
+                print(time3)
+                
+            else:
+                pass           
+    else:
+        time1 = int(time[:2])
+        if 0&lt;time1 &lt; 12:
+            time12 =time[1:5]
+            print(time12,'am')
+        elif time1 == 0:
+            v = '12:'+str(time[3:5])
+            print(v,'am')            
+        elif time1 == 12:
+            v = '12:'+str(time[3:5])
+            print(v,'pm')              
+        else:
+            time2 = time1-12
+            time3 = str(time2) + time[2:]
+            print(time3,'pm')
+            print()
+main()&gt;&gt;&gt;&gt; file: Twelve.py
+# Coverting in am time
+# Author: Tebogo Mampuru
+# 2 May 2016
+
+def main():
+    time = input('Enter a time in 12 hour clock ([h]h:mm [am|pm]):\n')
+    time1 = time[:-3:-1]
+    time7 =time [-7::-1]
+    time8 = time7[::-1]
+    time9 = time[0:2]
+    if time1 == ('ma'):
+        if time9 == '12':
+            t = '00'+time[2:5]
+            print(t)
+        
+        else:
+            time2 = '0'+time[:4]
+            print(time2)
+    else:
+        time4 = int(time8)
+        time5 = int(time8)
+        if 12 &gt;time5 &gt;= 10:
+            u = (time5 + 12)
+            v = str(u)+ time[2:5]
+            print(v)
+        elif time5 == 12:
+            t = '12'+time[2:5]
+            print(t)
+            
+        elif 0&lt;time4 &lt; 10:
+            time2 = time4 + 12
+            time3 = str(time2) + time[1:5]
+            print(time3)
+     
+        else:
+            pass           
+    
+main()&gt;&gt;&gt;&gt; file: TwentyFour.py
+# Coverting in am time
+# Author: Tebogo Mampuru
+# 2 May 2016
+
+
+time = input('Enter a time in 24 hour clock (hh:mm):\n')
+time1 = int(time[:2])
+if 0&lt;time1 &lt; 12:
+        time6 = time[1:5]
+        print(time6,'am')
+elif time1 == 0:
+        v = '12:'+str(time[3:5])
+        print(v,'am')
+elif time1 == 12:
+        v = '12:'+str(time[3:5])
+        print(v,'pm')        
+else:
+        time2 = time1-12
+        time3 = str(time2) + time[2:]
+        print(time3,'pm')
+print()
+        
+        &gt;&gt;&gt;&gt; file: VehicleClassifier.py
+# Coverting in am time
+# Author: Tebogo Mampuru
+# 2 May 2016
+
+
+vehicle = int(input('What is the gross vehicle mass (in kg)?\n'))
+decision = input('Does the vehicle have a trailer?\n')
+gvm = vehicle
+if decision == 'y':
+        trailer = int(input('What is gross vehicle mass of the trailer (in kg)?\n'))
+        gvm = vehicle
+        if gvm &lt;= 3500:
+                if trailer &lt;=750:
+                        print('This vehicle is class B.')
+                else:
+                        print('This vehicle is class EB.')
+        elif  3500&lt;=gvm&lt;=16000:
+                if trailer &lt;=750:
+                        print('This vehicle is class C1.')
+                else:
+                        print('This vehicle is class EC1.')
+        else:
+                if trailer &lt;=750:
+                        print('This vehicle is class C.')
+                else:
+                        print('This vehicle is class EC.')
+else:
+        art = input('Is the vehicle articulated?\n')
+        if art == 'y':
+                if gvm &lt;=3500:
+                        print('This vehicle is class EB.')
+                elif 3500&lt; gvm &lt;= 16000:
+                        print('This vehicle is class EC1.')
+                else:
+                        print('This vehicle is class EC.')    
+        else:
+                gvm = vehicle
+                if gvm &lt;= 3500:
+                        print('This vehicle is class B.')
+                elif  3500&lt;=gvm&lt;=16000:
+                        print('This vehicle is class C1.')
+                else:
+                        print('This vehicle is class C.')          
+                        
+                
+                </PRE>
+</PRE>
+</BODY>
+</HTML>

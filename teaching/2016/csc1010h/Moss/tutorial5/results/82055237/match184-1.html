@@ -1,0 +1,191 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial5/raw/gcnsim001/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial5/raw/rmjhrs001/<p><PRE>
+&gt;&gt;&gt;&gt; file: calendar_utils.py
+# Calutils
+# Hrsikesa Ramjith
+
+def is_leap_year(year):
+    if year == 1900:
+        return "The year "+str(year)+" is not a leap year."
+    if (year % 4 == 0 and year % 100 != 0 or year % 400 == 0) :
+        return "The year "+str(year)+" is a leap year." 
+    else:
+        return "The year "+str(year)+" is not a leap year."
+
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match184-0.html#0" TARGET="0"><IMG SRC="../../bitmaps/tm_0_5.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+def month_name(number):
+    monthnumindex = {1:"January", 2:"February",3:"March",4:"April",5:"May",
+                     6:"June",7:"July",8:"August",9:"September",10:"October",
+                     11:"November",12:"December"}
+    return monthnumindex[number]
+
+def days_in_month(month_number, year):
+</FONT>    isit = False
+    monthnumindex = {1:31, 2:28,3:31,4:30,5:31,
+                    6:30,7:31,8:31,9:30,10:31,
+                    11:30,12:31}    
+    
+    if (year % 4 == 0 and year % 100 != 0 or year % 400 == 0) :
+        isit = True 
+    else:
+        isit = False
+        
+    if isit == True and month_number == 2:
+        return 29   
+    else:
+        return monthnumindex[month_number]
+    
+def first_day_of_year(year):
+    days = {0:"Sunday",1:"Monday",2:"Tuesday",3:"Wednesday",4:"Thursday",5:"Friday",6:"Saturday"}
+    day = (1 + 5*((year - 1) % 4) + 4*((year - 1) % 100) + 6*((year - 1) % 400)) % 7
+    return days[day]
+
+def first_day_of_month(month_number, year):
+    days = 0
+    
+    for i in range(month_number-1,0,-1):
+        days =  days + days_in_month(i,year)
+    
+    day = (1 + 5*((year - 1) % 4) + 4*((year - 1) % 100) + 6*((year - 1) % 400)) % 7
+    daycounter = day
+    for y in range(days):
+        if daycounter == 6:
+            daycounter = 0
+        else:
+            daycounter = daycounter + 1
+    return daycounter
+
+if __name__ == "__main__":
+    main()
+        &gt;&gt;&gt;&gt; file: morse_code.py
+# morse code
+# Hrsikesa Ramjith
+# 08.2016
+
+import morse_utils
+
+
+
+def code_for(letter):
+    letter = letter.lower()
+    morsecode = {"a":".-","b":"-...","c":"-.-.","d":"-..","e":".","f":"..-.",
+                 "g":"--.","h":"....","i":"..","j":".---","k":"-.-","l":".-..",
+                 "m":"--","n":"-.","o":"---","p":".--.","q":"--.-","r":".-.",
+                 "s":"...","t":"-","u":"..-","v":"...-","w":".--","x":"-..-"
+                 ,"y":"-.--","z":"--.."}
+    ans = morsecode[letter]
+    return ans
+
+def transmit_letter(letter):
+    morsecode = code_for(letter)
+    result = ""
+    for dnd in range(0,len(morsecode)):
+        if dnd &lt; len(morsecode)-1:
+            result = result + morsecode[dnd]+"^"
+        else:
+            result = result+morsecode[dnd]
+    
+    for sym in result:
+        if sym == "." or sym == "-":
+            morse_utils.beep(1000,100)
+        else: 
+            morse_utils.beep(1000,700)
+           
+    return result 
+
+def transmit_word(word):
+    morseans = ""
+    morsekappies = ""
+    morseLines = ""
+    word = word.lower()
+    morsecode = {"a":".-","b":"-...","c":"-.-.","d":"-..","e":".","f":"..-."
+                 ,"g":"--.","h":"....","i":"..","j":".---","k":"-.-","l":".-.."
+                 ,"m":"--","n":"-.","o":"---","p":".--.","q":"--.-","r":".-."
+                 ,"s":"...","t":"-","u":"..-","v":"...-","w":".--","x":"-..-"
+                 ,"y":"-.--","z":"--.."}
+    
+    for letters in word:
+        morseans = morseans + morsecode[letters]
+    
+   # for letters in morseans:
+        
+        
+    for letters in range(0,len(morseans)):
+        if letters &lt; len(morseans)-1:
+            morsekappies = morsekappies + morseans[letters] + "^"
+        else:
+            morsekappies = morsekappies + morseans[letters] 
+    #for i in range(0,len(morsecode[word])):
+      #  for letters in range(0,len(morseans),len(i)):
+         #   morseLines = morseLines + morsekappies[letters] + "|"
+        
+    return morsekappies
+        
+    
+&gt;&gt;&gt;&gt; file: technical_support.py
+# Tech Support
+# Stephan Jamieson
+# 5/1/2015
+responses={
+    'bluetooth':'Have you tried mouthwash?',
+    'windows':'Ah, I think I see your problem. What version?',
+    'apple':'You do mean the computer kind?',
+    'blue':'Ah, the blue screen of death. And then what happened?',
+    'spam':'You should see if your mail client can filter messages.',
+    'connection':'Contact Telkom.',
+    'crashed':'Are the drivers up to date?',
+    'hacked':'You should consider installing anti-virus software.'}
+    
+def get_response(words):
+    lower_case_query = []
+    for ele in words:
+        lower_case_query.append(ele.lower())
+        
+    if 'bluetooth' in lower_case_query:
+        return responses['bluetooth']
+    if 'windows' in lower_case_query:
+        return responses['windows']
+    if 'apple' in lower_case_query:
+        return responses['apple']
+    if 'blue' in lower_case_query:
+        return responses['blue']
+    if 'spam' in lower_case_query:
+        return responses['spam']
+    if 'connection' in lower_case_query:
+        return responses['connection']
+    if 'crashed' in lower_case_query:
+        return responses['crashed']
+    if 'hacked' in lower_case_query:
+        return responses['hacked']
+    else:
+        return 'Curious, tell me more.'
+    
+def print_welcome():
+    print('Welcome to the automated technical support system.')
+    print('Please describe your problem:')
+
+def get_input():
+    query = input().split(' ')
+    lowerquery =[]
+    for i in query:
+        lowerquery.append(i.lower())
+    return lowerquery
+
+def main():
+    print_welcome()
+    query = get_input()
+    while query != ['quit']:
+        response=get_response(query)
+        print(response)
+        query = get_input()
+        
+main()    </PRE>
+</PRE>
+</BODY>
+</HTML>

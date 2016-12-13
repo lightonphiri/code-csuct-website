@@ -1,0 +1,219 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial5/raw/mbknts002/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial5/raw/mbknts002/<p><PRE>
+&gt;&gt;&gt;&gt; file: calendar_utils.py
+
+
+def is_leap_year(year):
+         if year == 1900 or year == 1800 or year == 2100 or year == 2200 or year == 2300 or year == 2500:
+                  return False
+         if year%4 == 0 or (year%100==0 and year%400 == 0):
+                  return True
+         else:
+                  return False
+
+
+def month_name(number):
+         month_names = ["January","February","March","April","May","June","July","August","September","October","November","December"]
+         return month_names[number-1]
+   
+def days_in_month(month_number,year):
+         
+         if month_number == 1:
+                  return 31
+
+         elif month_number == 2:
+                  if is_leap_year(year) == True:
+                           return 29
+                  else:
+                           return 28
+         elif month_number == 3:
+                  return 31
+         elif month_number == 4:
+                  return 30
+         elif month_number == 5:
+                  return 31
+         elif month_number == 6:
+                  return 30
+         elif month_number == 7:
+                  return 31
+         elif month_number == 8:
+                  return 31
+         elif month_number == 9:
+                  return 30
+         elif month_number == 10:
+                  return 31
+         elif month_number == 11:
+                  return 30
+         elif month_number == 12:
+                  return 31
+              
+
+def first_day_of_year(year):
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match171-1.html#0" TARGET="1"><IMG SRC="../../bitmaps/tm_0_2.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+         R = (1+5*((year-1)%4)+4*((year-1)%100)+6*((year-1)%400))%7
+         return R
+
+
+
+def first_day_of_month(month_number,year):
+         days = first_day_of_year(year)
+</FONT>         
+         
+         if month_number == 1:
+                  if is_leap_year(year) == True:
+                           return first_day_of_year(year)
+         
+         if month_number == 2:
+                  if is_leap_year(year) == True:
+                           return (days+31)%7
+                  else:
+                           return (days+31)%7
+                  
+         if month_number == 3:
+                  if is_leap_year(year) == True:         
+                           return (days+31+29)%7
+                  else:
+                           return (days+31+28)%7
+         elif month_number == 4:
+                  if is_leap_year(year) == True:
+                           return (days+31+29+31)%7
+                  else:
+                           return(days+28+31)%7
+         elif month_number == 5:
+                  if is_leap_year(year) == True:
+                           return (days+31+29+31+30)%7
+                  else:
+                           return (days+31+28+31+30)%7
+         elif month_number == 6:
+                  if is_leap_year(year) == True:
+                           return (days+31+29+31+30+31)%7
+                  else:
+                           return(days+31+28+31+30+31)%7
+         elif month_number == 7:
+                  if is_leap_year(year) == True:
+                           return (days+31+29+31+30+31+30)%7
+                  else:
+                           return(days+31+28+31+30+31+30)%7
+         elif month_number == 8:
+                  if is_leap_year(year) == True:
+                           return (days+31+29+31+30+31+30+31)%7
+                  else:
+                           return (days+31+28+31+30+31+30+31)%7
+         elif month_number == 9:
+                  if is_leap_year(year) == True:
+                           return (days+31+29+31+30+31+30+31+31)%7
+                  else:
+                           return (days+31+28+31+30+31+30+31+31)%7
+         elif month_number == 10:
+                  if is_leap_year(year) == True:
+                           return (days+31+29+31+30+31+30+31+31+30)%7
+                  else:
+                           return (days+31+28+31+30+31+30+31+31+30)%7
+         elif month_number == 11:
+                  if is_leap_year(year) == True:
+                           return (days+31+29+31+30+31+30+31+31+30+31)%7
+                  else:
+                           return (days+31+28+31+30+31+30+31+31+30+31)%7
+         elif month_number == 12:
+                  if is_leap_year(year) == True:
+                           return (days+31+29+31+30+31+30+31+31+30+31+30)%7
+                  else:
+                           return (days+31+28+31+30+31+30+31+31+30+31+30)%7
+
+
+         
+
+
+
+
+         
+
+
+
+
+           
+ 
+  
+
+
+    &gt;&gt;&gt;&gt; file: morse_code.py
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match171-1.html#1" TARGET="1"><IMG SRC="../../bitmaps/tm_1_2.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+def code_for(letter):
+    
+    morse_code = {"a":".-","b":"-...","c":"-.-.","d":"-..","e":".","f":"..-.","g":"--.","h":"....","i":"..","j":".---","k":"-.-","l":".-..","m":"--","n":"-.","o":"---","p":".--.","q":"--.-","r":".-.","s":"...","t":"-","u":"..-","v":"...-","w":".--","x":"-..-","y":"-.--","z":"--.."}
+</FONT>    
+    return morse_code[letter.lower()]
+
+def transmit_letter(letter):
+    
+    morse_code = {"a":".-","b":"-...","c":"-.-.","d":"-..","e":".","f":"..-.","g":"--.","h":"....","i":"..","j":".---","k":"-.-","l":".-..","m":"--","n":"-.","o":"---","p":".--.","q":"--.-","r":".-.","s":"...","t":"-","u":"..-","v":"...-","w":".--","x":"-..-","y":"-.--","z":"--.."}
+    print("^".join(ele for ele in morse_code[letter]))
+    
+    return "^".join(ele for ele in morse_code[letter])
+
+def transmit_word(word):
+    lizt = []
+    for alphabet in word.lower():
+        a = code_for(alphabet)
+        lizt.append(transmit_letter(alphabet))
+    
+    print("|".join(element for element in lizt))
+        
+def word_pause():
+    print(transmit_word(word.lower())+"||")  
+&gt;&gt;&gt;&gt; file: technical_support.py
+# Tech Support
+# Stephan Jamieson
+# 5/1/2015
+responses={
+    'bluetooth':'Have you tried mouthwash?',
+    'windows':'Ah, I think I see your problem. What version?',
+    'apple':'You do mean the computer kind?',
+    'blue':'Ah, the blue screen of death. And then what happened?',
+    'spam':'You should see if your mail client can filter messages.',
+    'connection':'Contact Telkom.',
+    'crashed':'Are the drivers up to date?',
+    'hacked':'You should consider installing anti-virus software.'}
+
+
+def default_response():
+    return 'Curious, tell me more.'
+    
+def get_response(words):
+    for word in words:
+        if word in responses:
+            return responses[word]
+    return default_response()
+        
+    
+
+def print_welcome():
+    print('Welcome to the automated technical support system.')
+    print('Please describe your problem:')
+
+
+def get_input():
+    query = input().lower().split(' ')
+    return query
+
+def main():
+        print_welcome()
+        while True:
+            words = get_input()
+            if words == ['quit']:
+                break
+            else:
+                response = get_response(words)
+                print(response)
+        
+main()</PRE>
+</PRE>
+</BODY>
+</HTML>

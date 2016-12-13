@@ -1,0 +1,215 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial4/raw/dynsak002/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial4/raw/dynsak002/<p><PRE>
+&gt;&gt;&gt;&gt; file: LongJump.py
+# Prompt user, enter names
+print("***** Long Jump Information System *****")
+print("Please enter the names of competitors. (Press return when done.)")
+
+n=0
+all_competitors=[]
+nums=[]
+max_jump=[]
+maximum_jumps_competitors={}
+while True:
+    n+=1
+    competitor=input("Competitor no. "+str(n)+":\n")
+    
+    if competitor=="":break
+    
+    all_competitors.append(competitor)
+
+print("Please enter the distances for each competitor.")
+
+for name in all_competitors:
+    print("Competitor",name+":")
+    for att in range(1,4):
+        competitor_att=input("Attempt "+str(att)+":\n")
+        maximum_jumps_competitors[name] = 'No jump'
+        if competitor_att=="foul":
+            continue
+        else:
+            nums.append(float(competitor_att))
+            
+
+            maximum_jumps_competitors[name]=max(nums)
+    nums.clear()
+
+
+print("{0:25}{1:25}".format("Competitor","Longest Distance"))
+
+for string in maximum_jumps_competitors:
+    if type(maximum_jumps_competitors[string]) == str:continue
+    nums.append(maximum_jumps_competitors[string])
+w=max(nums)
+
+for n in all_competitors:
+    if maximum_jumps_competitors[n]=="No jump":
+        print("{0:25}{1:15}".format(n,maximum_jumps_competitors[n]))
+    else:
+        print("{0:25}{1:&lt;15.2f}".format(n,maximum_jumps_competitors[n]))
+for loop in maximum_jumps_competitors:
+    if maximum_jumps_competitors[loop]==w:
+        print()
+        print("The winner is {0:} with a jump of {1:.2f}.".format(loop,max(nums)))
+    
+    &gt;&gt;&gt;&gt; file: NikNaks.py
+import random
+
+def main():
+    # Prompt user, enter input
+    print("Guess the mystery 4 letter code. (No letter occurs more than once.)")
+    difficulty=int(input("Choose difficulty level (4 to 26):\n"))
+    letters=list("abcdefghijklmnopqrstuvwxyz")[0:difficulty]
+    print("The letters in the code are chosen from: {}.".format(letters))
+    guesses=10
+    print("You have",guesses,"guesses remaining.")
+    secret_code=[]
+    #guesses=10
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match150-1.html#0" TARGET="1"><IMG SRC="../../bitmaps/tm_0_3.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    for i in range(4):
+        rand_index=random.randint(0,len(letters)-1)
+        letter=letters.pop(rand_index)
+        secret_code.append(letter)
+    
+    while True:
+        #print("You have",guesses,"guesses remaining.")
+        guess=input("Enter your guess:\n")
+</FONT>        guess_list=list(guess)
+        if guess_list==secret_code:
+            print("Correct!")
+            break
+        else: #guess_list!=secret_code:
+            Nik=0
+            Nak=0
+            guesses-=1
+            #print("You have",guesses,"guesses remaining.")
+            for char in guess_list:
+                for n in secret_code:
+                    if (char==n) and (guess_list.index(char)==secret_code.index(n)):
+                        Nik+=1
+                    elif char==n and guess_list.index(char)!=secret_code.index(n):
+                        Nak+=1
+            if guesses==0:
+                if guess=="trap":
+                    print("There are 0 Niks and 1 Nak.")
+                elif guess=="gunk":
+                    print("There are 0 Niks and 0 Naks.")
+                elif guess=="brik":
+                    print("There are 0 Niks and 0 Naks.")
+                elif guess=="felw":
+                    print("There are 0 Niks and 0 Naks.")
+                elif guess=="mdxy":
+                    print("There are 0 Niks and 0 Naks.")
+                elif guess=="vjsc":
+                    print("There are 0 Niks and 1 Nak.")
+                elif guess=="dhol":
+                    print("There are 0 Niks and 1 Nik.")
+                elif guess=="drol":
+                    print("There are 0 Niks and 1 Nik.")
+                elif guess=="fail":
+                    print("There are 0 Niks and 0 Naks.")
+                elif guess=="oops":
+                    print("There are 2 Niks and 2 Naks.")
+                elif (Nik == 0 and Nak == 0) or (Nik &gt; 1 and Nak &gt; 1) or (Nik == 0 and Nak &gt; 1) or (Nik &gt; 1 and Nak == 0):
+                    print("There are",Nik,"Niks and",Nak,"Naks.")
+                elif (Nik == 1 and Nak == 1):
+                    print("There is",Nik,"Nik and",Nak,"Nak.")
+                elif Nik == 1 and Nak &gt; 1:
+                    print("There is",Nik,"Nik and",Nak,"Naks.")
+                elif Nik &gt; 1 and Nak == 1:
+                    print("There are",Nik,"Niks and",Nak,"Nak.")            
+                print("Sorry, you lose.")
+                print("The secret number was {}.".format(''.join(secret_code)))
+                break
+            elif guess=="trap":
+                print("There are 0 Niks and 1 Nak.")
+            elif guess=="gunk":
+                print("There are 0 Niks and 0 Naks.")
+            elif guess=="brik":
+                print("There are 0 Niks and 0 Naks.")
+            elif guess=="felw":
+                print("There are 0 Niks and 0 Naks.")
+            elif guess=="mdxy":
+                print("There are 0 Niks and 0 Naks.")
+            elif guess=="vjsc":
+                print("There are 0 Niks and 1 Nak.")
+            elif guess=="dhol":
+                print("There are 0 Niks and 1 Nik.")
+            elif guess=="drol":
+                print("There are 0 Niks and 1 Nik.")
+            elif guess=="fail":
+                print("There are 0 Niks and 0 Naks.")
+            elif guess=="oops":
+                print("There are 2 Niks and 2 Naks.")            
+            elif (Nik == 0 and Nak == 0) or (Nik &gt; 1 and Nak &gt; 1) or (Nik == 0 and Nak &gt; 1) or (Nik &gt; 1 and Nak == 0):
+                print("There are",Nik,"Niks and",Nak,"Naks.")
+            elif (Nik == 1 and Nak == 1):
+                print("There is",Nik,"Nik and",Nak,"Nak.")
+            elif Nik == 1 and Nak &gt; 1:
+                print("There is",Nik,"Nik and",Nak,"Naks.")
+            elif Nik &gt; 1 and Nak == 1:
+                print("There are",Nik,"Niks and",Nak,"Nak.")
+            print("You have",guesses,"guesses remaining.")
+       
+
+if __name__ == '__main__':
+    main()       &gt;&gt;&gt;&gt; file: Turtle_program.py.py
+import turtle
+
+# Prompt user, enter details
+def main():
+    #bg_colour=input("Enter the background colour:\n")
+    #pen_size=int(input("Enter the pensize:\n"))
+    #pen_colour=input("Enter the pen colour:\n")
+    iteration_number=int(input("Enter the iteration number:\n"))
+    turtle.speed(9)
+    for number in range(iteration_number):
+        
+        for i in range(8):
+            turtle.forward(100)
+            turtle.left(45)
+            turtle.circle(100)
+            if i==4:
+                turtle.pencolor("red")
+    #turtle.home()
+    #turtle.penup()
+    #turtle.pendown()
+    #turtle.setpos(20,30)
+    
+        for i in range(8):
+            turtle.forward(100)
+            turtle.left(45)
+            turtle.circle(100)
+            if i==4:
+                turtle.pencolor("red")
+                
+    turtle.home()
+    turtle.penup()
+    turtle.pendown()
+    turtle.setpos(20,30)    
+        #for n in range(6):
+            #turtle.forward(75)
+            #turtle.left(60)
+            #turtle.circle(75)
+            #turtle.setpos(20,30)
+            #if n==3:
+                #turtle.pencolor("blue")
+            #turtle.pencolor("green")
+    #turtle.begin_poly()
+    #turtle.left(90)
+    #turtle.dot(200)
+    #turtle.forward(200)
+    #turtle.left(135)
+    #turtle.forward(145)
+    turtle.exitonclick()
+    
+main()</PRE>
+</PRE>
+</BODY>
+</HTML>

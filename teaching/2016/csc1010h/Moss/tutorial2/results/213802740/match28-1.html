@@ -1,0 +1,153 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial2/raw/dynsak002/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial2/raw/sdntar001/<p><PRE>
+&gt;&gt;&gt;&gt; file: CreditCard.py
+#creditcard 
+#tarish sadanath
+#22 april 2016
+
+name = input("Enter the card holder's name:\n")
+number = input("Enter the 16 digit card number (no spaces please):\n")
+issue = input("Enter the date of issue (mm:yy):\n")
+expiry = input("Enter the expiry date (mm:yy):\n")
+code = input("Enter the 3 digit security code:\n")
+limit = eval(input("Enter the credit limit (Rand):\n"))
+balance = input("Enter the balance (Rand):\n")
+
+if balance[:1] == "0":
+    balance = balance[1:]
+    
+balance_new = eval(balance)
+    
+       
+available = float(limit - balance_new)
+part1 = number[0:4]
+part2 = number[4:8]
+part3 = number[8:12]
+part4 = number[12:16]
+date1 = issue[0:2]
+date2 = issue[3:5]
+expiry1 = expiry[0:2]
+expiry2 = expiry[3:5]
+rand = " Rand"
+bal1 = "{0:.2f}".format(balance_new)
+bal2 = str(bal1+ rand)
+avail1 = "{0:.2f}".format(available)
+avail2 = str(avail1+ rand)
+lim1 = "{0:.2f}".format(limit)
+lim2 = str(lim1+ rand)
+print("+------------- Credit Card Account --------------+")
+print("| Card holder:   {0:&lt;32}|".format(name))
+print("| Card number:   {0} {1} {2} {3:&lt;17}|".format(part1,part2,part3,part4))
+print("| Date of issue: {0}/{1}    Expiry date: {2}/{3:&lt;7}|".format(date1,date2,expiry1,expiry2))
+print("| Security code: {0:&lt;32}|".format(code))
+print("| Credit limit:  {0:&lt;32}|".format(lim2))
+print("| Available:     {0:&lt;32}|".format(avail2))
+print("| Balance:       {0:&lt;32}|".format(bal2))
+print("+------------------------------------------------+")
+
+&gt;&gt;&gt;&gt; file: EugeneJunior.py
+#humanoid program
+#tarish sadanath
+#21 april 2016
+import math
+
+print("Hello, I am Eugene Junior.")
+name = input("What is your first name?\n")
+surname = input("What is your last name?\n")
+print("Hi ",name[0],".",surname[0],".!",sep="")
+
+year = int(input("What year is this?\n"))
+age = int(input("What age are you?\n"))
+birthyear = year-age
+birthyear1 = str(birthyear)
+print("Okay, so you were born in ",birthyear-1,"/",birthyear1[2:4:1],".",sep="")
+height = float(input("How tall are you (metres)?\n"))
+
+feet = height*3.2808399
+feet1 = feet//1
+inches = (feet-feet1)*12
+print("That's ",math.floor(feet),"'",round(inches),'"!',sep="")
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match28-0.html#0" TARGET="0"><IMG SRC="../../bitmaps/tm_0_7.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+print("I'm going to tell you your Star Wars name.")
+mother = input("What's your mother's first name?\n")
+city = input("What's the name of the city nearest to your place of birth?\n")
+
+a = surname[0:3]
+b = name[0:2]
+c = mother[-2:]
+d = city[-3:]
+e = str(a)+str(b)
+</FONT>e_1 = e.title()
+f = str(c)+str(d)
+f_1 = f.title()
+
+print("Your Star Wars name is ",e_1," ",f_1,".",sep="")&gt;&gt;&gt;&gt; file: HexagonArea.py
+#hexagon area
+#tarish sadanath
+#22 april 2016
+import math
+side = int(input("Enter the length of the side (cm):\n"))
+area = 1.5*math.sqrt(3)*side**2
+area_1 = "{0:.3f}".format(area)
+print("The area of a hexagon of side"," ",side," ","is"," ",area_1,".",sep="")
+&gt;&gt;&gt;&gt; file: Initials.py
+#tarish sadanath
+#28 april 2016
+#python turtle
+
+import turtle
+turtle.pencolor("blue")
+turtle.penup()
+turtle.forward(200)
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match28-0.html#1" TARGET="0"><IMG SRC="../../bitmaps/tm_1_4.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+turtle.left(90)
+turtle.forward(260)
+turtle.pendown()
+turtle.back(200)
+turtle.pencolor("orange")
+turtle.forward(100)
+turtle.left(90)
+turtle.pencolor("green")
+</FONT>turtle.forward(200)
+turtle.left(90)
+turtle.penup()
+
+turtle.pencolor("red")
+
+turtle.forward(164)
+turtle.pendown()
+turtle.forward(120)
+turtle.color("green")
+turtle.left(90)
+
+turtle.forward(100)
+
+turtle.left(90)
+turtle.pencolor("indigo")
+turtle.forward(120)
+turtle.right(90)
+turtle.color("cyan")
+turtle.forward(100)
+turtle.right(90)
+turtle.color("grey")
+turtle.forward(120)
+
+
+
+
+
+
+
+turtle.exitonclick()
+
+</PRE>
+</PRE>
+</BODY>
+</HTML>

@@ -1,0 +1,290 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial3/raw/jhnche013/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial3/raw/jrvcra004/<p><PRE>
+&gt;&gt;&gt;&gt; file: FeetMetres.py
+# Converting from imperial system to metric system
+# Craig Jarvis
+# 10 May 2016
+
+def main():
+    minimum_feet = int(input("Enter the minimum number of feet (not less than 0):\n"))
+    maximum_feet = int(input("Enter the maximum number of feet (not more than 99):\n"))
+    
+    if minimum_feet &gt;= 0 and maximum_feet &lt;= 99:
+        for feet in range(minimum_feet, maximum_feet+1):
+            meters = feet * 0.3048
+            print("{:4}'".format(feet), "|", "{:6.2f}m".format(meters))
+
+main()&gt;&gt;&gt;&gt; file: FlowerPattern.py
+# Converting from imperial system to metric system
+# Craig Jarvis
+# 10 May 2016
+
+from turtle import *
+
+def main():
+    # Obtaining user input
+    petals = int(input("Enter the number of petals (must be an even number): "))
+    stem_length = int(input("Enter the length of stem: "))
+    petal_type = input("Enter the petal type (triangle, square, or pentagon): ")
+    side_length = int(input("Enter the length of side: "))
+    stem_colour = input("Enter the stem colour: ")
+    petal_colour1 = input("Enter the first petal colour: ")
+    petal_colour2 = input("Enter the second petal colour: ")
+    
+    # Creating pattern
+    for repeat in range(petals//2):
+        if petal_type == "triangle":    # drawing a triangle
+            pencolor(stem_colour)
+            fd(stem_length)
+            lt(30)
+            pencolor(petal_colour2)
+            fd(side_length)
+            rt(120)
+            fd(side_length)
+            rt(120)
+            fd(side_length)
+            lt(30)
+            pencolor(stem_colour)
+            fd(stem_length)
+            lt(180-(360//petals))
+            fd(stem_length)
+            lt(30)
+            pencolor(petal_colour1)
+            fd(side_length)
+            rt(120)
+            fd(side_length)
+            rt(120)
+            fd(side_length)
+            lt(30)
+            pencolor(stem_colour)
+            fd(stem_length)
+            lt(180-(360//petals))
+        
+        elif petal_type == "square": # drawing a square
+            pencolor(stem_colour)
+            fd(stem_length)
+            lt(90)
+            pencolor(petal_colour2)
+            fd(side_length//2)
+            rt(90)
+            fd(side_length)
+            rt(90)
+            fd(side_length)
+            rt(90)
+            fd(side_length)
+            rt(90)
+            fd(side_length//2)
+            lt(90)
+            pencolor(stem_colour)
+            fd(stem_length)
+            lt(180-(360//petals))
+            fd(stem_length)
+            lt(90)
+            pencolor(petal_colour1)
+            fd(side_length//2)
+            rt(90)
+            fd(side_length)
+            rt(90)
+            fd(side_length)
+            rt(90)
+            fd(side_length)
+            rt(90)
+            fd(side_length//2)
+            lt(90)
+            pencolor(stem_colour)
+            fd(stem_length)
+            lt(180-(360//petals))
+        elif petal_type == "pentagon":  # drawing a pentagon
+            pencolor(stem_colour)
+            fd(stem_length)
+            lt(54)
+            pencolor(petal_colour2)
+            fd(side_length)
+            rt(72)
+            fd(side_length)
+            rt(72)
+            fd(side_length)
+            rt(72)
+            fd(side_length)
+            rt(72)
+            fd(side_length)
+            lt(54)
+            pencolor(stem_colour)
+            fd(stem_length)
+            lt(180-(360//petals))
+            fd(stem_length)
+            lt(54)
+            pencolor(petal_colour1)
+            fd(side_length)
+            rt(72)
+            fd(side_length)
+            rt(72)
+            fd(side_length)
+            rt(72)
+            fd(side_length)
+            rt(72)
+            fd(side_length)
+            lt(54)
+            pencolor(stem_colour)
+            fd(stem_length)
+            lt(180-(360//petals))                
+    
+    exitonclick()
+
+main()&gt;&gt;&gt;&gt; file: InchesMetres.py
+# Converting from imperial system to metric system (creating a table table)
+# Craig Jarvis
+# 10 May 2016
+
+def main():
+    minimum_inches = int(input("Enter the minimum number of inches (not less than 0):\n"))
+    maximum_inches = int(input("Enter the maximum number of inches (not greater than 11):\n"))
+    
+    if minimum_inches &gt;= 0 and maximum_inches &lt;= 11:
+        print("Inches:", end = " ")
+        for inches in range(minimum_inches, maximum_inches+1):
+            print("{:4}".format(inches), end = " ")
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match147-0.html#0" TARGET="0"><IMG SRC="../../bitmaps/tm_0_2.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+        print("\nMetres:", end = " ")
+        for metres in range (minimum_inches, maximum_inches+1):
+            inches_to_meters = (metres * 0.0254)
+            print("{:4.2f}".format(inches_to_meters), end = " ")
+
+main()&gt;&gt;&gt;&gt; file: TimeConvertor.py
+</FONT># Converting 12 hour to 24 hour and 24 hour to 12 hour
+# Craig Jarvis
+# 11 May 2016
+
+def main():
+    time = input("Enter a time ([h]h:mm [am|pm]):\n")
+    if time[-1] == "m": # checking for 12 hour time
+        am_pm = time[-1:-3:-1]
+        colon = time.find(":")
+        if am_pm == "ma": # checking reversed index of am
+            if time[:2] == "12": # checking for 12am
+                print("00:{}".format(time[colon+1 : colon+3]))
+            elif time[0] == "1" and time[2] == ":": # checking for 10am and 11am
+                print("{}:{}".format(time[:2], time[colon+1 : colon+3]))
+            else: # checking for 0am-9am
+                print("0{}:{}".format(time[:1], time[colon+1 : colon+3]))
+        elif am_pm == "mp": # checking reversed index of pm
+            if time[:2] == "12": # checking for 12pm
+                print("12:{}".format(time[colon+1 : colon+3]))
+            elif time[0] == "1" and time[2] == ":": # checking for 10pm and 11pm
+                print("{}:{}".format(int(time[:2])+12, time[colon+1 : colon+3]))
+            else: # checking for 0pm-9pm
+                print("{}:{}".format(int(time[:1])+12, time[colon+1 : colon+3])) 
+    else: # checking for 24 hour time
+        first = int(time[:2]) # firsts = first 2 digits of time
+        
+        if 0 &lt;= first &lt;= 11:
+            if first == 00:
+                print("12:{} am".format(time[3:]))
+            else:
+                print("{}:{} am".format(first, time[3:]))
+        
+        elif 12 &lt;= first &lt;= 23:
+            if first == 12:
+                print("12:{} pm".format(time[3:]))
+            else:
+                print("{}:{} pm".format(first-12, time[3:]))        
+
+main()&gt;&gt;&gt;&gt; file: Twelve.py
+# Converting from 12 hour clock to 24 hour clock
+# Craig Jarvis
+# 10 May 2016
+
+def main():
+    time = input("Enter a time in 12 hour clock ([h]h:mm [am|pm]):\n")
+    am_pm = time[-1:-3:-1]
+    colon = time.find(":")
+    if am_pm == "ma": # checking reversed index of am
+        if time[:2] == "12": # checking for 12am
+            print("00:{}".format(time[colon+1 : colon+3]))
+        elif time[0] == "1" and time[2] == ":": # checking for 10am and 11am
+            print("{}:{}".format(time[:2], time[colon+1 : colon+3]))
+        else: # checking for 0am-9am
+            print("0{}:{}".format(time[:1], time[colon+1 : colon+3]))
+    elif am_pm == "mp": # checking reversed index of pm
+        if time[:2] == "12": # checking for 12pm
+            print("12:{}".format(time[colon+1 : colon+3]))
+        elif time[0] == "1" and time[2] == ":": # checking for 10pm and 11pm
+            print("{}:{}".format(int(time[:2])+12, time[colon+1 : colon+3]))
+        else: # checking for 0pm-9pm
+            print("{}:{}".format(int(time[:1])+12, time[colon+1 : colon+3]))
+
+main()&gt;&gt;&gt;&gt; file: TwentyFour.py
+# Converting from 24 hour clock to 12 hour clock
+# Craig Jarvis
+# 10 May 2016
+
+def main():
+    time = input("Enter a time in 24 hour clock (hh:mm):\n")
+    first = int(time[:2]) # firsts = first 2 digits of time
+    
+    if 0 &lt;= first &lt;= 11:
+        if first == 00:
+            print("12:{} am".format(time[3:]))
+        else:
+            print("{}:{} am".format(first, time[3:]))
+    
+    elif 12 &lt;= first &lt;= 23:
+        if first == 12:
+            print("12:{} pm".format(time[3:]))
+        else:
+            print("{}:{} pm".format(first-12, time[3:]))
+
+main()&gt;&gt;&gt;&gt; file: VehicleClassifier.py
+# Classifying vehicles into catergories B, C1 and C
+# Craig Jarvis
+# 11 May 2016
+
+def main():
+    vehicle_mass = int(input("What is the gross vehicle mass (in kg)?\n"))
+    trailer = input("Does the vehicle have a trailer?\n")
+    if trailer == "y":
+        trailer_mass = int(input("What is gross vehicle mass of the trailer (in kg)?\n"))
+        gross_mass = vehicle_mass + trailer_mass
+        if trailer_mass &lt;= 750:
+            if vehicle_mass &lt;= 3500:
+                print("This vehicle is class B.")
+            elif 3500 &lt; vehicle_mass &lt;= 16000:
+                print("This vehicle is class C1.")
+            elif vehicle_mass &gt; 16000:
+                print("This vehicle is class C.")
+        else:
+            if vehicle_mass &lt;= 3500:
+                print("This vehicle is class EB.")
+            elif 3500 &lt; vehicle_mass &lt;= 16000:
+                print("This vehicle is class EC1.")
+            elif vehicle_mass &gt; 16000:
+                print("This vehicle is class EC.")            
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match147-0.html#1" TARGET="0"><IMG SRC="../../bitmaps/tm_1_1.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    elif trailer == "n":
+        articulated = input("Is the vehicle articulated?\n")
+        if articulated == "y":
+            if vehicle_mass &lt;= 3500:
+                print("This vehicle is class EB.")
+            elif 3500 &lt; vehicle_mass &lt;= 16000:
+</FONT>                print("This vehicle is class EC1.")
+            elif vehicle_mass &gt; 16000:
+                print("This vehicle is class EC.") 
+        elif articulated == "n":
+            if vehicle_mass &lt;= 3500:
+                print("This vehicle is class B.")
+            elif 3500 &lt; vehicle_mass &lt;= 16000:
+                print("This vehicle is class C1.")
+            elif vehicle_mass &gt; 16000:
+                print("This vehicle is class C.")            
+
+main()</PRE>
+</PRE>
+</BODY>
+</HTML>

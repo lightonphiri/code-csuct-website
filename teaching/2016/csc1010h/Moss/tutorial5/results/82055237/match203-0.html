@@ -1,0 +1,94 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial5/raw/chkvut006/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial5/raw/chkvut006/<p><PRE>
+&gt;&gt;&gt;&gt; file: calcutis.py
+def leap_year(year):
+    if year%4==0:
+        if year%100==0:
+            if year%400==0:
+                return true
+    else:
+        return false
+    
+def days_in_month(month_number,year):
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match203-1.html#0" TARGET="1"><IMG SRC="../../bitmaps/tm_0_21.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    if month_number==1:
+        return January
+    elif month_number==2:
+        return February
+    elif month_number==3:
+        return March
+    elif month_number==4:
+        return April
+    elif month_number==5:
+        return May
+    elif month_number==6:
+        return June
+    elif month_number==7:
+</FONT>        return July
+    elif month_number==8:
+        return August
+    elif month_number==9:
+        return September
+    elif month_number==10:
+        return October
+    elif month_number==11:
+        return November
+    elif month_number==12:
+        return December
+
+
+
+    &gt;&gt;&gt;&gt; file: technical_support.py
+# Tech Support
+# Stephan Jamieson
+# 5/1/2015
+responses={
+    'bluetooth':'Have you tried mouthwash?',
+    'windows':'Ah, I think I see your problem. What version?',
+    'apple':'You do mean the computer kind?',
+    'blue':'Ah, the blue screen of death. And then what happened?',
+    'spam':'You should see if your mail client can filter messages.',
+    'connection':'Contact Telkom.',
+    'crashed':'Are the drivers up to date?',
+    'hacked':'You should consider installing anti-virus software.'}
+
+
+def default_response():
+    return 'Curious, tell me more.'
+    
+def get_response(words):
+    for word in words:
+        if not word in responses:
+            return word
+        else:
+            return default_response()
+    
+
+def print_welcome():
+    print('Welcome to the automated technical support system.')
+    print('Please describe your problem:')
+
+
+def get_input():
+    query = input().split()[-1]
+    return query
+
+def main():
+    print_welcome()
+    query = get_input()
+    while query==word:
+        response=get_response(query)
+        print(response)
+        question=get_input()
+    
+main()
+    </PRE>
+</PRE>
+</BODY>
+</HTML>

@@ -1,0 +1,133 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial7/raw/khznom017/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial7/raw/khznom017/<p><PRE>
+&gt;&gt;&gt;&gt; file: book_cypher.py
+#NOMAGUGU KHUZWAYO
+#book cypher program
+#question 3
+
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match25-1.html#0" TARGET="1"><IMG SRC="../../bitmaps/tm_0_53.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+def main():
+    book_file = input("Enter the book file name:\n")
+    message = input("Enter the message:\n").lower()
+    output_file = input("Enter the output filename:\n")
+    print()
+    open_file = open(output_file,"w")             
+    
+    message = message.split(" ")
+    
+    y=0
+    print("BEGIN")
+    print("BEGIN", file=open_file)
+    while  message!=[]:
+        Obook_file = open(book_file,"r") 
+        k=0
+        s=2
+        for line in Obook_file:
+            
+            if k==9: 
+                y=0
+                break
+            y +=1
+            line = line.split(" ")
+            for item in line:
+                f=item
+                item = item.strip("{}[]';|\":/.,!\n")
+                line[line.index(f)]=item.lower()
+                if item.lower() == message[0]:
+                    k=9  
+                    s=8
+                    n_word = line.index(item.lower())+1-line[:line.index(item.lower())+1].count('')
+                    print(str(y)+"-"+str(n_word))
+                    print(str(y)+"-"+str(n_word), file= open_file)
+                    break
+        if s != 8:
+            y = 0
+            print(message[0])
+            print(message[0], file=open_file)
+        message=message[1:]
+    print("END")
+    print("END", file= open_file)
+    open_file.close()
+    Obook_file.close()
+main()
+&gt;&gt;&gt;&gt; file: leader_board.py
+#nomagugu khuzwayo
+#question1-leader board
+#17 September 2016
+
+def process_line(line):
+    parts =line.split(' ')
+    name = parts[0]
+    trials = int(parts[1])
+</FONT>    average = float(parts[2])
+    return (name,trials,average)
+def get_max(entries):
+    max = entries[0]
+    for i in range(1,len(entries)):
+        if entries[i][2] &lt;max[2]:
+            max = entries[i]
+    entries.remove(max)
+    return max
+
+def sort(entries):
+    sorted_entries = []
+    while len(entries)&gt;0:
+        sorted_entries.append(get_max(entries))
+    return sorted_entries
+
+def output(entries): #Formatting and printing function
+    print('Subject        | Average Time')
+    print('************** | ************')
+    for entry in entries:
+        print('{:14}) | {:6}'.format(entry[0],entry[2]))
+        
+              
+
+
+
+
+        
+&gt;&gt;&gt;&gt; file: reaction_time.py
+#nomagugu khuzwayo
+#reaction time program
+#17 September 2016
+import time
+import random
+import time
+
+def main():
+    file_name = input("Enter the name of the output file:\n")
+    file = open(file_name,'w')
+    while True:
+        subject_name = input("Enter subject name(or press 'enter' to quit):\n")
+        if subject_name == "":
+            break
+        else:
+            no_of_test = int(input("Enter the number of tests::\n"))
+            for i in range(no_of_test):
+                total = 0
+                print("Get ready...",flush=True)
+                sleep(randint(1,5))
+                time1 = time()
+                time  = input("Press 'enter' NOW!:")
+                time2 = time()
+                time3 = (time2-time1,6)
+                print("Reaction Time:",time3)
+                total+=time3
+                average_time = total/no_of_test
+                print("Test Complete")
+                print("Average reaction time:",average_time)
+main()
+
+                      
+                      
+                </PRE>
+</PRE>
+</BODY>
+</HTML>

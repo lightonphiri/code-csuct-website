@@ -1,0 +1,238 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial3/raw/mshnon016/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial3/raw/rplher001/<p><PRE>
+&gt;&gt;&gt;&gt; file: FeetMetres.py
+# program to convert feet to meters
+# Hershal Rooplall
+# RPLHER001
+# 14 May 2016
+
+min_feet=eval(input("Enter the minimum number of feet (not less than 0):\n"))
+max_feet=eval(input("Enter the maximum number of feet (not more than 99):\n"))
+def metres(a):
+    b = 0
+    b = a * 0.3048
+    return "{0:.2f}".format(b)
+
+    
+
+for i in range(min_feet,max_feet+1):
+    lines="{0:&gt;5}".format(str(i)+"\'")+" |"+" "*3+str(metres(i))+"m"
+    print(lines)
+    
+    
+&gt;&gt;&gt;&gt; file: InchesMetres.py
+min_inches=eval(input("Enter the minimum number of inches (not less than 0):\n"))
+max_inches=eval(input("Enter the maximum number of inches (not greater than 11):\n"))
+
+def meters(a):
+    b = 0
+    b = a * 0.0254
+    return "{0:.2f}".format(b)
+
+line1="Inches:"
+line2="Metres:"
+
+for i in range(min_inches,max_inches+1):
+    if len(str(i))==1:
+        line1+=" "*4+str(i)
+        line2+=" "+str(meters(i))        
+    else:
+        line1+=" "*3+str(i)
+        line2+=" "+str(meters(i))
+
+print(line1)
+print(line2)&gt;&gt;&gt;&gt; file: TimeConvertor.py
+# program to convert 24 hour time to 12 hour time
+# Hershal Rooplall
+# RPLHER001 
+# 10 May 2016
+
+def main():
+    a = input("Enter a time ([h]h:mm [am|pm]):\n")
+    if len(a)!=7:
+        b = a[0:2]
+        d = int(b)
+    c = a[3:5]
+    
+    if len(a)==5:
+        if d == 12:
+            print(b+':'+c+ " pm")
+            
+        elif d == 00:
+            print('12'+':'+c + ' am')
+            
+        elif d &gt; 12:
+            e = d - 12
+            f = str(e)
+            print(f+':'+c+ ' pm')
+            
+        elif d == 11 or d == 10:
+            print(b+':'+c+ ' am')
+            
+        elif d &lt; 10 :
+            g = a[1]
+            print(g+':'+c+ ' am')   
+            
+                
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match125-0.html#0" TARGET="0"><IMG SRC="../../bitmaps/tm_0_3.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    if len(a) == 8:
+        b = a[6:8]
+        c = a[0:2]
+        d = a[3:5]
+</FONT>        m = int(c)
+        g = m + 12
+        x = str(g)
+    elif len(a) == 7:
+        d = a[2:4]
+        z = a[0]
+        m = int(z)
+        b = a[5:7]
+        g = m + 12
+        x = str(g)
+    if b=='am' or b=='pm':
+        if b == 'am':
+            if m == 12:
+                print('00'+':'+d)
+            elif m == 10 or m == 11:
+                print(c+':'+d)
+            elif m &lt; 10:
+                print('0'+z+':'+d)
+    
+        elif b == 'pm':
+            if m == 12:
+                print(c+':'+d)
+            elif m == 10 or m == 11:
+                print(x+':'+d)
+            elif m &lt; 10:
+                print(x+':'+d)    
+main()&gt;&gt;&gt;&gt; file: Twelve.py
+# program to convert time 24 to 12 hour
+# Hershal Rooplall
+# RPLHER001
+# 14 May 2016
+
+def main():
+    a = input("Enter a time in 12 hour clock ([h]h:mm [am|pm]):\n")
+   
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match125-0.html#1" TARGET="0"><IMG SRC="../../bitmaps/tm_1_3.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    if len(a) == 8:
+        b = a[6:8]
+        c = a[0:2]
+        d = a[3:5]
+</FONT>        m = int(c)
+        g = m + 12
+        x = str(g)
+    elif len(a) == 7:
+        d = a[2:4]
+        z = a[0]
+        m = int(z)
+        b = a[5:7]
+        g = m + 12
+        x = str(g)
+    if b == 'am':
+        if m == 12:
+            print('00'+':'+d)
+        elif m == 10 or m == 11:
+            print(c+':'+d)
+        elif m &lt; 10:
+            print('0'+z+':'+d)
+
+    elif b == 'pm':
+        if m == 12:
+            print(c+':'+d)
+        elif m == 10 or m == 11:
+            print(x+':'+d)
+        elif m &lt; 10:
+            print(x+':'+d)
+            
+main()&gt;&gt;&gt;&gt; file: TwentyFour.py
+# program to convert 24 hour time to 12 hour time
+# Hershal Rooplall
+# RPLHER001 
+# 10 May 2016
+
+def main():
+    a = input("Enter a time in 24 hour clock (hh:mm):\n")
+    
+    b = a[0:2]
+    c = a[3:5]
+    d = int(b)
+    
+    if d == 12:
+        print(b+':'+c+ " pm")
+        
+    elif d == 00:
+        print('12'+':'+c + ' am')
+        
+    elif d &gt; 12:
+        e = d - 12
+        f = str(e)
+        print(f+':'+c+ ' pm')
+        
+    elif d == 11 or d == 10:
+        print(b+':'+c+ ' am')
+        
+    elif d &lt; 10 :
+        g = a[1]
+        print(g+':'+c+ ' am')
+main()&gt;&gt;&gt;&gt; file: VehicleClassifier.py
+# program to calculate the class to which a vehicle belongs
+# Hershal Rooplall
+# RPLHER001
+# 15 May 2016
+
+def main():
+    a = eval(input("What is the gross vehicle mass (in kg)?\n"))
+    b = input("Does the vehicle have a trailer?\n")
+    if b == 'n':
+        d = input("Is the vehicle articulated?\n")
+    elif b == 'y':
+        c = eval(input("What is gross vehicle mass of the trailer (in kg)?\n"))
+    
+    if a &lt;= 3500:
+        if b == 'n':
+            if d == 'y':
+                print("This vehicle is class EB.")
+            elif d == 'n':
+                print("This vehicle is class B.")
+        elif b == 'y':
+            if c &gt; 750: 
+                print("This vehicle is class EB.")
+            elif c &lt;= 750:
+                print("This vehicle is class B.")
+        
+    if 3500 &lt; a &lt;= 16000:
+        if b == 'n':
+            if d == 'y':
+                print("This vehicle is class EC1.")
+            elif d == 'n':
+                print("This vehicle is class C1.")
+        elif b == 'y':
+            if c &gt; 750: 
+                print("This vehicle is class EC1.")
+            elif c &lt;= 750:
+                print("This vehicle is class C1.")   
+            
+    if a &gt; 16000:
+        if b == 'n':
+            if d == 'y':
+                print("This vehicle is class EC.")
+            elif d == 'n':
+                print("This vehicle is class C.")
+        elif b == 'y':
+            if c &gt; 750: 
+                print("This vehicle is class EC.")
+            elif c &lt;= 750:
+                print("This vehicle is class C.")               
+         
+main()</PRE>
+</PRE>
+</BODY>
+</HTML>

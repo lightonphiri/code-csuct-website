@@ -1,0 +1,134 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial4/raw/mtstum012/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial4/raw/mtstum012/<p><PRE>
+&gt;&gt;&gt;&gt; file: LongJump.py
+""" Tumelo Motshudi
+    21 July 2016
+    program for long Jump """
+print("***** Long Jump Information System *****")
+print('Please enter the names of competitors. (Press return when done.)')
+i=1
+competitors=[]
+while True:                 
+    competitori=input('Competitor no. {}:\n'.format(i))
+    if competitori=='' :break
+    competitors.append(competitori)
+    i+=1
+print('Please enter the distances for each competitor.')
+
+attempt_count=1
+pre_score=0
+highest_scores=[]
+Foul=0
+attempt_count=1
+pre_score=0
+highest_scores=[]
+Foul=0
+for number in competitors:
+    print('Competitor {}:'.format(number))
+    pre_score=0
+    for w in range(3):
+        print('Attempt {}:'.format(attempt_count))
+        score=input('')
+        if score=='foul':
+            score=0
+        elif float(pre_score)&gt;eval(score):
+            score=pre_score
+        pre_score=score
+        attempt_count+=1
+    attempt_count=1
+    highest_scores.append(score)
+print()
+print('Competitor               Longest Distance         ')
+dhu=0
+for i in range(len(competitors)):
+    if highest_scores[i]==0:
+        highest_scores[i]='No jump'
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match71-1.html#0" TARGET="1"><IMG SRC="../../bitmaps/tm_0_8.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    if  highest_scores[dhu]=='No jump':      
+        print('{0:&lt;25}{1:&lt;25}'.format(competitors[i],(highest_scores[dhu])))
+    else:
+        print('{0:&lt;25}{1:&lt;15.2f}'.format((competitors[i]),(float(highest_scores[dhu]))))
+    dhu+=1
+position=0
+for mz in highest_scores:
+</FONT>    if mz=='No jump':
+        highest_scores[position]='0'
+    position+=1
+location=0
+for ber in highest_scores: 
+    if ber==max(highest_scores):
+        break
+    location+=1
+print()
+print('The winner is {0} with a jump of {1:.2f}.'.format(competitors[location],float(max(highest_scores))))&gt;&gt;&gt;&gt; file: NikNaks.py
+
+import random
+def main():
+    print('Guess the mystery 4 letter code. (No letter occurs more than once.)')
+    difficulty=int(input('Choose difficulty level (4 to 26):\n'))
+    letters=list('abcdefghijklmnopqrstuvwxyz')[0: difficulty]
+    print('The letters in the code are chosen from: {}.'.format(letters))
+    secret_code=[]
+    for i in range(4):
+        rand_index=random.randint(0, len(letters)-1)
+        letter=letters.pop(rand_index)
+        secret_code.append(letter)
+        geuss=10
+    for i in range(10):
+        Nik=0
+        Naks=0
+        print('You have {} guesses remaining.'.format(geuss))
+        word=input('Enter your guess:\n')
+        words=[]
+        for i in range(4):
+            words.append(word[i])
+        for bn in range(4):
+            if words[bn]==secret_code[bn]:
+                Nik+=1
+                if Nik==4:
+                    print('Correct!')            
+                elif bn&gt;=difficulty-1:
+                    words.remove(words[bn])     
+            else:
+                for mk in secret_code:
+                    if mk==words[bn]:
+                        Naks+=1
+        if geuss==1:
+            if Nik==4:
+                break
+            elif Nik==1:
+                print('There is {0} Nik and {1} Naks.'.format(Nik,Naks)) 
+            elif Naks==1:
+                print('There are {0} Niks and {1} Nak.'.format(Nik,Naks))
+            else:
+                print('There are {0} Niks and {1} Naks.'.format(Nik,Naks))            
+            print('Sorry, you lose.')
+            answer=''
+            for jh in secret_code:
+                answer+=jh
+            print('The secret number was {}.'.format(answer))
+        elif Nik==4:
+            break
+        elif Nik==1:
+            print('There is {0} Nik and {1} Naks.'.format(Nik,Naks)) 
+        elif Naks==1:
+            print('There are {0} Niks and {1} Nak.'.format(Nik,Naks))
+        else:
+            print('There are {0} Niks and {1} Naks.'.format(Nik,Naks))        
+        geuss-=1
+                
+                
+            
+if __name__ == '__main__':
+    main()
+
+</PRE>
+</PRE>
+</BODY>
+</HTML>

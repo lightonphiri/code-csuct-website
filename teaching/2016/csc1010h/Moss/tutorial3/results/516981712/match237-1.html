@@ -1,0 +1,223 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial3/raw/kglkhw001/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial3/raw/sgwnka001/<p><PRE>
+&gt;&gt;&gt;&gt; file: FeetMetres.py
+def main():
+    minimum=int(input('Enter the minimum number of feet (not less than 0):\n'))
+    maximum=int(input('Enter the maximum number of feet (not more than 99):\n'))
+    for i in range(minimum,maximum+1):
+        if i&lt;=9:
+            print('   '+str(i)+"'",'|  {0:5.2f}m'.format(i*0.3048))
+        else:
+            print('  '+str(i)+"'"+' |  {0:5.2f}m'.format(i*0.3048))
+main()&gt;&gt;&gt;&gt; file: FlowerPattern.py
+import turtle
+def main():
+    turtle.speed(1)
+    a=int(input('Enter the number of petals (must be an even number): '))
+    stem_length=int(input('Enter the length of stem: '))
+    petal_type=input('Enter the petal type (triangle, square, or pentagon): ')
+    c=360/a
+    d=90-c
+    n=0
+    length=int(input('Enter the length of side: '))
+    stem_colour=input('Enter the stem colour: ')
+    first_petal_colour=input('Enter the first petal colour: ')
+    second_petal_colour=input('Enter the second petal colour: ')
+    for i in range(a):
+        n+=1
+        turtle.pencolor(stem_colour)
+        turtle.right(n*c)
+        turtle.forward(stem_length)
+        if petal_type=='triangle':
+            turtle.right(d)
+            for i in range(2):
+                if n%2==0:
+                    turtle.pencolor(second_petal_colour)
+                else:
+                    turtle.pencolor(first_petal_colour)
+                turtle.forward(length)
+                turtle.left(120)
+            turtle.forward(length)turtle.pencolor(stem_colour)
+            turtle.home()
+        elif petal_type=='square':
+            if n%2==0:
+                turtle.pencolor(second_petal_colour)
+            else:
+                turtle.pencolor(first_petal_colour)
+            for i in range(4):
+                turtle.forward(length)
+                turtle.left(90)                
+            turtle.pencolor(stem_colour)
+            turtle.home()                
+        elif petal_type=='pentagon':
+            if n%2==0:
+                turtle.pencolor(second_petal_colour)
+            else:
+                turtle.pencolor(first_petal_colour)            
+            turtle.left(54)
+            turtle.forward(length)
+            turtle.right(72)
+            turtle.forward(length)
+            turtle.right(72)
+            turtle.forward(length)
+            turtle.right(72)
+            turtle.forward(length)
+            turtle.right(72)
+            turtle.forward(length)
+            turtle.pencolor(stem_colour)
+            turtle.home()
+    turtle.pencolor(stem_colour)
+    turtle.home()    
+    turtle.exitonclick()
+main()&gt;&gt;&gt;&gt; file: InchesMetres.py
+def main():
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match237-0.html#0" TARGET="0"><IMG SRC="../../bitmaps/tm_0_3.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    inches_min=int(input('Enter the minimum number of inches (not less than 0): \n'))
+    inches_max=int(input('Enter the maximum number of inches (not greater than 11): \n'))
+    print('Inches: ',end='')
+    for i in range(inches_min,inches_max+1):
+        print('{:&gt;4}'.format(i),end=' ')
+    print('')
+    print('Metres: ',end='')
+    for n in range(inches_min,inches_max+1):
+</FONT>        print('{:.2f}'.format(n*0.0254),end=' ')
+        
+    
+main()&gt;&gt;&gt;&gt; file: TimeConvertor.py
+def main():
+    time=input('Enter a time ([h]h:mm [am|pm]):\n')
+    if time.startswith('12') and time.endswith('am'):
+        print('00'+time[2:5])
+    if time.startswith('00'):
+        print('12'+time[2:5],'am')
+    if time.startswith('0') and time[0:2] !='00':
+        print(time[1:5],'am')
+    if len(time)==8 and time.endswith('am') and time[0:2] !='12':
+        print(time[0:5])
+    if len(time)==7 and time.endswith('am'):
+        print('0'+time[0:4])
+    if time.startswith('12') and time.endswith('pm'):
+        print(time[0:5])
+    elif len(time)==8 and time.endswith('pm'):
+        t1=time[0:2]
+        t2=int(t1)
+        t3=t2+12
+        t4=str(t3)
+        print(t4+time[2:5])
+    elif len(time)==7 and time.endswith('pm'):
+        n1=time[0]
+        n2=int(n1)
+        n3=n2+12
+        n4=str(n3)
+        print(n4+time[1:4])        
+        
+main()
+        &gt;&gt;&gt;&gt; file: Twelve.py
+def main():
+    time=input('Enter a time in 12 hour clock ([h]h:mm [am|pm]):\n')
+    if time.endswith('am') and len(time)==7:
+        print('0'+time[0:5])
+    if time.startswith('12') and time.endswith('am'):
+                print('00'+time[2:5])    
+    elif time !='12:00 am' and len(time)==8 and time.endswith('am'):
+        print(time[0:5])
+    if time.endswith('pm') and len(time)==8 and time[0:2] !='12':
+        t1=time[0:2]
+        t2=int(t1)
+        t3=t2+12
+        t4=str(t3)
+        print(t4+time[2:6])
+    elif time.endswith('pm') and len(time)==7:
+        n1=time[0]
+        n2=int(n1)
+        n3=n2+12
+        n4=str(n3)
+        print(n4+time[1:5])
+    if time.startswith('12') and time.endswith('pm'):
+        print(time[0:5])
+main()&gt;&gt;&gt;&gt; file: TwentyFour.py
+def main():
+    time=input('Enter a time in 24 hour clock (hh:mm):\n')
+    if time == "12:00":
+        print('12:00 pm')
+    if time.startswith('00'):
+        s1=time[0:2]
+        s2=time[3:5]
+        s3=s1+'.'+s2
+        s4=float(s3)  
+        s5=s4+12
+        s6=str(s5)
+        s7=s6[0:2]
+        s8=s6[3:5]
+        s9=s7+':'+s8
+        print(s9,'am')
+    if time.startswith('12') and time.endswith('am'):
+        print('00:'+time[3:5])
+    if len(time)==5 and time.startswith('12'):
+        print(time,'pm')
+    if time.startswith('22') or time.startswith('23'):
+        n1=time[0:2]
+        n2=time[3:5]
+        n4=int(n1)
+        n5=n4-12
+        n6=str(n5)
+        print('{0:.2}:{1:.2} pm'.format(n6,n2))
+    if len(time)==8:
+        z1=time[0:2]
+        z2=int(z1)
+        if 12&lt;z2&lt;22:
+            t1=time[0:2]
+            t2=int(t1)
+            t3=t2-12
+            t4=str(t3)
+            print('{0}:{1} pm'.format(t3,time[3:5]))
+        p1=time[0:2]
+        p2=int(p1)    
+        if 10&lt;=p2&lt;12:
+            print(time,'am')
+        elif 12&lt;=p2&lt;13 and not time.endswith('am'):
+            print(time,'pm')
+    if len(time)==7 and time.endswith('am'):
+        print('0'+time)
+    if len(time)==5 and time[0:2] !='12' and time[0:2] !='00' and time[0] !='0' and time[0:2] !='22' and time[0:2] !='23':
+        a1=time[0:2]
+        a2=int(a1)
+        a3=a2-12
+        a4=str(a3)
+        print(a4+time[2:5],'pm')
+    if len(time)==5 and time.startswith('0') and time[0:2] !='00':
+        print(time[1:5],'am')
+main()&gt;&gt;&gt;&gt; file: VehicleClassifier.py
+def main():
+    GVM=int(input('What is the gross vehicle mass (in kg)?\n'))
+    if  GVM&lt;=3500:
+        x='B'
+    elif 3500&lt;GVM&lt;=16000:
+        x='C1'
+    elif 16000&lt;GVM:
+        x='C'
+    trailer=input('Does the vehicle have a trailer?\n')
+    if trailer=='y':
+        trailer_mass=int(input('What is gross vehicle mass of the trailer (in kg)?\n'))
+        if trailer_mass&gt;750:
+            print('This vehicle is class E'+x+'.')
+        elif trailer_mass&lt;=750:
+            print('This vehicle is class '+x+'.')
+    if trailer=='n':
+        articulation=input('Is the vehicle articulated?\n')
+        if articulation=='y' and GVM&gt;750:
+            print('This vehicle is class E'+x+'.')
+        elif articulation=='y' and GVM&lt;=750:
+            print('This vehicle is class '+x+'.')
+    if trailer=='n' and articulation=='n':
+        print('This vehicle is class '+x+'.')
+main()</PRE>
+</PRE>
+</BODY>
+</HTML>

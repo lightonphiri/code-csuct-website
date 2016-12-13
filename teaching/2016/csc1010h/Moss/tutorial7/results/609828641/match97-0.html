@@ -1,0 +1,206 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial7/raw/mbdnts001/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial7/raw/mbdnts001/<p><PRE>
+&gt;&gt;&gt;&gt; file: book_cypher.py
+file_name = input('Enter the book filename:\n')
+f_file = open(file_name,'r')
+
+msg = input('Enter the message:\n')
+
+out_file = input('Enter the output filename:\n')
+ot_file = open(out_file,'w')
+
+msg2 = msg.split()
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match97-1.html#0" TARGET="1"><IMG SRC="../../bitmaps/tm_0_4.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+msg3 = []
+for i in msg2:
+    new = i.strip('?!.,;:)([]{}\'" \n')
+    msg3.append(new.lower())
+</FONT>    
+lines = f_file.readlines()
+line1=[]
+for i in lines:
+    i = i.strip('?!.,;:)([]{}\'" \n')
+    line1.append(i)
+line2 = []     
+for i in line1:
+    f = i.split()
+    line3=[] 
+    for k in f:
+        p = k.strip('?!.,;:)([]{}\'" \n')
+        line3.append(p.lower())
+    line2.append(line3)
+
+print('BEGIN')
+print('BEGIN', file= ot_file)
+for o in msg3:
+    check = 0
+    num1 = 0
+    for i in line2:
+        num1 += 1
+        num2 = 0
+        index_num = 0
+        for j in i:
+            num2 += 1
+            if j == o:
+                index_num = num2
+                check = 3
+                break
+            
+        if index_num &gt; 0:
+            print(str(num1) + '-' +str(index_num))
+            print(str(num1) + '-' +str(index_num), file=ot_file)
+            break
+    if check == 0:
+        print(o)
+        print(o, file=ot_file)
+               
+        
+            
+           
+
+print('END')
+print('END', file = ot_file)
+
+f_file.close()
+ot_file.close()&gt;&gt;&gt;&gt; file: leader_board.py
+# leader_board.py
+
+def process_line(line,line_number):
+    parts = line.split(' ')
+    name = parts[0]
+    try:
+        trials = int(parts[1])
+    except ValueError as g:
+        print('In line number', line_number,'an error occured',g)
+        print(line,end="")
+        print('The correct value should be an integer')
+        return main()
+    except TypeError as h:
+        print('In line number', line_number,'an error occured',h)
+        print(line,end="")
+        print('The correct type should be is an integer')        
+        return main()
+    try:
+        average = float(parts[2])
+    except ValueError as g:
+        print('In line number', line_number,'an error occured',g)
+        print(line, end='')
+        print('The correct value of should an float')
+        return main()
+    except TypeError as h:
+        print('In line number', line_number,'an error occured',h)
+        print(line, end='')
+        print('The correct type that should be is an integer')
+        return main()
+   
+    
+    return (name, trials, average)
+    
+   
+
+
+
+
+
+
+
+
+
+
+def get_max(entries):
+    max = entries[0]
+    for i in range(1, len(entries)):
+        if entries[i][2] &lt;max[2]:
+            max = entries[i]
+            
+    entries.remove(max)  
+    return max
+
+def sort(entries):
+    sorted_entries = []
+    while len(entries)&gt;0:
+        sorted_entries.append(get_max(entries))
+    return sorted_entries
+
+def output(entries):
+    print('Subject        | Average Time')
+    print('************** | ************')
+    for entry in entries:
+        print('{:14} | {:.6}'.format(entry[0], entry[2]))
+              
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match97-1.html#1" TARGET="1"><IMG SRC="../../bitmaps/tm_1_3.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+def main():
+    try:
+        file_name = input('Enter the name of the file:\n')
+        file_input = open(file_name, 'r')
+    
+        entries = []
+        line_number = 0
+        for line in file_input:
+            line_number += 1
+</FONT>            entries.append(process_line(line,line_number))
+        file_input.close()
+    
+        entries = sort(entries)
+        output(entries)
+        
+    except IOError as Iput:
+        print('An IOError occured',Iput)
+        main()
+        
+main()&gt;&gt;&gt;&gt; file: reaction_test.py
+import time
+import random
+
+def flush_input():
+ 
+ try:
+  import msvcrt
+  while msvcrt.kbhit():
+   msvcrt.getch()
+ except ImportError:
+  import sys, termios
+  termios.tcflush(sys.stdin, termios.TCIOFLUSH)
+
+def main():
+ file_name = input('Enter the name of the output file:\n')
+ 
+ f = open(file_name,'a')
+ 
+ while True:
+     name = input("Enter subject name (or press 'enter' to quit):\n")
+     
+     if name == '':
+      f.close()
+      break
+     
+     else:
+         numb_test = int(input('Enter the number of tests:\n'))
+         React = 0
+         for i in range (numb_test):
+             print('Get ready...', flush=True)
+             pause = random.randint(1,5)
+             flush_input()
+             time.sleep(pause)
+             start = time.time()
+             ins =input("Press 'enter' NOW!")
+             end = time.time() - start
+             print('Reaction time: {0:.6f}'.format(end))
+             React += end
+             
+         print('Tests complete.')
+         ave_react = React/numb_test
+         print('Average reaction time: {0:.6f}'.format(ave_react))
+         print('{0} {1} {2:.6f}'.format(name,numb_test,ave_react), file=f)
+        
+main()</PRE>
+</PRE>
+</BODY>
+</HTML>

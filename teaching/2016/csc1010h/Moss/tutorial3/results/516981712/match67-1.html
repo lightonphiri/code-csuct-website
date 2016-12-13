@@ -1,0 +1,357 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial3/raw/dvhkab001/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial3/raw/kmltha009/<p><PRE>
+&gt;&gt;&gt;&gt; file: FeetMetres.py
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match67-0.html#1" TARGET="0"><IMG SRC="../../bitmaps/tm_1_1.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+min_feet = int(input("Enter the minimum number of feet (not less than 0):\n"))
+max_feet = int(input("Enter the maximum number of feet (not more than 99):\n"))
+for i in range(min_feet,max_feet+1):
+    metres = 0.3048 * min_feet
+    print("  {0:&gt;2}' |{1:&gt;7.2f}m".format(min_feet,metres))
+    min_feet+=1&gt;&gt;&gt;&gt; file: FlowerPattern.py
+</FONT>import turtle
+
+a=int(input("Enter the number of petals (must be an even number):""\n"))
+b=int(input("Enter the length of stem:""\n"))
+c=input("Enter the petal type (triangle, square, or pentagon):""\n")
+d=int(input("Enter the length of side:""\n"))
+e=input("Enter the stem color:""\n")
+f=input("Enter the first petal color:""\n")
+g=input("Enter the second petal color:""\n")
+odd=int(0.5*a)
+z=int(360/odd)
+	 
+def singlepentapetal(clr1):
+    turtle.pencolor(e)
+    turtle.forward(b)
+    turtle.left(54)    
+    turtle.pencolor(clr1)    
+    for i in range(5):        
+        turtle.forward(d)
+        turtle.right(72)
+    turtle.pencolor(e)
+    turtle.left(126)
+    turtle.forward(b)    
+    turtle.right(180)    
+
+def singlesqrpetal(clr3):
+    turtle.pencolor(e)
+    turtle.forward(b)
+    turtle.left(45)
+    turtle.pencolor(clr3)
+    for i in range(4):
+        turtle.forward(d)
+        turtle.right(90)    
+    turtle.left(135)
+    turtle.pencolor(e)
+    turtle.forward(b)
+    turtle.right(180)    
+
+def singletripetal(clr2):
+    turtle.pencolor(e)
+    turtle.forward(b)
+    turtle.left(30)
+    turtle.pencolor(clr2)
+    for i in range(3):
+        turtle.forward(d)
+        turtle.right(120)
+    turtle.pencolor(e)
+    turtle.left(150)    
+    turtle.forward(b)
+    turtle.right(180)    
+
+if c=="pentagon":
+    def oddpetals():
+        for i in range(odd):
+            singlepentapetal(f)
+            turtle.left(z)       
+    
+    def evenpetals():
+        turtle.right(z/2)
+        for i in range(odd):
+            singlepentapetal(g)
+            turtle.left(z)
+        turtle.left(z/2)    
+ 
+if c=="triangle":
+    def oddpetals():
+        for i in range(odd):
+            singletripetal(f)
+            turtle.left(z)       
+            
+    def evenpetals():
+        turtle.right(z/2)
+        for i in range(odd):
+            singletripetal(g)
+            turtle.left(z)
+        turtle.left(z/2)        
+    
+if c=="square":
+    def oddpetals():
+        for i in range(odd):
+            singlesqrpetal(f)
+            turtle.left(z)       
+               
+    def evenpetals():
+        turtle.right(z/2)
+        for i in range(odd):
+            singlesqrpetal(g)
+            turtle.left(z)
+        turtle.left(z/2)       
+    
+oddpetals()
+evenpetals()
+
+turtle.exitonclick()&gt;&gt;&gt;&gt; file: InchesMetres.py
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match67-0.html#0" TARGET="0"><IMG SRC="../../bitmaps/tm_0_2.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+min_inch=int(input("Enter the minimum number of inches (not less than 0):\n"))
+max_inch=int(input("Enter the maximum number of inches (not greater than 11):\n"))+1
+meters=''
+print('Inches:',end='')
+for i in range(min_inch, max_inch):
+    print('{:5}'.format(i),end='' )
+    meters +=format(i*0.0254,'5.2f')
+print('\nMetres:'+meters)
+&gt;&gt;&gt;&gt; file: TimeConvertor.py
+time=input("Enter a time ([h]h:mm [am|pm]):""\n")
+</FONT>if time[-1:]=="m":
+    def main_2():
+        a=len(time)
+        
+        if a==8:
+            hour,minute,period=int(time[0:2]),int(time[3:5]),time[6:8]
+            if hour==12:
+                if minute==00:
+                    if period=="am":
+                        print("00",":","00",sep="")
+                    elif period=="pm":
+                        print(hour,":","00",sep="")
+                elif 10&lt;minute&lt;=59:
+                    if period=="am":
+                        print("00",":",minute,sep="")
+                    elif period=="pm":
+                        print(hour,":",minute,sep="")
+                elif minute&lt;10:
+                    if period=="am":
+                        print("00",":","0",minute,sep="")
+                    elif period=="pm":
+                        print(hour,":","0",minute,sep="")                    
+            if 10&lt;=hour&lt;12:
+                if minute==00:
+                    if period=="am":
+                        print(hour,":","00",sep="")
+                    if period=="pm":
+                        print(hour+12,":","00",sep="")
+                if 0&lt;minute&lt;=59:
+                    if period=="am":
+                        print(hour,":",minute,sep="")
+                    if period=="pm":
+                        print(hour+12,":",minute,sep="")
+        if a==7:
+            hour,minute,period=int(time[0:1]),int(time[2:4]),time[5:7]
+            if minute==00:
+                if period=="am":
+                        print("0",hour,":","00",sep="")
+                if period=="pm":
+                        print(hour+12,":","00",sep="")
+            if 10&lt;minute&lt;=59:
+                if period=="am":
+                    print("0",hour,":",minute,sep="")
+                if period=="pm":
+                    print(hour+12,":",minute,sep="")        
+            if 0&lt;minute&lt;=10:
+                if period=="am":
+                    print("0",hour,":","0",minute,sep="")
+                if period=="pm":
+                    print(hour+12,":","0",minute,sep="")        
+            
+                
+                    
+                
+    main_2()
+else:
+    
+    def main_1():
+        hours, minutes = int(time[0:2]), int(time[3:5])
+        if 12&lt;hours&lt;=23:
+            hours=hours-12
+            if minutes==00:
+                print(hours,":","00"," pm",sep="")  
+                hours=hours-12
+            elif minutes&gt;0 and minutes&lt;=59:
+                print(hours,":",minutes," pm",sep="")
+        elif 0&lt;=hours&lt;12:
+            if minutes==00 and hours==00:
+                print("12",":","00"," am",sep="")  
+            if minutes&lt;10 and hours==00:
+                print("12",":","0",minutes," am",sep="")        
+            elif hours==0 and 10&lt;=minutes&lt;=59:
+                print("00",":",minutes," am",sep="")
+            elif hours&gt;0 and minutes&gt;0 and minutes&lt;=59:
+                print(hours,":",minutes," am",sep="")
+            elif hours&gt;0 and minutes==00:
+                print(hours,":","00"," am",sep="")
+        elif hours==12 and minutes==00:
+            print(hours,":","00"," pm",sep="")
+        elif hours==12 and 10&lt;minutes&lt;=59:
+            print(hours,":",minutes," pm",sep="")
+        elif hours==12 and minutes&lt;10:
+            print(hours,":","0",minutes," pm",sep="")        
+    main_1()
+    &gt;&gt;&gt;&gt; file: Twelve.py
+# Converts 12hr clock to 24hr clock
+# Thabiso Kumalo         
+# 10 May 2016
+
+
+
+def main_2():
+    time=input("Enter a time in 12 hour clock ([h]h:mm [am|pm]):""\n")
+    a=len(time)
+    
+    if a==8:
+        hour,minute,period=int(time[0:2]),int(time[3:5]),time[6:8]
+        if hour==12:
+            if minute==00:
+                if period=="am":
+                    print("00",":","00",sep="")
+                elif period=="pm":
+                    print(hour,":","00",sep="")
+            elif 10&lt;minute&lt;=59:
+                if period=="am":
+                    print("00",":",minute,sep="")
+                elif period=="pm":
+                    print(hour,":",minute,sep="")
+            elif minute&lt;10:
+                if period=="am":
+                    print("00",":","0",minute,sep="")
+                elif period=="pm":
+                    print(hour,":","0",minute,sep="")                    
+        if 10&lt;=hour&lt;12:
+            if minute==00:
+                if period=="am":
+                    print(hour,":","00",sep="")
+                if period=="pm":
+                    print(hour+12,":","00",sep="")
+            if 0&lt;minute&lt;=59:
+                if period=="am":
+                    print(hour,":",minute,sep="")
+                if period=="pm":
+                    print(hour+12,":",minute,sep="")
+    if a==7:
+        hour,minute,period=int(time[0:1]),int(time[2:4]),time[5:7]
+        if minute==00:
+            if period=="am":
+                    print("0",hour,":","00",sep="")
+            if period=="pm":
+                    print(hour+12,":","00",sep="")
+        if 10&lt;minute&lt;=59:
+            if period=="am":
+                print("0",hour,":",minute,sep="")
+            if period=="pm":
+                print(hour+12,":",minute,sep="")        
+        if 0&lt;minute&lt;=10:
+            if period=="am":
+                print("0",hour,":","0",minute,sep="")
+            if period=="pm":
+                print(hour+12,":","0",minute,sep="")        
+        
+            
+                
+            
+main_2()
+&gt;&gt;&gt;&gt; file: TwentyFour.py
+# Converts 24hr clock to 12hr clock
+# Thabiso Kumalo         
+# 09 May 2016
+def main_1():
+    time=input("Enter a time in 24 hour clock (hh:mm):""\n")
+    hours, minutes = int(time[0:2]), int(time[3:5])
+    if 12&lt;hours&lt;=23:
+        hours=hours-12
+        if minutes==00:
+            print(hours,":","00"," pm",sep="")  
+            hours=hours-12
+        elif minutes&gt;0 and minutes&lt;=59:
+            print(hours,":",minutes," pm",sep="")
+    elif 0&lt;=hours&lt;12:
+        if minutes==00 and hours==00:
+            print("12",":","00"," am",sep="")  
+        if minutes&lt;10 and hours==00:
+            print("12",":","0",minutes," am",sep="")        
+        elif hours==0 and 10&lt;=minutes&lt;=59:
+            print("00",":",minutes," am",sep="")
+        elif hours&gt;0 and minutes&gt;0 and minutes&lt;=59:
+            print(hours,":",minutes," am",sep="")
+        elif hours&gt;0 and minutes==00:
+            print(hours,":","00"," am",sep="")
+    elif hours==12 and minutes==00:
+        print(hours,":","00"," pm",sep="")
+    elif hours==12 and 10&lt;minutes&lt;=59:
+        print(hours,":",minutes," pm",sep="")
+    elif hours==12 and minutes&lt;10:
+        print(hours,":","0",minutes," pm",sep="")        
+main_1()
+&gt;&gt;&gt;&gt; file: VehicleClassifier.py
+# Classifies vehicles according to class
+# Thabiso Kumalo
+# 12 May 2016
+
+
+def main():
+    gvm=int(input("What is the gross vehicle mass (in kg)?""\n"))
+    trailer=input("Does the vehicle have a trailer?""\n")
+    if gvm&lt;=3500:
+        if trailer=="y":
+            gvm_trailer=int(input("What is gross vehicle mass of the trailer (in kg)?""\n"))
+            if gvm_trailer&gt;750:
+                print("This vehicle is class EB.")
+            elif gvm_trailer&lt;=750:
+                print("This vehicle is class B.")
+        elif trailer=="n":
+            articulation=input("Is the vehicle articulated?""\n") 
+            if articulation=="y":
+                print("This vehicle is class EB.")
+            if articulation=="n":
+                print("This vehicle is class B.")                
+    if 3500&lt;gvm&lt;=16000:
+        if trailer=="y":
+            gvm_trailer=int(input("What is gross vehicle mass of the trailer (in kg)?""\n"))
+            if gvm_trailer&gt;750:
+                print("This vehicle is class EC1.")
+            elif gvm_trailer&lt;=750:
+                print("This vehicle is class C1.")
+        elif trailer=="n":
+            articulation=input("Is the vehicle articulated?""\n") 
+            if articulation=="y":
+                print("This vehicle is class EC1.")        
+            if articulation=="n":
+                print("This vehicle is class C1.")
+                
+    if gvm&gt;16000:
+        if trailer=="y":
+            gvm_trailer=int(input("What is gross vehicle mass of the trailer (in kg)?""\n"))
+            if gvm_trailer&gt;750:
+                print("This vehicle is class EC.")
+            elif gvm_trailer&lt;=750:
+                print("This vehicle is class C.")
+        elif trailer=="n":
+            articulation=input("Is the vehicle articulated?""\n") 
+            if articulation=="y":
+                print("This vehicle is class EC.")   
+            if articulation=="n":
+                print("This vehicle is class C.")                
+main()        
+                
+            
+    
+    </PRE>
+</PRE>
+</BODY>
+</HTML>

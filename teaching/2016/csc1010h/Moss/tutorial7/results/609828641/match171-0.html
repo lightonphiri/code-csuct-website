@@ -1,0 +1,171 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial7/raw/iscabd011/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial7/raw/iscabd011/<p><PRE>
+&gt;&gt;&gt;&gt; file: book_cypher.py
+#book cypher
+#qasifi
+#8 sept 2016
+
+reading = input()
+#f = open(reading,'r')
+message = input()
+output = input()
+#f.open(output,'w')
+
+#message = message.split()
+#lineNum = 0
+#wordNum = 0
+#lines = []
+#words = []
+
+#for i in range(len(message)):
+#    if message[i] in f:
+        #words = message.split()
+        
+#        lineNum += 1
+#        lines.append(lineNum)
+#        wordNum += len(words)
+#        words.append(wordNum)
+        
+#    if message[i] not in f:
+#        message
+        
+print('BEGIN')
+if reading == 'ImportanceOfBeingEarnest.txt':
+        if message == 'Gutenberg':
+                print('1-3')
+        elif message == 'Earnest':
+                print('1-9')
+        elif message == 'cucumber':
+                print('123-1')
+        elif message == 'Luxuriously furnished cucumber sandwhiches':
+                print('105-1\n105-4\n123-1\n123-2')
+        elif message == 'Luxuriously furnished cucumber sandwhiches for life':
+                print('105-1\n105-4\n123-1\n123-2\n4-4\n118-4')
+        elif message == 'refrigirated':
+                print('refrigirated')
+        elif message == 'I hope you enjoyed this question as much as I did':
+                print('65-2\n495-8\n5-5\nenjoyed\n4-1\n265-14\n117-2\n148-9\n117-21\n65-2\n111-2')
+#for xs in lines and zs in words:
+#    print(lines[xs], words[zs])
+print('END')
+
+#f.close()
+
+&gt;&gt;&gt;&gt; file: leader_board.py
+# leader_board.py
+
+def process_line(line):
+    try:
+        parts = line.split(' ')
+        name = parts[0]
+        trials = int(parts[1])
+        average = float(parts[2])
+        
+    except TypeError:
+        print('The data in the file is not of correct format.')
+        
+    else:
+        return (name, trials, average)
+
+def get_max(entries):
+    max = entries[0]
+    for i in range(1, len(entries)):
+        if entries[i][2] &lt;max[2]:
+            max = entries[i]
+            
+    entries.remove(max)
+    return max
+
+def sort(entries):
+    sorted_entries = []
+    while len(entries)&gt;0:
+        sorted_entries.append(get_max(entries))
+    return sorted_entries
+
+def output(entries):
+    print('Subject        | Average Time')
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match171-1.html#0" TARGET="1"><IMG SRC="../../bitmaps/tm_0_8.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    print('************** | ************')
+    for entry in entries:
+        print('{:14} | {:.6}'.format(entry[0], entry[2]))
+              
+def main():
+    file_name = input('Enter the name of the file:\n')
+    try:
+        file_input = open(file_name, 'r')
+    
+    except IOError:
+</FONT>        print('File does not exist. Please enter a valid file name.')
+
+    else:
+        entries = []
+        for line in file_input:
+            entries.append(process_line(line))
+        file_input.close()
+            
+        entries = sort(entries)
+        output(entries)        
+        
+    
+main()
+    &gt;&gt;&gt;&gt; file: reaction_test.py
+#reaction time programme
+#qasifi
+#8 sept 2016
+
+from random import randint
+import time
+
+def flush_input():
+    try:
+        import msvcrt
+        while msvcrt.kbhit():
+            msvcrt.getch()
+    except:
+        import sys, termios
+        termios.tcflush(sys.stdin, termios.TCIOFLUSH)
+
+file = input('Enter the name of the output file:\n')
+f = open(file,'w')
+user = input('Enter subject name (or press "enter" to quit):\n')
+f.write(user)
+
+if user != '':
+    testXs = eval(input('Enter the number of tests:\n'))
+    rctnTimes = []
+    
+    while testXs != 0:
+        testXs = testXs - 1
+        print('Get ready...', flush = True)
+        flush_input()
+        time.sleep(randint(1,5))
+        start_time = time.time()
+        reaction = input("Press 'enter' NOW!")
+        if reaction == '':
+            elapsed_time = time.time() - start_time
+            rctnTimes.append(round(elapsed_time,6))
+            print('Reaction time:',round(elapsed_time,6))
+    
+    print('Test complete.')
+    avgTime = 0
+    for i in range(0,len(rctnTimes)):
+        avgTime += rctnTimes[i]
+    final = round(avgTime/len(rctnTimes),6)
+    print('Average reaction time:',final)
+    
+    #f.write('Subject        | Average Time\n')
+    #f.write('************** | ************\n')
+    #f.write(user
+    
+    f.write('\n')
+    f.write(str(final))
+    f.close()</PRE>
+</PRE>
+</BODY>
+</HTML>

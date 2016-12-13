@@ -1,0 +1,167 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial4/raw/iscabd011/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial4/raw/jrvcra004/<p><PRE>
+&gt;&gt;&gt;&gt; file: LongJump.py
+# Sorting the longest long jump distances of different athletes
+# Craig Jarvis
+# 21 July 2016
+
+from collections import OrderedDict
+
+def main():
+    # initialising
+    MyDict = {}
+    names = OrderedDict(MyDict)
+    max_dist = [0]
+    max_jumper = []
+    count = 1
+    
+    # headings
+    print("***** Long Jump Information System *****")
+    print("Please enter the names of competitors. (Press return when done.)")
+    
+    # obtaining names of competitors
+    while True:
+        competitors = input("Competitor no. {}:\n".format(count))
+        if competitors == "": break
+        names[competitors] = 0
+        count += 1
+        #print(names)
+    
+    print("Please enter the distances for each competitor.")
+    
+    # obtaining distances for each competitors
+    for name in names:
+        print("Competitor {}:".format(name))
+        for distance in range(1,4):
+            jump_distance = input("Attempt {}:\n".format(distance))
+            if jump_distance == "foul":
+                continue
+            elif float(jump_distance) &gt; names[name]:
+                names[name] = float(jump_distance)            
+    
+    # printing longest distances of athletets
+    print("\n{0:25}Longest Distance".format("Competitor"))
+    for i in names:
+        if names[i] == 0:
+            print("{0:25}No jump".format(i))
+            continue
+        print("{0:25}{1:.2f}".format(i, names[i]))
+        if names[i] &gt; max_dist[0]:
+            max_dist[0] = names[i]
+            max_jumper = i
+   
+    # printing winner
+    print("\nThe winner is {} with a jump of {:.2f}.".format(max_jumper, max_dist[0]))
+
+main()&gt;&gt;&gt;&gt; file: NikNaks.py
+# Creating a game called Nik Naks
+# Craig Jarvis
+# 26 July 2016
+
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match75-0.html#0" TARGET="0"><IMG SRC="../../bitmaps/tm_0_8.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+import random
+
+def main():
+    count = 10
+    niks = 0
+    naks = 0
+    secret_code = []
+    
+    print("Guess the mystery 4 letter code. (No letter occurs more than once.)")
+    difficulty = int(input('Choose difficulty level (4 to 26):\n'))
+    letters = list('abcdefghijklmnopqrstuvwxyz')[0: difficulty]
+    print('The letters in the code are chosen from: {}.'.format(letters))
+</FONT>    
+    for i in range(4):
+        rand_index=random.randint(0, len(letters)-1)
+        letter=letters.pop(rand_index)
+        secret_code.append(letter)
+    
+    # To check things are working, uncomment this print line to see the
+    # code that has been created.
+    #print(secret_code)    
+
+    
+    while count != 0:
+        print("You have {} guesses remaining.".format(count))
+        guess = input("Enter your guess:\n")
+        
+        if guess == ''.join(secret_code):
+            print("Correct!")
+            break
+        
+        # checking how many niks and how many naks are present
+        for i in range(0,4):
+            if guess[i] == (''.join(secret_code))[i]:
+                niks += 1
+            if guess[i] in secret_code and guess[i] != (''.join(secret_code))[i]:
+                naks += 1
+         
+        # printing the amount of niks and naks       
+        if niks != 1 and naks != 1:        
+            print("There are {} Niks and {} Naks.".format(niks, naks))
+        elif niks == 1 and naks != 1:
+            print("There is {} Nik and {} Naks.".format(niks, naks))
+        elif niks != 1 and naks == 1:
+            print("There are {} Niks and {} Nak.".format(niks, naks))
+        
+        # reducing the count and resetting the niks and naks count    
+        count -= 1
+        niks = 0
+        naks = 0
+    
+    # printing this once attepts have run out
+    else:
+        print("Sorry, you lose.")
+        print("The secret number was {}.".format(''.join(secret_code)))
+    
+if __name__ == '__main__':
+    main()&gt;&gt;&gt;&gt; file: Python_Turtle.py
+# Python Turtle
+# Craig Jarvis
+# 26 July 2016
+
+from turtle import *
+def main():
+    screensize(500, 1000)
+    bgcolor("black")
+    pensize(10)
+    pencolor("yellow")
+    
+    # drawing a series of filled-in triangles with stems and then undoing it
+    for i in range(12):
+        speed(6)
+        fillcolor("red")
+        begin_fill()
+        fd(200)
+        rt(90)
+        fd(200)
+        lt(120)
+        fd(200)
+        lt(120)
+        fd(200)
+        end_fill()
+    fd(200)
+    
+    for j in range(120):
+        undo()
+        
+    pensize(1)
+    
+    # drawing a spiral using circle function
+    for step in range(1,201):
+        fd(step)
+        lt(61)
+        
+    exitonclick()
+
+main()</PRE>
+</PRE>
+</BODY>
+</HTML>

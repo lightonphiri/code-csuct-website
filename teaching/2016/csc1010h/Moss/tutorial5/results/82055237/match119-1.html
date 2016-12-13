@@ -1,0 +1,219 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial5/raw/myzlin003/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial5/raw/sgslun001/<p><PRE>
+&gt;&gt;&gt;&gt; file: calendar_utils.py
+#leap year
+
+
+
+def is_leap_year():
+    year=eval(input('enter the year: '))
+    
+    if year % 4 ==0 and year % 100==0 and year % 400==0:
+        print(year,'is a leap year.')
+    elif year % 4==0 and year % 100!=0:
+        print(year,'is a leap year')
+    else:
+        print(year,'is not a leap year')
+    return
+        
+def month_name():
+    months={ 1:'January',2:'February',3:'March',4:'April',5:'May',6:'June',7:'July',8:'August',9:'September',10:'October',11:'November',12:'December'}
+    num= eval(input('number of the month: '))
+    month=months.get(num)
+    print(month)
+    return
+    
+def days_in_month():
+    days_non_leap = {1:31,2:28,3:31,4:30,5:31,6:30,7:31,8:31,9:30,10:31,11:30,12:31}
+    days_leap= {1:31,2:29,3:31,4:30,5:31,6:30,7:31,8:31,9:30,10:31,11:30,12:31}
+    year=eval(input('enter the year: '))
+    month=eval(input('enter the month: '))
+    
+    if month==2:
+        if year % 4 ==0 and year % 100==0 and year % 400==0:
+            days=days_leap.get(2)
+            print(days)
+        elif year % 4==0 and year % 100!=0:
+            days=days_leap.get(2)
+            print(days)
+            
+        else:
+            days=days_non_leap.get(2)
+            print(days)
+            
+    else:
+        days=days_leap.get(month)
+        print(days)
+    return
+            
+        
+def first_day_of_year():
+    year=eval(input('enter year: '))
+    #number of leap years
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match119-0.html#0" TARGET="0"><IMG SRC="../../bitmaps/tm_0_4.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    a= 5*((year-1) %4)
+    b= 4*((year-1) %100)
+    c= 6*((year-1) %400)
+    d= 1+a+b+c
+    day= d %7
+</FONT>    print(day)
+    return day
+
+
+def first_day_of_the_month():
+    month=eval(input('enter month: '))
+    year=eval(input('enter year: '))
+    
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match119-0.html#1" TARGET="0"><IMG SRC="../../bitmaps/tm_1_4.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    a= 5*((year-1) %4)
+    b= 4*((year-1) %100)
+    c= 6*((year-1) %400)
+    d= 1+a+b+c
+    jan_first= d %7    
+</FONT>    
+    feb_first= (jan_first+31) % 7
+    
+    days_non_leap = {1:31,2:28,3:31,4:30,5:31,6:30,7:31,8:31,9:30,10:31,11:30,12:31}
+    days_leap= {1:31,2:29,3:31,4:30,5:31,6:30,7:31,8:31,9:30,10:31,11:30,12:31}    
+    if year % 4 ==0 and year % 100==0 and year % 400==0:
+                days=days_leap.get(2)    
+                mar_first= (feb_first+29)
+                
+    elif year % 4==0 and year % 100!=0:
+        days=days_leap.get(2)
+        mar_first= (feb_first + 29)%7
+            
+    
+    else:
+        days=days_non_leap.get(2)
+        print(days)
+        mar_first= (feb_first+28)%7
+        
+    apr_first= (mar_first+ 31)%7
+    may_first= (apr_first +30)%7
+    jun_first= (may_first +31)%7
+    jul_first= (jun_first +30)%7
+    aug_first= (jul_first +31)%7
+    sept_first= (aug_first +31)%7
+    oct_first= (sept_first +30)%7
+    nov_first= (oct_first +31)%7
+    dec_first= (nov_first +30)%7
+    
+    first_month={1:jan_first,2:feb_first,3:mar_first,4:apr_first,5:may_first,6:jun_first,7:jul_first,8:aug_first,9:sept_first,10:oct_first,11:nov_first,12:dec_first}
+    day= first_month.get(month)
+    print(day)
+    
+    
+def main():
+    test=eval(input('Choose from the following options:\n0. quit\n1. Test is_leap_year().\n2. Test month_name().\n3. Test days_in_month().\n4. Test first_day_of_year().\n5. Test first_day_of_month().'))
+    
+    if test !=quit:
+        if test==1:
+            is_leap_year()
+        elif test==2:
+            month_name()
+        elif test==3:
+            days_in_month()
+        elif test==4:
+            first_day_of_year()
+        else:
+            first_day_of_the_month()
+    
+main()
+        
+    
+        
+
+
+
+
+        
+    
+    
+        
+        
+        
+
+
+        
+    
+
+
+    &gt;&gt;&gt;&gt; file: morse_code.py
+#morse code
+
+def code_for():
+    code={'a':'.-','b':'-...','c':'-.-.','d':'-..','e':'.','f':'..-.','g':'--.','h':'....','i':'..','j':'.---','k':'-.-','l':'.-..','m':'--','n':'-.','o':'---','p':'.--.','q':'--.-','l':'.-..','m':'--','n':'-.','o':'---','p':'.--.','q':'--.-','r':'.-.','s':'...','t':'-','u':'..-','v':'...-','w':'.--','x':'-..-','y':'-.--','z':'--..'}
+    for letter in code:
+        m=input('letter: ')
+        morse= code.get(m)
+        print(morse)
+        
+        
+def transmit_letter():
+    code_for()
+    
+        
+        
+    
+    
+&gt;&gt;&gt;&gt; file: technical_support_.py
+# Tech Support
+# Stephan Jamieson
+# 5/1/2015
+responses={
+    'bluetooth':'Have you tried mouthwash?',
+    'windows':'Ah, I think I see your problem. What version?',
+    'apple':'You do mean the computer kind?',
+    'blue':'Ah, the blue screen of death. And then what happened?',
+    'spam':'You should see if your mail client can filter messages.',
+    'connection':'Contact Telkom.',
+    'crashed':'Are the drivers up to date?',
+    'hacked':'You should consider installing anti-virus software.'}
+
+
+def default_response():
+    return 'Curious, tell me more.'
+    
+def get_response(words):
+    for query in words:
+        if query in responses:
+            v=responses.get(query)
+            return v
+        else:
+            print(default_response)
+    
+
+def print_welcome():
+    print('Welcome to the automated technical support system.')
+    print('Please describe your problem:')
+
+
+def get_input():
+    query = input().split(' ')
+    print(query)
+    return query
+    
+    
+
+def main():
+    print_welcome()
+    query = get_input() #list of words that are the input by user
+    word=query
+    while query!=['Quit']:
+        response=get_response(word)
+        print(response)
+        
+        question=get_input()
+        
+main()</PRE>
+</PRE>
+</BODY>
+</HTML>

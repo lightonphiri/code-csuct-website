@@ -1,0 +1,127 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial6/raw/nyvenn001/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial6/raw/sgwnka001/<p><PRE>
+&gt;&gt;&gt;&gt; file: fixed_mod.py
+import string
+
+def palindrome (s):
+   if len(s) == 1:
+      return s.isalpha()
+   elif s[0] in string.punctuation or s[0] in string.whitespace:
+      return palindrome(s[:-1])
+   elif s[-1] in string.punctuation or s[-1] in string.whitespace:
+      return palindrome(s[:-1])
+   elif s[0].lower() == s[-1].lower():
+      if len(s)==2:
+         return True
+      else:
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match119-0.html#1" TARGET="0"><IMG SRC="../../bitmaps/tm_1_6.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+         return palindrome (s[1:-1])
+   else:
+      return False
+&gt;&gt;&gt;&gt; file: match_mod.py
+def equals(word_one,word_two):
+    if word_one==""and word_two=="":
+        return True
+    elif word_one=="" or word_two=="":
+</FONT>        return False
+    elif word_one[0]==word_two[0]:
+        
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match119-0.html#0" TARGET="0"><IMG SRC="../../bitmaps/tm_0_8.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+        return equals(word_one[1:],word_two[1:])
+    else:
+        return False
+    
+def query(pattern,word):
+    if pattern=="" and word=="":
+        return True
+</FONT>    if len(pattern)!=len(word):
+        return False
+    if pattern[0]!=word[0] and pattern[0]!='?':
+        return False
+    else:
+        return query(pattern[1:] ,word[1:])
+
+def match(pattern,word):
+    if (len(pattern)==0 and len(word)==0):
+        return True
+    elif (len(pattern)=="*" and len(word)==0):
+        return True
+    elif pattern[0]==word[0]:
+        return match(pattern[1:len(pattern)],word[1:len(word)])
+    elif pattern[0]=="*":
+        return match(pattern[len(pattern):-1],word[len(word):-1])
+    else:
+        return False
+    
+
+    
+    
+        
+        
+        
+    
+    
+    
+    
+
+
+
+
+    
+    
+    
+    
+    
+        
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+
+    
+
+
+
+    
+    
+
+    
+    
+    
+    
+    &gt;&gt;&gt;&gt; file: moongose_mod.py
+def population(n):
+    if n&lt;3:
+        return 2
+    else:
+        return population(n-1)+population(n-2)
+&gt;&gt;&gt;&gt; file: sum_mod.py
+def sum_to_n(n):
+    n=int(n)
+    if n==0:
+        return 0
+    else:
+        return n+sum_to_n(n-1)
+    
+    </PRE>
+</PRE>
+</BODY>
+</HTML>

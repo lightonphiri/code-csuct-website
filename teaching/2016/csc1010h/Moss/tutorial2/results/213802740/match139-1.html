@@ -1,0 +1,186 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial2/raw/admhla001/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial2/raw/mkptha005/<p><PRE>
+&gt;&gt;&gt;&gt; file: CreditCard.py
+# Credit card format
+# Thandokazi Makupula
+# 28 April 2016
+
+# prompt the user to enter their details
+holder=input('Enter the card holder\'s name:\n')
+card_number=input('Enter the 16 digit card number (no spaces please):\n')
+date=input('Enter the date of issue (mm:yy):\n')
+expiry=input('Enter the expiry date (mm:yy):\n')
+security_code=input('Enter the 3 digit security code:\n')
+limit=float(input('Enter the credit limit (Rand):\n'))
+balance=float(input('Enter the balance (Rand):\n'))
+
+def main():
+    available=limit-balance
+    print('+------------- Credit Card Account --------------+')
+    print('| {0:15}{1:32}'.format('Card holder:',holder)+'|')
+    print('| {0:15}{1:32}'.format('Card number:',(card_number[0:4]+' '+card_number[4:8]+' '+card_number[8:12]+' '+card_number[12:16]))+'|')
+    print('| {0:15}{1:5}{2:&gt;17}{3:10}'.format('Date of issue:',date.replace(':','/'),'Expiry date: ',expiry.replace(':','/'))+'|')
+    print('| {0:15}{1:32}'.format('Security code:',security_code)+'|')
+    print('| {0:15}{1:32}'.format('Credit limit:',(str(limit)+'0 Rand'))+'|')                                
+    print('| {0:15}{1:32}'.format('Available:',(str(available)+'0 Rand'))+'|')
+    print('| {0:15}{1:32}'.format('Balance:',(str(balance)+'0 Rand'))+'|')
+    print('+------------------------------------------------+')
+    
+main()&gt;&gt;&gt;&gt; file: EugeneJunior.py
+# A programme engaging into a conversation with a user
+# Thandokazi Makupula
+# 26 APril 2016
+
+def main():
+    # Greet the user and ask for their name
+    name=input('''Hello, I am Eugene Junior.
+What is your first name?\n''')
+    
+    # propmt the user to enter their last_name
+    last_name=input('What is your last name?\n')
+    print('Hi',name[0]+'.'+last_name[0]+'.'+'!')
+    
+    # prompt the user to enter the current year
+    year=int(input('What year is this?\n'))
+    
+    # ask the use to enter their age
+    age=int(input('What age are you?\n'))
+    
+    # calculate the user's year of birth
+    year_of_birth=(year-1)-age
+    alternative=str(year_of_birth+1)
+    print('Okay, so you were born in',str(year_of_birth)+'/'+alternative[2:4]+'.')
+    
+    # propmt the user to enter their height
+    height=float(input('How tall are you (metres)?\n'))
+    
+    # calculate the user's height in feet and inches
+    feet=int(height//0.3048)
+    inch=int(round((((height/0.3048)-feet)*12),0))
+    print('That\'s',str(feet)+'\''+str(inch)+'\"!')
+    
+    # let the user know that you are going to tell them their star wars name
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match139-0.html#0" TARGET="0"><IMG SRC="../../bitmaps/tm_0_14.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    print('I\'m going to tell you your Star Wars name.')
+    
+    # ask the user for their mother's first name
+    mom=input('What\'s your mother\'s first name?\n')
+    
+    # ask the user for the name of the City closest to their place of birth
+    
+    city=input('What\'s the name of the city nearest to your place of birth?\n')
+    star=last_name[0:3]+name[0:2]
+    wars=mom[len(mom)-2:len(mom)]+city[len(city)-3:len(city)]
+</FONT>    print('Your Star Wars name is',star.title(),wars.title()+'.')
+    
+    
+main()
+
+
+&gt;&gt;&gt;&gt; file: HexagonArea.py
+# Calculating the area of a hexagon
+# Thandokazi Makupula
+# 27 April 2016
+
+from math import*
+
+
+# prompt the user to enter the length of the side
+side=float(input('Enter the length of the side (cm):\n'))
+real_side=int(side)
+area=((3*sqrt(3))/2)*(side**2)
+num=(len(str(int(area)))+4)
+
+print('The area of a hexagon of side {0} is {1:4.3f}'.format(real_side,area)+'.')
+
+&gt;&gt;&gt;&gt; file: initials.py
+# a programme writing initials using turtle
+# Thandokazi Makupula
+# 28 April 2016
+
+from turtle import*
+from math import*
+
+def main():
+    line=hypot(100,100)
+    dimension=line-10
+    distance=(dimension/2)+10    
+    
+    # change pen colour
+    pencolor('cyan')
+    
+    # move the turtle foward
+    forward(200)
+    
+    #turn the turtle 135 degrees to the right
+    right(135)
+    
+    # move the turtle forward
+    forward(100)
+    
+    # turn the turtle 90 degrees to the left
+    left(90)
+    
+    # move the turtle forward
+    forward(100)
+    
+    # move the turtle 135 degrees to the right
+    right(135)
+    
+    # moove the turtle forward
+    forward(200)
+    
+    # change the pen colour
+    pencolor('magenta')
+    
+    # lift up the pen
+    penup()
+    
+    # go back to the initial position
+    home()
+    
+    # turn the turtle 90 degrees to the left
+    left(90)
+    
+    # move the turtle forward
+    forward(distance)
+    
+    # put the pen down
+    pendown()
+    
+    # turn the turtle 90 degrees to the right
+    right(90)
+    
+    # move the turtle foward
+    forward(200)
+    
+    # lift the pen up
+    penup()
+    
+    # turn the turtle 90 degrees left
+    left(90)
+    
+    # move the turtle forward
+    forward(dimension/2)
+    
+    # put the pen down
+    pendown()
+    
+    # move the turtle backwards
+    back(dimension)
+    
+    # exit the turtle window
+    exitonclick()
+
+    
+main()
+    </PRE>
+</PRE>
+</BODY>
+</HTML>

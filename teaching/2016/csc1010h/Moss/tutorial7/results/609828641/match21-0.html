@@ -1,0 +1,163 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial7/raw/ngcnox005/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial7/raw/ngcnox005/<p><PRE>
+&gt;&gt;&gt;&gt; file: book_cypher.py
+def main():
+    original_file=input("Enter the book filename:\n")
+    message=((input("Enter the message:\n").lower()).strip('?!.,;:)([]{}\'" \n')).split()
+    sorted_list=message.strip('?!.,;:)([]{}\'" \n')
+    output_file=input("Enter the output filename:\n")
+    file1=open(original_file,'r')
+    text=(f1.readlines()).s
+<A NAME="2"></A><FONT color = #0000FF><A HREF="match21-1.html#2" TARGET="1"><IMG SRC="../../bitmaps/tm_2_8.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    file2=open(out_putfile,'w')
+    new_list=[]
+    for words in original_file:
+            words=words.strip('?!.,;:)([]{}\'" \n')
+            newlist.append(words)
+        number_of_lines=1  
+        line=1 # count the line at which the word is found
+        words_found={} # word found with the corresponding word and line (word:line-counter)
+        for lines in newl_ist:
+            lines=((lines.lower()).strip('?!@#$%^*!.,;:)([]{}\'" \n')).split()
+</FONT><A NAME="3"></A><FONT color = #00FFFF><A HREF="match21-1.html#3" TARGET="1"><IMG SRC="../../bitmaps/tm_3_6.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+            number_of_lines=1
+            for word in lines:
+                word=word.strip('?!@#$%^*!.,;:)([]{}\'" \n') # removing the symbol at the end of each line
+                if word in message: # word found in the line
+                    wordsfound[word]=str(line)+"-"+str(number_of_lines) 
+                    message.remove(word)                 
+</FONT><A NAME="0"></A><FONT color = #FF0000><A HREF="match21-1.html#0" TARGET="1"><IMG SRC="../../bitmaps/tm_0_16.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+                    number_of_lines=1                
+                else:
+                    number_of_lines+=1
+            line+=1
+        print("BEGIN")
+        output_file.write("BEGIN")
+        for results in sorted_list:
+            if results in wordsfound:
+                output_file.write("\n")
+                output_file.write(words_found[results])
+                print(words_found[results])
+            elif results!=[]:
+                output_file.write("\n") # writing them in to my file
+                output_file.write(results)
+                print(results)
+        
+        print("END")
+        output_file.write("\n")
+        output_file.write("END")
+        original_file.close()
+        output_file.close()          
+main()        
+            
+    
+    
+    &gt;&gt;&gt;&gt; file: leader_board.py
+# leader_board.py
+
+def process_line(line):
+    parts = line.split(' ')
+    name = parts[0]
+    trials = int(parts[1])
+</FONT>    average = float(parts[2])
+    return (name, trials, average)
+
+def get_max(entries):
+    max = entries[0]
+    for i in range(1, len(entries)):
+        if entries[i][2] &lt;max[2]:
+            max = entries[i]
+            
+    entries.remove(max)
+    return max
+
+def sort(entries):
+    sorted_entries = []
+    while len(entries)&gt;0:
+        sorted_entries.append(get_max(entries))
+    return sorted_entries
+
+def output(entries):
+    print('Subject        | Average Time')
+    print('************** | ************')
+    for entry in entries:
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match21-1.html#1" TARGET="1"><IMG SRC="../../bitmaps/tm_1_10.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+        print('{:14} | {:.6}'.format(entry[0], entry[2]))
+   
+def main():
+    while True:
+        try:
+            file_name = input('Enter the name of the file:\n')
+            file_input=open(file_name, 'r')
+            
+            entries = []
+            lines=1
+            for line in file_input:
+                entries.append(process_line(line))
+                lines+=1
+            file_input.close()
+            entries = sort(entries)
+            output(entries)
+            break
+        except IOError:
+            print("File name",file_name,"not found")
+</FONT>        except ValueError as var:
+            print('line number',lines,'has an Error',var)
+            print(line,end='')
+            break
+        finally:
+            print('Format: name,number_of_tests,and ave_reaction_time ')
+            break
+    
+main()
+    &gt;&gt;&gt;&gt; file: reaction_test.py
+import random
+import time
+
+def subjects():
+    while True:
+        subject=input("Enter subject name (or press 'enter' to quit):\n")
+        test=int(input("Enter the number of tests:"))
+        pause(test)
+        if subject=="enter":
+            break
+def ready():
+    print("Get ready...",flush=True)
+    
+def pause(test):
+    total=0
+   
+    for i in range(test):
+        ready()
+        r=random.randint(1,5)
+        before=time.time()
+        time.sleep(r)
+        input("Press 'enter' NOW!")
+        after=time.time()
+        time_diff=round(after-before,6)
+        
+        print('Reaction time:',time_diff)
+        total+=time_diff
+        
+    mean=total/test
+    return mean
+def main():
+    filename=input("Enter the name of the output file:\n")
+    file=open(filename,'w')
+    subjects()
+    pause()
+    
+    
+main()    </PRE>
+</PRE>
+</BODY>
+</HTML>

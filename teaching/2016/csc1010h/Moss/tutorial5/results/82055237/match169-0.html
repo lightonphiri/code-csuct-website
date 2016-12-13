@@ -1,0 +1,160 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial5/raw/rngtam002/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial5/raw/rngtam002/<p><PRE>
+&gt;&gt;&gt;&gt; file: calendar_utils.py
+#functions to calculate aspects of input year for calendar.py
+#rngtam002
+#2016-08-08
+
+import math
+
+month_number = int(input())
+year = int(input())
+
+def month_name(month_number):
+     dictionary= {1:'January',2:'Febuary',3:'March',4:'April',5:'May',6:'June',7:'July',8:'August',9:'September',10:'October',11:'November',12:'December'}
+     return dictionary[month_number]
+     
+
+def is_leap_year(year):
+     if year%4==0 and year%100==0 and year%400==0:
+          return True
+     elif year%4==0 and year%100==0 and not year%400==0:
+          return False 
+     elif year%4==0:
+          return True
+     else:
+          return False
+     
+def days_in_month(month_number, year):
+     if is_leap_year(year) == True:
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match169-1.html#0" TARGET="1"><IMG SRC="../../bitmaps/tm_0_3.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+          dictionaryy={1:31,2:29,3:31,4:30,5:31,6:30,7:31,8:31,9:30,10:31,11:30,12:31}
+          return dictionaryy[month_number]
+</FONT><A NAME="1"></A><FONT color = #00FF00><A HREF="match169-1.html#1" TARGET="1"><IMG SRC="../../bitmaps/tm_1_3.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+     else:
+          dictionaryy={1:31,2:28,3:31,4:30,5:31,6:30,7:31,8:31,9:30,10:31,11:30,12:31}
+</FONT>          return dictionaryy[month_number]
+     
+     
+     
+def first_day_of_year(year):
+     year = year-1
+     x = year%4
+     x = 5*x
+     y = year%100
+     y = 4*y
+     z = year%400
+     z = 6*z
+     t = 1 + x + y + z
+     day = t%7
+     return day 
+
+
+def first_day_of_month(month_number, year):
+     if month_number == 1 or month_number==2:
+          year=year-1
+          months={1:11,2:12}
+          cent = year//100
+          yr = year%100
+          x = math.floor((2.6*months[month_number])-0.2)
+          day = 1 + x - (2*cent) + yr + (math.floor(yr/4)) + (math.floor(cent/4)) 
+          day = day %7
+          year += 1
+          return day     
+     else:
+          months={1:11,2:12,3:1,4:2,5:3,6:4,7:5,8:6,9:7,10:8,11:9,12:10}
+          cent = year//100
+          yr = year%100
+          x = math.floor((2.6*months[month_number])-0.2)
+          day = 1 + x - (2*cent) + yr + (math.floor(yr/4)) + (math.floor(cent/4)) 
+          day = day %7
+          months={1:1,2:2,3:3,4:4,5:5,6:6,7:7,8:8,9:9,10:10,11:11,12:12}
+          return day
+     
+     
+  
+  
+     
+     
+&gt;&gt;&gt;&gt; file: morse_code.py
+# morse code translating functions to be used by morse_translator
+# rngtam002
+# 2016-08-08
+
+import morse_utils
+
+letter = input("Enter letter: \n")
+
+
+def code_for(letter):
+    code = {"a":".-","b":"-...","c":"-.-.","d":"-..","e":".","f":"..-.","g":"--.","h":"....","i":"..","j":".---","k":"-.-","l":".-..","m":"--","n":"-.","o":"---",
+            "p":".--.","q":"--.-","r":".-.","s":"...","t":"-","u":"..-","v":"...-","w":".--","x":"-..-","y":"-.--","z":"--..",
+            "A":".-","B":"-...","C":"-.-.","D":"-..","E":".","F":"..-.","G":"--.","H":"....","I":"..","J":".---","K":"-.-","L":".-..","M":"--","N":"-.","O":"---",
+            "P":".--.","Q":"--.-","R":".-.","S":"...","T":"-","U":"..-","V":"...-","W":".--","X":"-..-","Y":"-.--","Z":"--.."}
+    for n in letter:
+        return code[letter]
+        
+        
+def transmit_letter(letter):
+    morse = code_for(letter)
+    if morse==".": 
+        duration = 1
+    elif morse=="-":
+        duration=3
+    frequency = 200 
+    morse_utils.beep(frequency, duration)
+    
+def word_pause():
+    if letter== "|":
+        duration=7
+        morse_utils.sleep(duration)
+    else:
+        pass
+        
+&gt;&gt;&gt;&gt; file: technical_support.py
+
+def welcome():
+    print('Welcome to the automated technical support system.')
+    print('Please describe your problem:')
+
+def get_input():
+    return input().lower()
+
+def default_response():
+    return 'Curious, tell me more.'
+
+
+def main():
+
+    welcome()    
+    query = get_input()
+    
+    responses = {"crashed":"Are the drivers up to date?","blue":"Ah, the blue screen of death. And then what happened?","hacked" : "You should consider installing anti-virus software.","bluetooth" : "Have you tried mouthwash?","windows" : "Ah, I think I see your problem. What version?", "apple" : "You do mean the computer kind don't you?","spam" : "You should see if your mail client can filter messages.","connection" : "Contact Telkom."}
+    
+    while (not query=='quit'):
+        found = False
+        querylist = query.split(" ")        
+
+        for word in querylist:
+            if word in responses:
+                print(responses[word])
+                found =True 
+                break
+            
+        if found == False:
+            print(default_response())
+        
+        query = get_input()   
+    
+if __name__=='__main__':    
+    main()  </PRE>
+</PRE>
+</BODY>
+</HTML>

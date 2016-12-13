@@ -1,0 +1,233 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial6/raw/gcnsim001/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial6/raw/gcnsim001/<p><PRE>
+&gt;&gt;&gt;&gt; file: fixed_mod.py
+import string
+
+def palindrome (s):
+   if len(s) == 1 or s == "":
+      if len(s) == 1 and (s[0] in string.punctuation or s[0] in string.whitespace):
+            return True      
+      return s.isalpha()
+   elif len(s) == 2 and s[0]==s[-1]:
+      return True
+   elif s[0] in string.punctuation or s[0] in string.whitespace:
+      return palindrome(s[:-1])   
+   elif s[-1] in string.punctuation or s[-1] in string.whitespace:
+      return palindrome(s[:-1])
+   elif s[0].lower() == s[-1].lower():
+      return palindrome (s[1:-1])
+   else:
+      return False
+   
+#print(palindrome("I, ere I"))
+&gt;&gt;&gt;&gt; file: match.py
+
+
+def equals(word_one, word_two):
+        
+        if len(word_one) == 1 and len(word_one) == 1:
+                if word_one == word_two:
+                        return True
+                else:
+                        return False
+        elif word_one=="" and word_two == "":
+                return True
+        elif word_one=="" or word_two == "" :
+                return False
+        else:
+                return equals(word_one[1:],word_two[1:])
+
+
+
+def query(pattern, word):
+            
+        if len(pattern) == 1 and len(word) == 1:
+                if pattern =="?" and word.isalpha():
+                        return True
+        elif pattern == word:
+                return True
+        else:
+                return False
+
+        
+        elif len(pattern) != len(word):
+                return False
+        else:
+                return query(pattern[1:],word[1:])           
+
+#print(equals("", ""))&gt;&gt;&gt;&gt; file: match_mod.py
+
+import string
+
+def equals(word_one, word_two):
+        
+        if len(word_one) == 1 and len(word_two) == 1:
+                if word_one == word_two:
+                        return True
+                else:
+                        return False
+        elif word_one=="" and word_two == "":
+                return True
+        elif word_one=="" or word_two == "" :
+                return False
+        else:
+                return equals(word_one[1:],word_two[1:])
+def query(pattern, word):
+        
+        if pattern[0] == "?":
+                if   (len(pattern) == len(word)):
+                        return True 
+                else:
+                        return False
+        
+        elif  not (len(pattern) == len(word)):
+                        return False        
+        
+        elif len(pattern) == 1 and len(word) == 1:
+                if pattern==word:
+                        return True                
+                elif pattern =="?" and word.isalpha():
+                        return True
+                else:
+                        return False
+        elif pattern == word:
+                return True
+        else:
+                return query(pattern[1:],word[1:])        
+        
+                
+        #elif pattern == "" and word == "":
+            #return True
+        
+        #elif  not (len(pattern) == len(word)):
+                #return False
+        #else:
+                #return query(pattern[1:],word[1:])
+
+def match(pattern, word):    
+        #for word in word:
+            #print(word,end="")
+        if len(pattern) ==1 and (len(word)&gt;=1 or word==""):
+                return True
+        elif pattern[0] =="*":
+                return match(pattern[1:],word[1:])
+        
+            ##if pattern[-1]==word[-1] or pattern[-1]=="*":
+                ##pattern = match(pattern[:-1],word[:-1])
+            #if  pattern[-2]==word[-2] or pattern[-1]==word[-1] :
+                #return True
+            #else: return False
+        elif  pattern[-1] == "*":
+                pattern = pattern[0:-1]
+            #print(pattern[0:2],word.lower()[0:2])
+                if pattern.lower()[0:2] == word.lower()[0:2]:
+                        return True 
+                else: return False
+        elif pattern[0] == word[0]:
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match213-1.html#0" TARGET="1"><IMG SRC="../../bitmaps/tm_0_5.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+                return match(pattern[1:],word[1:])
+        elif pattern[0] == "?":
+                return match(pattern[1:],word[1:])        
+        else:
+                return False
+
+#print(match("?st*ngi?t", "astringint"))&gt;&gt;&gt;&gt; file: match_mod.py.py
+
+
+def equals(word_one, word_two):
+        
+        if len(word_one) == 1 and len(word_one) == 1:
+</FONT>                if word_one == word_two:
+                        return True
+                else:
+                        return False
+        elif word_one=="" and word_two == "":
+                return True
+        elif word_one=="" or word_two == "" :
+                return False
+        else:
+                return equals(word_one[1:],word_two[1:])
+def query(pattern, word):
+            
+        if len(pattern) == 1 and len(word) == 1:
+                if pattern =="?" and word.isalpha():
+                        return True
+        elif pattern == word:
+                return True
+        else:
+                return False
+                
+        #elif pattern == "" and word == "":
+            #return True
+        
+        elif len(pattern) != len(word):
+                return False
+        else:
+                return query(pattern[1:],word[1:])           
+
+print(equals("", ""))&gt;&gt;&gt;&gt; file: mongoose_mod.py
+
+
+def population(n):
+    if  int(n) &lt;=2:
+        return 2
+    else:
+        sum1 =  population(n-1) + n-1
+        if sum1%2!=0:
+            return sum1-1 
+        return sum1
+#print(population(5))
+        &gt;&gt;&gt;&gt; file: sum_mod.py
+
+
+def sum_to_n(n):
+    if n==0:
+        return 0
+    else:
+        return n + sum_to_n(n-1)
+    
+#print(sum_to_n(3))&gt;&gt;&gt;&gt; file: test_fixed_mod.py
+# Test palindrome mod
+import fixed_mod
+
+def main():
+    s = input('Enter s:\n')
+    print(fixed_mod.palindrome(s))
+    
+main()&gt;&gt;&gt;&gt; file: test_match.py
+# Test match
+import match_mod
+
+def main():
+    p = input('Enter pattern:\n')
+    w = input('Enter word:\n')
+    print(match_mod.query(p, w))
+    
+main()
+    &gt;&gt;&gt;&gt; file: test_mongoose_mod.py
+# test mongoose
+
+import mongoose_mod
+
+def main():
+    n = int(input('Enter n:\n'))
+    print(mongoose_mod.population(n))
+
+main()&gt;&gt;&gt;&gt; file: test_sum_mod.py
+# Test sum_mod
+import sum_mod
+
+def main():
+    n = int(input('Enter n:\n'))
+    print(sum_mod.sum_to_n(n))
+
+main()</PRE>
+</PRE>
+</BODY>
+</HTML>

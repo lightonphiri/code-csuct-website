@@ -1,0 +1,202 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial5/raw/sgwnka001/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial5/raw/vmxwon001/<p><PRE>
+&gt;&gt;&gt;&gt; file: calendar_utils.py
+
+
+def is_leap_year(year):
+    if year % 4 == 0:
+        if year % 100 != 0 or (year% 100==0 and year % 400 == 0):
+            return "True"
+    else:
+        return "False"
+#print(is_leap_year(2012))
+    
+def month_name(number):
+    if number == 1:
+        return "January"
+    elif number == 2:
+        return "February"
+    elif number == 3:
+        return "March"
+    elif number == 4:
+        return "April"
+    elif number == 5:
+        return "May"
+    elif number == 6:
+        return "June"
+    elif number == 7:
+        return "July"
+    elif number == 8:
+        return "August"
+    elif number == 9:
+        return "September"
+    elif number == 10:
+        return "October"
+    elif number == 11:
+        return "November"
+    else:
+        number == 12
+        return "December"
+    
+def days_in_month(month,year):
+    if month == 1:
+        return 31
+    if month == 2 and is_leap_year(year)=="True":
+        return 29
+    if month == 2 and not is_leap_year(year)=="True":
+        return 28
+    if month == 3:
+        return 31
+    elif month == 4:
+        return 30
+    elif month == 5:
+        return 31
+    elif month == 6:
+        return 30
+    elif month == 7:
+        return 31
+    elif month == 8:
+        return 31
+    elif month == 9:
+        return 30
+    elif month == 10:
+        return 31
+    elif month == 11:
+        return 30
+    else:
+        month == 12
+        return 31
+#print(days_in_month(2,2013))
+def first_day_of_year(year):
+    for year in range (year):
+        R1 = ((year-1)%400)
+        R2 = ((year-1)%100)
+        R3 = ((year-1)%4)     
+        day = ((1+5*R3+4*R2+6*R1)%7)
+          
+        if day == 0:
+            return 0
+        if day == 1:
+            return 1
+        if day == 2:
+            return 2
+        if day == 3:
+            return 3
+        if day == 4:
+            return 4
+        if day == 5:
+            return 5
+        if day == 6:
+            return 6    
+        
+def first_day_of_month(month_number,year):
+    if month_number == 1 or month_number == 2:
+        a = (2.6*month_number+10-0.2)
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match143-0.html#1" TARGET="0"><IMG SRC="../../bitmaps/tm_1_3.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+        b = (5*((year-1)%4))
+        c = (4*((year-1)%100))
+        d = (6*((year-1)%400))
+        e = a+b+c+d
+</FONT>        first_day = (1+e)%7
+        return first_day
+    else:
+        R1 = (2.6*month_number-2-0.2)
+        R2 = 5*((year%4))
+        R3 = 4*((year%100))
+        R4 = 6*((year%400))
+        R5 = (R1+R2+R3+R4)
+        first_day = (1+R5)%7
+        return first_day&gt;&gt;&gt;&gt; file: morse_code.py
+
+# Wrapper round time and winsound functions required for automarker.
+import time
+import winsound
+
+def sleep(duration):
+    time.sleep(duration)
+    
+def beep(frequency, duration):
+    winsound.Beep(frequency, duration)
+    
+alphabets = {'a':'.-','b':'-...','c':'-.-.','d':'-..','e':'.','f':'..-.','g':'--.','h':'....','i':'..','j':'.---','k':'-.-','l':'.-..','m':'--','n':'-.','o':'---','p':'.--.','q':'--.-','r':'.-.','s':'...','t':'-','u':'..-','v':'...-','w':'.--','x':'-..-','y':'-.--','z':'--..'}
+
+def code_for(letter):
+    return alphabets[letter.lower()]
+
+def transmit_letter(letter):
+    char = ''
+    for i in alphabets[letter]:
+        char+=i+'^'
+        charect =char[0:len(char)-1)
+    for t in char:
+        
+        if t ==".":
+            beep(1000,100)
+            sleep(0.1)
+            print(t,end="")
+    else:
+        beep(1000,100)
+        sleep(0.3)
+        print(t,end="") 
+    return char
+
+def transmit_word(word):
+    for n in word:
+        transmit_word(n)
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match143-0.html#0" TARGET="0"><IMG SRC="../../bitmaps/tm_0_4.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+        print('|',end ="")
+        
+def word_pause():
+    print('||',end="")&gt;&gt;&gt;&gt; file: technical_support.py
+# Tech Support
+# Stephan Jamieson
+# 5/1/2015
+responses={
+    'bluetooth':'Have you tried mouthwash?',
+    'windows':'Ah, I think I see your problem. What version?',
+    'apple':'You do mean the computer kind?',
+    'blue':'Ah, the blue screen of death. And then what happened?',
+    'spam':'You should see if your mail client can filter messages.',
+    'connection':'Contact Telkom.',
+    'crashed':'Are the drivers up to date?',
+    'hacked':'You should consider installing anti-virus software.'}
+
+
+def default_response():
+    return 'Curious, tell me more.'
+    
+def get_response(words):
+</FONT>    for word in words:
+        if word in responses:
+            return responses[word]
+    return default_response()
+    
+
+def print_welcome():
+    print('Welcome to the automated technical support system.')
+    print('Please describe your problem:')
+
+
+def get_input():
+    query = (input()).lower().split(' ')
+    return query
+
+def main():
+    print_welcome()
+    query = get_input()
+    while query!=['quit']:
+        response=get_response(query)
+        print(response)
+        query=get_input()
+        
+main()</PRE>
+</PRE>
+</BODY>
+</HTML>

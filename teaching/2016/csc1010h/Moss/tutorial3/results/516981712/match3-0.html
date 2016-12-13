@@ -1,0 +1,174 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial3/raw/dtwmbo001/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial3/raw/dtwmbo001/<p><PRE>
+&gt;&gt;&gt;&gt; file: TimeConvertor.py
+#Program that converts time
+#Mbongeni Dotwana
+#14 MAy 2016
+
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match3-1.html#1" TARGET="1"><IMG SRC="../../bitmaps/tm_1_7.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+time=str(input("Enter a time ([h]h:mm [am|pm]):\n"))
+
+if int(time[0:1])&lt;12 and str(time[0:2])!="00":
+    if str(time[0:2])=="01" and str(time[0:2])!="00":
+        print(time[1:5])
+    elif int(time[0:1])==1 and str(time[0:2])!="00":
+        print("0"+time)
+elif int(time[0:1])&lt;12 and int(time[0:1])!="00" and time[-2::1]=="pm":
+    if str(time[0:1])=="1":
+        print("13"+time[1:5]+time[-2::1])
+</FONT>    elif str(time[0:1])=="2":
+        print("14"+time[1:5]+time[-2::1])
+    elif str(time[0:1])=="3":
+        print("15"+time[1:5]+time[-2::1])
+    elif str(time[0:1])=="4":
+        print("16"+time[1:5]+time[-2::1])          
+    elif str(time[0:1])=="5":
+        print("17"+time[1:5]+time[-2::1])
+    elif str(time[0:1])=="6":
+        print("18"+time[1:5]+time[-2::1])              
+    elif str(time[0:1])=="7":
+        print("19"+time[1:5]+time[-2::1]) 
+    elif str(time[0:1])=="8":
+        print("20"+time[1:5]+time[-2::1])     
+    elif str(time[0:1])=="9":
+        print("21"+time[1:5]+time[-2::1])    
+    elif str(time[0:2])=="10":
+        print("22"+time[2:5]+time[-2::1])
+    elif str(time[0:2])=="11":
+<A NAME="2"></A><FONT color = #0000FF><A HREF="match3-1.html#2" TARGET="1"><IMG SRC="../../bitmaps/tm_2_4.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+        print("23"+time[2:5]+time[-2::1])
+    elif str(time[0:2])=="00":
+        print("12"+time[2:5]+"am")
+elif int(time[0:2])&gt;=12 and int(time[0:2])!=00 and time[-2::1]=="pm":
+    if str(time[0:2])=="12" and time[-2::1]=="pm":
+</FONT>        print("12"+time[2:5])
+    elif str(time[0:2])=="13" and time[-2::1]=="pm":
+        print("1"+n[2:5])        
+    elif str(time[0:2])=="14" and time[-2::1]=="pm":
+        print("2"+time[2:5])
+    elif str(time[0:2])=="15" and time[-2::1]=="pm":
+        print("3"+n[2:5])
+    elif str(time[0:2])=="16" and time[-2::1]=="pm":
+        print("4"+n[2:5]) 
+    elif str(time[0:2])=="17" and time[-2::1]=="pm":
+        print("5"+time[2:5])
+    elif str(time[0:2])=="18" and time[-2::1]=="pm":
+        print("6"+n[2:5])
+    elif str(n[0:2])=="19" and n[-2::1]=="pm":
+        print("7"+time[2:5])
+    elif str(time[0:2])=="20" and time[-2::1]=="pm":
+<A NAME="6"></A><FONT color = #00FF00><A HREF="match3-1.html#6" TARGET="1"><IMG SRC="../../bitmaps/tm_1_2.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+        print("8"+time[2:5])
+    elif str(time[0:2])=="21" and time[-2::-1]=="pm":
+        print("9"+time[2:5])
+    elif str(time[0:2])=="22" and time[-2::1]=="pm":
+</FONT>        print("10"+time[2:5])
+<A NAME="4"></A><FONT color = #FF00FF><A HREF="match3-1.html#4" TARGET="1"><IMG SRC="../../bitmaps/tm_4_3.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    elif str(time[0:2])=="23" and time[-2::1]=="pm":
+        print("11"+time[2:5])
+elif str(time[0:2])=="00":
+        print("12"+time[2:5]+" "+"am") 
+elif str(time[0:2])=="00":
+        print("12"+time[2:5]+"am")        
+</FONT> &gt;&gt;&gt;&gt; file: Twelve.py
+#Program for time 
+#Mbongeni Dotwana
+#14 May 2016
+
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match3-1.html#0" TARGET="1"><IMG SRC="../../bitmaps/tm_0_8.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+time=str(input("Enter a time in 12 hour clock ([h]h:mm [am|pm]):\n"))
+
+if int(time[0:1])&lt;12 and time[0:2]!="12" and time[-2::1]=="am":
+    print("0"+time[0:5])
+elif time[0:2]=="12" and time[-2::1]=="pm":
+    print(time[0:5])
+elif time[0:2]=="12" and time[-2::1]=="am":
+    print("00"+time[2:5])    
+elif str(time[0:1])=="1" and time[0:2]!="11" and time[-2::1]=="pm":
+    print("13"+time[1:5])
+elif str(time[0:1])=="2" and time[-2::1]=="pm":
+</FONT>    print("14"+Time[1:5])
+<A NAME="5"></A><FONT color = #FF0000><A HREF="match3-1.html#5" TARGET="1"><IMG SRC="../../bitmaps/tm_0_2.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+elif str(time[0:1])=="3" and time[-2::1]=="pm":
+    print("15"+time[1:5],"pm")
+elif str(time[0:1])=="4" and time[-2::1]=="pm":
+    print("16"+time[1:5])
+</FONT>elif str(time[0:1])=="5" and time[-2::1]=="pm":
+    print("17"+Time[1:5])
+elif str(time[0:1])=="6" and time[-2::1]=="pm":
+    print("18"+Time[1:5])
+elif str(time[0:1])=="7" and time[-2::1]=="pm":
+    print("19"+Time[1:5])
+elif str(time[0:1])=="8" and time[-2::1]=="pm":
+<A NAME="7"></A><FONT color = #0000FF><A HREF="match3-1.html#7" TARGET="1"><IMG SRC="../../bitmaps/tm_2_2.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    print("20"+time[1:5])
+elif str(time[0:1])=="9" and time[-2::-1]=="pm":
+    print("21"+Time[1:5])
+elif str(time[0:2])=="10" and time[-2::1]=="pm":
+</FONT>    print("22"+time[2:5])
+elif str(Time[0:2])=="11" and time[-2::1]=="pm":
+    print("23"+time[2:5])
+<A NAME="8"></A><FONT color = #00FFFF><A HREF="match3-1.html#8" TARGET="1"><IMG SRC="../../bitmaps/tm_3_1.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+elif str(time[0:2])=="12" and time[-2::1]=="am":
+    print("00"+Ttme[2:5])
+else:
+</FONT>    print("Make sure the time you have entered is valid")&gt;&gt;&gt;&gt; file: TwentyFour.py
+#Mbongeni Dotwana
+# Program to change time format from 24 hour to 12 hour
+#10 May 2016
+
+
+hourStr=str(input("Enter a time in 24 hour clock (hh:mm):\n")) 
+
+<A NAME="3"></A><FONT color = #00FFFF><A HREF="match3-1.html#3" TARGET="1"><IMG SRC="../../bitmaps/tm_3_3.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+if int(hourStr[0:2])&lt;12 and hourStr[0:2]!=00: 
+    print(hourStr[1:5:1],"am")
+elif int(hourStr[0:2])==12:
+    print(hourStr,"pm")
+elif int(hourStr[0:2])==13:
+    print("1"+hourStr[2:5],"pm")
+elif int(hourStr[0:2])==14:
+</FONT>    print("2"+hourStr[2:5],"pm")
+elif int(hourStr[0:2])==15:
+    print("3"+hourStr[2:5],"pm")
+elif int(hourStr[0:2])==16:
+    print("4"+hourStr[2:5],"pm")
+elif int(hourStr[0:2])==17:
+    print("5"+hourStr[2:5],"pm")
+elif int(hourStr[0:2])==18:
+    print("6"+hourStr[2:5],"pm")
+elif int(hourStr[0:2])==19:
+    print("7"+hourStr[2:5],"pm")
+elif int(hourStr[0:2])==20:
+    print("8"+hourStr[2:5],"pm")
+elif int(hourStr[0:2])==21:
+    print("9"+hourStr[2:5],"pm")
+elif int(hourStr[0:2])==22:
+    print("10"+hourStr[2:5],"pm")
+elif int(hourStr[0:2])==23:
+<A NAME="9"></A><FONT color = #FF00FF><A HREF="match3-1.html#9" TARGET="1"><IMG SRC="../../bitmaps/tm_4_1.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    print("11"+hourStr[2:5],"pm")
+elif int(hourStr[0:2])==00:
+    print("12"+hourStr[2:5],"am")
+else:
+    print("Make sure the time you have entered is valid")
+</FONT>    
+</PRE>
+</PRE>
+</BODY>
+</HTML>

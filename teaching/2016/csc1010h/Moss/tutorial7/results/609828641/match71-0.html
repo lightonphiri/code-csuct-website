@@ -1,0 +1,138 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial7/raw/kmltha009/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial7/raw/kmltha009/<p><PRE>
+&gt;&gt;&gt;&gt; file: book_cypher.py
+
+file_name=input("Enter the book filename: ""\n")
+file=open(file_name,"r")
+
+message=input("Enter the message:""\n")
+out=input("Enter the output filename\n")
+output=open(out,"w")
+print("BEGIN")
+output.write("BEGIN\n")
+n=0
+lines=[]
+positions=[]
+mes=message.split()
+for j in range(len(mes)):
+    l=0
+    final="initial"
+    file=open(file_name,"r")
+    for line in file:       
+        if final=="break":
+            break
+        a=line.split()
+        l+=1
+        for i in range(len(a)):
+            if a[i].lower().strip('?!.,;:)([]{}\'" \n')==mes[j].lower():
+                pos=a.index(a[i])+1
+                print(str(l)+"-"+str(pos))
+                output.write(str(l)+"-"+str(pos)+"\n")
+                final="break"
+                break
+    if final=="initial":
+        print(mes[j])
+        output.write(mes[j]+"\n")   
+print("END")
+output.write("END")   
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match71-1.html#1" TARGET="1"><IMG SRC="../../bitmaps/tm_1_5.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+file.close()
+output.close()
+
+
+
+&gt;&gt;&gt;&gt; file: leader_board.py
+# leader_board.py
+
+def process_line(line):
+    parts = line.split(' ')
+    name = parts[0]
+    trials = int(parts[1])
+    average = float(parts[2])
+</FONT>    return (name, trials, average)
+
+def get_max(entries):
+    max = entries[0]
+    for i in range(1, len(entries)):
+        if entries[i][2] &lt;max[2]:
+            max = entries[i]
+            
+    entries.remove(max)
+    return max
+
+def sort(entries):
+    sorted_entries = []
+    while len(entries)&gt;0:
+        sorted_entries.append(get_max(entries))
+    return sorted_entries
+
+def output(entries):
+    print('Subject        | Average Time')
+    print('************** | ************')
+    for entry in entries:
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match71-1.html#0" TARGET="1"><IMG SRC="../../bitmaps/tm_0_9.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+        print('{:14} | {:.6}'.format(entry[0], entry[2]))
+              
+    
+def main():
+    try:
+        file_name = input('Enter the name of the file:\n')
+        file_input = open(file_name, 'r')
+        
+        entries = []
+        for line in file_input:
+            entries.append(process_line(line))
+        file_input.close()
+        
+        entries = sort(entries)
+        output(entries)
+    except ValueError as er:
+</FONT>        print("line 6 ValueError")
+        print("trials = int(parts[1])")
+        print("An interger should be entered")
+    except IOError:
+        print("line 35 IOError")
+        print("file_input = open(file_name, 'r')")
+        print("filename.txt")
+    
+    &gt;&gt;&gt;&gt; file: reaction_test.py
+import time
+import random
+
+
+def main():
+    i=0
+    q=input("Enter the name of the output file:""\n")
+    f=open(q,"w")
+    while True:
+        sum_time=0
+        player_name=input("Enter subject name (or press 'enter' to quit):""\n")         
+        if player_name=="":
+            break
+        no_of_test=int(input("Enter the number of tests:"))       
+        for i in range(no_of_test):
+            print("Get ready...")
+            time.sleep(random.randint(1,5))
+            t_1=time.time()
+            push=input("Press 'enter' NOW!") 
+            t_2=time.time()
+            reac_time=t_2-t_1
+            print("Reaction time:",str(reac_time)[:8])
+            sum_time+=reac_time
+        ave=sum_time/no_of_test    
+        print("Test complete.")
+        print("Average reaction time:",str(ave).[:8])
+        f.write(player_name+" "+str(no_of_test)+" "+str(ave)[:8]+"\n")
+    f.close()
+
+main()   </PRE>
+</PRE>
+</BODY>
+</HTML>

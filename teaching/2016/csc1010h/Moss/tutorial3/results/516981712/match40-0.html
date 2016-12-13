@@ -1,0 +1,103 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial3/raw/admzai012/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial3/raw/admzai012/<p><PRE>
+&gt;&gt;&gt;&gt; file: TwentyFour.py
+# program to convert 24hr time 
+# zaida adams 
+# 16 may 2016 
+
+def main():
+    
+    time = input('Enter a time in 24 hour clock (hh:mm): \n')
+    timem = time[3:]
+    timeh = int(time[0:2])
+    
+    if timeh &gt; 12:
+        timeh = timeh-12
+        print(str(timeh)+':'+str(timem)+' '+'pm')
+        
+    elif 0&lt;timeh&lt;12:
+        print(str(time[1])+':'+str(timem)+' '+'am')
+    
+    elif timeh == 12:
+        print(str(timeh) + ':' + str(timem) + ' ' + 'pm')
+    
+<A NAME="2"></A><FONT color = #0000FF><A HREF="match40-1.html#2" TARGET="1"><IMG SRC="../../bitmaps/tm_2_11.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    elif timeh == 0:
+        print('12' + ':' + str(timem) + ' ' + 'am')    
+    
+    
+        
+    
+main()    &gt;&gt;&gt;&gt; file: VehicleClassifier.py
+# vehicle classifier 
+# zaida adams 
+# 16 may 2016 
+
+def main():
+    mass = int(input('What is the gross vehicle mass (in kg)? \n'))
+    trailer = input('Does the vehicle have a trailer? \n')
+    
+   
+    if mass &lt;= 3500:
+        if trailer == 'y':
+            trailer_mass = int(input('What is the gross vehicle mass of the trailer (in kg)? \n'))
+</FONT>            if trailer_mass &gt;= 750:
+                print('This vehicle class is EB.')
+            elif trailer_mass &lt; 750:
+                print('This vehicle is class B.')
+            
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match40-1.html#0" TARGET="1"><IMG SRC="../../bitmaps/tm_0_13.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+        elif trailer == 'n':
+            articulated = input('Is the vehicle articulated? \n')
+            if articulated == 'y':
+                print('This vehicle is class EB.')
+            elif articulated == 'n':
+                print('This vehicle is class B.')
+        
+    elif 3500&lt;mass&lt;=16000:
+        if trailer == 'y':
+            trailer_mass = int(input('What is the gross vehicle mass of the trailer (in kg)? \n'))
+</FONT>            if trailer_mass &gt;= 750:
+                print('This vehicle is class EC1.')
+            elif trailer_mass &lt; 750:
+                print('This vehicle is class C1.')
+                
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match40-1.html#1" TARGET="1"><IMG SRC="../../bitmaps/tm_1_13.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+        elif trailer == 'n':
+            articulated = input('Is the vehicle articulated? \n')
+            if articulated == 'y':
+                print('This vehicle is class EC1.')
+            elif articulated == 'n':
+                print('This vehicle is class C1.')
+        
+        
+        
+    elif mass&gt;16000:
+        if trailer == 'y':
+            trailer_mass = int(input('What is the gross vehicle mass of the trailer (in kg)? \n'))
+</FONT>            if trailer_mass &gt;=750:
+                print('This vehicle is class EC.')
+            elif trailer_mass &lt; 750:
+                print('This vehicle is class C.')
+        elif trailer == 'n':
+            articulated = input('Is the vehicle articulated? \n')
+            if articulated == 'y':
+                print('This vehicle is class EC.')
+            elif articulated == 'n':
+                print('This vehicle is class C.')
+             
+                
+    
+    
+main()</PRE>
+</PRE>
+</BODY>
+</HTML>

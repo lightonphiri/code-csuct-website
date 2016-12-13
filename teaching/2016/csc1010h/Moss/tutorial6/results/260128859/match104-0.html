@@ -1,0 +1,96 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial6/raw/jrvcra004/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial6/raw/jrvcra004/<p><PRE>
+&gt;&gt;&gt;&gt; file: fixed_mod.py
+# palindrome strings
+# Craig Jarvis
+# 26 August 2016
+
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match104-1.html#0" TARGET="1"><IMG SRC="../../bitmaps/tm_0_10.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+import string
+
+def palindrome (s):
+ if len(s) &lt;= 1: # debugged
+  return True # debugged
+ elif s[0] in string.punctuation or s[0] in string.whitespace:
+  return palindrome(s[:-1])
+</FONT> elif s[-1] in string.punctuation or s[-1] in string.whitespace:
+  return palindrome(s[:-1])
+ elif s[0].lower() == s[-1].lower():
+  return palindrome (s[1:-1])
+ else:
+  return False&gt;&gt;&gt;&gt; file: match_mod.py
+# matching words
+# Craig Jarvis
+# 26 August 2016
+
+def equals(word_one, word_two):
+    if len(word_one) == len(word_two):
+        while word_one != '' or word_two != '':
+            if word_one[0] == word_two[0]:
+                word_one = word_one[1:]
+                word_two = word_two[1:]
+            else:
+                return False
+        else:
+            return True
+    else:
+        return False
+
+
+def query(pattern, word):
+    if len(pattern) == len(word):
+        while pattern != '' or word != '':
+            if (pattern[0] == word[0]) or (pattern[0] == '?'):
+                pattern = pattern[1:]
+                word = word[1:]
+            else:
+                return False
+        else:
+            return True
+    else:
+        return False
+
+
+def match(pattern, word):
+    while pattern != '' or word != '':
+        if pattern[0] == word[0]:
+            pattern = pattern[1:]
+            word = word[1:]
+        elif pattern[0] == '*':
+            if pattern[1:] in word:
+                return True
+            else:
+                return False
+        else:
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match104-1.html#1" TARGET="1"><IMG SRC="../../bitmaps/tm_1_7.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+            return False
+    else:
+        return True&gt;&gt;&gt;&gt; file: mongoose_mod.py
+# calculating the amount of mongoose
+# Craig Jarvis
+# 18 August 2016
+
+def population(n):
+    if n &lt;= 2:
+        return 2
+    else:
+        return population(n-1) + population(n-2)&gt;&gt;&gt;&gt; file: sum_mod.py
+</FONT># summing to n
+# Craig Jarvis
+# 18 August 2016
+
+def sum_to_n(n):
+    if n == 0:
+        return 0
+    else:
+        return n + sum_to_n(n-1)</PRE>
+</PRE>
+</BODY>
+</HTML>

@@ -1,0 +1,137 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial4/raw/mtxeph002/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial4/raw/rvlmuk001/<p><PRE>
+&gt;&gt;&gt;&gt; file: NikNaks.py
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match167-0.html#0" TARGET="0"><IMG SRC="../../bitmaps/tm_0_2.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+import random
+
+print("Guess the mystery 4 letter code. (No letter occurs more than once.)")
+difficulty=int(input('Choose difficulty level (4 to 26):\n'))
+letters=list('abcdefghijklmnopqrstuvwxyz')[0: difficulty]
+
+print('The letters in the code are chosen from: {}.'.format(letters))
+secret_code=[]
+</FONT>for i in range(4):
+    rand_index= random.randint(0, len(letters)-1)
+    letter=letters.pop(rand_index)
+    secret_code.append(letter)
+code = secret_code[0]
+code1 = secret_code[1]
+code2 = secret_code[2]
+code3 = secret_code[3]
+final = code + code1 + code2 + code3
+
+# To check things are working, uncomment this print line to see the# code that has been created. 
+n = 11
+while True:
+    n -=1
+    if n == 0:
+        print("Sorry, you lose")
+        print("The secret number was " + str(final))
+        break
+    print("You have " + str(n) + " guesses remaining.")
+    guess = input("Enter your guess:\n")
+    
+    if secret_code[0] == guess[0] and secret_code[1] == guess[1] and secret_code[2] == guess[2] and secret_code[3] == guess[3]:
+        print("Correct!")
+        break
+    
+    elif secret_code[0] == guess[0] and secret_code[1] != guess[1] and secret_code[2] != guess[2] and secret_code[3] != guess[3]:
+        print("There is 1 Nik and 3 Naks.")
+    
+    elif secret_code[0] != guess[0] and secret_code[1] == guess[1] and secret_code[2] != guess[2] and secret_code[3] != guess[3]:
+        print("There is 1 Nik and 3 Naks.")
+    
+    elif secret_code[0] != guess[0] and secret_code[1] != guess[1] and secret_code[2] == guess[2] and secret_code[3] != guess[3]:
+        print("There is 1 Nik and 3 Naks.")
+    elif secret_code[0] != guess[0] and secret_code[1] != guess[1] and secret_code[2] != guess[2] and secret_code[3] == guess[3]:
+        print("You have 1 Nik and 3 Naks.")
+     
+           
+    elif secret_code[0] == guess[0] and secret_code[1] == guess[1] and secret_code[2] != guess[2] and secret_code[3] != guess[3]:
+        print("There are 2 Niks and 2 Naks.")
+    
+    elif secret_code[0] == guess[0] and secret_code[1] != guess[1] and secret_code[2] == guess[2] and secret_code[3] != guess[3]:
+        print("There are 2 Niks and 2 Naks.")
+        
+    elif secret_code[0] == guess[0] and secret_code[1] != guess[1] and secret_code[2] != guess[2] and secret_code[3] == guess[3]:
+        print("There are 2 Niks and 2 Naks.")
+    
+    
+    elif secret_code[0] != guess[0] and secret_code[1] == guess[1] and secret_code[2] == guess[2] and secret_code[3] != guess[3]:
+        print("You have 2 Niks and 2 Naks.")
+        
+    elif secret_code[0] != guess[0] and secret_code[1] == guess[1] and secret_code[2] != guess[2] and secret_code[3] == guess[3]:
+        print("There are 2 Niks and 2 Naks.")
+    
+        
+    elif secret_code[0] != guess[0] and secret_code[1] != guess[1] and secret_code[2] == guess[2] and secret_code[3] == guess[3]:
+        print("There are 2 Niks and 2 Naks.")
+    
+        
+    elif secret_code[0] == guess[0] and secret_code[1] == guess[1] and secret_code[2] == guess[2] and secret_code[3] != guess[3]:
+        print("There are 3 Niks and 1 Naks.")
+
+    elif secret_code[0] == guess[0] and secret_code[1] == guess[1] and secret_code[2] != guess[2] and secret_code[3] == guess[3]:
+        print("There are 3 Niks and 1 Naks.")
+
+
+    elif secret_code[0] != guess[0] and secret_code[1] == guess[1] and secret_code[2] == guess[2] and secret_code[3] == guess[3]:
+        print("There are 3 Niks and 1 Naks.")
+
+    elif secret_code[0] != guess[0] and secret_code[1] != guess[1] and secret_code[2] != guess[2] and secret_code[3] != guess[3]:
+        print("There is 0 Niks and 4 Naks.")&gt;&gt;&gt;&gt; file: PythonTurtleStars.py
+import turtle 
+
+
+
+turtle.left(90)
+turtle.forward(100)
+turtle.right(90)
+turtle.fd(100)
+turtle.home()
+turtle.right(90)
+turtle.fd(100)
+turtle.left(90)
+turtle.fd(100)
+turtle.bgcolor("red")
+spiral = turtle.Turtle()
+turtle.pencolor("yellow")
+for i in range(20):
+    spiral.forward(i * 10)
+    spiral.right(144)
+    
+
+painter = turtle.Turtle()
+
+painter.pencolor("blue")
+for i in range(50):
+    painter.forward(50)
+    painter.left(123) 
+    
+painter.pencolor("cyan")
+for i in range(50):
+    painter.forward(100)
+    painter.left(123)
+
+painter.pencolor("blue")
+for i in range(50):
+    painter.forward(50)
+    painter.right(123) 
+    
+painter.pencolor("yellow")
+for i in range(50):
+    painter.forward(100)
+    painter.right(123)
+        
+
+    
+turtle.done()</PRE>
+</PRE>
+</BODY>
+</HTML>

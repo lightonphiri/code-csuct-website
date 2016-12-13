@@ -1,0 +1,168 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial5/raw/dynsak002/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial5/raw/jrvcra004/<p><PRE>
+&gt;&gt;&gt;&gt; file: calendar_utils.py
+# Creating calender utils module
+# Craig Jarvis
+# 7 August 2016
+
+def is_leap_year(year):
+    if year % 4 == 0 and year %100 != 0 or year % 400 == 0:    
+        return True
+    else:
+        return False
+
+def days_in_month(month_number, year):
+    if month_number == 1 or month_number == 3 or month_number == 5 or month_number == 7 or month_number == 8 or month_number == 10 or month_number == 12:
+        return 31
+    elif month_number == 2:
+        if is_leap_year(year):
+            return 29
+        else:
+            return 28
+    else:
+        return 30
+        
+def month_name(number):
+    month = {1:"January", 2:"February", 3:"March", 4:"April", 5:"May", 6:"June", 7:"July", 8:"August", 9:"September", 10:"October", 11:"November", 12:"December"}
+    return month[number]
+
+def first_day_of_year(year):
+    return (1 + 5*((year-1)%4) + 4*((year-1)%100) + 6*((year-1)%400))%7
+
+def first_day_of_month(month_number, year):
+    first_day = (1 + 5*((year-1)%4) + 4*((year-1)%100) + 6*((year-1)%400))
+
+    if is_leap_year(year):
+        if month_number == 1: return first_day
+        elif month_number == 2: return (first_day+31)%7        
+        elif month_number == 3: return (first_day+60)%7
+        elif month_number == 4: return (first_day+91)%7
+        elif month_number == 5: return (first_day+121)%7
+        elif month_number == 6: return (first_day+152)%7
+        elif month_number == 7: return (first_day+182)%7
+        elif month_number == 8: return (first_day+213)%7
+        elif month_number == 9: return (first_day+244)%7
+        elif month_number == 10: return (first_day+274)%7
+        elif month_number == 11: return (first_day+305)%7
+        elif month_number == 12: return (first_day+335)%7
+    
+    else:
+        if month_number == 1: return first_day
+        elif month_number == 2: return (first_day+31)%7        
+        elif month_number == 3: return (first_day+59)%7
+        elif month_number == 4: return (first_day+90)%7
+        elif month_number == 5: return (first_day+120)%7
+        elif month_number == 6: return (first_day+151)%7
+        elif month_number == 7: return (first_day+181)%7
+        elif month_number == 8: return (first_day+212)%7
+        elif month_number == 9: return (first_day+243)%7
+        elif month_number == 10: return (first_day+273)%7
+        elif month_number == 11: return (first_day+304)%7
+        elif month_number == 12: return (first_day+334)%7&gt;&gt;&gt;&gt; file: morse_code.py
+# Creating morse code module
+# Craig Jarvis
+# 7 August 2016
+
+#import time
+#import winsound
+
+def sleep(duration):
+    time.sleep(duration)
+    
+def beep(frequency, duration):
+    winsound.Beep(frequency, duration)
+
+def code_for(letter):
+    lower = {'a':'.-','b':'-...','c':'-.-.','d':'-..','e':'.','f':'..-.','g':'--.','h':'....','i':'..','j':'.---','k':'-.-','l':'.-..','m':'--','n':'-.','o':'---','p':'.--.','q':'--.-','r':'.-.','s':'...','t':'-','u':'..-','v':'...-','w':'.--','x':'-..-','y':'-.--','z':'--..'}
+    upper = {'A':'.-','B':'-...','C':'-.-.','D':'-..','E':'.','F':'..-.','G':'--.','H':'....','I':'..','J':'.---','K':'-.-','L':'.-..','M':'--','N':'-.','O':'---','P':'.--.','Q':'--.-','R':'.-.','S':'...','T':'-','U':'..-','V':'...-','W':'.--','X':'-..-','Y':'-.--','Z':'--..'}
+    
+    if letter.islower(): return lower[letter]
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match90-0.html#1" TARGET="0"><IMG SRC="../../bitmaps/tm_1_5.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    else: return upper[letter]
+
+def transmit_letter(letter):
+    code = code_for(letter)
+    string = ''
+    control = 1
+
+    for i in code:
+        if control == 1: string += i
+        else: string += "^" + i
+        control += 1
+</FONT>
+    print(string)
+    return string
+
+def transmit_word(word):
+    user_word = word.lower()
+    control = 0
+    string = ""
+    
+    for i in user_word:
+        if control == 1: string = string + (transmit_letter(i))
+        else: string = string + ("|" + transmit_letter(i))
+    
+    print(string)
+
+def word_pause():
+    print('||')
+&gt;&gt;&gt;&gt; file: technical_support.py
+# Tech Support
+# Stephan Jamieson
+# 5/1/2015
+responses={
+    'bluetooth':'Have you tried mouthwash?',
+    'windows':'Ah, I think I see your problem. What version?',
+    'apple':'You do mean the computer kind?',
+    'blue':'Ah, the blue screen of death. And then what happened?',
+    'spam':'You should see if your mail client can filter messages.',
+    'connection':'Contact Telkom.',
+    'crashed':'Are the drivers up to date?',
+    'hacked':'You should consider installing anti-virus software.'}
+
+
+def default_response():
+    return 'Curious, tell me more.'
+    
+def get_response(words):# debugged
+    for word in words:
+        if word.lower() in responses: #debugged
+            return responses[word.lower()] # debugged
+    return default_response()
+    
+
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match90-0.html#0" TARGET="0"><IMG SRC="../../bitmaps/tm_0_5.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+def print_welcome():
+    print('Welcome to the automated technical support system.')
+    print('Please describe your problem:')
+
+
+def get_input():
+    query = input().lower().split(' ')
+    return query
+
+def main():
+    print_welcome()
+    
+    while True:
+        query = get_input()
+        if query == ['quit']:
+            break# debugged
+        else:   
+            response=get_response(query)
+</FONT>            print(response)
+        #query=get_input() # debugged
+        
+        
+if __name__ == "__main__":
+    main()</PRE>
+</PRE>
+</BODY>
+</HTML>

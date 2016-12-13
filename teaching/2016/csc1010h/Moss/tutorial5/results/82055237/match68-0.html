@@ -1,0 +1,171 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial5/raw/nksbon015/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial5/raw/nksbon015/<p><PRE>
+&gt;&gt;&gt;&gt; file: calendar_utils.py
+
+def is_leap_year(year):
+    #for current year
+    
+    #year=int(input(''))
+    k= year-1
+    R1= k%4
+    R2= k%100
+    R3= k%400
+    n= 1+5*R1+4*R2+6*R3
+    day= n%7
+    #print(day)
+    
+    #for previous year
+    g= year
+    R4= g%4
+    R5= g%100
+    R6= g%400
+    j=1+5*R4+4*R5+6*R6
+    day0=j%7
+    #print(day0)
+    if day0-day==1 or day0-day==-6:
+        return False
+    else:
+        return True
+if __name__=="__is_leap_year__":
+    is_leap_year()
+#print(is_leap_year(2015))
+
+
+def month_name(number):
+    months={1:'January',2:'February',3:'March',4:'April',5:'May',6:'June',7:'July',8:'August',9:'September',10:'October',11:'November',12:'December'}
+    #number= int(input(''))
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match68-1.html#1" TARGET="1"><IMG SRC="../../bitmaps/tm_1_4.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    month=months[number]
+    return month
+if __name__=="__month_name__":
+    month_name()    
+    
+def days_in_month(month_number, year):
+    number= month_name(month_number)
+    type_of_year= is_leap_year(year)
+    if number== 'January' or number== 'March' or number== 'May' or number=='July' or number== 'August' or number== 'October' or number=='December':
+</FONT>        return 31
+    elif number== 'April' or number== 'June' or number=='September' or number=='November':
+        return 30
+    elif number== 'February' and is_leap_year(year)==True:
+        return 29
+    elif number== 'February' and is_leap_year(year)==False:
+        return 28
+if __name__=="__days_in_month__":
+    days_in_month()    
+
+def first_day_of_year(year):
+    k= year-1
+    R1= k%4
+    R2= k%100
+    R3= k%400
+    n= 1+5*R1+4*R2+6*R3
+    day= n%7
+    return day
+if __name__=="__first_day_of_year__":
+    first_day_of_year()    
+
+def first_day_of_month(month_number,year):
+    month0= month_name(month_number)
+     
+    
+    year_type= is_leap_year(year)
+    day1= first_day_of_year(year)
+    if ((month0=='February' or month0=='March' or month0=='November') and year_type==False) or ((month0=='February' or month0=='August') and year_type==True):
+<A NAME="2"></A><FONT color = #0000FF><A HREF="match68-1.html#2" TARGET="1"><IMG SRC="../../bitmaps/tm_2_4.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+        if day1==0 or day1==1 or day1==2 or day1==3:
+            return day1+3
+        else:
+            return day1-4
+</FONT>    elif ((month0=='April' or month0=='July') and year_type==False) or ((month0=='September' or month0=='December') and year_type==True):
+        if day1==0:
+            return day1+6
+        else:
+            return day1-1
+    elif (month0=='May' and year_type==False) or (month0=='October' and year_type==True):
+        if day1==6:
+            return day1-6
+        else:
+            return day1+1
+    elif (month0=='June' and year_type==False) or ((month0=='March' or month0=='November') and year_type==True):
+        if day1==0 or day1==1 or day1==2:
+            return day1+4
+        else:
+            return day1-3
+    elif (month0=='August' and year_type==False) or (month0=='May' and year_type==True):
+        if day1==5 or day1==6:
+            return day1-5
+        else:
+            return day1+2
+    elif ((month0=='September' or month0=='December') and year_type==False) or (month0=='June' and year_type==True):
+        if day1== 0 or day1==1:
+            return day1+5
+        else:
+            return day1-2
+    elif ((month0=='January' or month0=='October') and year_type== False) or ((month0=='January' or month0=='April' or month0=='July') and year_type==True):
+        return day1
+if __name__=="__first_day_of_month__":
+    first_day_of_month()                 
+
+
+&gt;&gt;&gt;&gt; file: technical_support.py
+# Tech Support
+# Stephan Jamieson
+# 5/1/2015
+responses={
+    'bluetooth':'Have you tried mouthwash?',
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match68-1.html#0" TARGET="1"><IMG SRC="../../bitmaps/tm_0_9.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    'windows':'Ah, I think I see your problem. What version?',
+    'apple':'You do mean the computer kind?',
+    'blue':'Ah, the blue screen of death. And then what happened?',
+    'spam':'You should see if your mail client can filter messages.',
+    'connection':'Contact Telkom.',
+    'crashed':'Are the drivers up to date?',
+    'hacked':'You should consider installing anti-virus software.'}
+
+
+def default_response():
+    return 'Curious, tell me more.'
+    
+def get_response(words):
+    for word in words:
+        if not word in responses:
+            return default_response()
+    return responses[word]
+    
+
+def print_welcome():
+    print('Welcome to the automated technical support system.')
+    print('Please describe your problem:')
+
+
+def get_input():
+    query = input().split(' ')
+    query=query[-1]
+</FONT>    query=query.lower()
+    
+    return query
+
+def main():
+    print_welcome()
+    query = get_input()
+    while query!='quit':
+        
+        response=get_response([query])
+        print(response)
+        query = get_input()
+
+        
+        
+main()    </PRE>
+</PRE>
+</BODY>
+</HTML>

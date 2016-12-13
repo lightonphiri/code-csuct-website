@@ -1,0 +1,166 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial5/raw/kknnok001/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial5/raw/ndlzuz002/<p><PRE>
+&gt;&gt;&gt;&gt; file: calendar_utils.py
+import math
+#year =eval(input("Enter the first year:\n"))
+#year2 =eval(input("Enter the second year:\n"))
+
+   
+def is_leap_year(year):
+    import calendar
+    calendar.isleap(year)
+    if calendar.isleap(year):
+        return True
+   
+    
+def month_name(number):
+    month=['none','January','February','March','April','May','June','July','August','September','October','November','December']
+    x=month[number]
+    return x
+    
+def days_in_month(month_number,year):
+    import calendar
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match47-0.html#1" TARGET="0"><IMG SRC="../../bitmaps/tm_1_8.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    if month_number in  [1,3,5,7,8,10,12]:
+        day=31
+        return day
+    elif month_number in  [4,6,9,11]:
+        day=30
+        return day
+    elif month_number in [2] and calendar.isleap(year):
+</FONT><A NAME="0"></A><FONT color = #FF0000><A HREF="match47-0.html#0" TARGET="0"><IMG SRC="../../bitmaps/tm_0_23.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+        day=29
+        return day
+    else:
+        day=28
+        return day
+def first_day_of_year(year):     
+    a = (year)
+    b = (1%12)
+    c = 1+5*b*((a-1)%4)
+    x = 4*b*((a-1)%100)
+    y = 6*b*((a-1)%400)
+    ans = round((c+x+y)%7)
+    return ans 
+
+def first_day_of_month(month_number, year):
+    total=0
+   
+
+    for i in range(1,month_number):
+        total+=days_in_month(i,year)
+    first_day=(total+first_day_of_year(year))%7 
+    return first_day
+            
+#print(first_day_of_month(month_number,year))   &gt;&gt;&gt;&gt; file: morse_code.py
+def code_for(letter):
+    letters=list('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ')
+</FONT>    a=letters[:len(letters)//2]
+    b=letters[len(letters)//2:]
+    code=['.-','-...','-.-.','-..','.','..-.','--.','....','..','.---','-.-','.-..','--','-.','---','.--.','--.-','.-.','...','-','..-','...-','.--','-..-','-.--','--..']
+    
+  
+    if letter in a:
+        position = a.index(letter)
+        element=code[position]
+        return element
+    elif letter in b:
+        position = b.index(letter)
+        element=code[position]
+        return element        
+#print(code_for('b'))
+
+def trans(letter):
+    x=code_for(letter)
+    y=x.replace("","^")[1:-1]
+    return y
+    
+   
+
+def transmit_word(word):
+    count=0
+    for k in word:
+        
+        if count==0:
+            z = trans(k)
+        else:
+            z+="|" + trans(k)
+        count+=1
+    return print(z,end='')
+def transmit_letter(letter):
+<A NAME="2"></A><FONT color = #0000FF><A HREF="match47-0.html#2" TARGET="0"><IMG SRC="../../bitmaps/tm_2_6.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    return print(trans(letter),end='')
+      
+def word_pause():
+    import time
+    #import winsound
+    frequency=1000
+    duration=2
+    def sleep(duration):
+        time.sleep(duration)
+        
+    #def beep(frequency, duration):
+        #winsound.Beep(frequency, duration) 
+    #beep(frequency, duration)
+    sleep(duration)
+    return print('||',end='')
+&gt;&gt;&gt;&gt; file: technical_support.py
+# Tech Support
+# Stephan Jamieson
+# 5/1/2015
+
+responses={'bluetooth':'Have you tried mouthwash?',
+</FONT>'windows':'Ah, I think I see your problem. What version?',
+'apple':'You do mean the computer kind?',
+'blue':'Ah, the blue screen of death. And then what happened?',
+'spam':'You should see if your mail client can filter messages.',
+'connection':'Contact Telkom.',
+'crashed':'Are the drivers up to date?',
+'hacked':'You should consider installing anti-virus software.'}
+def get_input():
+    ques = input().lower().split(' ')
+    return ques
+
+
+def default_response():
+    return 'Curious, tell me more.'
+    
+def get_response(ques):
+    for word in ques:
+        if word in responses:
+            return responses[word]
+    return default_response()
+    
+
+def print_welcome():
+    print('Welcome to the automated technical support system.')
+    print('Please describe your problem:')
+
+
+
+
+def main():
+    print_welcome()
+    query=get_input()
+    while query != ['quit']:
+        print('',end='')
+        response=get_response(query)
+        print(response)
+        query=get_input()
+       
+    
+  
+    
+    
+main()</PRE>
+</PRE>
+</BODY>
+</HTML>

@@ -1,0 +1,338 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial3/raw/mdnyan002/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial3/raw/ngcnox005/<p><PRE>
+&gt;&gt;&gt;&gt; file: FeetMetres.py
+# Program that converts feets to metres
+# Wendy Ngcobo
+# 10 April 2016
+
+<A NAME="4"></A><FONT color = #FF00FF><A HREF="match9-0.html#4" TARGET="0"><IMG SRC="../../bitmaps/tm_4_2.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+def main():
+    # variables that store user's input,minimum number not less than 0 and max number not greater than 99
+    min_num=int(input('Enter the minimum number of feet (not less than 0):\n')) 
+    max_num=int(input('Enter the maximum number of feet (not more than 99):\n'))
+    for i in range(min_num,max_num+1): # loop over the numbers between minimum and maximum
+        metres=i*0.3048 # converts meters from feets
+</FONT>        print('{0:&gt;4}\' |{1:7.2f}m'.format(i,metres)) # display output
+    print()        
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match9-0.html#0" TARGET="0"><IMG SRC="../../bitmaps/tm_0_3.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+main()        
+        &gt;&gt;&gt;&gt; file: FlowerPattern.py
+# Program that draws a flower
+# Wendy Ngcobo
+# 10 April 2016
+
+from turtle import *
+
+def main():
+    # variables tom store user's input ,stem colour,two different petal colour,stem size and the petal sizes
+    petal_num=int(input('Enter the number of petals (must be an even number): '))
+    len_stem=int(input('Enter the length of stem: '))
+    petal_type=input('Enter the petal type (triangle, square, pentagon): ')
+    len_side=int(input('Enter the length of side: '))
+    stem_colour=input('Enter the stem colour: ')
+    first_colour=input('Enter the first petal colour: ')
+    scnd_colour=input('Enter the second petal colour: ')
+    
+    # check which shape the user's enters than display the required output
+    if petal_type=='triangle':
+</FONT>        angle_stem=0         # initialize the angle used to turn the turtle to draw another petal
+        posi=360/ petal_num  # full rotation of the turtle
+        speed(0) # speed of the turtle
+      
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match9-0.html#1" TARGET="0"><IMG SRC="../../bitmaps/tm_1_3.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+        for i in range( petal_num):   # loop of over each petal drawn for triangles
+            
+            pencolor(stem_colour)
+            forward(len_stem)
+            if i%2==0:                # check the position of the turtle to change colour of each petal as it rotates
+                pencolor(first_colour)
+            else:
+                pencolor(scnd_colour)
+            left(30)                  #turn the turtle with half the angle inside the shape
+            # movement of the turtle ,same sides and angles substrated from the inner angle using the str line method
+            forward(len_side)
+            right(120)
+            foward(len_side)
+            right(120)                 
+            foward(len_side)
+            penup()
+</FONT>            home()
+            pendown()
+            angle_stem+=posi # increament the angle of rotation each time
+            right(angle_stem)
+        exitonclick()   # close the window
+        
+       # check which shape the user's enters than display the required output   
+    elif petal_type=='square':
+        angle_stem=0       # initialize the angle used to turn the turtle to draw another petal
+        posi=360/ petal_num  # full rotation of the turtle
+        speed(0)   # speed of the turtle
+              
+<A NAME="2"></A><FONT color = #0000FF><A HREF="match9-0.html#2" TARGET="0"><IMG SRC="../../bitmaps/tm_2_3.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+        for i in range( petal_num): # loop of over each petal drawn for squares
+            pencolor(stem_colour)
+            forward(len_stem)
+            if i%2==0:            # check the position of the turtle to change colour of each petal as it rotates
+                pencolor(first_colour)
+            else:
+                pencolor(scnd_colour)
+            left(45)              #turn the turtle with half the angle inside the shape
+            # movement of the turtle ,same sides and angles substrated from the inner angle using the str line method
+            forward(len_side)
+            right(90)
+            forward(len_side)
+            right(90)
+            forward(len_side)
+            right(90)
+</FONT>            forward(len_side)
+            penup()
+            home()
+            pendown()
+            angle_stem+=posi# increament the angle of rotation each time
+            right(angle_stem)
+        exitonclick() # close the window
+    elif petal_type=='pentagon':
+        angle_stem=0    # initialize the angle used to turn the turtle to draw another petal
+        posi=360/ petal_num # full rotation of the turtle
+        speed(0)         # speed of the turtle 
+        
+<A NAME="3"></A><FONT color = #00FFFF><A HREF="match9-0.html#3" TARGET="0"><IMG SRC="../../bitmaps/tm_3_3.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+        for i in range( petal_num): # loop of over each petal drawn for pentagons
+            pencolor(stem_colour)
+            forward(len_stem)
+            if i%2==0:       # check the position of the turtle to change colour of each petal as it rotates
+                pencolor(first_colour)
+            else:
+                pencolor(scnd_colour)
+            left(54)          #turn the turtle with half the angle inside the shape
+            # movement of the turtle ,same sides and angles substrated from the inner angle using the str line method
+            forward(len_side)
+            right(72)
+            forward(len_side)
+            right(72)
+            forward(len_side)
+            right(72)
+</FONT>            forward(len_side)
+            right(72)
+            forward(len_side)
+            penup()
+            home()
+            pendown()
+            angle_stem+=posi # increament the angle of rotation each time
+            right(angle_stem)            
+        exitonclick()     # close the window              
+main()            
+            
+        
+    &gt;&gt;&gt;&gt; file: InchesMetres.py
+# Program that converts inches to metres
+# Wendy Ngcobo
+# 10 April 2016
+
+def main():
+    # variables that store user's input,minimum number not less than 0 and max number not greater than 11
+    min_num=int(input('Enter the minimum number of inches (not less than 0):\n'))
+    max_num=int(input('Enter the maximum number of inches (not greater than 11):\n'))
+    # empty strings 
+    metres=''  
+    inches=''
+    for i in range(min_num,max_num+1):  # loop over the numbers between minimum and maximum
+        metres_num=i*0.0254   # converts meters from inches
+        # aligning inches and meters with caption
+        inches=inches+'{0:4}{1:&lt;1}'.format(i,' ') 
+        metres=metres+'{0:1.2f}{1}'.format(metres_num,' ')
+    print('Inches:',inches) # display output
+    print('Metres:',metres)
+    print()
+main()        
+        
+&gt;&gt;&gt;&gt; file: TimeConvertor.py
+# Program that converts times expressed in 24 hour to 12 hour clock
+# Wendy Ngcobo
+# 10 April 2016
+def main(): # prompts then user to enter time
+        time_hour=input('Enter a time ([h]h:mm [am|pm]):\n')
+        
+        if len(time_hour)==5: # check the length of the string entered by the user
+                time_hour2=int(time_hour[0:2])
+                if 0&lt;time_hour2&lt;12:           # check time intervals if they fulfill them condition or not
+                        time=time_hour2
+                        print('{0} am'.format(str(time)+time_hour[2:5])) # display output
+                elif 12&lt;time_hour2&lt;24:     # check time intervals if they fulfill them condition or not
+                        time=time_hour2-12
+                        print('{0} pm'.format(str(time)+time_hour[2:5]))
+                elif time_hour2==0:    # check time intervals if they fulfill them condition or not
+                        time=time_hour2+12
+                        print('{0} am'.format(str(time)+time_hour[2:5]))
+                elif time_hour2==12:     # check time intervals if they fulfill them condition or not
+                        time=time_hour2
+                        print('{0} pm'.format(str(time)+time_hour[2:5])) 
+                
+                if len(time_hour)==8:
+                        time_hour2=int(time_hour[0:2])
+                            
+                elif len(time_hour)==7:
+                        time_hour2=int(time_hour[0])
+                        # if the the conditions above were not met check the alternative conditions
+        else:
+                    
+                if len(time_hour)==8:  # check the length of the string entered by the user
+                        time_hour2=int(time_hour[0:2])
+                    
+                elif len(time_hour)==7:# check the length of the string entered by the user
+                        time_hour2=int(time_hour[0])
+                    
+                if time_hour[-2:]=="am":  # check if it is am then display output
+                        if 0&lt;time_hour2&lt;10:
+                                time=time_hour2
+                                print('{0}'.format('0'+str(time)+':'+time_hour[2:5]))  # display output
+                        elif 10&lt;=time_hour2&lt;12:
+                                time=time_hour2
+                                print('{0}'.format(str(time)+time_hour[2:5]))
+                        elif time_hour2==12:
+                                time=time_hour2
+                                print('00{0}'.format(time_hour[2:5]))        
+                          
+                elif time_hour[-2:]=="pm": # check if it is pm then display output
+                        if 0&lt;time_hour2&lt;10:
+                                time=time_hour2+12
+                                print('{0}'.format(str(time)+':'+time_hour[2:5]))
+                        elif 10&lt;=time_hour2&lt;12:
+                                time=time_hour2+12
+                                print('{0}'.format(str(time)+time_hour[2:5]))
+                        elif time_hour2==12:
+                                time=time_hour2
+                                print('12{0}'.format(time_hour[2:5]))  
+main()        &gt;&gt;&gt;&gt; file: Twelve.py
+# Program that converts times expressed in 24 hour to 12 hour clock
+# Wendy Ngcobo
+# 10 April 2016
+
+def main():
+     # prompts then user to enter time
+    time_hour=input('Enter a time in 12 hour clock ([h]h:mm [am|pm]):\n')
+    if len(time_hour)==8: # check the length of the string entered by the user
+        time_hour2=int(time_hour[0:2])
+        
+    elif len(time_hour)==7:
+        time_hour2=int(time_hour[0])
+        
+    if time_hour[-2:]=="am":  # check if it is am then display output
+        if 0&lt;time_hour2&lt;10: # check time intervals if they fulfill them condition or not
+            time=time_hour2
+            print('{0}'.format('0'+str(time)+':'+time_hour[2:5]))
+        elif 10&lt;=time_hour2&lt;12: # check time intervals if they fulfill them condition or not
+            time=time_hour2
+            print('{0}'.format(str(time)+time_hour[2:5]))
+        elif time_hour2==12: # check time intervals if they fulfill them condition or not
+            time=time_hour2
+            print('00{0}'.format(time_hour[2:5]))        
+              
+    elif time_hour[-2:]=="pm":  # check if it is pm then display output
+        if 0&lt;time_hour2&lt;10: # check time intervals if they fulfill them condition or not
+            time=time_hour2+12
+            print('{0}'.format(str(time)+':'+time_hour[2:5]))
+        elif 10&lt;=time_hour2&lt;12: # check time intervals if they fulfill them condition or not
+            time=time_hour2+12
+            print('{0}'.format(str(time)+time_hour[2:5]))
+        elif time_hour2==12: # check time intervals if they fulfill them condition or not
+            time=time_hour2
+            print('12{0}'.format(time_hour[2:5]))              
+         
+           # if the numbers are not in range then display error 
+    else:
+        print('Number out of range') 
+main()        
+     
+    
+    
+    &gt;&gt;&gt;&gt; file: TwentyFour.py
+# Program that converts times expressed in 24 hour to 12 hour clock
+# Wendy Ngcobo
+# 10 April 2016
+
+def main():
+    # prompts then user to enter time
+    time_hour=input('Enter a time in 24 hour clock (hh:mm):\n')
+    time_hour2=int(time_hour[0:2]) # cast the first two position of time entered to integer
+    if 0&lt;time_hour2&lt;12: # check time intervals if they fulfill them condition or not
+        time=time_hour2
+        print('{0} am'.format(str(time)+time_hour[2:5]))
+    elif 12&lt;time_hour2&lt;24: # check time intervals if they fulfill them condition or not
+        time=time_hour2-12
+        print('{0} pm'.format(str(time)+time_hour[2:5]))
+    elif time_hour2==0: # check time intervals if they fulfill them condition or not
+        time=time_hour2+12
+        print('{0} am'.format(str(time)+time_hour[2:5]))
+    elif time_hour2==12: # check time intervals if they fulfill them condition or not
+        time=time_hour2
+        print('{0} pm'.format(str(time)+time_hour[2:5])) 
+       
+        
+    else:
+        print('Number out of range')
+main()        
+    
+    
+    
+    
+    &gt;&gt;&gt;&gt; file: VehicleClassifier.py
+# Program that calculates the class to which the vehicle belong
+# Wendy Ngcobo
+# 10 April 2016
+
+def main(): 
+    # variables that store user's input
+    gross_vehicle_mass=int(input('What is the gross vehicle mass (in kg)?\n'))
+    vehicle_trailer=input('Does the vehicle have a trailer?\n')
+    if vehicle_trailer=='y': # check the condition of the trailer
+        trailer_mass=int(input('What is gross vehicle mass of the trailer (in kg)?\n'))  # if the condition is fullfilled then prompt the user
+        # check if the conditions are met then dislpay output
+        if trailer_mass&gt;750 and 0&lt;gross_vehicle_mass&lt;=3500:
+            print('This vehicle is class EB.')
+        elif trailer_mass&gt;750 and 3500&lt;gross_vehicle_mass&lt;=16000:
+            print('This vehicle is class EC1.')
+        elif trailer_mass&gt;750 and 16000&lt;gross_vehicle_mass:
+            print('This vehicle is class EC.')
+        elif trailer_mass&lt;=750 and 0&lt;gross_vehicle_mass&lt;=3500:
+            print('This vehicle is class B.')
+        elif trailer_mass&lt;=750 and 3500&lt;gross_vehicle_mass&lt;=16000:
+            print('This vehicle is class C1.')
+        elif trailer_mass&lt;=750 and 16000&lt;gross_vehicle_mass:
+            print('This vehicle is class C.')            
+        
+      # if the above comditions are not met check the following conditions then display output 
+      
+    elif vehicle_trailer=='n': # check the condition of the trailer
+        articulated_vec=input('Is the vehicle articulated?\n') # if the condition is fullfilled then prompt the user
+     # check if the conditions are met then dislpay output   
+        if articulated_vec=='y' and 0&lt;gross_vehicle_mass&lt;=3500:
+            print('This vehicle is class EB.')
+        elif articulated_vec=='y' and 3500&lt;gross_vehicle_mass&lt;=16000:
+            print('This vehicle is class EC1.')
+        elif articulated_vec=='y'and 16000&lt;gross_vehicle_mass:
+            print('This vehicle is class EC.')
+        elif articulated_vec=='n' and 0&lt;gross_vehicle_mass&lt;=3500:
+            print('This vehicle is class B.')
+        elif articulated_vec=='n' and 3500&lt;gross_vehicle_mass&lt;=16000:
+            print('This vehicle is class C1.')
+        elif articulated_vec=='n'and 16000&lt;gross_vehicle_mass:
+            print('This vehicle is class C.')        
+    else:
+        print('Invalid answer!') # if all conditions are not met print error message
+            
+main()                
+        </PRE>
+</PRE>
+</BODY>
+</HTML>

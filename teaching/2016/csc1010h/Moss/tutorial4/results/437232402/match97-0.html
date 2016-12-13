@@ -1,0 +1,151 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial4/raw/jcblau010/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial4/raw/jcblau010/<p><PRE>
+&gt;&gt;&gt;&gt; file: LongJump.py
+# Laurine Jacobs
+# Long Jump
+#30 July 2016
+
+
+print('***** Long Jump Information System *****')
+print('Please enter the names of competitors. (Press enter when done.)')
+competitors=[]
+n=1
+
+while True:
+    c=input('Competitor no. {}:\n'.format(n))
+    n+=1
+    if len(c)&gt;2:
+        competitors.append(c)
+    else:
+        break
+
+distance={}
+print('Please enter the distances for each competitor.')
+for com in competitors:
+    print('Competitor {}:'.format(com))
+    a=input('Attempt 1:\n')
+    b=input('Attempt 2:\n')
+    c=input('Attempt 3:\n')
+    distance={}
+    if b&gt;a and b&gt;c:
+        distance=b
+    elif a&gt;b and a&gt;c:
+        distance=a
+    elif c&gt;b and c&gt;a:
+        distance=c
+    else:
+        distance="foul"
+    
+    m='Competitor'
+    z='Longest Distance'
+    print('\n{0:20}{1:&lt;20}'.format(m,z))
+    print('{0:20}{1:&lt;20}'.format(competitors[0],distance)) 
+    
+print('\nThe winner is {} with a jump of {}'.format(competitors[0],distance))
+
+
+                
+
+
+
+    
+
+    
+    
+    
+    &gt;&gt;&gt;&gt; file: NikNaks.py
+#Laurine Jacobs
+#Nik&naks
+#30 July 2016
+
+import random
+
+print('Guess the mystery 4 letter code. (No letter occurs more than once.)')
+difficulty=int(input('Choose difficulty level (4 to 26):\n'))     
+letters=list('abcdefghijklmnopqrstuvwxyz')[0: difficulty]     
+print('The letters in the code are chosen from: {}.'.format(letters))     
+secret_code=[]     
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match97-1.html#0" TARGET="1"><IMG SRC="../../bitmaps/tm_0_7.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+for i in range(4):         
+    rand_index=random.randint(0, len(letters)-1)         
+    letter=letters.pop(rand_index)         
+    secret_code.append(letter) 
+    
+nik=0
+nak=0
+for g in range(10,0,-1):
+</FONT>    print('You have {} guesses remaining.'.format(g))
+    guess=input('Enter your guess:\n')
+    for n in range(4):
+        if guess[n]==secret_code[n]:
+            nik+=1
+        else:
+            continue
+    for k in range(4-nik):
+        for l in guess:
+            if l==secret_code[k]:
+                nak+=1
+            else:
+                continue
+    
+    if nik==4:
+        print('Correct!')
+    else:
+        print('There are {} Niks and {} Naks.'.format(nik,nak))
+    nik=0
+    nak=0
+        
+            
+    
+&gt;&gt;&gt;&gt; file: Turtle_Ring.py
+#Laurine Jacobs
+#Super_turtle
+#30 July 2016
+
+import turtle
+
+turtle.begin_fill()
+turtle.color('red')
+turtle.left(45)
+turtle.forward(200)
+turtle.right(90)
+turtle.forward(50)
+turtle.right(45)
+turtle.forward(200)
+turtle.right(45)
+turtle.forward(50)
+turtle.right(90)
+turtle.forward(200)
+turtle.end_fill()
+turtle.penup()
+turtle.home()
+
+turtle.width(5)
+turtle.color('black')
+turtle.left(90)
+turtle.pendown()
+turtle.circle(120,360)
+turtle.penup()
+turtle.home()
+turtle.forward(10)
+turtle.left(90)
+turtle.pendown()
+turtle.circle(130,360)
+turtle.home()
+turtle.color('green')
+turtle.turtlesize(4)
+turtle.penup()
+turtle.forward(100)
+turtle.pendown()
+turtle.stamp()
+
+turtle.exitonclick()</PRE>
+</PRE>
+</BODY>
+</HTML>

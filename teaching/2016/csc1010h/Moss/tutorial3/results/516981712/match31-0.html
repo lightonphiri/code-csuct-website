@@ -1,0 +1,479 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial3/raw/frnrif001/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial3/raw/frnrif001/<p><PRE>
+&gt;&gt;&gt;&gt; file: FeetMetres.py
+# Program to convert feet to metres
+# Rifqah Francis
+# 6 May 2016
+
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match31-1.html#0" TARGET="1"><IMG SRC="../../bitmaps/tm_0_1.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+def main():
+    # prompt user, enter minimum  feet
+    minimum_feet=int(input("Enter the minimum number of feet (not less than 0):\n"))
+    
+    # prompt user, enter maximum feet
+    maximum_feet=int(input("Enter the maximum number of feet (not more than 99):\n"))
+    
+    # convert feet to metres
+    for i in range (minimum_feet,maximum_feet+1):
+        metres=i/3.289
+        
+    # display result
+        print("{0:4}' |{1:7.2f}m".format(i,metres))
+</FONT>    
+main()&gt;&gt;&gt;&gt; file: FlowerPattern.py
+# Rifqah Francis
+# 6 May 2016
+
+def main():
+        import turtle
+            
+        number_of_petals=turtle.numinput('Number of petals', 'Enter the number of petals (must be an even number):')
+        length_of_stem=turtle.numinput('Length of stem', 'Enter the length of the stem:')
+        petal_type=turtle.textinput('Petal type', 'Enter the petal type (triangle, square, or pentagon):')
+        length_of_side=turtle.numinput('Length of side', 'Enter the length of side:')
+        stem_colour=turtle.textinput('Stem colour', 'Enter the stem colour:')
+        first_petal_colour=turtle.textinput('First petal colour', 'Enter the first petal colour:')
+        second_petal_colour=turtle.textinput('Second petal colour', 'Enter the second petal colour:')
+        
+        if petal_type=='triangle':
+                number_of_petals/=2
+                for i in range(number_of_petals):
+                        turtle.pencolor(stem_colour)
+                        turtle.forward(length_of_stem)
+                        for triangle in range(3):
+                                turtle.pencolor(first_petal_colour)
+                                turtle.right(120)
+                        turtle.right(30)
+                        turtle.forward(length_of_stem)
+                        continue
+                for f in range(number_of_petals):
+                        turtle.pencolor(stem_colour)
+                        turtle.forward(length_of_stem)
+                        for triangle in range(3):
+                                turtle.pencolor(second_petal_colour)
+                                turtle.right(120)
+                        turtle.right(60)
+                        turtle.forward(length_of_stem)
+                        break       
+        elif petal_type=='square':
+                number_of_petals/=2
+                for i in range(number_of_petals):
+                        turtle.pencolor(stem_colour)
+                        turtle.forward(length_of_stem)
+                        for square in range(4):
+                                turtle.pencolor(first_petal_color)
+                                turtle.right(270)
+                        turtle.right(90)
+                        turtle.forward(length_of_stem)
+                        continue
+                for f in range(number_of_petals):
+                        turtle.pencolor(stem_colour)
+                        turtle.forward(length_of_stem)
+                        for square in range(4):
+                                turtle.pencolor(first_petal_color)
+                                turtle.right(270)
+                        turtle.right(90)
+                        turtle.forward(length_of_stem)
+                        break
+        elif petal_type=='pentagon':
+                number_of_petals/=2
+                for i in range(number_of_petals):
+                        turtle.pencolor(stem_colour)
+                        turtle.forward(length_of_stem)
+                        for square in range(5):
+                                turtle.pencolor(first_petal_color)
+                                turtle.right(72)
+                        turtle.right(108)
+                        turtle.forward(length_of_stem)
+                        continue
+                for f in range(number_of_petals):
+                        turtle.pencolor(stem_colour)
+                        turtle.forward(length_of_stem)
+                        for square in range(5):
+                                turtle.pencolor(first_petal_color)
+                                turtle.right(72)
+                        turtle.right(108)
+                        turtle.forward(length_of_stem)
+                        break
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match31-1.html#1" TARGET="1"><IMG SRC="../../bitmaps/tm_1_1.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+main()&gt;&gt;&gt;&gt; file: InchesMetres.py
+# Program to convert inches to metres
+# Rifqah Francis
+# 6 May 2016
+
+def main():
+    # prompt user, minimum inches
+    minimum_inches=int(input("Enter the minimum number of inches (not less than 0):\n"))
+    
+    # prompt user, maximum inches
+    maximum_inches=int(input("Enter the maximum number of inches (not greater than 11):\n"))
+    
+    # convert to metres
+    print("Inches:", end='')
+    for i in range(minimum_inches,maximum_inches+1):
+</FONT>        print("{0:5}".format(i), end='')
+        continue
+    print("\nMetres:", end='')
+    for i in range(minimum_inches,maximum_inches+1):
+        metres=i/39.3701
+        print("{0:5.2f}".format(metres), end='')
+    
+main()&gt;&gt;&gt;&gt; file: TimeConvertor.py
+# Program to convert time 
+# Rifqah Francis
+# 14 May 2016
+
+def main():
+    time=input("Enter a time ([h]h:mm [am|pm]):\n")
+    
+    length=len(time)
+    
+    if time.endswith('m'):
+        if length==7:
+            hours=time[0:1]
+<A NAME="2"></A><FONT color = #0000FF><A HREF="match31-1.html#2" TARGET="1"><IMG SRC="../../bitmaps/tm_2_1.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+            minutes=time[2:4]
+            morning_afternoon=time[5:7]
+            
+            if morning_afternoon=='am':
+                if hours=='1' :
+</FONT>                    hours='01'
+                elif hours=='2':
+                    hours='02'
+                elif hours=='3':
+                    hours='03'
+                elif hours=='4':
+                    hours='04'
+                elif hours=='5':
+                    hours='05'
+                elif hours=='6':
+                    hours='06'
+                elif hours=='7':
+                    hours='07'
+                elif hours=='8':
+                    hours='08'
+                elif hours=='9':
+                    hours='09'
+                print(hours+':'+minutes)
+            elif morning_afternoon=='pm':
+                if hours=='1':
+                    hours='13'
+                elif hours=='2':
+                    hours='14'
+                elif hours=='3':
+                    hours='15'
+                elif hours=='4':
+                    hours='16'
+                elif hours=='5':
+                    hours='17'
+                elif hours=='6':
+                    hours='18'
+                elif hours=='7':
+                    hours='19'
+                elif hours=='8':
+                    hours='20'
+                elif hours=='9':
+                    hours='21'
+                print(hours+':'+minutes)
+        
+        else:
+            hours=time[0:2]
+            minutes=time[3:5]
+            morning_afternoon=time[6:8]
+    
+            if hours=='10' and morning_afternoon=='am':
+                hours='10'
+            elif hours=='11' and morning_afternoon=='am':
+                hours='11'        
+            elif hours=='10' and morning_afternoon=='pm':
+                hours='22'
+            elif hours=='11' and morning_afternoon=='pm':
+                hours='23'
+            elif hours=='12' and morning_afternoon=='am':
+                hours='00'
+            elif hours=='12' and morning_afternoon=='pm':
+                hours='12'
+                
+            print(hours+':'+minutes)
+    else:
+        hours=time[0:2]
+        minutes=time[3:5]
+        if '00'&lt;hours&lt;'12':
+            if hours=='01':
+                hours='1'
+            elif hours=='02':
+                hours='2'
+            elif hours=='03':
+                hours='3'
+            elif hours=='04':
+                hours='4'
+            elif hours=='05':
+                hours='5'
+            elif hours=='06':
+                hours='6'
+            elif hours=='07':
+                hours='7'
+            elif hours=='08':
+                hours='8'
+            elif hours=='09':
+                hours='9'
+            elif hours=='10':
+                hours='10'
+            elif hours=='11':
+                hours='11'
+            print(hours+':'+minutes+' am')
+        elif '12'&lt;hours&lt;='23':
+            if hours=='13':
+                hours=1
+            elif hours=='14':
+                hour=2
+            elif hours=='15':
+                hours=3
+            elif hours=='16':
+                hours=4
+            elif hours=='17':
+                hours=5
+            elif hours=='18':
+                hours=6
+            elif hours=='19':
+                hours=7
+            elif hours=='20':
+                hours=8
+            elif hours=='21':
+                hours=9
+            elif hours=='22':
+                hours=10
+            elif hours=='23':
+                hours=11            
+            print(hours+':'+minutes+' am')
+        elif '12'&lt;hours&lt;='23':
+            if hours=='13':
+                hours=1
+            elif hours=='14':
+                hour=2
+            elif hours=='15':
+                hours=3
+            elif hours=='16':
+                hours=4
+            elif hours=='17':
+                hours=5
+            elif hours=='18':
+                hours=6
+            elif hours=='19':
+                hours=7
+            elif hours=='20':
+                hours=8
+            elif hours=='21':
+                hours=9
+            elif hours=='22':
+                hours=10
+            elif hours=='23':
+                hours=11
+            print(str(hours)+':'+minutes+' pm')
+        elif hours=='00':
+            print("12:"+minutes+' am')
+        else:
+            print("12:"+minutes+' pm')
+main()&gt;&gt;&gt;&gt; file: Twelve.py
+# Program to convert 12 hour time to 24 hour time
+# Rifqah Francis
+# 12 May 2016
+
+def main():
+    # prompt user, enter 12 hour time
+    time=input("Enter a time in 12 hour clock ([h]h:mm [am|pm]):\n")
+    
+    # convert to 24 hour time 
+    length=len(time)
+
+    if length==7:
+        hours=time[0:1]
+<A NAME="3"></A><FONT color = #00FFFF><A HREF="match31-1.html#3" TARGET="1"><IMG SRC="../../bitmaps/tm_3_1.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+        minutes=time[2:4]
+        morning_afternoon=time[5:7]
+        
+        if morning_afternoon=='am':
+            if hours=='1' :
+</FONT>                hours='01'
+            elif hours=='2':
+                hours='02'
+            elif hours=='3':
+                hours='03'
+            elif hours=='4':
+                hours='04'
+            elif hours=='5':
+                hours='05'
+            elif hours=='6':
+                hours='06'
+            elif hours=='7':
+                hours='07'
+            elif hours=='8':
+                hours='08'
+            elif hours=='9':
+                hours='09'
+            print(hours+':'+minutes)
+        elif morning_afternoon=='pm':
+            if hours=='1':
+                hours='13'
+            elif hours=='2':
+                hours='14'
+            elif hours=='3':
+                hours='15'
+            elif hours=='4':
+                hours='16'
+            elif hours=='5':
+                hours='17'
+            elif hours=='6':
+                hours='18'
+            elif hours=='7':
+                hours='19'
+            elif hours=='8':
+                hours='20'
+            elif hours=='9':
+                hours='21'
+            print(hours+':'+minutes)
+    
+    else:
+        hours=time[0:2]
+        minutes=time[3:5]
+        morning_afternoon=time[6:8]
+
+        if hours=='10' and morning_afternoon=='am':
+            hours='10'
+        elif hours=='11' and morning_afternoon=='am':
+            hours='11'        
+        elif hours=='10' and morning_afternoon=='pm':
+            hours='22'
+        elif hours=='11' and morning_afternoon=='pm':
+            hours='23'
+        elif hours=='12' and morning_afternoon=='am':
+            hours='00'
+        elif hours=='12' and morning_afternoon=='pm':
+            hours='12'
+            
+        print(hours+':'+minutes)
+            
+    
+    
+    
+main()&gt;&gt;&gt;&gt; file: TwentyFour.py
+# Program to convert 24 hour time to 12 hour time
+# Rifqah Francis
+# 11 May 2016
+
+def main():
+    time=input("Enter a time in 24 hour clock (hh:mm):\n")
+    hours=time[0:2]
+    minutes=time[3:5]
+    if '00'&lt;hours&lt;'12':
+        if hours=='01':
+            hours='1'
+        elif hours=='02':
+            hours='2'
+        elif hours=='03':
+            hours='3'
+        elif hours=='04':
+            hours='4'
+        elif hours=='05':
+            hours='5'
+        elif hours=='06':
+            hours='6'
+        elif hours=='07':
+            hours='7'
+        elif hours=='08':
+            hours='8'
+        elif hours=='09':
+            hours='9'
+        elif hours=='10':
+            hours='10'
+        elif hours=='11':
+            hours='11'
+        print(hours+':'+minutes+' am')
+    elif '12'&lt;hours&lt;='23':
+        if hours=='13':
+            hours=1
+        elif hours=='14':
+            hour=2
+        elif hours=='15':
+            hours=3
+        elif hours=='16':
+            hours=4
+        elif hours=='17':
+            hours=5
+        elif hours=='18':
+            hours=6
+        elif hours=='19':
+            hours=7
+        elif hours=='20':
+            hours=8
+        elif hours=='21':
+            hours=9
+        elif hours=='22':
+            hours=10
+        elif hours=='23':
+            hours=11
+        print(str(hours)+':'+minutes+' pm')
+    elif hours=='00':
+        print("12:"+minutes+' am')
+    else:
+        print("12:"+minutes+' pm')
+main()
+&gt;&gt;&gt;&gt; file: VehicleClassifier.py
+# Program to work out the class of a vehicle
+# Rifqah Francis
+# 5 May 2016
+
+def main():
+    
+    # prompt user, enter GVM
+    vehicle_gvm=int(input("What is the gross vehicle mass (in kg)?\n"))
+    
+    # prompt user, does it have trailer
+    trailer=input("Does the vehicle have a trailer?\n")
+    if trailer=='y':
+        # prompt user, enter GVM of trailer
+        trailer_gvm=int(input("What is gross vehicle mass of the trailer (in kg)?\n"))
+        if vehicle_gvm&lt;=3500 and trailer_gvm&gt;750:
+            print("This vehicle is class EB.")
+        elif 3500&lt;vehicle_gvm&lt;=16000 and trailer_gvm&gt;750:
+            print("This vehicle is class EC1.")
+        elif vehicle_gvm&gt;16000 and trailer_gvm&gt;750:
+            print("This vehicle is class EC.")
+        elif vehicle_gvm&lt;=3500 and trailer_gvm&lt;=750:
+            print("This vehicle is class B.")
+        elif 3500&lt;vehicle_gvm&lt;=16000 and trailer_gvm&lt;=750:
+            print("This vehicle is class C1.")
+        elif vehicle_gvm&gt;16000 and trailer_gvm&lt;=750:
+            print("This vehicle is class C.")
+            
+    elif trailer=='n':
+        # prompt user, is vehicle articulated
+        articulated=input("Is the vehicle articulated?\n")
+        if articulated=='y':
+            if vehicle_gvm&lt;=3500:
+                print("This vehicle is class EB.")
+            elif 3500&lt;vehicle_gvm&lt;=16000:
+                print("This vehicle is class EC1.")
+            else:
+                print("This vehicle is class EC.")
+        else:
+            if vehicle_gvm&lt;=3500:
+                print("This vehicle is class B.")
+            elif 3500&lt;vehicle_gvm&lt;=16000:
+                print("This vehicle is class C1.")
+            else:
+                print("This vehicle is class C.")            
+            
+main()</PRE>
+</PRE>
+</BODY>
+</HTML>

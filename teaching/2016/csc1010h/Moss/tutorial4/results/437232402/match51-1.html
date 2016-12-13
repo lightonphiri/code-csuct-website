@@ -1,0 +1,134 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial4/raw/dynsak002/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial4/raw/sgnnte001/<p><PRE>
+&gt;&gt;&gt;&gt; file: LongJump.py
+print("***** Long Jump Information System *****")
+print("Please enter the names of competitors. (Press return when done.)")
+Person = 0
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match51-0.html#0" TARGET="0"><IMG SRC="../../bitmaps/tm_0_6.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+name_list = []
+max_dist = {}
+while True:
+    Person +=1
+    no1 = input("Competitor no. " + str(Person) + ":\n")
+    if no1 == "" : break
+    name_list.append(no1)
+</FONT>
+print("Please enter the distances for each competitor.")
+n=Person-1
+#for i in range(n):
+x=0
+distance= []
+longest_distances=[]
+while x &lt; n:
+    print("Competitor " + name_list[x] + ":")
+    att1 = input("Attempt 1:\n")
+    if att1[0].isnumeric():
+        att1=float(att1)
+        distance.append(att1)
+    #else:
+        #att1 = "No Jump"
+        
+    att2 = input("Attempt 2:\n")
+    if att2[0].isnumeric():
+        att2=float(att2)
+        distance.append(att2)
+    #else:
+       #att2 = "No Jump"
+    
+        
+    att3 = input("Attempt 3:\n")
+    if att3[0].isnumeric():
+        att3=float(att3)
+        distance.append(att3)
+    #else:
+        #att3= "No Jump"
+    
+    if len(distance)==0:
+        length = "No jump"
+        max_dist[name_list[x]]=length
+    else:
+        max_length=max(distance)
+        max_dist[name_list[x]]=max_length
+        longest_distances.append(max_length)
+        
+        
+    #j=max(distance)
+    #max_dist[name_list[x]] = j
+    #print(j)
+    x+=1
+    #print(distance)
+    distance= []
+#print(max_dist)
+#print(longest_distances)
+winner=str(max(longest_distances))
+
+#print(n)
+comp= "Competitor"
+Longest= "Longest Distance"
+print()
+print('{0:25}{1:&lt;25}'.format(comp, Longest))
+for name in name_list:
+    row1=max_dist[name]
+    if row1=="No jump":
+        print('{0:25}{1:&lt;25}'.format(name,row1))
+    else:
+        print('{0:25}{1:&lt;25.2f}'.format(name,row1))
+    
+for winner1, value in max_dist.items():   
+    if str(value) == winner:
+        #print(winner1)
+        break
+    
+x="james"    
+print()
+winner=float(winner)
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match51-0.html#1" TARGET="0"><IMG SRC="../../bitmaps/tm_1_5.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+print("The winner is {0} with a jump of {1:.2f}.".format(winner1, winner))
+&gt;&gt;&gt;&gt; file: NikNaks.py
+import random
+def main():
+    print("Guess the mystery 4 letter code. (No letter occurs more than once.)")
+    difficulty=int(input('Choose difficulty level (4 to 26):\n'))
+    letters=list('abcdefghijklmnopqrstuvwxyz')[0: difficulty]
+    print('The letters in the code are chosen from: {}.'.format(letters))
+</FONT>    secret_code=[]
+    for i in range(4):
+        rand_index=random.randint(0, len(letters)-1)
+        letter=letters.pop(rand_index)
+        secret_code.append(letter)
+    count = 10
+    
+    while True:
+        print("You have {} guesses remaining.".format(count))
+        guess = input("Enter your guess:\n")
+        guess = list(guess)
+        if guess == secret_code:
+            print("Correct!")
+            break
+        else :
+            if count != 0:
+                nik = 0
+                nak = 0            
+                for letter in guess:
+                    if letter in secret_code and guess.index(letter) == secret_code.index(letter) :
+                        nik += 1
+                    elif letter in secret_code:
+                        nak += 1
+                count -=1
+                print("There are {} Niks and {} Naks".format(nik,nak))
+            else: break
+
+
+if __name__ == '__main__':
+    main()
+</PRE>
+</PRE>
+</BODY>
+</HTML>

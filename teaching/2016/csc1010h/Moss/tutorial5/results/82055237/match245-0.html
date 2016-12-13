@@ -1,0 +1,137 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial5/raw/gbxtoh001/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial5/raw/gbxtoh001/<p><PRE>
+&gt;&gt;&gt;&gt; file: calutils.py
+# Printing a calendar
+# Tohfah Gaibie
+# GBXTOH001
+
+
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match245-1.html#0" TARGET="1"><IMG SRC="../../bitmaps/tm_0_9.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+def is_leap_year(year):
+    if year%400 == 0:
+        return True
+    elif year%100 == 0:
+        return False
+    elif year%4 == 0:
+        return True
+    else:
+        return False
+
+def month_name(number):
+</FONT>    months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+    return months[number-1]
+
+def days_in_month(monthNumber, year):
+    num = 31
+    if(monthNumber == 2 and is_leap_year(year)):
+        num = 29
+    elif(monthNumber == 2 and not is_leap_year(year)):
+        num = 28
+    elif(monthNumber == 4 or monthNumber ==  6 or monthNumber == 9 or monthNumber == 11):
+        num = 30
+    return num
+
+
+
+
+
+def first_day_of_year(year):
+    year_1 = year
+    year_2 = year
+    
+    for year in range(year1, year2 + 1):
+        a = year-1
+        b = year-1
+        c = year-1
+        
+        a %= 4
+        b %= 100
+        c %= 400
+    
+        a*=5
+        b*=4
+        c*=6
+        
+        day = 1+a+b+c
+        day%=7
+        
+        
+        return day 
+    
+def first_day_of_month(monthNumber, year):
+    yearOne = firstDayOfYear(year)
+    numDays = 0
+    month = 1
+    
+    while(month &lt; monthNumber):
+        numdays = numdays + daysInMonth(month,year)
+        month+=1
+    numDays+=1 
+    
+    count = yearOne
+    for j in range(1, numDays):
+        count+=1
+        if(count == 7):
+            count = 0
+    
+    return "{0}".format(count)
+&gt;&gt;&gt;&gt; file: technical_support.py
+# Technical Support Debugging
+# GBXTOH001
+# Tohfah Gaibie
+# 9 August 2016
+
+import random
+def print_welcome():
+    print('Welcome to the automated technical support system.')
+    print('Please describe your problem:')
+
+def get_input():
+    return input().lower()
+
+
+def main():
+
+    print_welcome()    
+    query = get_input()
+    responses = ['Have you tried mouthwash?','Ah, I think I see your problem. What version?','You do mean the computer kind?','Ah, the blue screen of death. And then what happened?','You should see if your mail client can filter messages.','Contact Telkom.','Are the drivers up to date?','You should consider installing anti-virus software.']
+    
+    while (not query=='quit'):
+        string = query.split()
+        if "connection" in string:
+            print(responses[5])
+        elif "spam" in string:
+            print(responses[4])
+        elif "apple" in string:
+            print(responses[2])
+        elif "windows" in string:
+            print(responses[1])
+        elif "bluetooth" in string:
+            print(responses[0])
+        elif "hacked" in string:
+            print(responses[7]) 
+        elif "blue" in string:
+            print(responses[3])            
+        elif "crashed" in string:
+            print(responses[6])
+        
+        else:
+            print('Curious, tell me more.')
+            
+            
+            
+        query = get_input()    
+    
+    
+if __name__=='__main__':
+    main()
+</PRE>
+</PRE>
+</BODY>
+</HTML>

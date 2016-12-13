@@ -1,0 +1,64 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial6/raw/ndlkos002/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial6/raw/vmxwon001/<p><PRE>
+&gt;&gt;&gt;&gt; file: match_mod.py
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match161-0.html#1" TARGET="0"><IMG SRC="../../bitmaps/tm_1_9.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+def equals(word_one,word_two):
+    if word_one == '' and word_two == '':
+        return True
+    elif len(word_one) != len(word_two):
+        return False
+    elif word_one[0] == word_two[0]:
+</FONT>        return equals(word_one[1:],word_two[1:])
+    else:
+        return False
+    
+def query(pattern,word):
+    if len(pattern) == len(word) or len(pattern) ==  0  and len(word) == 0 :
+        return True
+    elif pattern[0] == word[0]:
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match161-0.html#0" TARGET="0"><IMG SRC="../../bitmaps/tm_0_9.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+        return query(pattern[1:], word[1:])
+    else:
+        return False
+def match(pattern,word):
+    if pattern == '*' and word == '':
+        return True
+    elif pattern[0] == '?' and word != '':
+</FONT>        if pattern[1] == word[0]:
+            return match(pattern[1:],word[1:])
+        else:
+            return True
+    elif pattern == '*' and word != '':
+        return True
+    elif pattern[0] == '*':
+        if pattern[-1] == word[-1]:
+            return match(pattern[:-1],word[:-1])
+        else:
+            return match(pattern[1:],word[1:])       
+    elif pattern[0] != '*' or pattern[-1] != '*':
+        if pattern[0] == word[0]:
+            return match(pattern[1:],word[1:])  
+        else:
+            return False
+    else:
+        return False 
+    
+&gt;&gt;&gt;&gt; file: sum_mod.py
+def sum_to_n(n):
+    if n==0:
+        return 0
+    elif n &gt; 0:
+        return n + sum_to_n(n-1)
+    else:
+        return n + sum_to_n(n+1)
+</PRE>
+</PRE>
+</BODY>
+</HTML>

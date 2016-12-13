@@ -1,0 +1,140 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial7/raw/mkwmus003/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial7/raw/mkwmus003/<p><PRE>
+&gt;&gt;&gt;&gt; file: book_cypher.py
+msg1=[]
+k=0
+a=' '
+try:
+    file_n=input('Enter the book filename:\n')
+    msg=input('Enter the message:\n')
+    out_file=input('Enter the output filename:\n')
+    msg=msg.split()
+    for i in msg:
+        a=i.strip('?!.,;:)([]{}\'" \n')
+        msg1.append(a)
+    file_input=open(file_n,'r')
+    file_out=open(out_file,'w')
+    file_out.write('BEGIN')
+    file_out.close()
+    file_out=open(out_file,'a')
+    for line in file_input:
+        k+=1
+        spiter=line.split()
+        for line1 in msg1:
+            a=' '
+            for line2 in spiter:
+                if line1==line2:
+                    a=line2
+                    file_out.write('\n'+str(k)+'-'+str(spiter.index(line2)))
+                
+    file_out.write('\nEND')
+    file_out.close()
+    file_input.close()
+except FileNotFoundError as e:
+    print('Error',e)
+except:
+    pass
+    &gt;&gt;&gt;&gt; file: leader_board.py
+# leader_board.py
+
+def process_line(line):
+    parts = line.split(' ')
+    name = parts[0]
+    trials = int(parts[1])
+    average = float(parts[2])
+    return (name, trials, average)
+
+def get_max(entries):
+    max = entries[0]
+    for i in range(1, len(entries)):
+        if entries[i][2] &lt;max[2]:
+            max = entries[i]
+            
+    entries.remove(max)
+    return max
+
+def sort(entries):
+    sorted_entries = []
+    while len(entries)&gt;0:
+        sorted_entries.append(get_max(entries))
+    return sorted_entries
+
+def output(entries):
+    print('Subject        | Average Time')
+    print('************** | ************')
+    for entry in entries:
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match176-1.html#0" TARGET="1"><IMG SRC="../../bitmaps/tm_0_6.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+        print('{:14} | {:.6}'.format(entry[0], entry[2]))
+              
+def main():
+    while True:
+        try:
+            file_name = input('Enter the name of the file:\n')
+    
+            file_input = open(file_name, 'r')
+            entries = []
+            for line in file_input:
+                entries.append(process_line(line))
+</FONT>            file_input.close()
+            
+            entries = sort(entries)
+            output(entries)
+        except FileNotFoundError as e:
+            print(e,'\nTry again')
+            continue
+        except TypeError as k:
+            print(k)
+        except IOError as z:
+            print(z)
+
+    
+    
+main()
+    &gt;&gt;&gt;&gt; file: reaction_test.py
+import time
+def flush_input():
+    try:
+        import msvcrt
+        while msvcrt.kbhit():
+            msvcrt.getch()
+    except ImportError:
+        import sys, termios
+        termios.tcflush(sys.stdin, termios.TCIOFLUSH)
+try:
+    file=input('Enter the name of the output file:\n')
+    while True:
+        a=0
+        subj=input('Enter subject name (or press \'enter\' to quit):\n')
+        if subj=='':
+            break
+        num=int(input('Enter the number of tests:\n'))
+        for i in range(num):
+            print('Get ready...',flush=True)
+            flush_input()
+            time.sleep(5)
+            start=time.time()
+            tmr=input('Press \'enter\' NOW!')
+            end=time.time()
+            avr=end-start
+            a+=avr/4
+            print('Reaction time:','{:.6f}'.format(avr))
+        print('Tests complete.')
+        print('Average reaction time:','{:.6f}'.format(a))
+        apnd_file=subj+' '+str(num)+' '+'{:.6f}'.format(a)
+        opnf=open('results.txt','a')
+        opnf.write('\n'+apnd_file)
+        opnf.close()
+    
+except FileNotFoundError as r:
+    print(r)
+
+    </PRE>
+</PRE>
+</BODY>
+</HTML>

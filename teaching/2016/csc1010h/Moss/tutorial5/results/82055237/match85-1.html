@@ -1,0 +1,165 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial5/raw/qynsip001/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial5/raw/sbsson002/<p><PRE>
+&gt;&gt;&gt;&gt; file: calendar_utils.py
+def is_leap_year(year):
+    if year == 1900:
+        return False
+    elif year % 4 == 0:
+        return True
+    elif year % 100 == 0 and year % 400 == 0:
+        return True
+    else:
+        return False
+#print(is_leap_year(1900))
+def month_name(number):
+    num_month = {1:'January',2:'February',3:'March',4:'April',5:'May',6:'June',7:'July',
+                 8:'August',9:'September',10:'October',11:'November',12:'December'}
+    return num_month[number]
+
+def days_in_month(month_number, year):
+    if month_name(month_number) == 'February' and is_leap_year(year) == True:
+        return 29
+    elif (month_name(month_number) == 'January' or month_name(month_number) == 'March'or month_name(month_number) == 'May' or month_name(month_number) == 'July'or month_name(month_number) == 'August'or month_name(month_number) == 'October'or month_name(month_number) == 'December') and is_leap_year(year) == True:
+        return 31
+    elif month_name(month_number) == 'September' or month_name(month_number) == 'November' or month_name(month_number) == 'April' or month_name(month_number) == 'June' and is_leap_year(year) == True:
+        return 30
+    elif month_name(month_number) == 'February' and is_leap_year(year) == False:
+        return 28
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match85-0.html#0" TARGET="0"><IMG SRC="../../bitmaps/tm_0_5.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    elif (month_name(month_number) == 'January' or month_name(month_number) == 'March'or month_name(month_number) == 'May' or month_name(month_number) == 'July'or month_name(month_number) == 'August'or month_name(month_number) == 'October'or month_name(month_number) == 'December') and is_leap_year(year) == False:
+        return 31
+    elif month_name(month_number) == 'September' or month_name(month_number) == 'November' or month_name(month_number) == 'April' or month_name(month_number) == 'June' and is_leap_year(year) == False:
+        return 30 
+
+def first_day_of_year(year):        # return the number of the day on which January 1st falls
+    day = ((1 +( 5 * ((year-1) % 4) + 4 * ((year-1) % 100) + 6 * ((year-1) % 400))) % 7)
+</FONT>    return day
+
+def first_day_of_month(month_number,year):
+    month_day = first_day_of_year(year)
+    if month_number == 1:             
+        return first_day_of_year(year)
+    elif month_number == 2:
+        return (month_day + 31) % 7
+    elif month_number == 3 and is_leap_year(year) == False:
+        return (month_day + 31 + 28) % 7
+    elif month_number == 3 and is_leap_year(year) == True:
+        return (month_day + 31 + 29) % 7
+    elif month_number == 4 and is_leap_year(year) == False:
+        return (month_day + 31 +28 + 31) % 7
+    elif month_number == 4 and is_leap_year(year) == True:
+        return (month_day + 31 +28 + 31) % 7
+    elif month_number == 5 and is_leap_year(year) == False:
+        return (month_day + 31 + 28 +31 + 30) % 7
+    elif month_number == 5 and is_leap_year(year) == True:
+        return (month_day + 31 + 29 +31 + 30) % 7
+    elif month_number == 6 and is_leap_year(year) == False:
+        return (month_day + 31 + 28 + 31 + 30 + 31) % 7
+    elif month_number == 6 and is_leap_year(year) == True:
+        return (month_day + 31 + 29 + 31 + 30 + 31) % 7
+    elif month_number == 7 and is_leap_year(year) == False:
+        return (month_day + 31 + 28 + 31 + 30 + 31 + 30) % 7
+    elif month_number == 7 and is_leap_year(year) == True:
+        return (month_day + 31 + 29 + 31 + 30 + 31 + 30) % 7 
+    elif month_number == 8 and is_leap_year(year) == False:
+        return (month_day + 31 + 28 + 31 + 30 + 31 + 30 + 31) % 7
+    elif month_number == 8 and is_leap_year(year) == True:
+        return (month_day + 31 + 29 + 31 + 30 + 31 + 30 + 31) % 7 
+    elif month_number == 9 and is_leap_year(year) == False:
+        return (month_day + 31 + 28 + 31 + 30 + 31 + 30 + 31 + 31) % 7
+    elif month_number == 9 and is_leap_year(year) == True:
+        return (month_day + 31 + 29 + 31 + 30 + 31 + 30 + 31 + 31) % 7
+    elif month_number == 10 and is_leap_year(year) == False:     # I stopped at this line frrom doing sanity check
+        return (month_day + 31 + 28 + 31 + 30 + 31 + 30 + 31 + 31 + 30) % 7    
+    elif month_number == 10 and is_leap_year(year) == True:
+        return (month_day + 31 + 29 + 31 + 30 + 31 + 30 + 31 + 31 + 30) % 7
+    elif month_number == 11 and is_leap_year(year) == False:
+        return (month_day + 31 + 28 + 31 + 30 + 31 + 30 + 31 + 31 + 30 + 31) % 7    
+    elif month_number == 11 and is_leap_year(year) == True:
+        return (month_day + 31 + 29 + 31 + 30 + 31 + 30 + 31 + 31 + 30 + 31) % 7     
+    elif month_number == 12 and is_leap_year(year) == False:
+        return (month_day + 31 + 28 + 31 + 30 + 31 + 30 + 31 + 31 + 30 + 31 + 30) % 7    
+    elif month_number == 12 and is_leap_year(year) == True:
+        return (month_day + 31 + 29 + 31 + 30 + 31 + 30 + 31 + 31 + 30 + 31 + 30) % 7&gt;&gt;&gt;&gt; file: morse_code.py
+def code_for(letter):
+    letter_code = {'a':'.-','b':'-...','c':'-.-.','d':'-..','e':'.','f':'..-.',
+                  'g':'--.','h':'....','i':'..','j':'.---','k':'-.-','l':'.-..',
+                  'm':'--','n':'-.','o':'---','p':'.--.','q':'--.-','r':'.-.',
+                  's':'...','t':'-','u':'..-','v':'...-','w':'.--','x':'-..-',
+                  'y':'-.--','z':'--..'}
+    
+    return letter_code[letter.lower()]
+      
+def transmit_letter(letter):
+    code = '^'.join(list(code_for(letter)))
+  
+    return code
+    
+def transmit_word(word):
+    word_copy_list = list(word)
+    
+    empty_list = []
+    
+    for i in range(len(word_copy_list)):
+        empty_list.append(transmit_letter(word_copy_list[i]))   
+        a ='|'.join(empty_list)  
+    print(a,end='') 
+ 
+
+def word_pause():
+            print('||',end='')&gt;&gt;&gt;&gt; file: technical_support.py
+# Tech Support
+# Stephan Jamieson
+# 5/1/2015
+responses={
+    'bluetooth':'Have you tried mouthwash?',
+    'windows':'Ah, I think I see your problem. What version?',
+    'apple':'You do mean the computer kind?',
+    'blue':'Ah, the blue screen of death. And then what happened?',
+    'spam':'You should see if your mail client can filter messages.',
+    'connection':'Contact Telkom.',
+    'crashed':'Are the drivers up to date?',
+    'hacked':'You should consider installing anti-virus software.'}
+
+
+def default_response():
+    return 'Curious, tell me more.'
+    
+def get_response(words):
+    for word in words:
+        if word in responses:
+            return responses[word]   
+
+    return default_response() 
+    
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match85-0.html#1" TARGET="0"><IMG SRC="../../bitmaps/tm_1_3.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+def print_welcome():
+    print('Welcome to the automated technical support system.')
+    print('Please describe your problem:')
+
+def get_input():
+    query = input().lower().split(' ')
+    return query
+
+def main():
+    print_welcome()
+    while True:
+        query = get_input()
+        if query == ['quit']:
+            break
+</FONT>        else:
+            response = (get_response(query))
+            print(response)
+            #question = get_input()
+        
+main()    </PRE>
+</PRE>
+</BODY>
+</HTML>

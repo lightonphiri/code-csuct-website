@@ -1,0 +1,134 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial4/raw/kglkhw001/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial4/raw/kglkhw001/<p><PRE>
+&gt;&gt;&gt;&gt; file: Initials.py
+def main():
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match92-1.html#0" TARGET="1"><IMG SRC="../../bitmaps/tm_0_6.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    import turtle
+    turtle.pensize(2)
+    turtle.color('magenta')
+    turtle.penup()
+    turtle.left(90)
+    turtle.forward(100)
+    turtle.right(90)
+    turtle.pendown()
+    turtle.forward(200)
+    turtle.right(180)
+</FONT>    turtle.forward(100)
+    turtle.left(135)
+    turtle.forward(141.2)
+    turtle.right(180)
+    turtle.forward(141.2)
+    turtle.left(135)
+    turtle.right(45)
+    turtle.forward(141.2)
+    turtle.left(45)
+    turtle.penup()
+    turtle.forward(50)
+    turtle.left(90)
+    turtle.color('blue')
+    turtle.pendown()
+    turtle.forward(200)
+    turtle.right(180)
+    turtle.forward(100)
+    turtle.left(135)
+    turtle.forward(141.2)
+    turtle.right(180)
+    turtle.forward(141.2)
+    turtle.left(135)
+    turtle.right(45)
+    turtle.forward(141.2)    
+    turtle.exitonclick
+main()
+    &gt;&gt;&gt;&gt; file: LongJump.py
+name=[]
+F_data={}
+inc=1
+print('***** Long Jump Information System *****','\nPlease enter the names of competitors. (Press return when done.)')
+while True:
+    compet=input('Competitor no. '+str(inc)+':'+'\n')
+    if compet=='':
+        break
+    name.append(compet)
+    inc+=1
+
+print('Please enter the distances for each competitor.')
+def results(i):
+    print('Competitor',i+':')
+    a,b,c=input('Attempt 1:\n'),input('Attempt 2:\n'),input('Attempt 3:\n')
+    if a=='foul' and b=='foul' and c=='foul':
+        F_data[i]='No jump'
+    else:
+        numbers=[a,b,c]
+        maxnumbers=[]
+        for num in numbers:
+            if num.isalpha():
+                pass
+            else:
+                maxnumbers.append(round(float(num),2))
+        if maxnumbers!='':
+            F_data[i]=max(maxnumbers)
+        
+
+for i in name:
+    results(i)
+    
+print('\nCompetitor               Longest Distance')
+for competitors in name:
+    if F_data[competitors]=='No jump':
+        print('{:&lt;25}{}'.format(competitors,F_data[competitors]))
+    else:
+        print('{:&lt;25}{:.2f}'.format(competitors,F_data[competitors]))
+    
+processing=F_data
+list=processing
+for deleted, age in list.items():
+    if age == 'No jump':
+        F_data[deleted]=0
+    
+k=(max(F_data.keys(), key=(lambda key: F_data[key])))
+processing1=F_data
+list=processing1
+for deleted1, age in list.items():
+    if age == k:
+        break
+print('\nThe winner is {} with a jump of {:.2f}.'.format(k ,F_data[k] ))
+            
+    &gt;&gt;&gt;&gt; file: NikNaks.py
+import random  
+def main():
+     print('Guess the mystery 4 letter code. (No letter occurs more than once.)')
+     difficulty=int(input('Choose difficulty level (4 to 26):\n'))     
+     letters=list('abcdefghijklmnopqrstuvwxyz')[0: difficulty]     
+     print('The letters in the code are chosen from: {}.'.format(letters))     
+     secret_code=[]     
+     for i in range(4):         
+          rand_index=random.randint(0, len(letters)-1)         
+          letter=letters.pop(rand_index)         
+          secret_code.append(letter)
+     print('You have 10 guesses remaining.')
+     lives=9
+     nak=0
+     for t in range(10):
+          guess=input('Enter your guess:\n')
+          for q in range(difficulty):
+               Nak=set(guess[nak])
+               Nak2=set(secret_code[nak])
+               nak+=1
+          nak3=len( Nak | Nak2)    
+          print('There are {} naks and {} niks'.format(difficulty,nak3))
+          print('You have {} guesses remaining'.format(lives))
+          lives-=1
+          if guess==secret_code:
+               print('Correct!')
+     if __name__ == '__main__':     
+          main()
+</PRE>
+</PRE>
+</BODY>
+</HTML>

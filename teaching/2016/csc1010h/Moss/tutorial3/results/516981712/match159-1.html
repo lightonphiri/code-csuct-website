@@ -1,0 +1,208 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial3/raw/phrthe003/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial3/raw/sbsson002/<p><PRE>
+&gt;&gt;&gt;&gt; file: FeetMetres.py
+# program that converts feet measurements to metres measurements
+# Songeziwe Simon Soboois
+# 07 April 2016
+
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match159-0.html#0" TARGET="0"><IMG SRC="../../bitmaps/tm_0_3.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+def main():
+    minimum_no_of_feet = int(input('Enter the minimum number of feet (not less than 0):\n'))
+    maximum_no_of_feet = int(input('Enter the maximum number of feet (not more than 99):\n'))
+    
+    for i in range(minimum_no_of_feet,maximum_no_of_feet + 1):
+        metres = round(i * 0.3048,2) 
+</FONT>        print('  {0:&gt;2}{1} {2}{3:&gt;7.2f}m'.format(str(i),'\'','|',metres))
+
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match159-0.html#1" TARGET="0"><IMG SRC="../../bitmaps/tm_1_3.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+main()        &gt;&gt;&gt;&gt; file: InchesMetres.py
+# program that converts Inches to metres
+# Songeziwe Simon Soboois
+# 07 April 2016
+
+def main():
+    minimum_no_of_inches = int(input('Enter the minimum number of inches (not less than 0):\n'))
+    maximum_no_of_inches = int(input('Enter the maximum number of inches (not greater than 11):\n'))
+    print('Inches:  ',end='  ')
+    
+    for i in range(minimum_no_of_inches,maximum_no_of_inches + 1):
+        if i &lt; 9:
+</FONT>            print('{0:&lt;5}'.format(i),end='')
+        else:
+            print('{0:&lt;1}'.format(i),end='   ')
+            #print(i,end='   ')
+    print()
+    
+    print('Metres:',end=' ')        
+    for i in range(minimum_no_of_inches,maximum_no_of_inches + 1):
+        metres = round(i * 0.0254,2)
+        print('{:.2f}'.format(metres),end=' ')
+        
+    
+            
+
+main()        &gt;&gt;&gt;&gt; file: TimeConvertor.py
+'''Program that converts time expressed in 24 hour clock to 12 hour clock
+and from 12 hour clock to 24 hour clock'''
+# Songeziwe Simon Sobois
+# 10 April 2016
+
+def main():               #converts times expressed in 12 hour clock to 24 hour clock
+    TIME = input('Enter a time ([h]h:mm [am|pm]):\n')
+    TIME2 = TIME[-1]
+    if TIME2 == 'm':
+        letters1 = TIME[5:]
+        letters2= TIME[6:]
+        midnight = TIME[:2]    
+        midnight_name = TIME[6:]    
+        if len(TIME)== 7 and letters1 == 'am':
+                sub_time = TIME[0:4]
+                print('0'+ sub_time)
+                
+        elif midnight == '12' and midnight_name == 'am':
+            midnight_last_digit = TIME[2:5]
+            print('00'+midnight_last_digit)
+        elif len(TIME)== 8 and letters2 == 'am':
+                    first_num = TIME[:5]
+        elif len(TIME)== 7 and letters1 == 'pm':
+            fisrt_num = str(int(TIME[0:1]) + 12)
+            last_num = TIME[1:4]
+            print(fisrt_num + last_num)
+        else:
+            num_part = TIME[:5]
+            print(num_part)    
+    elif TIME2 != 'm':                        # converts time expressed in 24 hour clock to 12 hour clock
+        time_first_digits = TIME[:2]
+        if int(time_first_digits) &gt; 12:
+            time_first_digits1 = str(int(time_first_digits) - 12)
+            last_digits = TIME[2:]
+            print(time_first_digits1 + last_digits + ' pm')
+        elif 9 &lt; int(time_first_digits) &lt; 12:
+            print(Time + ' am')
+        elif int(time_first_digits) == 12:
+            time = TIME[0:5]
+            print(time +' pm')
+        elif time_first_digits == '00':
+            output_time1 = TIME[2:]
+            print('12' + output_time1 + ' am')
+        else:
+            output_time = TIME[1:]
+            print(output_time + ' am')
+
+main()&gt;&gt;&gt;&gt; file: Twelve.py
+# program that converts time expressed in 12 hour clock to 24 hour clock.
+# Songeziwe Simon Soboois
+# 06 April 2016
+
+def main():  # defining a function
+    Time = input('Enter a time in 12 hour clock ([h]h:mm [am|pm]):\n') # prompt the user to enter time
+    letters1 = Time[5:]
+    letters2= Time[6:]
+    midnight = Time[:2]    
+    midnight_name = Time[6:]    
+    if len(Time)== 7 and letters1 == 'am':
+            sub_time = Time[0:4]
+            print('0'+ sub_time)
+            
+    elif midnight == '12' and midnight_name == 'am':
+        midnight_last_digit = Time[2:5]
+        print('00'+midnight_last_digit)
+    elif len(Time)== 8 and letters2 == 'am':
+                first_num = Time[:5]
+    elif len(Time)== 7 and letters1 == 'pm':
+        fisrt_num = str(int(Time[:1]) + 12)
+        last_num = Time[1:4]
+        print(fisrt_num + last_num)
+    elif midnight == '12' and letters2 == 'pm':
+        num_part = Time[:5]
+        print(num_part)
+    elif len(Time)== 8 and letters2 == 'pm':
+        fisrt_num = str(int(Time[:2]) + 12)
+        last_num = Time[2:5] 
+        print(fisrt_num + last_num)    
+    else:
+        num_part = Time[:5]
+        print(num_part) 
+
+main()    &gt;&gt;&gt;&gt; file: TwentyFour.py
+# program that converts times expressed in 24 hour clock to 12 hour clock
+# Songeziwe Simon Soboois
+# 06 April 2016
+
+def main():  # defining a function
+    Time = input('Enter a time in 24 hour clock (hh:mm):\n') # prompt the user to enter time
+    time_first_digits = Time[:2]
+    if int(time_first_digits) &gt; 12:
+        time_first_digits1 = str(int(time_first_digits) - 12)
+        last_digits = Time[2:]
+        print(time_first_digits1 + last_digits + ' pm')
+    elif 9 &lt; int(time_first_digits) &lt; 12:
+        print(Time + ' am')
+    elif int(time_first_digits) == 12:
+        time = Time[0:5]
+        print(time +' pm')
+    elif time_first_digits == '00':
+        output_time1 = Time[2:]
+        print('12' + output_time1 + ' am')
+    else:
+        output_time = Time[1:]
+        print(output_time + ' am')
+       
+main()  &gt;&gt;&gt;&gt; file: VehicleClassifier.py
+# program that calculates the class to which a vehicle belongs
+# Songeziwe Simon Soboois
+# 07 April 2016
+
+def main():
+    gross_vehicle_mass = int(input('What is the gross vehicle mass (in kg)?\n'))
+    vehicle_trailer = input('Does the vehicle have a trailer?\n')
+    
+    yes = vehicle_trailer[:1]
+    if yes == 'n':
+        
+        articulated = input('Is the vehicle articulated?\n')
+        option = articulated[:1]
+        if option == 'y' and gross_vehicle_mass &lt;= 3500:
+            print('This vehicle is class EB.')
+        elif option == 'y' and 3500 &lt; gross_vehicle_mass &lt;= 16000:
+            print('This vehicle is class EC1.')
+        elif option == 'y' and gross_vehicle_mass &gt; 16000:
+            print('This vehicle is class EC.')
+        elif option != 'y':
+            if gross_vehicle_mass &lt;= 3500:
+                print('This vehicle is class B.')
+            elif 3500 &lt; gross_vehicle_mass &lt;= 16000:
+                print('This vehicle is class C1.')
+            elif gross_vehicle_mass &gt; 16000:
+                print('This vehicle is class C.')            
+            
+    else:
+        gross_trailer_mass = int(input('What is gross vehicle mass of the trailer (in kg)?\n'))
+        total_GVM = gross_vehicle_mass
+        if gross_trailer_mass &lt;= 750 and total_GVM &lt;= 3500:
+            print('This vehicle is class B.')
+        elif gross_trailer_mass &lt;= 750 and 3500 &lt; total_GVM &lt;= 16000:
+            print('This vehicle is class C1.')
+        elif gross_trailer_mass &lt;= 750 and total_GVM &gt; 16000:
+            print('This vehicle is class C.')
+
+        else:
+            
+            if gross_trailer_mass &gt; 750  and gross_vehicle_mass &lt;= 3500:
+                print('This vehicle is class EB.')
+            elif gross_trailer_mass &gt; 750  and 3500 &lt; gross_vehicle_mass &lt;= 16000:
+                print('This vehicle is class EC1.')
+            elif gross_trailer_mass &gt; 750  and gross_vehicle_mass &gt; 16000:
+                print('This vehicle is class EC.')
+
+main()                </PRE>
+</PRE>
+</BODY>
+</HTML>

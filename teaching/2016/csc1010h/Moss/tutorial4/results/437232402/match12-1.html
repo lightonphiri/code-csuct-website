@@ -1,0 +1,83 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial4/raw/jhnche013/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial4/raw/nrnlea001/<p><PRE>
+&gt;&gt;&gt;&gt; file: LongJump.py
+#leanne narainsamy
+#program used to log the results of an athletics loing jump count
+
+def main():
+<A NAME="2"></A><FONT color = #0000FF><A HREF="match12-0.html#2" TARGET="0"><IMG SRC="../../bitmaps/tm_2_10.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    print("***** Long Jump Information System *****")
+    print("Please enter the names of competitors. (Press enter when done.)")
+    r=1
+    my_list = []
+    element = ('a')
+    while element != "":
+        element = input("Competitor no. "+str(r)+": \n")
+        my_list.append(element)
+</FONT>        r=r+1
+    print("Please enter the distances for each competitor.")
+    my_list.remove("")
+    
+    dist = []
+    dist_final =[]
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match12-0.html#0" TARGET="0"><IMG SRC="../../bitmaps/tm_0_31.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    for name in my_list:
+        dist_max =[]
+        print("Competitor "+name+": ")
+        for k in range(1,4):
+            dist=input("Attempt "+str(k)+":\n")
+            dist_max.append(dist)
+        if dist_max.count("Foul")==3:
+            dist_final.append("No jump")
+        
+        elif dist_max.count("Foul")&gt;=1:
+            for i in range(dist_max.count("Foul")):
+                dist_max.remove("Foul")
+            dist_final.append(max(dist_max))
+        else:
+            dist_final.append(max(dist_max))
+    ds=[]
+    print("")
+</FONT>    print("Competitor               Longest Distance ")
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match12-0.html#1" TARGET="0"><IMG SRC="../../bitmaps/tm_1_29.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    for s in range(len(dist_final)):
+        ds.append(my_list[s])
+        ds.append(dist_final[s])
+        print('{0:10}               {1:10}'.format(my_list[s],dist_final[s]))
+    
+    dis_winner=""
+    if dist_final.count("No jump")&gt;=1:
+            for i in range(dist_final.count("No jump")):
+                dist_final.remove("No jump")
+            dis_winner=max(dist_final)
+    else:
+        dis_winner=max(dist_final)
+    name_of_winner=ds[(ds.index(dis_winner)-1)]
+    
+    print("")
+</FONT>    print("The winner is "+name_of_winner+" with a jump of "+dis_winner+".")
+main()    
+    &gt;&gt;&gt;&gt; file: turtle.py
+#Leanne
+#turtle graphics
+
+
+import turtle
+turtle.bgcolor("red")
+def spiral(n, angle, step):
+    for step in range(n):
+        turtle.forward(step)
+        turtle.left(angle)
+spiral(140,61,10) 
+</PRE>
+</PRE>
+</BODY>
+</HTML>

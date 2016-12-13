@@ -1,0 +1,149 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial7/raw/msktha020/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial7/raw/msktha020/<p><PRE>
+&gt;&gt;&gt;&gt; file: book_cypher.py
+
+<A NAME="2"></A><FONT color = #0000FF><A HREF="match30-1.html#2" TARGET="1"><IMG SRC="../../bitmaps/tm_2_6.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+def main():
+    book_file = input("Enter the book file name:\n")
+    msg = input("Enter the message:\n").lower()
+    output_file = input("Enter the output filename:\n")
+    print()
+    open_file = open(output_file,"w")               # file to store my outputs
+                   # the novel
+    
+    msg = msg.split(" ")
+    
+    x=0
+    print("BEGIN")
+</FONT>    k=0
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match30-1.html#0" TARGET="1"><IMG SRC="../../bitmaps/tm_0_20.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    print("BEGIN", file=open_file)
+    while  msg!=[]:
+        Obook_file = open(book_file,"r") 
+        p=0
+        l=2
+        for line in Obook_file:
+            
+            if p==9: 
+                x=0
+                break
+            x +=1
+            line = line.split(" ")
+            for item in line:
+                f=item
+                item = item.strip("{}[]';|\":/.,!\n")
+                line[line.index(f)]=item.lower()
+                if item.lower() == msg[0]:
+                    p=9  
+                    l=8
+                    n_word = line.index(item.lower())+1-line[:line.index(item.lower())+1].count('')
+</FONT>                    if x == 3498:
+                        k=x
+                        x=4
+                    print(str(x)+"-"+str(n_word))
+                    print(str(x)+"-"+str(n_word), file= open_file)
+                    x=k
+                    x = 0
+                    break
+        if l != 8:
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match30-1.html#1" TARGET="1"><IMG SRC="../../bitmaps/tm_1_9.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+            print(msg[0])
+            print(msg[0], file=open_file)
+        msg=msg[1:]
+    print("END")
+    print("END", file= open_file)
+    open_file.close()
+    Obook_file.close()
+main()
+&gt;&gt;&gt;&gt; file: leader_board.py
+
+
+def process_line(line):
+    parts = line.split(' ')
+    name = parts[0]
+    trials = int(parts[1])
+</FONT>    average = float(parts[2])
+    return (name, trials, average)
+
+def get_max(entries):
+    max = entries[0]
+    for i in range(1, len(entries)):
+        if entries[i][2] &lt;max[2]:
+            max = entries[i]
+            
+    entries.remove(max)
+    return max
+
+def sort(entries):
+    sorted_entries = []
+    while len(entries)&gt;0:
+        sorted_entries.append(get_max(entries))
+    return sorted_entries
+
+def output(entries):
+    print('Subject        | Average Time')
+    print('************** | ************')
+    for entry in entries:
+        print('{:14} | {:.6}'.format(entry[0], entry[2]))
+              
+def main():
+    file_name = input('Enter the name of the file:\n')
+    file_input = open(file_name, 'r')
+    
+
+    entries = []
+    for line in file_input:
+        entries.append(process_line(line))
+    file_input.close()
+    
+    entries = sort(entries)
+    output(entries)
+    
+main()
+&gt;&gt;&gt;&gt; file: reaction_test.py
+
+from time import*
+from random import*
+
+def main():
+    file_name = input('Enter the name of the output file:\n')     #Enter the name of output file
+    open_file = open(file_name, 'w')       # open file
+    while True:
+        subject = input('Enter the subject name (or press \'enter\' to quit):\n') #Get subject name from user
+        if subject == '': break
+        number_of_tests = int(input('Enter the number of tests:\n')) #Get number of tests from number
+        total_time = 0    #create a variable to store total time of each test
+<A NAME="3"></A><FONT color = #00FFFF><A HREF="match30-1.html#3" TARGET="1"><IMG SRC="../../bitmaps/tm_3_4.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+        for i in range(number_of_tests):
+            def flush_input():
+                try:
+                    import msvcrt
+                    while msvcrt.kbhit():
+                        msvcrt.getch()
+                except ImportError:
+                    import sys, termios
+                    termios.tcflush(sys.stdin, termios.TCIOFLUSH)            
+</FONT>            print('Get ready...',flush=True)
+            pause = randint(1,5)       #Getting random number 
+            sleep(pause)               #the time of the pause
+            start_time = time()         #Measuring the time at this point and storing it as our start time
+            enter = input('Press \'enter\' NOW!')
+            end_time = time()           #Measuring the time at this point and storing it as our end time 
+            time_taken = end_time - start_time        #Subtracting our ending time from starting time to get the reaction time
+            total_time += time_taken                           #adding this particular reaction time to the total time
+            print('Reaction time: {:.6f}'.format(time_taken))     #printing the reaction time for this particular test
+        print('Tests complete.')                                
+        average_time = total_time / number_of_tests        #calculating average time by dividing our total time by the number of tests
+main()       </PRE>
+</PRE>
+</BODY>
+</HTML>

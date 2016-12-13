@@ -1,0 +1,331 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial5/raw/mtxeph002/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial5/raw/mtxeph002/<p><PRE>
+&gt;&gt;&gt;&gt; file: calendar.py
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match10-1.html#0" TARGET="1"><IMG SRC="../../bitmaps/tm_0_22.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+import calendar_utils
+
+def to_string(n, e):
+        if n&lt;1 or n&gt;e:
+                return '  '
+        else:
+                return '{:&gt;2}'.format(n)
+        
+def row(i, s, e):
+        start = i*7+s
+        result=to_string(start, e)
+        for column in range(start+1, start+7):
+                result+=' '+to_string(column, e)  
+        return result
+
+def row_of_months(i, start_month, year):
+        
+        start_day=(calendar_utils.first_day_of_month(start_month, year)-1)%7
+        days=calendar_utils.days_in_month(start_month, year)
+        
+        result=row(i, 1-start_day, days)
+
+        for month in range(start_month+1, start_month+3):
+                result+='   '
+                start_day=(start_day+days)%7
+                days=calendar_utils.days_in_month(month, year)
+                result+=row(i, 1-start_day, days)
+
+        return result
+
+def print_year(year):
+        print('{0:^69}'.format(year))
+        
+def print_month_names(start_month):
+        print('{0:^20}   {1:^20}   {2:^20}'.format(calendar_utils.month_name(start_month), calendar_utils.month_name(start_month+1), calendar_utils.month_name(start_month+2)).title())
+
+def print_month_days():
+        week='Mo Tu We Th Fr Sa Su'
+        print('{0:^20}   {1:^20}   {2:^20}'.format(week, week, week))
+        
+def print_months(start_month, year):
+        print_month_names(start_month)
+        print()
+        print_month_days()
+        
+        for r in range(0, 6):
+                print(row_of_months(r, start_month, year))
+                
+def main():
+        year=int(input('Enter the year:\n'))
+        
+        print_year(year)
+        print()
+        print_months(1, year)
+        for month in range(4, 13, 3):
+                print()
+                print_months(month, year)
+                
+
+if __name__ == "__main__":
+</FONT>        main()&gt;&gt;&gt;&gt; file: calendar_utils.py
+"""Ephraim Matau
+Calendar program
+14 August 2016
+"""
+def is_leap_year(year):
+    
+    if year%4==0 and year%100!=0:
+        return True
+    elif year%400!=0:
+        return False
+    else:
+        return True
+      
+def main4():
+    yu=int(input("Enter a year(4 digit number):\n"))
+    is_leap_year(yu)
+def month_name(number):
+    if number==1:
+        return "January"
+    elif number==2:
+        return "February"
+    elif number==3:
+        return "March"
+    elif number==4:
+        return "April"
+    elif number==5:
+        return "May"
+    elif number==6:
+        return"June"
+    elif number==7:
+        return "July"
+    elif number==8:
+        return "August"
+    elif number==9:
+        return "September"
+    elif number==10:
+        return "October"
+    elif number==11:
+        return "November"
+    elif number==12:
+        return "December"
+ 
+ 
+def first_day_of_year(year):
+    R1=1+5*((year-1)%4)
+    R2=4*((year-1)%100)
+    R3=6*((year-1)%400)
+    day=(R1+R2+R3)%7
+    if day==0:
+        return day
+    elif day==1:
+        return day
+    elif day==2:
+        return day
+    elif day==3:
+        return day
+    elif day==4:
+        return day
+    elif day==5:
+        return day
+    elif day==6:
+        return day
+def jj():
+    ki=int(input("Enter:\n"))
+    first_day_of_year(ki)
+def main2():
+    jw=int(input("Enter a year(4 digits):\n"))
+    first_day_of_year(jw)
+
+def days_in_month(month_number, year):
+    if year%4==0 and year%100!=0:
+        if month_number==1:
+                return "31"
+        elif month_number==2:
+                return"29"
+        elif month_number==3:
+                return"31"
+        elif month_number==4:
+                return"30"
+        elif month_number==5:
+                return"31"
+        elif month_number==6:
+                return"30"
+        elif month_number==7:
+                return"31"
+        elif month_number==8:
+                return"31"
+        elif month_number==9:
+                return"30"
+        elif month_number==10:
+                return"31"
+        elif month_number==11:
+                return"30"
+        elif month_number==12:
+                return"31"          
+            
+    elif year%400!=0:
+        if month_number==1:
+            return "31"
+        elif month_number==2:
+            return"28"
+        elif month_number==3:
+            return"31"
+        elif month_number==4:
+            return"30"
+        elif month_number==5:
+            return"31"
+        elif month_number==6:
+            return"30"
+        elif month_number==7:
+            return"31"
+        elif month_number==8:
+            return"31"
+        elif month_number==9:
+            return"30"
+        elif month_number==10:
+            return"31"
+        elif month_number==11:
+            return"30"
+        elif month_number==12:
+            return"31"        
+def main3():
+    p=int(input("Enter a single digit number to choose a month:\n"))
+    c=int(input("Enter a 4 digits numbers (for a year):\n"))
+    days_in_month(p,c)
+#if __name__== "__main__":
+    #input("Enter any key to exit:\n")
+    
+
+
+        
+        
+        
+    
+    
+
+    &gt;&gt;&gt;&gt; file: morse_code.py
+codes={"a":".-","b":"-...","c":"-.-.","d":"-..","e":".","f":"..-.","g":"--.","h":"....","i":"..","j":".---","k":"-.-","l":".-..","m":"--","n":"-.","o":"---","p":".--.","q":"--.-","r":".-.","s":"...","t":"-","u":"..-","v":"...-","w":".--","x":"-..-","y":"-.--","z":"--.."}
+
+def code_for(letter):
+    return codes[letter]
+ &gt;&gt;&gt;&gt; file: technical_support.py
+
+#Ephraim Matau
+#Fake AI
+#14 August 2016
+
+def print_welcome():
+                 print('Welcome to the automated technical support system.')
+                 print("Please describe your problem:")
+
+res={"bluetooth":"Have you tried mouthwash?",'windows':'Ah, I think I see your problem. What version?','apple':'You do mean the computer kind?','blue':'Ah, the blue screen of death. And then what happened?','spam':'You should see if your mail client can filter messages.','connection':'Contact Telkom.','crashed':'Are the drivers up to date?','hacked':'You should consider installing anti-virus software.'}
+
+def get_input():
+                 query = input()
+                 query = query.lower()
+                 query = query.split()
+                 return query 
+
+def main():
+                 print_welcome()
+                 query = get_input()
+                 while query !=['quit']:
+                                  for key in query:
+                                                   if key in res:
+                                                                    print(res[key])
+                                                                    break
+                                                   
+                                  else:
+                                                   print('Curious, tell me more.')
+                                  
+                                  query = get_input()                                 
+
+                 
+                                                                    
+main()
+                                                   &gt;&gt;&gt;&gt; file: test_calendar_utils.py
+# test_calendar_utils.py
+# Stephan Jamieson
+# 4/8/2015
+import calendar_utils
+def print_welcome():
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match10-1.html#1" TARGET="1"><IMG SRC="../../bitmaps/tm_1_14.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    print('Test harness for calendar_utils');
+    
+def get_selection():
+    print('\nChoose from the following options:')
+    print('0. quit')
+    print('1. Test is_leap_year().')
+    print('2. Test month_name().')
+    print('3. Test days_in_month().')
+    print('4. Test first_day_of_year().')
+    print('5. Test first_day_of_month().')
+    return int(input())
+
+def test_leap_year():
+    from calendar_utils import is_leap_year
+
+    year = int(input('Enter the year (4 digits):\n'))
+    if is_leap_year(year):
+        print('The year '+str(year)+' is a leap year.')
+    else:
+        print('The year '+str(year)+' is not leap year.')
+
+def test_month_name():
+    from calendar_utils import month_name
+    
+    for month_number in range(1, 13):
+        print('Month number '+str(month_number)+ ' is '+month_name(month_number)+'.')
+        
+
+def test_days_in_month():
+    from calendar_utils import days_in_month
+
+    year = int(input('Enter the year (4 digits):\n'))
+    for month_number in range(1, 12):
+        print('The days in the month with number '+str(month_number)+ ' in year '+str(year)+' is '+str(days_in_month(month_number, year))+'.')
+        
+def test_first_day_year():
+    from calendar_utils import first_day_of_year
+    
+    year = int(input('Enter the year (4 digits):\n'))
+    print('The first day of '+str(year)+' is '+str(first_day_of_year(year))+'.')
+    
+def test_first_day_month():
+    from calendar_utils import first_day_of_month
+    
+    month = int(input('Enter the month (1 for January, ..., 12 for December):\n'))
+    year = int(input('Enter the year (4 digits):\n'))
+    print('The first day of month '+str(month)+' in '+str(year)+' is '+str(first_day_of_month(month, year))+'.')
+    
+def main():
+    print_welcome()
+    
+    selection = get_selection()
+    while not selection==0:
+
+        if selection==1:
+            test_leap_year()
+        elif selection==2:
+            test_month_name()
+        elif selection==3:
+            
+            test_days_in_month()
+        elif selection==4:
+            test_first_day_year()
+        elif selection==5:
+            test_first_day_month()
+</FONT>        else:
+            print('That selection was not recognised.')
+
+        selection = get_selection()
+        
+        
+main()
+</PRE>
+</PRE>
+</BODY>
+</HTML>

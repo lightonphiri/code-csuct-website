@@ -1,0 +1,114 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial6/raw/mtxeph002/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial6/raw/mtxeph002/<p><PRE>
+&gt;&gt;&gt;&gt; file: fixed_mod.py
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match209-1.html#0" TARGET="1"><IMG SRC="../../bitmaps/tm_0_12.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+import string
+
+def palindrome(uu):
+    if len(uu)==1:
+        return uu.isalpha()
+    elif uu=="":
+        return True
+    elif uu[0] in string.punctuation or uu[0] in string.whitespace:
+        return palindrome(uu[1:])
+</FONT>    elif uu[-1] in string.punctuation or uu[-1] in string.whitespace:
+        return palindrome(uu[:-1])
+    elif uu[0].lower()==uu[-1].lower():
+        return palindrome(uu[1:-1])
+    else:
+        return False
+    
+    
+    
+    
+
+
+
+
+
+
+&gt;&gt;&gt;&gt; file: match_mod.py
+"Ephraim Matau"
+"Dictionary Program"
+"28 Aug 2016"
+
+
+def equals(uu,nr):
+        if uu!=nr:
+                return False
+        elif uu[0]=="" or nr[0]=="":
+                if nr[0]=="" and nr[0]=="":
+                        return True
+                else:
+                        return False
+        elif uu==nr:
+                return True
+        elif uu[0]==nr[0]:
+                return equals(uu[1:],nr[1:])
+        else:
+                return False
+def query(pattern,word):
+        if len(pattern)==len(word):
+                if pattern==word:
+                        return True
+                elif pattern[0]==word[0]:
+                        return query(pattern[1:-1],word[1:-1])
+                elif pattern[0]=="?" and word[0]!="?":
+                        return query(pattern[1:-1],word[1:-1])
+                else:
+                        return False
+        elif pattern==word:
+                return True
+        else:
+                return False     
+#def match(pattern,word):
+        #if pattern[0]==word[0]:
+                #return match(pattern[1:-1],word[1:-1])
+        #elif pattern[0]=="*" and word[0]!="*":
+        #elif word=='' and pattern=="*":
+                #return True
+        #else:
+                #return match(pattern[1:-1],word[1:-1])
+         
+#print(match('l*ad', 'launchpad'))
+
+      
+        
+        
+        
+
+
+
+        
+        
+            
+    &gt;&gt;&gt;&gt; file: mongoose_mod.py
+#Ephraim Matau
+#The population program
+#28 Aug 2016
+def population(n):
+    if n&lt;=2:
+        return 2
+    return population(n-2)+population(n-1)
+ 
+
+
+
+
+ &gt;&gt;&gt;&gt; file: sum_mod.py
+#Ephraim Matau
+#The program sum up all the numbers from 1 to the number the number put
+def sum_to_n(n):
+    if n&lt;=0:
+        return 0
+    else:
+        return n+sum_to_n(n-1)</PRE>
+</PRE>
+</BODY>
+</HTML>

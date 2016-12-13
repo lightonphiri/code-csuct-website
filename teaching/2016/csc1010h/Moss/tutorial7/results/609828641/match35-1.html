@@ -1,0 +1,106 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial7/raw/msktha020/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial7/raw/mssmph003/<p><PRE>
+&gt;&gt;&gt;&gt; file: book_cypher.py
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match35-0.html#1" TARGET="0"><IMG SRC="../../bitmaps/tm_1_8.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+def main():
+    book_file = input("Enter the book file name:\n")
+    message = input("Enter the message:\n").lower()
+    output_file = input("Enter the output filename:\n")
+    print()
+    open_file = open(output_file,"w")               # file to store my outputs
+    
+    message = message.split(" ")
+    
+    x=0
+    print("BEGIN")
+</FONT><A NAME="0"></A><FONT color = #FF0000><A HREF="match35-0.html#0" TARGET="0"><IMG SRC="../../bitmaps/tm_0_26.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    print("BEGIN", file=open_file)
+    while  message!=[]:
+        Obook_file = open(book_file,"r") 
+        p=0
+        l=2
+        for line in Obook_file:
+            
+            if p==9: 
+                x=0
+                break
+            x +=1
+            line = line.split(" ")
+            for item in line:
+                f=item
+                item = item.strip("{}[]';|\":/.,!\n")
+                line[line.index(f)]=item.lower()
+                if item.lower() == message[0]:
+                    p=9  
+                    l=8
+                    n_word = line.index(item.lower())+1-line[:line.index(item.lower())+1].count('')
+</FONT>                    print(str(x)+"-"+str(n_word))
+                    print(str(x)+"-"+str(n_word), file= open_file)
+                    break
+        if l != 8:
+            x = 0
+<A NAME="2"></A><FONT color = #0000FF><A HREF="match35-0.html#2" TARGET="0"><IMG SRC="../../bitmaps/tm_2_6.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+            print(message[0])
+            print(message[0], file=open_file)
+        message=message[1:]
+    print("END")
+    print("END", file
+          = open_file)
+    open_file.close()
+    Obook_file.close()
+</FONT>main()&gt;&gt;&gt;&gt; file: reaction_test.py
+import time, random
+def main():
+    filename = input("Enter the name of output file:\n")
+    subjects = []
+    times = []
+    trials =[]
+    while True:
+        average_time = 0
+        total = 0
+        final_time = 0
+        subject = input("Enter the subject name (or press 'enter' to quit):\n").title()
+        if subject == "": break
+        tests = int(input("Enter the number of tests:\n"))
+        for i in range(tests):
+            print("Get ready...", flush = True)
+            time.sleep(random.randint(1,5))
+            try:
+                import msvcrt
+<A NAME="3"></A><FONT color = #00FFFF><A HREF="match35-0.html#3" TARGET="0"><IMG SRC="../../bitmaps/tm_3_6.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+                while msvcrt.kbhit():
+                    msvcrt.getch()
+            except ImportError:
+                import sys, termios
+                termios.tcflush(sys.stdin, termios.TCIOFLUSH)
+            print("Press 'enter' NOW!",end="")
+</FONT>            current_time = time.time()
+            rtime = input("")
+            final_time = time.time()-current_time
+            total+=final_time
+            print("Reaction time:",round(final_time,6))
+        average_time = total/tests
+        print("Tests complete.")
+        print("Average reaction time:",round(average_time,6))
+        subjects.append(subject)
+        times.append(average_time)
+        print("")
+    f = open(filename, "w")
+    print("{0:15}| {1:1}".format("Subject","Average Time"), file = f)
+    print("{0:15}| {1:1}".format("**************","************"), file = f)
+    for x in range(len(subjects)):
+        print("{0:15}| {1:1}".format(subjects[x],round(times[x],6)), file = f)    
+        
+main()</PRE>
+</PRE>
+</BODY>
+</HTML>

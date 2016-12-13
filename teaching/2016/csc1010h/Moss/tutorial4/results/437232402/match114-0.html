@@ -1,0 +1,87 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial4/raw/mbttha024/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial4/raw/mbttha024/<p><PRE>
+&gt;&gt;&gt;&gt; file: LongJump.py
+#Long Jump
+
+print("***** Long Jump Information System *****")
+n=1
+names=[]
+print("Please enter the names of competitors. (Press return when done.)")
+print("Competitor no. ",n,":",sep="")
+name=input("")
+names.append(name)
+while name!="":
+    print("Competitor no. ",(n+1),":",sep="")
+    name=input("")
+    n=n+1
+    names.append(name)
+distances={}
+jumps=[]
+print("Please enter the distances for each competitor.")
+for i in range(len(names)-1):    
+    print("Competitor ",names[i],":",sep="")
+    for i in range(3):        
+        print("Attempt ",(i+1),":",sep="")
+        dis=input("")
+        if dis=="foul":
+            dis_=0
+            jumps.append(dis_)
+        elif 0&lt;=float(dis)&lt;=100:
+            dis=float(dis)
+            jumps.append(dis)   
+score={}
+
+print("Competitor","\t","\t "," Longest distance")
+for i in range(len(names)-1):
+        print(names[i],end="\t" "\t" "\t  ")
+        score[names[i]]=max(jumps[3*i:(3*i+3)])      
+        if score[names[i]]==0:
+            print("\t ","\t ","\t  ","No jumps",sep="")
+        else:
+            if len(str(score[names[i]]))==3:
+                print("{0:&lt;10}".format(score[names[i]])) 
+            else:
+                print("{0:&lt;10}".format(score[names[i]]))
+win=list(score)
+
+print("The winner is ",win[0]," with a jump of ",score[names[0]],"0",".",sep="")
+ 
+
+
+    &gt;&gt;&gt;&gt; file: NikNaks.py
+#Nik Naks
+import random
+def main():
+  print("Guess the mystery 4 letter code. (No letter occurs more than once.)")
+  level=int(input('Choose difficulty level (4 to 26):\n'))
+  letters=list('abcdefghijklmnopqrstuvwxyz')[0: level]
+  print('The letters in the code are chosen from: {}.'.format(letters))
+  secret_code=[]
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match114-1.html#0" TARGET="1"><IMG SRC="../../bitmaps/tm_0_8.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+  for i in range(4):
+    rand_index=random.randint(0, len(letters)-1)
+    letter=letters.pop(rand_index)
+    secret_code.append(letter)
+for i in range(10):
+</FONT>  print("You have",(10-i),"guesses remaining.")
+  print("Enter your guess:")
+  guess=input("")
+  list(guess)
+  if guess==secret_code:
+    print("Correct!")
+  elif secret_code
+    
+
+            
+if __name__ == '__main__':
+  main()
+</PRE>
+</PRE>
+</BODY>
+</HTML>

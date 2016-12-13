@@ -1,0 +1,58 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial4/raw/01445014/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial4/raw/vmxwon001/<p><PRE>
+&gt;&gt;&gt;&gt; file: NikNaks.py
+import random
+def main():
+    print("Guess the mystery 4 letter code. (No letter occurs more than once.)")
+    difficulty=int(input('Choose difficulty level (4 to 26):\n'))
+    letters=list('abcdefghijklmnopqrstuvwxyz')[0: difficulty]
+    print('The letters in the code are chosen from: {}.'.format(letters))
+    secret_code=[]
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match24-0.html#1" TARGET="0"><IMG SRC="../../bitmaps/tm_1_13.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    for i in range(4):
+        rand_index=random.randint(0, len(letters)-1)
+        letter=letters.pop(rand_index)
+        secret_code.append(letter)
+    counter = 10
+    while counter:
+</FONT>        print("You have",counter,"guesses remaining.")
+        guess = input("Enter your guess:\n")
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match24-0.html#0" TARGET="0"><IMG SRC="../../bitmaps/tm_0_21.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+        niks = 0
+        naks = 0
+        for k in range(4):
+            if secret_code[k]==guess[k]:
+                niks += 1
+            elif guess[k] in secret_code:
+                naks += 1
+        if niks == 4:
+</FONT>            print("Correct!")
+            break
+        a = "are"
+        b = "Niks"
+        c = "Naks."
+        if niks == 1:
+            a = "is"
+            b = "Nik"
+        if naks == 1:
+            c = "Nak."
+        print("There",a,niks,b,"and",naks,c)
+        counter -= 1
+    if not counter:
+        print("Sorry, you lose.")
+        print("The secret number was ",end="")
+        for i in secret_code:
+            print(i,end="")
+        print(".")
+if __name__=="__main__":
+    main()</PRE>
+</PRE>
+</BODY>
+</HTML>

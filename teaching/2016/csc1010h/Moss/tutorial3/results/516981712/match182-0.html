@@ -1,0 +1,233 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial3/raw/mbknts002/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial3/raw/mbknts002/<p><PRE>
+&gt;&gt;&gt;&gt; file: FeetMetres.py
+
+
+minimum = int(input("Enter the minimum number of feet (not less than 0):\n"))
+maximum = int(input("Enter the maximum number of feet (not more than 99):\n"))
+
+for num in range(minimum,maximum+1):
+    print("{0:&gt;4}\' |{1:&gt;7.2f}m".format(num,num*0.3048))
+    
+    &gt;&gt;&gt;&gt; file: FlowerPattern.py
+import turtle
+
+degree = 0 #initialising the position of the petal
+
+def triangle(sides,p_len):            #formula for calculating and drawing the different types of polygons
+    for i in range(sides):            #for the different types of polygons
+        turtle.forward(p_len)
+        turtle.right(360/sides)
+
+
+petals = int(input("Enter number of petals (must be an even number): "))
+stem_len = int(input("Enter the length of stem: "))
+ptype = input("Enter the petal type (triangle, square, or pentagon): ")
+p_len = int(input("Enter the length of side: "))
+st_col = input("Enter the stem colour: ")
+fst_petal = input("Enter the first petal colour: ")
+sec_petal = input("Enter the second petal colour: ")
+
+if ptype.lower()=='triangle':
+    sides=3
+elif ptype.lower()=='square':
+    sides=4
+elif ptype.lower()=='pentagon':
+    sides=5
+    
+    
+increase=360/petals #revolution angle divided by the number of petals
+i=0
+for i in range(petals): #loop throught number of petals
+    turtle.speed(1)
+    turtle.pencolor(st_col)
+    turtle.right(degree)
+    turtle.forward(stem_len)
+    turtle.left(54)
+    
+    
+    i+=1
+    
+    if i%2==0:
+        turtle.pencolor(fst_petal)
+    else:
+        turtle.pencolor(sec_petal)
+    triangle(sides,p_len)
+    
+    #if ptype.lower() == "pentagon":
+        #for i in range(5):
+            #turtle.pencolor(fst_petal)
+            #turtle.forward(100)
+            #turtle.right(72)
+            #turtle.pencolor(st_col)
+    #elif ptype.lower() == "triangle":
+        #for i in range(5):
+            #turtle.pencolor(fst_petal)
+            #turtle.left(90)
+            #turtle.forward() #p_len/2
+    
+    turtle.pencolor(st_col)
+    turtle.home()
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match182-1.html#0" TARGET="1"><IMG SRC="../../bitmaps/tm_0_6.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    degree += increase # deciding where to draw the next petal
+turtle.exitonclick()&gt;&gt;&gt;&gt; file: InchesMetres.py
+
+lo = int(input("Enter the minimum number of inches (not less than 0):\n"))
+hi = int(input("Enter the maximum number of inches (not greater than 11):\n"))
+
+
+
+print("Inches:",end=" ")
+for i in range(lo,hi+1):
+    print("{:&gt;4}".format(i),end =" ")
+print()
+
+print("Metres:",end=" ")
+for metres in range(lo,hi+1):
+</FONT>    print("{:&lt;4.2f}".format(metres*0.0254),end=" ")&gt;&gt;&gt;&gt; file: TimeConvertor.py
+time  = input("Enter a time ([h]h:mm [am|pm]):\n")
+
+
+if len(time) &lt;= 5:
+    minute = time[-3:]      #minutes sliced       
+    hour = time[:-3]   #hours sliced
+    if int(hour) &lt; 12:
+        if 0 &lt; int(hour) &lt; 10: 
+            print(str(int(hour))+minute+" "+"am")
+        elif  10 &lt;= int(hour) &lt;12:
+            print(str(int(hour))+minute+" "+"am")
+        elif int(hour) == 00:
+            print("12"+minute+" "+'am')
+    elif int(hour)==12:
+        print("12"+minute+" "+"pm")
+        
+
+
+
+
+
+elif len(time) &gt; 5:
+    minute = time[-6:-3]
+    hour = time[:-6]
+    if time[-2:] == "pm":
+        if int(hour) &lt; 12:
+            print(str(int(hour)+12)+minute)
+        elif int(hour) &lt; 10:
+            print(str(int(hour)+12)+minute)
+        else:
+            print("12"+minute)
+    else:
+        if int(hour) &lt; 10:
+            print("0"+hour+minute+" ")
+        elif 10 &lt;= int(hour) &lt;12:
+            print(hour+minute)
+        else:
+            print("00"+minute)
+            
+        
+    
+        
+        
+        
+        
+        &gt;&gt;&gt;&gt; file: Twelve.py
+time = input("Enter a time in 12 hour clock ([h]h:mm [am|pm]):\n")
+
+def main():
+    merid = time[-2:]
+    hours = time[:-6]
+    if merid == "am":
+        if int(hours) &lt; 10:                    #hours &lt; 10?
+            print("0"+hours+time[-6:-3])#if hours &lt; 10 concatenate a zero
+        if hours == "12":
+            print("0"+str(int(hours)-12)+time[-6:-3])
+            
+    else:
+        if int(hours) &lt;= 10:
+            pm_hours = int(hours)+12
+            print(str(pm_hours)+time[-6:-3])
+        elif int(hours) &gt; 10 and int(hours) &lt; 12:
+            print(str(int(hours)+12)+time[-6:-3])
+        else:
+            print(hours+time[-6:-3])
+            
+main()
+    &gt;&gt;&gt;&gt; file: TwentyFour.py
+def main():
+    time = input("Enter a time in 24 hour clock (hh:mm):\n")
+    a = time[:-3]
+    b = int(a)
+    
+    if b == 12:
+        print(str(b)+time[-3:]+" pm")
+    elif 0 &lt;b&lt; 12:
+        print(str(b)+time[-3:]+" am")
+    elif b == 00:
+        print("12"+time[-3:]+" am")
+    elif b &gt; 12:
+        print(str(b-12)+time[-3:]+" pm")
+       
+main()&gt;&gt;&gt;&gt; file: VehicleClassifier.py
+
+
+def main():
+    GVM = int(input("What is the gross vehicle mass (in kg)?\n"))
+    trail = input("Does the vehicle have a trailer?\n")
+    
+    
+    if GVM &lt;= 3500:
+            if trail =="y":
+                mass_trail = int(input("What is gross vehicle mass of the trailer (in kg)?\n"))
+                if mass_trail &lt;= 750:
+                    print("This vehicle is class B.")
+                else:
+                    print("This vehicle is class EB.")
+            else:
+                artic = input("Is the vehicle articulated?\n")
+                if artic =="y":
+                    print('This vehicle is class EB.')
+                else:
+                    print("This vehicle is class B.")
+    
+    elif 3500 &lt; GVM &lt;= 16000:
+        if trail=="y":
+            mass_trail = int(input("What is gross vehicle mass of the trailer (in kg)?\n"))
+            if mass_trail &lt;= 750:
+                print("This vehicle is class C1.")
+            else:
+                print("This vehicle is class EC1.")
+        else:
+            artic = input("Is the vehicle articulated?\n")
+            if artic =="y":
+                print("This vehicle is class EC1.")
+            else:
+                print("This vehicle is class C1.")
+                
+    else:
+        if trail =="y":
+            mass_trail = int(input("What is gross vehicle mass of the trailer (in kg)?\n"))
+            if mass_trail &lt;= 750:
+                print("This vehicle is class C.")
+            else:
+                print("This vehicle is class EC.")
+        else:
+            artic = input("Is the vehicle articulated?\n")
+            if artic =="y":
+                print('This vehicle is class EC.')
+            else:
+                print("This vehicle is class C.")
+
+main()
+                
+        
+        
+            </PRE>
+</PRE>
+</BODY>
+</HTML>

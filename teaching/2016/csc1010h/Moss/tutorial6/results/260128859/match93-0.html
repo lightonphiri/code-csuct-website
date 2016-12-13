@@ -1,0 +1,101 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial6/raw/frnrif001/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial6/raw/frnrif001/<p><PRE>
+&gt;&gt;&gt;&gt; file: fixed_mod.py
+# Rifqah Francis
+# 27 August 2016
+
+import string
+
+def palindrome(s):
+      if len(s) &lt; 1:
+            return True
+      if s[0] in string.punctuation or s[0] in string.whitespace:
+            return palindrome(s[:-1])
+      elif s[-1] in string.punctuation or s[-1] in string.whitespace:
+            return palindrome(s[:-1])
+      else:
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match93-1.html#1" TARGET="1"><IMG SRC="../../bitmaps/tm_1_5.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+            if s[0].lower() == s[-1].lower():
+                  return palindrome(s[1:-1])
+            else:
+                  return False                  
+&gt;&gt;&gt;&gt; file: match_mod.py
+# Rifqah Francis
+# 27 August 2016
+
+import string
+
+def equals(word_one,word_two):
+</FONT>    if len(word_one) != len(word_two):
+        return False
+    if len(word_one) and len(word_two) &lt; 2 and word_one == word_two:
+        return True
+    if word_one == '' or word_two == '':
+        return False
+    if word_one[0] in string.punctuation or word_one[0] in string.whitespace:
+        return equals(word_one[:-1],word_two[:-1])
+    elif word_one[-1] in string.punctuation or word_one[-1] in string.whitespace:
+        return equals(word_one[:-1],word_two[:-1])      
+    else:
+        if word_one[0].lower() == word_two[0].lower():
+            return equals(word_one[1::],word_two[1::])
+        else:
+            return False
+        
+def query(pattern,word):
+    if pattern == '':
+        return not word
+    elif word == '':
+        return False
+    else:
+        if pattern[0] == '?':
+            return query(pattern[1::],word[1::])
+        else:
+            return pattern[0] == word[0] and query(pattern[1:],word[1:])
+            
+def match(pattern,word):
+    if pattern == '':
+        return not word
+    elif word == '':
+        return False
+    elif pattern == '*':
+        return True
+    elif word == '' and pattern == '*':
+        return True
+    elif word == '*' or pattern == word:
+        return True
+    elif pattern[0] == '*':
+        return match(pattern,word[1::]) or match(pattern[1::],word)  
+    if pattern[0] == '?':  
+        return match(pattern[1:],word[1:])
+    else:
+        return pattern[0] == word[0] and match(pattern[1:], word[1:])&gt;&gt;&gt;&gt; file: mongoose_mod.py
+# Program to calculate mongoose population size
+# Rifqah Francis
+# 26 August 2016
+
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match93-1.html#0" TARGET="1"><IMG SRC="../../bitmaps/tm_0_6.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+def population(n):
+    if n == 1 or n == 2:
+        return 2
+    else:
+        return population(n-1) + population(n-2)&gt;&gt;&gt;&gt; file: sum_mod.py
+# Program that sums the values from 1 to an integer n
+# Rifqah Francis
+# 26 August 2016
+
+def sum_to_n(n):
+    if n == 1:
+</FONT>        return n
+    else:
+        return n + sum_to_n(n-1)</PRE>
+</PRE>
+</BODY>
+</HTML>

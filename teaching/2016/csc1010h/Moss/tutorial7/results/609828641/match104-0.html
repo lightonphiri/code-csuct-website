@@ -1,0 +1,136 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial7/raw/kknnok001/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial7/raw/kknnok001/<p><PRE>
+&gt;&gt;&gt;&gt; file: book_cypher.py
+
+filename=input('Enter the book filename:\n')
+massage=input('Enter the massage:\n')
+out_file=input('Enter the output filename:\n')
+list1=massage.split()
+new_list=[]
+ele=open(out_file,"w")
+print('BEGIN',file = ele)
+print()
+print('BEGIN')
+for word in list1:
+    word=str(word)
+    p=word.strip('?!.,;:)([]{}\'" \n')
+    #print(p)
+    new_list.append(p)
+
+for element in new_list:  #line infile
+    file = open(filename,"r")
+    count=0
+    k=''
+    for line in file:
+        count+=1
+        checklist=line.split()
+        if k != '':
+            break
+        for i in range(len(checklist)):
+            checklist[i]=checklist[i].lower().strip('?!.,;:)([]{}\'" \n')
+        if element.lower() in checklist:
+            ind=checklist.index(element.lower())+1
+            break
+    if count==3494:
+        print(element)
+        print(element,file=ele)
+    else:    
+        print(str(count)+"-"+str(ind),file=ele)
+        print(str(count)+"-"+str(ind))
+        
+    
+file.close()
+print('END',file=ele)
+print('END')
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match104-1.html#0" TARGET="1"><IMG SRC="../../bitmaps/tm_0_5.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+ele.close()
+
+&gt;&gt;&gt;&gt; file: leader_board.py
+# leader_board.py
+
+def process_line(line):
+    parts = line.split(' ')
+    name = parts[0]
+    trials = int(parts[1])
+    average = float(parts[2])
+</FONT>    return (name, trials, average)
+
+def get_max(entries):
+    max = entries[0]
+    for i in range(1, len(entries)):
+        if entries[i][2] &lt;max[2]:
+            max = entries[i]
+            
+    entries.remove(max)
+    return max
+
+def sort(entries):
+    sorted_entries = []
+    while len(entries)&gt;0:
+        sorted_entries.append(get_max(entries))
+    return sorted_entries
+
+def output(entries):
+    print('Subject        | Average Time')
+    print('************** | ************')
+    for entry in entries:
+        print('{:14} | {:.6}'.format(entry[0], entry[2]))
+              
+def main():
+    while True :
+        try:
+            file_name = input('Enter the name of the file:\n')
+            file_input = open(file_name, 'r')
+            break
+        except IOError:
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match104-1.html#1" TARGET="1"><IMG SRC="../../bitmaps/tm_1_4.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+            print('An incorrect file has been entered, please enter another file.')
+            
+    
+    entries = []
+    for line in file_input:
+        entries.append(process_line(line))
+    file_input.close()
+    
+    entries = sort(entries)
+    output(entries)
+    
+main()
+</FONT>    &gt;&gt;&gt;&gt; file: reaction_test.py
+import time 
+import random
+file_name=input('Enter the name of the output file:\n')
+f=open(file_name,'w')
+while True:
+    subject_name=input("Enter subject name (or press 'enter' to quit):\n")
+    if subject_name=='':break
+    else:
+        add=0
+        num_test=int(input('Enter the number of tests: \n'))
+        for i in range(num_test):
+            print('Get ready...',flush=True)
+            ran=random.randint(1,5)     # to get how long it will stop
+            time.sleep(ran) 
+            t1=time.time()              #make it sleep for that number
+            input("Press 'enter' NOW!")
+            t2 =time.time()
+            reaction =(t2-t1)
+            add+=reaction
+            print('Reaction time: {:.6f}'.format(reaction))
+        average=add/num_test
+        print(subject_name,str(num_test),str(average),file=f)
+        print('Tests complete.')
+        print('Average reaction time: {:.6f}'.format(average)) 
+f.close()
+
+</PRE>
+</PRE>
+</BODY>
+</HTML>

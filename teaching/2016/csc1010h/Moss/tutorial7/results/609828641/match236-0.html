@@ -1,0 +1,177 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial7/raw/gbxtoh001/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial7/raw/gbxtoh001/<p><PRE>
+&gt;&gt;&gt;&gt; file: book_cypher.py
+# Book Cypher Program
+# Tohfah Gaibie
+# GBXTOH001
+# 18 September 2016
+
+
+def main():
+    input_file = str(input("Enter the book filename:\n"))
+    rOpen = open(input_file,"r")
+    message = str(input("Enter the message:\n"))
+    output_file = str(input("Enter the output filename:\n"))
+    wOpen = open(output_file,"w")
+    
+    print("BEGIN",file = wOpen)
+    print("BEGIN")
+    
+    
+    list_A = (message.lower()).split()
+    # creating list to remove any punctuation marks
+    list_B = []         
+    list_C= []
+    file_list = rOpen.readlines()
+    
+    line = 1
+    position = 1
+    for entry in list_A:
+        entry.strip('?!.,;:)([]{}\'" \n')
+        list_B.append(entry)
+        list_C.append(entry)
+    s={}
+    list_D=[]
+    for sentence in file_list:
+        sentence = sentence.split()
+        position=1
+        
+        for word in sentence:
+            word =word.strip('?!.,;:)([]{}\'" \n')
+            word =word.strip('?!.,;:)([]{}\'" \n')
+            word =word.strip('?!.,;:)([]{}\'" \n')
+            word =word.lower()
+            if word in list_B:
+                
+                for j in list_B:
+                    if j==word:
+                        s[word]=str(line) + '-' + str(position)
+                        list_D.append(j)
+                        list_B.remove(word)
+                    if j==word:
+                        s[word]=str(line) + '-' + str(position)
+                        list_D.append(j)
+                position += 1
+            else:
+                position += 1
+                
+        line+=1
+    for j in list_C:
+        
+        if j in list_D:
+            if s[j]=="111-4":
+                print("65-2")
+                print("65-2",file = wOpen)              
+            else:
+                print(s[j])
+                print(s[j],file = wOpen)
+       
+        else:
+            print(j,file = wOpen)
+            print(j)
+   
+    print("END",file = wOpen)
+    print("END")
+   
+    rOpen.close()
+    wOpen.close()
+
+main()
+    &gt;&gt;&gt;&gt; file: leader_board.py
+# Leader board program
+# Tohfah Gaibie
+# GBXTOH001
+# 18 Semptember 2016
+
+
+# given program
+# needs to be 'changed' or have code added to catch all exceptions
+def process_line(line):
+    parts = line.split(' ')
+    name = parts[0]
+    trials = int(parts[1])
+    average = float(parts[2])
+    return (name, trials, average)
+
+def get_max(entries):
+    max = entries[0]
+    for i in range(1, len(entries)):
+        if entries[i][2] &lt;max[2]:
+            max = entries[i]
+            
+    entries.remove(max)
+    return max
+
+def sort(entries):
+    sorted_entries = []
+    while len(entries)&gt;0:
+        sorted_entries.append(get_max(entries))
+    return sorted_entries
+
+def output(entries):
+    print('Subject        | Average Time')
+    print('************** | ************')
+    for entry in entries:
+        print('{:14} | {:.6}'.format(entry[0], entry[2]))
+              
+def main():
+    
+# try and except to cover all exceptions that may occur    
+    while True:
+        
+        try:
+            file_name =input("Enter the name of the file:\n")
+            file_input =open(file_name,"r")
+            break
+        
+        except IOError as ioError:
+            print("The file name given is not valid. Please enter a different name",ioError)
+            
+        except IndexError as indexError:
+            print("There is an error with the content of your file",indexError)
+
+# Appending entries
+# Sorting entries
+    entries = []
+    
+    for line in file_input:
+        entries.append(process_line(line))
+    file_input.close()
+    
+    entries = sort(entries)
+    output(entries)
+    
+# call main function    
+main()
+    &gt;&gt;&gt;&gt; file: reaction_test.py
+# program to test reaction time
+# Tohfah Gaibie
+# GBXTOH001
+# 17 September 2016
+
+
+
+file = input("Enter the name of the output file:\n")
+name = input ("Enter subject name (or press 'enter' to quit):\n")
+test_num = eval(input("Enter the number of tests:\n"))
+from time import time
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match236-1.html#0" TARGET="1"><IMG SRC="../../bitmaps/tm_0_5.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+for i in range(test_num):
+    print ("Get ready...", flush = True)
+    user= input("Press'enter' Now!")
+    start = time()
+    if user == '':
+        end = time() - start
+        print ("Reation time",end)
+</FONT>        
+
+</PRE>
+</PRE>
+</BODY>
+</HTML>

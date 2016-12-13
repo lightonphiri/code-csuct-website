@@ -1,0 +1,153 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial5/raw/iscabd011/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial5/raw/iscabd011/<p><PRE>
+&gt;&gt;&gt;&gt; file: calendar_utils.py
+#calender utils programme
+#qasifi
+#6 august 2016
+
+def is_leap_year(year):
+    
+    if year%4==0 and year%100!=0 or year%400==0:
+        is_leap_year = True
+        return is_leap_year
+    else:
+        is_leap_year = False
+        return is_leap_year
+    
+def month_name(month_number):
+    month_name = ['January','February','March','April','May','June','July','August','September','October','November','December']
+    
+    return month_name[month_number-1]
+
+def days_in_month(month_number, year):
+    monthLength = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+    monthLengthleap = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+    if is_leap_year(year):
+        final = monthLengthleap[month_number-1]
+    elif not is_leap_year(year):
+        final = monthLength[month_number-1]
+    return final
+
+def first_day_of_year(year):
+    days = ['0','1','2','3','4','5','6']
+    
+    for z in range(year,year+1):
+        x = (z-1)%4
+        y = (x*5)+1
+        y = y+4*((z-1)%100)
+        y = y+6*((z-1)%400)
+        day = (y%7)
+        day = days[day]
+        
+    return day
+        
+def first_day_of_month(month_number, year):
+    days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday']
+    
+    #month = eval(input("Enter the month (1 for January, ..., 12 for Decmeber:\n"))
+    #year = eval(input("Enter the year (4 digits):\n"))
+    
+    if year%4 == 0:
+        calc1 = 5 * ((year-1)%4)
+        calc2 = 4 * ((year-1)%100)
+        calc3 = 6 * ((year-1)%400)
+        z = ((1+(calc1)+(calc2)+(calc3))%7)
+        
+        if month_number == 2:
+            z = z + (31%7)
+        elif month_number == 3:
+            z = z + ((31+29)%7)
+        elif month_number == 4:
+            z = z + ((31+29+31)%7)
+        elif month_number == 5:
+            z = z + ((31+29+31+30)%7)
+        elif month_number == 6:
+            z = z + ((31+29+31+30+31)%7)
+        elif month_number == 7:
+            z = z + ((31+29+31+30+31+30)%7)
+        elif month_number == 8:
+            z = z + ((31+29+31+30+31+30+31)%7)
+        elif month_number == 9:
+            z = z + ((31+29+31+30+31+30+31+31)%7)
+        elif month_number == 10:
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match173-1.html#0" TARGET="1"><IMG SRC="../../bitmaps/tm_0_4.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+            z = z + ((31+29+31+30+31+30+31+31+30)%7)
+        elif month_number == 11:
+</FONT><A NAME="1"></A><FONT color = #00FF00><A HREF="match173-1.html#1" TARGET="1"><IMG SRC="../../bitmaps/tm_1_4.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+            z = z + ((31+29+31+30+31+30+31+31+30+31)%7)
+        elif month_number == 12:
+</FONT>            z = z + ((31+29+31+30+31+30+31+31+30+31+30)%7)
+        
+        z = days[z]
+        
+        return z
+            
+            
+            
+    
+    #if leap_year==True:
+        #first day calculation
+        #first_day_of_year()
+    
+           #( if month == 2 number of days in next month)%7
+           # if month number ==3 (next 2 days in month )%7
+        
+        #while x&gt;6:
+        #x-7        &gt;&gt;&gt;&gt; file: technical_support.py
+#programme of tech support
+#qasifi
+#19 april 2016
+
+def welcome():
+    print('Welcome to the automated technical support system.\nPlease describe your problem:')
+
+def get_input():
+    return input()
+
+def main():
+    D = {'crashed': 'Are the drivers up to date?',
+         'blue': 'Ah, the blue screen of death. And then what happened?',
+         'hacked': 'You should consider installing anti-virus software.',
+         'bluetooth': 'Have you tried mouthwash?',
+         'windows': 'Ah, I think I see your problem. What version?',
+         'apple': 'You do mean the computer kind?',
+         'spam':'You should see if your mail client can filter messages.',
+         'connection': 'Contact Telkom.'} 
+    
+    welcome()    
+    query = get_input()
+    query = query.lower()
+    queryLst = query.split()
+    wordFound = False
+    key = '' # save key word
+    
+    while query != 'quit':
+        for word in queryLst:
+            if word in D:
+                wordFound = True
+                key = word
+                break
+            else:
+                wordFound = False
+        if wordFound == True:
+            print(D[key])
+        else:
+            print("Curious, tell me more.")
+
+        query = get_input()
+        query = query.lower()
+        queryLst = query.split()
+        wordFound = False
+    
+if __name__=='__main__':
+    main()</PRE>
+</PRE>
+</BODY>
+</HTML>

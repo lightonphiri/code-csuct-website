@@ -1,0 +1,176 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial5/raw/pkgkar001/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial5/raw/tmbliv001/<p><PRE>
+&gt;&gt;&gt;&gt; file: calendar_utils.py
+months = {
+    '1' : 'January' ,
+    '2' : 'February',
+    '3' : 'March',
+    '4' : 'April',
+    '5' : 'May',
+    '6' : 'June',
+    '7' : 'July',
+    '8' : 'August',
+    '9' : 'September',
+    '10': 'October',
+    '11': 'November',
+    '12': 'December'
+         }
+
+days = { 
+    '0' :'Sunday',
+    '1' :'Monday',
+    '2' :'Tuesday',
+    '3' :'Wednesday',
+    '4' :'Thursday',
+    '5' :'Friday',
+    '6' :'Saturday'
+       }
+def is_leap_year(year):
+    if year == 1900:
+        return False
+    elif year &gt; 2016:
+        dif = year - 2016
+        if dif%4 == 0:
+            return True
+        else:
+            return False
+    elif year &lt; 2016:
+        dif2 = 2016 - year 
+        if dif2%4 == 0:
+            return True
+        else:
+            return False
+    elif year == 2016 :
+        return True
+
+def month_name(number):
+    return months[str(number)]
+
+def days_in_month(month_number,year):
+    if is_leap_year(year) == True and month_number == 2:
+            return 29
+    elif month_number == 2:
+            return 28
+        
+    elif month_number == 4 or month_number == 6 or month_number == 9 or month_number == 11 or month_number == 12:
+        return 30
+    
+    elif month_number == 1 or month_number == 3 or month_number == 5 or month_number == 8 or month_number == 10 or month_number == 12 or month_number == 7:
+        return 31
+    
+def first_day_of_year(year):
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match23-0.html#1" TARGET="0"><IMG SRC="../../bitmaps/tm_1_6.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    day = (1+5*((year-1)%4)+4*((year-1)%100)+6*((year-1)%400))%7
+    return day
+
+import datetime
+def first_day_of_month(month_number, year):
+</FONT>    week = { 
+        '0' :'1',
+        '1' :'2',
+        '2' :'3',
+        '3' :'4',
+        '4' :'5',
+        '5' :'6',
+        '6' :'0'
+           }    
+
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match23-0.html#0" TARGET="0"><IMG SRC="../../bitmaps/tm_0_49.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    def weekday(year,month_number, day):
+        return datetime.date(year, month_number, day).weekday()
+    day1 = weekday(year,month_number, 1)
+    return week[str(day1)]&gt;&gt;&gt;&gt; file: morse_code.py
+def code_for(letter):
+    letter = letter.lower()
+    letters = {'a':'.-','b':'-...','c':'-.-.','d':'-..','e':'.','f':'..-.','g':'--.','h':'....','i':'..','j':'.---','k':'-.-','l':'.-..','m':'--','n':'-.','o':'---','p':'.--.','q':'--.-','r':'.-.','s':'...','t':'-','u':'..-','v':'...-','w':'.--','x':'-..-','y':'-.--','z':'--..'
+              }
+    return letters[letter]
+def transmit_letter(letter):
+    alpha = '^'.join(code_for(str(letter)))
+    return print(alpha,end='')
+
+def transmit_word(word):
+    mylist = []
+    n = 0
+    wd = ""
+    for i in word:
+        mylist.append(str('^'.join(code_for(str(i))))) 
+        if n != len(word)-1:
+            mylist.append(str('|'))
+            n += 1
+
+    for char in mylist:
+        wd += char
+    return print(wd,end='')
+
+def word_pause():
+    #import time
+    #import winsound
+    #duration = 100
+    #frequency = 1000
+    #def sleep(duration):
+        #time.sleep(duration)
+        
+    #def beep(frequency, duration):
+        #winsound.Beep(frequency, duration)
+    return print('||',end = '')&gt;&gt;&gt;&gt; file: technical_support.py
+# Tech Support
+# Stephan Jamieson
+# 5/1/2015
+responses = {
+    'bluetooth':'Have you tried mouthwash?',
+    'windows':'Ah, I think I see your problem. What version?',
+    'apple':'You do mean the computer kind?',
+    'blue':'Ah, the blue screen of death. And then what happened?',
+    'spam':'You should see if your mail client can filter messages.',
+    'connection':'Contact Telkom.',
+    'crashed':'Are the drivers up to date?',
+    'hacked':'You should consider installing anti-virus software.'}
+
+
+def default_response():
+    return 'Curious, tell me more.'
+    
+def get_response(words):
+    for i in range(1000):
+        for word in words:
+            word1 = word.lower()
+            if word1 in responses:
+                return responses[word1]
+            elif not word1 in responses:
+                continue
+        if word1 == 'quit':
+            return 'quit'
+        return default_response()
+ 
+    
+def print_welcome():
+    print('Welcome to the automated technical support system.')
+    print('Please describe your problem:')
+
+
+def get_input():
+    query = input().split(' ')
+    return query
+
+def main():
+    print_welcome()
+    query = get_input()
+    while True:
+        response = get_response(query)
+        if response == 'quit':
+            break
+        print(response)
+        query = get_input()
+</FONT>
+main() </PRE>
+</PRE>
+</BODY>
+</HTML>

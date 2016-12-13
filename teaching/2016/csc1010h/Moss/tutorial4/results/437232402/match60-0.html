@@ -1,0 +1,202 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial4/raw/iscabd011/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial4/raw/iscabd011/<p><PRE>
+&gt;&gt;&gt;&gt; file: LongJump.py
+#programme determining winner of longjump
+#qasifi
+#21 july 2016
+
+n = 1
+competitors = []
+data = {}
+
+print('***** Long Jump Information System *****\nPlease enter the names of competitors. (Press return when done.)')
+
+#get a series of names
+print('Competitor no.',n,end = ':\n')
+x = input()
+
+while x != '':
+    n = n + 1
+    competitors.append(x)
+
+    print('Competitor no.',n,end = ':\n')
+    x = input()
+    
+#get distances for each name and store maximum
+print('Please enter the distances for each competitor.')
+for N in range(len(competitors)):
+    print('Competitor',competitors[N],':')
+
+    a = input('Attempt 1:\n')
+    b = input('Attempt 2:\n')
+    c = input('Attempt 3:\n')
+
+    maximum = max (max (a, b), c)
+
+    if a and b and c == 'foul':
+        maximum = 'No jump'
+    elif a == 'foul':
+        maximum = max(b, c)
+    elif b == 'foul':
+        maximum = max(a, c)
+    elif c == 'foul':
+        maximum = max(a, b)
+    elif a and b == 'foul':
+        maximum = c
+    elif b and c == 'foul':
+        maximum = a
+    elif a and c == 'foul':
+        maximum = b
+    data[(str(competitors[N]))] = (maximum)
+
+#print out data in correct format
+print('Competitor','Longest Distance',sep = ' ' * 15)
+
+for key in data:
+    print('{0:&lt;24}'.format(key),(data[key]))
+
+#print('The winner is',k,'with a jump of',v,end = '.')&gt;&gt;&gt;&gt; file: NikNaks.py
+#niknak game
+#qasifi
+#24 july 2016
+
+import random
+
+def main():
+        nak = 0
+        nik = 0
+        guess = 10
+        words = []
+
+#generate secret code
+        print('Guess the mystery 4 letter code. (No letter occurs more than once.)')
+        difficulty = int(input('Choose difficulty level (4 to 26):\n'))
+        letters = list('abcdefghijklmnopqrstuvwxyz')[0: difficulty]
+        print('The letters in the code are chosen from: {}.'.format(letters))
+        secret_code = []
+
+        for i in range(4):
+                rand_index=random.randint(0, len(letters)-1)
+                letter=letters.pop(rand_index)
+                secret_code.append(letter)
+
+#get guess from user
+        print('You have 10 guesses remaining.')
+        a = input('Enter your guess:\n')
+        words = list(a)
+        
+        if secret_code[0] == words[0]:
+                nik = nik + 1
+        else:
+                nak = nak + 1
+        if secret_code[1] == words[1]:
+                nik = nik + 1
+        else:
+                nak = nak + 1
+        if secret_code[2] == words[2]:
+                nik = nik + 1
+        else:
+                nak = nak + 1
+        if secret_code[3] == words[3]:
+                nik = nik + 1
+        else:
+                nak = nak + 1
+                
+        if nik == 4:
+                print('Correct!')
+        elif nik == 1:
+                print('There is',nik,'Nik and',nak,'Naks.')
+        elif nak == 1:
+                print('There are',nik,'Niks and',nak,'Nak.')                
+        else:
+                print('There are',nik,'Niks and',nak,'Naks.')
+
+                while guess != 0 or nik != 4:
+                        if guess == 0:
+                                print('Sorry, you lose.\nThe secret number was',(''.join(secret_code)), end = '.')
+                                break
+                        guess = guess - 1
+                        nik = 0
+                        nak = 0
+                        print('You have',guess,'guesses remaining.')
+                        a = input('Enter your guess:\n')
+                        words = list(a)
+                        
+                        if secret_code[0] == words[0]:
+                                nik = nik + 1
+                        else:
+                                nak = nak + 1
+                        if secret_code[1] == words[1]:
+                                nik = nik + 1
+                        else:
+                                nak = nak + 1
+                        if secret_code[2] == words[2]:
+                                nik = nik + 1
+                        else:
+                                nak = nak + 1
+                        if secret_code[3] == words[3]:
+                                nik = nik + 1
+                        else:
+                                nak = nak + 1
+        
+                        if nik == 4:
+                                print('Correct!')
+                                break
+                        elif nik == 1:
+                                print('There is',nik,'Nik and',nak,'Naks.')
+                        elif nak == 1:
+                                print('There are',nik,'Niks and',nak,'Nak.')
+                        else:
+                                print('There are',nik,'Niks and',nak,'Naks.')
+                        
+if __name__ == '__main__':
+        main()&gt;&gt;&gt;&gt; file: turtlepython(ISCABD011).py
+import turtle
+
+turtle.screensize(500,500)
+turtle.forward(50)
+turtle.right(90)
+turtle.pendown('cyan')
+turtle.speed(5)
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match60-1.html#0" TARGET="1"><IMG SRC="../../bitmaps/tm_0_3.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+turtle.forward(50)
+turtle.right(90)
+turtle.forward(100)
+turtle.penup()
+turtle.right(90)
+turtle.forward(100)
+turtle.right(90)
+</FONT>turtle.pendown('cyan')
+turtle.forward(100)
+turtle.right(90)
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match60-1.html#1" TARGET="1"><IMG SRC="../../bitmaps/tm_1_3.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+turtle.forward(50)
+turtle.penup()
+turtle.right(90)
+turtle.forward(50)
+turtle.right(90)
+turtle.forward(50)
+turtle.right(180)
+turtle.pendown('cyan')
+</FONT>turtle.forward(100)
+turtle.penup()
+
+turtle.forward(50)
+turtle.right(90)
+turtle.forward(50)
+turtle.right(180)
+turtle.pendown('red')
+turtle.forward(100)
+turtle.penup()
+
+turtle.exitonclick()</PRE>
+</PRE>
+</BODY>
+</HTML>

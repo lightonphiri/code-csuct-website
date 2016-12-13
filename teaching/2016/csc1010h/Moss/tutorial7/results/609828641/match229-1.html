@@ -1,0 +1,112 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial7/raw/kknnok001/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial7/raw/mthben013/<p><PRE>
+&gt;&gt;&gt;&gt; file: leader_board.py
+# leader_board.py
+n=0
+def process_line(line):
+    global n 
+    n+=1
+    try:
+        parts = line.split(' ')
+        name = parts[0]
+        trials = int(parts[1])
+        average = float(parts[2])
+    except ValueError:
+        print('ValueError in line',n)
+        n=0
+    except IndexError:
+        print('IndexError in line',n)
+        n=0
+    else:
+        return (name, trials, average)
+
+def get_max(entries):
+    global n
+    n+=1
+    try:
+        max = entries[0]
+        for i in range(1, len(entries)):
+            if entries[i][2] &lt;max[2]:
+                max = entries[i]
+    
+    except TypeError:
+        print('wrong value')
+    except IndexError:
+        print('IndexError in line',n) 
+        n=0
+    else:
+        entries.remove(max)
+        return (max)        
+
+def sort(entries):
+    sorted_entries = []
+    while len(entries)&gt;0:
+        sorted_entries.append(get_max(entries))
+    return sorted_entries
+
+def output(entries):
+    print('Subject        | Average Time')
+    print('************** | ************')
+    for entry in entries:
+        print('{:14} | {:.6}'.format(entry[0], entry[2]))
+              
+def main():
+    try:
+        file_name = input('Enter the name of the file:\n')
+        file_input = open(file_name, 'r')
+    
+    except:
+        print('cannot open the named results file')
+        file_name = input('Enter another file name:\n')
+        file_input = open(file_name, 'r')
+    else:
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match229-0.html#0" TARGET="0"><IMG SRC="../../bitmaps/tm_0_8.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+        entries = []
+        for line in file_input:
+            entries.append(process_line(line))
+    file_input.close()
+    
+    entries = sort(entries)
+    output(entries)
+    
+main()
+    &gt;&gt;&gt;&gt; file: reaction_test.py
+import random
+import time
+
+
+file=input('Enter the name of the output file:\n')
+</FONT>
+sum=0
+while True:
+    file_input=open(file,'a')
+    name=input("Enter subject name (or press 'enter' to quit):\n")
+    
+    if name=='quit':break
+    
+    number=int(input('number of test:\n'))    
+    for i in range(number):
+        t=random.randint(1,5)
+        print('Get Ready...',flush=True)
+        time.sleep(t)
+        start=time.time()
+        enter=input("Press 'enter' NOW!")
+        finish=time.time()
+        reaction=round(finish-start,6)
+        print('Reaction time:',reaction)
+        sum+=reaction
+    average=round(sum/number,6)
+    print('Average reaction time:',average)
+    file_input.append(name+' '+str(average))
+    file_input.close()
+
+</PRE>
+</PRE>
+</BODY>
+</HTML>

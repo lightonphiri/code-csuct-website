@@ -1,0 +1,98 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial2/raw/admzai012/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial2/raw/msnloy003/<p><PRE>
+&gt;&gt;&gt;&gt; file: CreditCard.py
+def main():
+    
+    name = input("Enter the card holder's name:\n")
+    card_num = input("Enter the 16 digit card number (no spaces please):\n")
+    date = input("Enter the date of issue (mm:yy):\n")
+    expiry_date = input("Enter the expiry date (mm:yy):\n")
+    security_code = input("Enter the 3 digit security code:\n")
+    limit = float(input("Enter the credit limit (Rand):\n"))
+    balance = float(input("Enter the balance (Rand):\n"))
+    
+    available = float(limit-balance)
+    word = " Credit Card Account "
+    edited_lim = "{0:&gt;1.2f} Rand".format(limit)
+    edited_ava = "{0:&gt;1.2f} Rand".format(available)
+    edited_bal = "{0:&gt;1.2f} Rand".format(balance)
+    
+    print("+{0:-^48}+".format(word))
+    print("| Card holder:   "+"{0:&lt;32}|".format(name.title()))
+    print("| Card number:  ",str(card_num)[0:4:1]+"",card_num[4:8:1],card_num[8:12:1],card_num[12::1]+"{0:&gt;13}|".format(""))
+    print("| Date of issue:",str(date)[0:2:]+"/"+date[3::]+"    "+"Expiry date:",str(expiry_date)[0:2]+"/"+expiry_date[3:]+"{0:&gt;5}|".format(""))
+    print("| Security code:",security_code+"{0:&gt;29}|".format(""))
+    print("| Credit limit:  "+"{0:&lt;32}|".format(edited_lim))
+    print("| Available:     "+"{0:&lt;32}|".format(edited_ava))
+    print("| Balance:       "+"{0:&lt;32}|".format(edited_bal))
+    print("+{0:-^48}+".format(""))
+main()&gt;&gt;&gt;&gt; file: EugeneJunior.py
+
+# Loyiso Masango
+# 22 April 2016
+import math
+def main():
+    print("Hello, I am Eugene Junior.")
+    name = input("What is your first name?\n")  # ask for user's name    
+    surname = input("What is your last name?\n")  # ask for user's surname
+    print("Hi",name.upper()[0:1]+"."+surname.upper()[0:1]+".!") # manipulate the string to get the user's first letter of name and surname
+    year = int(input("What year is this?\n"))  # ask for the user for the current year
+    age = int(input("What age are you?\n"))  # ask for user's age
+    birth_year_1 = (year-age)-1
+    birth_year_2 = birth_year_1 + 1
+    print("Okay, so you were born in",str(birth_year_1)+"/"+str(birth_year_2)[2:]+".")# minus the age from the current year to get the user's birth year and the birth year+1
+    height = float(input("How tall are you (metres)?\n"))
+    height_f = math.floor(height*3.2804)
+    height_i = round((height*3.2804%int(height))*12)
+    print("That's",str(height_f)+"'"+str(height_i)+'"!')
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match150-0.html#0" TARGET="0"><IMG SRC="../../bitmaps/tm_0_7.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    print("I'm going to tell you your Star Wars name.")
+    first_name = input("What's your mother's first name?\n")
+    city_name = input("What's the name of the city nearest to your place of birth?\n")
+    starwars_name = surname[0:3]+name[0:2]
+    starwars_surname = first_name[-2:]+city_name[-3:]
+    print("Your Star Wars name is",starwars_name.title(),starwars_surname.title()+".")
+</FONT>main()&gt;&gt;&gt;&gt; file: HexagonArea.py
+# Loyiso Masango
+import math  # Enter the import math function,because we are gonna use it.
+def main():  # Define the main.
+    side = int(input("Enter the length of the side (cm):\n"))# Prompt user to enter the length of the side in cm.
+    # The area of a hexagon is:(3*math.sqrt(3)\2 multiplied by side^2).
+    a = 3*math.sqrt(3)/2 # Store 3*math.sqrt(3)\2 in a variable
+    area = a*side**2 # Multiply the variable above by the side^2(assign all this to a variable)
+    print("The area of a hexagon of side",side,"is {0:^6.3f}".format(area)+".")
+main()  # Call main()&gt;&gt;&gt;&gt; file: chatbot.py
+
+# Loyiso Masango
+# 22 April 2016
+import math
+def main():
+    print("Hello, I am Eugene Junior.")
+    name = input("What is your first name?\n")  # ask for user's name    
+    surname = input("What is your last name?\n")  # ask for user's surname
+    print("Hi",name.upper()[0:1]+"."+surname.upper()[0:1]+".!") # manipulate the string to get the user's first letter of name and surname
+    year = int(input("What year is this?\n"))  # ask for the user for the current year
+    age = int(input("What age are you?\n"))  # ask for user's age
+    birth_year_1 = (year-age)-1
+    birth_year_2 = birth_year_1 + 1
+    print("Okay,so you were born in",str(birth_year_1)+"/"+str(birth_year_2)[2:]+".")# minus the age from the current year to get the user's birth year and the birth year+1
+    height = float(input("How tall are you (metres)?\n"))
+    height_f = math.floor(height*3.2804)
+    height_i = round((height*3.2804%int(height))*12)
+    print("That's",str(height_f)+"'"+str(height_i)+'"!')
+    print("I'm going to tell you your Star Wars name.")
+    first_name = input("What's your mother's first name?\n")
+    city_name = input("What's the name of the city nearest to your place of birth?\n")
+    starwars_name = surname[0:3]+name[0:2]
+    starwars_surname = first_name[-2:]+city_name[-3:]
+    print("Your Star Wars name is",starwars_name.title(),starwars_surname.title())
+main()</PRE>
+</PRE>
+</BODY>
+</HTML>

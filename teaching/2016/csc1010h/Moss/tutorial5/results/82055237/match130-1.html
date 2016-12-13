@@ -1,0 +1,255 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial5/raw/mbdnts001/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial5/raw/mbttha024/<p><PRE>
+&gt;&gt;&gt;&gt; file: calutils.py
+def calutils():
+     
+     def is_leap_year(year):
+          if year%4==0:
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match130-0.html#0" TARGET="0"><IMG SRC="../../bitmaps/tm_0_4.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+               return True
+          else:
+               return False
+          
+def month_name(number):
+          if number==1:
+               return "January"
+          elif number==2:
+               return "February"
+          elif number==3:
+               return "March"
+          elif number==4:
+</FONT>               return "April"
+          elif number==5:
+               return "May"
+          elif number==6:
+               return "June"
+          elif number==7:
+               return "July"
+          elif number==8:
+               return "August"
+          elif number==9:
+               return "September"
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match130-0.html#1" TARGET="0"><IMG SRC="../../bitmaps/tm_1_2.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+          elif number==10:
+               return "October"
+          elif number==11:
+               return "November"
+          elif number==12:
+               return "December"
+          
+     
+def days_in_month(month_name,year):
+</FONT>     month=month_name
+     if month==1 or month==3 or  month==5 or month==7 or  month==8 or  month==10 or month ==12:
+          return int(31)
+     elif  month==4 or month==6 or month==9 or month==11:
+               return int(30)
+     elif month==2 and year%4==0:
+          return int(29)
+     elif month==2 and year%4&gt;0: 
+          return int(28)
+import math
+def first_day_of_year(year):
+     R=year/(1%12)
+     year=year/10
+     day = (R + 5*(R*R)*(year-1.4) + 4*(R*R)*(year-1.100)+6*(R*R)*(year-1.400))%7
+     print(round(day))
+
+def first_day_of_month(month_number,year):
+     
+          
+ &gt;&gt;&gt;&gt; file: morsecode.py
+
+def code_for(letter):
+    if letter.lower()=="a": 
+        return ".-" 
+    elif letter.lower()=="g":
+        return "--."
+    elif letter.lower()=="m":
+        return "--" 
+    elif letter.lower()=="s":
+        return "... "    
+    elif letter.lower()=="y":
+        return "-.--"    
+    elif letter.lower()=="y":
+            return "-.--"    
+    elif letter.lower()=="b":
+        return "-... "            
+    elif letter.lower()=="h":
+        return ".... "    
+    elif letter.lower()=="n":
+        return "-."    
+    elif letter.lower()=="t":
+        return "- "    
+    elif letter.lower()=="z":
+        return "--.."       
+    elif letter.lower()=="c":
+        return "-.-."       
+    elif letter.lower()=="i":
+        return ".."       
+    elif letter.lower()=="o":
+        return "---"       
+    elif letter.lower()=="u":
+        return "..-"       
+    elif letter.lower()=="j":
+        return ".---"  
+    elif letter.lower()=="p":
+            return ".--."    
+    elif letter.lower()=="v":
+            return "...-"
+    elif letter.lower()=="e":
+            return "."   
+    elif letter.lower()=="k":
+            return "-.-"   
+    elif letter.lower()=="q":
+            return "--.- "   
+    elif letter.lower()=="w":
+            return ".--"   
+    elif letter.lower()=="f":
+            return "..-. "    
+    elif letter.lower()=="l":
+            return ".-.. "    
+    elif letter.lower()=="r":
+            return ".-."    
+    elif letter.lower()=="x":
+        return "-..-"  
+    
+def transmit_letter(letter):
+    text=code_for(letter)
+    for i in range(len(text)):
+        if text[i]==".":
+            print("dot ",end="(pause for duration of a dot) ")
+        elif text[i]=="-":
+            print("dash ",end="(pause for duration of a dot) ") 
+    print()
+    for i in range(len(text)):
+        print(text[i],end="^") 
+
+def con_word(word):
+    CODE = {
+            'a': '.-', 
+            'b': '-...', 
+            'c': '-.-.', 
+            'd': '-..', 
+            'e': '.', 
+            'f': '..-.', 
+            'g': '--.', 
+            'h': '....', 
+            'i': '..', 
+            'j': '.---', 
+            'k': '-.-', 
+            'l': '.-..', 
+            'm': '--', 
+            'n': '-.', 
+            'o': '---', 
+            'p': '.--.', 
+            'q': '--.-', 
+            'r': '.-.', 
+            's': '...', 
+            't': '-', 
+            'u': '..-', 
+            'v': '...-', 
+            'w': '.--', 
+            'x': '-..-', 
+            'y': '-.--', 
+            'z': '--..'}   
+    word = word.lower()
+    diffword = ""
+    for char in word:
+        diffword += CODE[char] + " " 
+    return diffword
+diffword = con_word(message)
+print(diffword)
+
+def transmit_word(word):
+    diffword = con_word(word)
+    for char in diffword:
+        if char == '-':
+            print("dash (pause for duration of a dash)",end=" ")
+        elif char == '.':
+            print("dot (pause for duration of a dash)",end=" ")
+
+transmit_word()
+
+def word_pause():
+    print("||")
+    
+import time
+import winsound
+    
+def sleep(duration):
+    time.sleep(duration)
+        
+def beep(frequency, duration):
+        winsound.Beep(frequency, duration)    
+    
+
+
+def main():
+    message=input('Enter message:\n')
+
+    words=message.split(' ')
+    word=words[0]
+    morse_code.transmit_word(word)
+    words=words[1:]
+    for word in words:
+        morse_code.word_pause()
+        morse_code.transmit_word(word)
+    
+main()&gt;&gt;&gt;&gt; file: technical_support.py
+# Tech Support
+# Stephan Jamieson
+# 5/1/2015
+responses={
+    'bluetooth':'Have you tried mouthwash?',
+    'windows':'Ah, I think I see your problem. What version?',
+    'apple':'You do mean the computer kind?',
+    'blue':'Ah, the blue screen of death. And then what happened?',
+    'spam':'You should see if your mail client can filter messages.',
+    'connection':'Contact Telkom.',
+    'crashed':'Are the drivers up to date?',
+    'hacked':'You should consider installing anti-virus software.'}
+
+
+def default_response():
+    return 'Curious, tell me more.'
+    
+
+def get_response(words):
+    for word in words:
+        if not word in responses:
+            return word
+        return default_response()
+    else:
+        if word in responses:
+            return 
+    
+    
+
+def print_welcome():
+    print('Welcome to the automated technical support system.')
+    print('Please describe your problem:')
+
+
+def get_input():
+    query = input().split(' ')
+    return query.lower()
+
+def main():
+    print_welcome()
+    query = get_input()
+    while query!=['Quit']:
+        response=get_response(query)
+        print(response)
+        question=get_input()
+main()</PRE>
+</PRE>
+</BODY>
+</HTML>

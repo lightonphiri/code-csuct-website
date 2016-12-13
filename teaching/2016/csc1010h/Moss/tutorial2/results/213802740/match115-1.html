@@ -1,0 +1,118 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial2/raw/jhnche013/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial2/raw/tknnox001/<p><PRE>
+&gt;&gt;&gt;&gt; file: CreditCard.py
+#creditcard
+#noxolo tekana
+#25 April 2016
+
+def main():
+    
+    name=input('Enter the card holder\'s name:\n')
+    card_num=input('Enter the 16 digit card number (no spaces please):\n')
+    date_iss=input('Enter the date of issue (mm:yy):\n')
+    date_exp=input('Enter the expiry date (mm:yy):\n')
+    sec_code=input('Enter the 3 digit security code:\n')
+    cred_lim=float(input('Enter the credit limit (Rand):\n'))
+    balance=float(input('Enter the balance (Rand):\n'))
+    avail= cred_lim -balance
+    num=str(card_num[0:4]+' '+card_num[4:8]+' '+card_num[8:12]+' '+card_num[12:])
+    issue_date=date_iss[0:2]+'/'+date_iss[3:]
+    exp_date=date_exp[0:2]+'/'+date_exp[3:]
+    credit_lim=str('{0:.2f}'.format(cred_lim))+' Rand'
+    available=str('{0:.2f}'.format(avail))+' Rand'
+    bal=str('{0:.2f}'.format(balance))+' Rand'
+    
+    print('+------------- Credit Card Account --------------+')
+    print('| Card holder:   {0:&lt;32}'.format(name.title())+'|')
+    print('| Card number:   {0:&lt;32}'.format(num)+'|')
+    print('| Date of issue: {0:&lt;8}'.format(issue_date),'Expiry date: {0:&lt;10}|'.format(exp_date))
+    print('| Security code: {0:&lt;32}|'.format(sec_code))
+    print('| Credit limit:  {0:&lt;32}'.format(credit_lim)+'|')
+    print('| Available:     {0:&lt;32}'.format(available)+'|')
+    print('| Balance:       {0:&lt;31}'.format(bal),'|')
+    print('+------------------------------------------------+')
+main()&gt;&gt;&gt;&gt; file: EugeneJunior.py
+#EugeneJunior
+#Noxolo Tekana
+#22 April 2016
+def main():
+    import math
+    print('Hello, I am Eugene Junior.')
+    name=input('What is your first name?\n')
+    surname=input('What is your last name?\n')
+
+    print('Hi ' + name[0].upper() + '.'+ surname[0].upper()+'.!')
+    
+    year=int(input('What year is this?\n'))
+    age=int(input('What age are you?\n'))
+    
+    DOB1=year-age-1
+    DOB2=str(year-age)[2:]
+    
+    print('Okay, so you were born in',str(DOB1)+'/'+str(DOB2)+'.') 
+    
+    height=float(input('How tall are you (metres)?\n'))
+    H= round(height*3.37+((height*3)-math.floor(height*3))*12)
+    F=str(math.floor((height*3)+H//12))+"'"+str(H%12)+'"!'
+    print('That\'s',F)
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match115-0.html#0" TARGET="0"><IMG SRC="../../bitmaps/tm_0_6.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    print("I'm going to tell you your Star Wars name.")
+    mom_name=input("What's your mother's first name?\n")
+    city=input("What's the name of the city nearest to your place of birth?\n")
+    starW_name=surname[0:3]+name[0:2] 
+    starW_surname=mom_name[len(mom_name)-2:len(mom_name)]+city[len(city)-3:len(city)]
+</FONT>    print('Your Star Wars name is',starW_name.title(),starW_surname.title()+'.')
+    
+main()    &gt;&gt;&gt;&gt; file: HexagonArea.py
+#HexagonArea
+#Noxolo Tekana
+#25 April 2016
+
+def main():
+    import math
+    side=int(input('Enter the length of the side (cm):\n'))
+    Area= (3*math.sqrt(3)/2)*side**2
+    print('The area of a hexagon of side {0:1} is {1:.3f}.'.format(side,Area))
+
+main()&gt;&gt;&gt;&gt; file: initials.py
+#Initials
+#Noxolo Tekana
+#29 April 2016
+
+import turtle
+def main():
+    
+    turtle.pencolor('red')
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match115-0.html#1" TARGET="0"><IMG SRC="../../bitmaps/tm_1_6.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    turtle.left(90)
+    turtle.penup()
+    turtle.forward(250)
+    turtle.pendown()
+    turtle.right(90)
+    turtle.forward(200)
+    turtle.right(135)
+</FONT>    turtle.forward(250)
+    turtle.left(135)
+    turtle.forward(200)
+    turtle.right(90)
+    
+    turtle.penup()
+    turtle.pencolor('blue')
+    turtle.forward(100)
+    turtle.pendown()
+    turtle.forward(200)
+    turtle.back(100)
+    turtle.right(90)
+    turtle.forward(200)
+    turtle.exitonclick()
+main()</PRE>
+</PRE>
+</BODY>
+</HTML>

@@ -1,0 +1,223 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial3/raw/jcblau010/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial3/raw/jcblau010/<p><PRE>
+&gt;&gt;&gt;&gt; file: FeetMetres.py
+# Laurine Jacobs
+# Feet to metres
+# 13 May 2016
+
+min_feet=int(input('Enter the minimum number of feet (not less than 0):\n'))
+max_feet=int(input('Enter the maximum number of feet (not more than 99):\n'))
+
+i=1
+for i in range(min_feet,max_feet+1):
+    metres=i*0.3048
+    a=round(metres,2)
+    print('{0:&gt;4}\' |{1:&gt;7.2f}m'.format(i,a))&gt;&gt;&gt;&gt; file: InchesMetres.py
+# Laurine Jacobs
+# Inches to metres
+# 13 May 2016
+
+min_inches=int(input('Enter the minimum number of inches (not less than 0):\n'))
+max_inches=int(input('Enter the maximum number of inches (not greater than 11):\n'))
+
+
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match234-1.html#0" TARGET="1"><IMG SRC="../../bitmaps/tm_0_5.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+print("Inches:",end=" ")
+for i in range(min_inches,max_inches+1):
+    print("{:&gt;4}".format(i),end=" ") 
+    
+print()
+print("Metres:",end=" ")
+for m in range(min_inches,max_inches+1):
+</FONT>    print("{:&gt;4.2f}".format(m*0.0254),end=" ")
+    
+        
+
+
+
+
+    
+        
+    &gt;&gt;&gt;&gt; file: TimeConvertor.py
+# Laurine Jacobs
+# time conversion
+# 13 May 2016
+
+time=input("Enter a time ([h]h:mm [am|pm]):\n")
+
+if len(time)&gt;=7:
+    b=time[3:5]
+    c=len(time)
+    a=''
+    if time.endswith('am'):
+        if c==8:
+            a=int(time[0:2])
+            if a==12:
+                a=str('00')
+            else:
+                pass
+        elif c==7:
+            a=str('0'+ time[0:1])
+            b=time[2:4]
+        else:
+            pass
+    elif time.endswith('pm'):
+        if c==8:
+            a=int(time[0:2])
+            if a&lt;12:
+                a+=12
+            else:
+                pass
+        elif c==7:
+            a=12+(int(time[0:1]))
+            b=time[2:4]
+        else:
+            pass
+    else:
+        pass
+    print('{}:{}'.format(a,b))    
+elif len(time)==5:
+    a=int(time[0:2])
+    b=str(time[3])
+    d=''
+    c=''
+    e=str(b+'0')
+    if a==00:
+        a=12
+        d='am'
+    elif a==12:
+        a=12
+        d='pm'
+    elif 00&lt;a&lt;12:
+        a=str('0'+a)
+        d='am'
+    elif a&gt;12:
+        a-=12
+        d='pm'
+    else:
+        pass
+    
+    print('{}:{} {}'.format(a,e,d))
+else:
+    pass&gt;&gt;&gt;&gt; file: Twelve.py
+# Laurine Jacobs
+# twelve
+# 13 May 2016
+
+time=input('Enter a time in 12 hour clock ([h]h:mm [am|pm]):\n')
+b=time[3:5]
+c=len(time)
+a=''
+if time.endswith('am'):
+    if c==8:
+        a=int(time[0:2])
+        if a==12:
+            a=str('00')
+        else:
+            pass
+    elif c==7:
+        a=str('0'+ time[0:1])
+        b=time[2:4]
+    else:
+        pass
+elif time.endswith('pm'):
+    if c==8:
+        a=int(time[0:2])
+        if a&lt;12:
+            a+=12
+        else:
+            pass
+    elif c==7:
+        a=12+(int(time[0:1]))
+        b=time[2:4]
+    else:
+        pass
+else:
+    pass
+
+print('{}:{}'.format(a,b))
+
+    
+    
+        
+    &gt;&gt;&gt;&gt; file: TwentyFour.py
+# Laurine Jacobs
+# Time convertor
+# 13 May 2016
+
+time=input('Enter a time in 24 hour clock (hh:mm):\n')
+a=int(time[0:2])
+b=str(time[3:])
+d=''
+c=''
+
+if a==00:
+    a=12
+    d='am'
+elif a==12:
+    a=12
+    d='pm'
+elif 00&lt;a&lt;12:
+    a=0+a
+    d='am'
+elif a&gt;12:
+    a-=12
+    d='pm'
+else:
+    pass
+
+print('{}:{} {}'.format(a,b,d))
+    
+    &gt;&gt;&gt;&gt; file: VehicleClassifier.py
+# Laurine Jacobs
+# vehicle classifier
+# 13 May 2016
+
+classify=''
+gvm=int(input("What is the gross vehicle mass (in kg)?\n"))
+if gvm&lt;= 3500:
+    classify='B'
+elif 3500&lt;gvm&lt;=16000:
+    classify='C1'
+else:
+    classify='C'
+
+trailer=input('Does the vehicle have a trailer?\n')
+if trailer=='n':
+    art=input('Is the vehicle articulated?\n')
+    if art=='y':
+        classify='E'+classify
+    else:
+        classify=classify
+else:
+    gvm_trail=int(input('What is gross vehicle mass of the trailer (in kg)?\n'))
+    if gvm_trail&gt;750:
+        classify='E'+classify
+    else:
+        classify=classify
+        
+print('This vehicle is class {}.'.format(classify))
+    
+
+
+
+
+
+
+
+    
+
+
+
+    
+    
+    </PRE>
+</PRE>
+</BODY>
+</HTML>

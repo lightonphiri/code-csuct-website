@@ -1,0 +1,109 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial2/raw/khznom017/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial2/raw/qngchu002/<p><PRE>
+&gt;&gt;&gt;&gt; file: CreditCard.py
+#credit card account
+#chulumanco qingana
+#1 may 2016
+
+account_holder = input("Enter the card holder's name:\n")
+card_number = input("Enter the 16 digit card number (no spaces please):\n")
+issue_date = input("Enter the date of issue (mm:yy):\n")
+expiry_date = input("Enter the expiry date (mm:yy):\n")
+securityCode = input("Enter the 3 digit security code:\n")
+creditLimit = float(input("Enter the credit limit (Rand):\n"))
+balance = float(input("Enter the balance (Rand):\n"))
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match187-0.html#0" TARGET="0"><IMG SRC="../../bitmaps/tm_0_7.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+creditSliced = str(card_number[0:4])+' '+str(card_number[4:8])+' '+str(card_number[8:12])+' '+str(card_number[12:17])
+DOIsliced = str(issue_date[0:2])+'/'+str(issue_date[3:])
+</FONT>EDsliced = str(expiry_date[0:2])+'/'+str(expiry_date[3:])
+credlim = str('{0:.2f}'.format(creditLimit)+' '+'Rand')
+Available = str('{0:.2f}'.format(creditLimit-balance)+' '+'Rand')
+Balance = str('{0:.2f}'.format(balance)+' '+'Rand')
+print("+------------- Credit Card Account --------------+")
+print("| Card holder:   {0:32}".format(account_holder.title())+'|')
+print('| Card number:   {0:&lt;32}'.format(creditSliced)+'|')
+print('| Date of issue: {0:&lt;9}'.format(DOIsliced)+'Expiry date: {0:&lt;10}'.format(EDsliced)+'|')
+print('| Security code: {0:&lt;32}'.format(securityCode)+'|')
+print('| Credit limit:  {0:&lt;32}'.format(credlim)+'|')
+print('| Available:     {0:&lt;32}'.format(Available)+'|')
+print('| Balance:       {0:&lt;32}'.format(Balance)+'|')
+print('+------------------------------------------------+')&gt;&gt;&gt;&gt; file: EugeneJunior.py
+#Eugene junior
+#Chulumanco qingana
+#30 April 2016
+
+import math
+
+print("Hello, I am Eugene Junior.")
+print("What is your first name?")
+name = input("").title()
+print("What is your last name?")
+nameS = input("").title()
+print("Hi"+' '+name[0:1]+'.'+nameS[0:1].title(),end='.!')
+print("\nWhat year is this?")
+year = int(input(""))
+print("What age are you?")
+age = int(input(""))
+year_born = year-age
+print("Okay, so you were born in"+' '+str(year_born-1)+'/'+str(year_born)[2:],end='.')
+print("\nHow tall are you (metres)?")
+height = float(input(""))
+A = round(height*3.37+((height*3)-math.floor(height*3))*12)
+heightNEW = str(math.floor((height*3)+A//12))+"'"+str(A%12)+'"'
+print("That\'s",heightNEW,end='!')
+print("\nI\'m going to tell you your Star Wars name.")
+print('What\'s your mother\'s first name?')
+mother = input('').title()
+print('What\'s the name of the city nearest to your place of birth?')
+city = input('').title()
+Star_wars_name1 = nameS[:3]+name[:2]
+Star_wars_name2 = mother[-2:]+city[-3:]
+Star_wars_name = Star_wars_name1+' '+Star_wars_name2
+print("Your Star Wars name is",Star_wars_name.title(),end='.')
+&gt;&gt;&gt;&gt; file: HexagonArea.py
+#Calculating Hexagon Area
+#chulumanco qingana
+#1 may 2016
+
+from math import sqrt
+length = int(input('Enter the length of the side (cm):\n'))
+Area = ((sqrt(3)*3)/2)*(length**2)
+area = float(Area)
+print('The area of a hexagon of side',length,'is {0:.3F}'.format(area),end='.')&gt;&gt;&gt;&gt; file: Initials.py
+def main():
+    import turtle
+    turtle.pencolor('red')
+    turtle.left(90)
+    turtle.forward(100)
+    turtle.right(90)
+    turtle.forward(200)
+    turtle.right(90)
+    turtle.forward(100)
+    turtle.penup()
+    turtle.forward(200)
+    turtle.pencolor('blue')
+    turtle.pendown()
+    turtle.backward(150)
+    turtle.right(90)
+    turtle.forward(200)
+    turtle.left(90)
+    turtle.forward(150)
+    turtle.left(90)
+    turtle.forward(200)
+    turtle.penup()
+    turtle.backward(190)
+    turtle.left(90)
+    turtle.forward(30)
+    turtle.pendown()
+    turtle.left(100)
+    turtle.forward(30)
+main()</PRE>
+</PRE>
+</BODY>
+</HTML>

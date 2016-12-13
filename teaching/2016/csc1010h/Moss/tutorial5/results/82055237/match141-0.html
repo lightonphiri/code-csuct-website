@@ -1,0 +1,224 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial5/raw/mbyfan001/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial5/raw/mbyfan001/<p><PRE>
+&gt;&gt;&gt;&gt; file: calendar_utils.py
+#calcutils
+
+def is_leap_year(year):
+    if ((year % 4 == 0) and (year%100 != 0)) or (year % 400 == 0) :
+        return True
+    else:
+        return False
+    
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match141-1.html#1" TARGET="1"><IMG SRC="../../bitmaps/tm_1_4.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+date= {1:"January", 2:"February", 3:"March", 4:"April", 5:"May", 6:"June", 7:"July", 8:"August", 9:"September", 10:"October", 11:"November", 12:"December"}   
+</FONT>
+
+def days_in_month(month_number , year):
+    a=is_leap_year(year)
+    if month_number==1 or  month_number==3 or month_number==5 or  month_number==7 or month_number==8 or  month_number==10 or month_number==12  :
+        return 31
+    elif a== True and month_number==2:
+        return 29
+    elif a== False and month_number==2:
+        return 28
+    else:
+        return 30
+def month_name(number):
+    a=date[number]
+    return a
+    
+    
+def first_day_of_year(year):
+    a=(5*((year-1)%4))
+    b=(4*((year-1)%100))
+    c=(6*((year-1)%400))
+    d=((1+a+b+c)%7)
+    return d
+
+
+day_num= {0:"Sunday" , 1:"Monday" , 2:"Tuesday" , 3:"Wednesday" , 4:"Thursday" , 5:"Friday" , 6:"Saturday"}
+
+def first_day_of_month(month_number , year):
+    a=days_in_month(month_number , year)
+    b=first_day_of_year(year)
+    ans_1 = month_number
+    ans_2=0
+    ans_3=0
+        
+    #while ans_1 != 0:
+    f=0
+    c=0
+    
+    
+    for i in range(1, ans_1):
+        ans_2=days_in_month(i , year)
+        f+=ans_2
+        
+        
+    c=(f%7)+b
+    if c&gt;=7:
+        c=c-7
+    return c
+
+&gt;&gt;&gt;&gt; file: morse_code.py
+
+
+letters={'a':'.-' ,'b':'-...' ,'c':'-.-.','d':'-..' ,'e':'.' , 'f':'..-.' , 'g':'--.' , 'h':'....' ,'i':'..' , 'j':'.---' , 'k':'-.-' , 'l':'.-..' , 'm':'--' , 'n':'-.' , 'o': '---','p':'.--.','q':'--.-' , 'r': '.-.','s': '...' , 't':'-' , 'u': '..-','v':'...-', 'w':'.--' , 'x':'-..-', 'y': '-.--', 'z':'--..'}
+
+ 
+l=[]
+
+
+
+def code_for(letter):
+    b=letter.lower()
+    word=(letters[b])
+    return word
+
+
+    
+def transmit_letter(letter):
+    symbols={'a':'.^-','b':'-^.^.^.','c':'-^.^-^.','d':'-^.^.','e':'.','f':'.^.^-^.','g':'-^-^.','h':'.^.^.^.','i':'.^.','j':'.^-^-^-','k':'-^.^-','l':'.^-^.^.','m':'-^-','n':'-^.','o':'-^-^-','p':'.^-^-^.','q':'-^-^.^-','r':'.^-^.','s':'.^.^.','t':'-','u':'.^.^-','v':'.^.^.^-','w':'.^-^-','x':'-^.^.^-','y':'-^.^-^-','z':'-^-^.^.'}
+        
+    for i in letter:
+        print(symbols[letter.lower()],end="") 
+        
+        
+def transmit_word(word):
+    b2=''
+    symbol={'a':'.^-','b':'-^.^.^.','c':'-^.^-^.','d':'-^.^.','e':'.','f':'.^.^-^.','g':'-^-^.','h':'.^.^.^.','i':'.^.','j':'.^-^-^-','k':'-^.^-','l':'.^-^.^.','m':'-^-','n':'-^.','o':'-^-^-','p':'.^-^-^.','q':'-^-^.^-','r':'.^-^.','s':'.^.^.','t':'-','u':'.^.^-','v':'.^.^.^-','w':'.^-^-','x':'-^.^.^-','y':'-^.^-^-','z':'-^-^.^.'}
+    l=len(word)
+    c=0
+    word=word.lower()
+    for i in word:
+        c+=1
+        if c==l:
+            b2+=symbol[i]
+        else:
+            b2+=symbol[i]+"|" 
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match141-1.html#0" TARGET="1"><IMG SRC="../../bitmaps/tm_0_4.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    print(b2,end="")
+   
+    
+    #print( b_3+transmit_letter(word[-1]))
+        
+        
+def word_pause():
+  
+    print('||',end="")  
+
+    
+
+   &gt;&gt;&gt;&gt; file: technical_support.py
+# Tech Support
+# Stephan Jamieson
+# 5/1/2015
+
+responses={
+    'bluetooth':'Have you tried mouthwash?',
+    'windows':'Ah, I think I see your problem. What version?',
+    'apple':'You do mean the computer kind?',
+    'blue':'Ah, the blue screen of death. And then what happened?',
+    'spam':'You should see if your mail client can filter messages.',
+    'connection':'Contact Telkom.',
+    'crashed':'Are the drivers up to date?',
+    'hacked':'You should consider installing anti-virus software.'}
+
+
+def default_response():
+    return 'Curious, tell me more.'
+
+def get_response(words):
+</FONT>    for word in words:
+        if word in responses:
+            return  responses[word]
+    return default_response()
+        
+
+def print_welcome():
+    print('Welcome to the automated technical support system.')
+    print('Please describe your problem:')
+
+
+def get_input():
+    query = (input().lower()).split(' ')
+    return query
+
+def main():
+    print_welcome()
+    question=get_input()
+    while question !=['quit']:
+        response=get_response(question)
+        print(response)
+        question=get_input()
+        
+if __name__ == '__main__':
+    main()
+        
+    &gt;&gt;&gt;&gt; file: test_morse_code.py
+# test_morse_code.py
+# Stephan Jamieson
+# 12/1/2015, 4/2015
+
+def print_welcome():
+    print('Test harness for morse_code');
+    
+def get_selection():
+    print('\nChoose from the following options:')
+    print('0. quit')
+    print('1. Test code_for().')
+    print('2. Test transmit_letter().')
+    print('3. Test transmit_word().')
+    print('4. Test word_pause().')
+    return int(input())
+
+def test_code_for():
+    from morse_code import code_for
+    for letter in "abcdefghijklmnopqrstuvwxyz":
+        print(letter, code_for(letter))
+        
+def test_transmit_letter():
+    from morse_code import transmit_letter
+    for letter in "abcdefghijklmnopqrstuvwxyz":
+        
+        print(letter, ':', end='')
+        transmit_letter(letter)
+        print()      
+def test_transmit_word():
+    from morse_code import transmit_word
+    word = input("Enter test word:\n")
+    transmit_word(word)
+    
+def test_word_pause():
+    from morse_code import word_pause    
+    word_pause()
+
+
+def main():
+    print_welcome()
+    selection = get_selection()
+    
+    while not selection==0:
+        if selection==1:
+            test_code_for()
+        elif selection==2:
+            test_transmit_letter()
+        elif selection==3:
+            test_transmit_word()
+        elif selection==4:
+            test_word_pause()
+        else:
+            print('Sorry, that selection was not recognised.')
+            
+        selection = get_selection()
+main()</PRE>
+</PRE>
+</BODY>
+</HTML>

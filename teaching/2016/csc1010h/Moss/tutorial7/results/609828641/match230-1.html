@@ -1,0 +1,127 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial7/raw/kglkhw001/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial7/raw/mtxeph002/<p><PRE>
+&gt;&gt;&gt;&gt; file: leader_board.py
+# leader_board.py
+#Ephraim Matau
+#ReactionTime Program
+#19 September 2016
+
+
+def process_line(line):
+    try:
+        parts = line.split(' ')
+        name = parts[0]
+        trials = int(parts[1])
+        average = float(parts[2])
+        return (name, trials, average)
+    except IndexError:
+        print("Some other error occurred.")
+    else:
+        print("No error occured")
+        
+    
+        
+
+def get_max(entries):
+    try:
+        max = entries[0]
+    except IndexError:
+        print("Some error occured.")
+    for i in range(1, len(entries)):
+        if entries[i][2] &lt;max[2]:
+            max = entries[i]
+            
+    entries.remove(max)
+    return max
+
+def sort(entries):
+    sorted_entries = []
+    while len(entries)&gt;0:
+        sorted_entries.append(get_max(entries))
+    return sorted_entries
+
+def output(entries):
+    print('Subject        | Average Time')
+    print('************** | ************')
+    for entry in entries:
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match230-0.html#0" TARGET="0"><IMG SRC="../../bitmaps/tm_0_9.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+        print('{:14} | {:.6}'.format(entry[0], entry[2]))
+              
+def main():
+    try:
+        file_name = input('Enter the name of the file:\n')
+        file_input=open(file_name, 'r')
+    except IOError as val_err:
+</FONT>        print("The file you entered doesn't exist",val_err)
+        file_name = input('Enter the name of the file:\n')
+        file_input=open(file_name, 'r')        
+        
+    
+    entries = []
+    for line in file_input:
+        entries.append(process_line(line))
+    file_input.close()
+    
+    entries = sort(entries)
+    output(entries)
+    
+main()
+    &gt;&gt;&gt;&gt; file: reaction_test.py
+import timeit
+#Ephraim Matau
+#ReactionTime Program
+#19 September 2016
+
+
+try:
+    ff=input('Enter the name of the file:\n')
+    fil= open(ff,'w')
+except IOError:
+    print
+    ("The process was unsuccessful,didn't find the file you gave us")
+    ff=input('Enter the name of the file:\n')
+    fil= open(ff,'w')    
+ 
+def times():
+    sumy=0
+    u=input("Enter subject name (or press 'enter' to quit):\n")
+    y=int(input("Enter the number of tests:\n"))
+    fil.write(u)
+    for i in range(1,y+1):
+        print("Get ready...")
+        start=timeit.timeit()
+        t1=str(input("Press 'enter' NOW!\n"))
+        end=timeit.timeit()
+        fil.write("Results")
+        fil.write(str(end)+"\n")
+        sumy+=end
+        print("Reaction time:"+str(round(end,6)))
+    ave=(sumy)/y
+    
+    print("Test complete.")
+    print("Average reaction time:",ave)
+def main():
+    times()
+main()
+    
+    
+    
+    
+        
+        
+    
+        
+    
+        
+        
+        
+</PRE>
+</PRE>
+</BODY>
+</HTML>

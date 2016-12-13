@@ -1,0 +1,110 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial4/raw/rngtam002/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial4/raw/rngtam002/<p><PRE>
+&gt;&gt;&gt;&gt; file: NikNaks.py
+# NikNaks game
+# Tamara Ringas
+
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match165-1.html#0" TARGET="1"><IMG SRC="../../bitmaps/tm_0_6.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+import random
+
+print("Guess the mystery 4 letter code. (No letter occurs more than once.)")
+difficulty=int(input('Choose difficulty level (4 to 26):\n'))
+letters=list('abcdefghijklmnopqrstuvwxyz')[0: difficulty]     
+print('The letters in the code are chosen from: {}.'.format(letters))
+secret_code=[]     
+</FONT>for j in range(4):
+         rand_index=random.randint(0, len(letters)-1)
+         letter=letters.pop(rand_index)
+         secret_code.append(letter)
+
+def main():
+         x=10
+         for g in range(10):
+                  niks=0
+                  naks=0
+                  print("You have", x,"guesses remaining.")
+                  x += -1
+                  guess= input("Enter your guess: "+"\n")
+                  guesslist= list(guess)
+                  if guesslist[0] == secret_code[0]:
+                           niks+=1
+                  if guesslist[1] == secret_code[1]:
+                           niks+=1
+                  if guesslist[2] == secret_code[2]:
+                           niks+=1
+                  if guesslist[3] == secret_code[3]:
+                           niks+=1
+                  if guesslist== secret_code:
+                           print("Correct!")
+                           break
+                  else:
+                           if guesslist[0] in secret_code:
+                                    naks+=1
+                           if guesslist[1] in secret_code:
+                                    naks+=1
+                           if guesslist[2] in secret_code:
+                                    naks+=1
+                           if guesslist[3] in secret_code:
+                                    naks+=1
+                  if niks != 1 and naks != 1:
+                           print("There are", niks,"Niks and", naks, "Naks.")
+                  if niks ==1 and naks != 1:
+                           print("There is", niks,"Nik and", naks, "Naks.")
+                  if niks !=1 and naks == 1:
+                           print("There are", niks,"Niks and", naks, "Nak.")  
+                  if niks ==1 and naks == 1:
+                           print("There is", niks,"Nik and", naks, "Nak.")
+
+                  
+
+
+if __name__ == '__main__':
+         main()&gt;&gt;&gt;&gt; file: turtle.py
+import turtle
+
+def main():
+    turtle.pencolor('red')
+    turtle.right(90)
+    turtle.forward(50)
+    turtle.right(180)
+    turtle.forward(100)
+    turtle.right(180)
+    turtle.penup()
+    turtle.forward(50)
+    turtle.right(90)
+    turtle.pendown()
+    turtle.forward(200)
+    
+    turtle.penup()
+    turtle.left(90)
+    turtle.forward(100)
+    turtle.pencolor('blue')
+    turtle.pendown()
+    turtle.left(90)
+    turtle.forward(200)
+    turtle.right(90)
+    turtle.forward(100)
+    turtle.right(90)
+    turtle.forward(100)
+    turtle.right(90)
+    turtle.forward(100)
+    turtle.right(180)
+    turtle.penup()
+    turtle.forward(100)
+    turtle.pendown()
+    turtle.rigt(90)
+    turtle.forward(100)
+         
+    turtle.exitonclick()
+    
+main()
+        </PRE>
+</PRE>
+</BODY>
+</HTML>

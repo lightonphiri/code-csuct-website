@@ -1,0 +1,300 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial3/raw/mbdnts001/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial3/raw/mbdnts001/<p><PRE>
+&gt;&gt;&gt;&gt; file: FeetMetres.py
+#NTSIENI MBEDZI
+#Feet to metres
+#10 MAY 2016
+
+def main():
+    mini= int(input('Enter the minimum number of feet (not less than 0):\n'))
+    maxi = int(input('Enter the maximum number of feet (not more than 99):\n'))
+    
+    for i in range(mini,maxi+1):
+        metre = round(0.3048 * i,2)
+        print("{0:&gt;4}' {1} {2:&gt;6.2f}m".format(i,'|',metre))
+        
+main()&gt;&gt;&gt;&gt; file: FlowerPattern.py
+#NTSIENI MBEDZI
+#Flower pattern
+#10 MAY 2016
+
+def main():
+    petal = int(input('Enter the number of petals (must be an even number): '))
+    stem = int(input('Enter the length of stem: '))
+    typ = input('Enter the petal type (triangle, square, or pentagon): ')
+    side = int(input('Enter the length of side: '))
+    Stem_col = input('Enter the stem colour: ')
+    first_P = input('Enter the first petal colour: ')
+    sec_P = input('Enter the second petal colour: ')
+
+    import turtle
+    
+    turn1 = 360 / petal
+    
+    for i in range(1,petal+1):
+        turtle.pencolor(Stem_col)
+        turn = turn1 * i
+        turtle.right(turn)
+        turtle.fd(stem)
+        det = i % 2
+        if det != 0:
+            turtle.pencolor(first_P)
+        else:
+            turtle.pencolor(sec_P)
+        if typ == 'triangle':
+            turtle.left(30)
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match169-1.html#0" TARGET="1"><IMG SRC="../../bitmaps/tm_0_2.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+            turtle.fd(side)
+            turtle.right(120)
+            turtle.fd(side)
+            turtle.right(120)
+            turtle.fd(side)
+            turtle.penup()
+            turtle.home()
+</FONT>            turtle.pendown()
+        
+        elif typ == 'square':
+            turtle.left(90)
+            turtle.fd(side//2)
+            turtle.right(90)
+            turtle.fd(side)
+            turtle.right(90)
+            turtle.fd(side)
+            turtle.right(90)
+            turtle.fd(side)
+            turtle.right(90)
+            turtle.fd(side//2)
+            turtle.penup()
+            turtle.home()
+            turtle.pendown()
+                
+        elif typ == 'pentagon':
+            turtle.left(54)
+            turtle.fd(side)
+            turtle.right(72)
+            turtle.fd(side)
+            turtle.right(72)
+            turtle.fd(side)
+            turtle.right(72)
+            turtle.fd(side)
+            turtle.right(72)
+            turtle.fd(side)
+            turtle.right(72)
+            turtle.penup()
+            turtle.home()
+            turtle.pendown()        
+    turtle.exitonclick()
+    
+main()&gt;&gt;&gt;&gt; file: InchesMetres.py
+#NTSIENI MBEDZI
+#Feet to metres
+#10 MAY 2016
+def main():
+    mini = int(input('Enter the minimum number of inches (not less than 0):\n'))
+    maxi = int(input('Enter the maximum number of inches (not greater than 11):\n'))
+    print('Inches:', end='')
+    for i in range(mini,maxi+1):
+        print('{0:&gt;5}'.format(i), end='')
+        if i == maxi:
+            print("")
+
+    print('Metres:', end="")
+    for i in range (mini, maxi+1):
+        metre = round(0.0254 * i,2)
+        print('{0:&gt;5.2f}'.format(metre),end="")
+            
+main()        &gt;&gt;&gt;&gt; file: TimeConvertor.py
+#NTSIENI MBEDZI
+#time
+#6 May 2016
+
+time1 = input('Enter a time ([h]h:mm [am|pm]):\n')
+
+last = time1[-1]
+
+if last == 'm':
+    length = len(time1)
+    #Slice the time and cast
+    if length == 8:
+        time = int(time1[0:2])
+        left = time1[2:5]
+    elif length == 7:
+        time = int(time1[0])
+        left = time1[1:4]
+    
+    mark = time1[-2::]
+    #condition if time is am leave as is except 12
+    if mark == 'am':
+        if time == 12:
+            print('00'+left)
+            
+        elif time &lt; 10:
+            print('0'+str(time)+left)
+            
+        else:
+            print(str(time)+left)
+        
+    #condition if time is pm  minus 12 except for 12 
+    else:
+        if time == 12:
+            print(str(time)+left)
+        else:
+            time += 12
+            print(str(time)+left)    
+            
+else:
+    time = int(time1[0:2])
+    minu = time1[2::]
+    if 12 &lt;= time &lt;= 23:
+        mark = 'pm'
+        if time &gt; 12:
+            new_time = str(time - 12)
+        else:
+            new_time = str(time)
+        print(new_time + minu, mark)
+                
+        
+    else:
+        mark = 'am'
+        if time == 00:
+            new_time = "12"
+            print(new_time + minu, mark)
+        else:
+            if time == 11 or time == 10:
+                print(time1,mark)
+            else:    
+                print(time1[1]+minu,mark)    &gt;&gt;&gt;&gt; file: Twelve.py
+#NTSIENI MBEDZI
+#time
+#6 May 2016
+
+#prompt user for time
+time1 = input('Enter a time in 12 hour clock ([h]h:mm [am|pm]):\n')
+length = len(time1)
+#Slice the time and cast
+if length == 8:
+    time = int(time1[0:2])
+    left = time1[2:5]
+elif length == 7:
+    time = int(time1[0])
+    left = time1[1:4]
+
+mark = time1[-2::]
+#condition if time is am leave as is except 12
+if mark == 'am':
+    if time == 12:
+        print('00'+left)
+        
+    else:
+        print('0'+str(time)+left)
+    
+#condition if time is pm  minus 12 except for 12 
+else:
+    if time == 12:
+        print(str(time)+left)
+    else:
+        time += 12
+        print(str(time)+left)&gt;&gt;&gt;&gt; file: TwentyFour.py
+#NTSIENI MBEDZI
+#time
+#6 May 2016
+
+def main():
+    
+    time1 = input("Enter a time in 24 hour clock (hh:mm):\n")
+    time = int(time1[0:2])
+    minu = time1[2::]
+    if 12 &lt;= time &lt;= 23:
+        mark = 'pm'
+        if time &gt; 12:
+            new_time = str(time - 12)
+        else:
+            new_time = str(time)
+        print(new_time + minu, mark)
+            
+    
+    else:
+        mark = 'am'
+        if time == 00:
+            new_time = "12"
+            print(new_time + minu, mark)
+        else:
+            if 1&lt;= time &lt;10:
+                new_time = time1[1]
+            else:
+                new_time = time1  
+            print(new_time + minu, mark)
+            
+main()            
+        &gt;&gt;&gt;&gt; file: VehicleClassifier.py
+#NTSIENI MBEDZI
+#GROSS VEHICLinE MASS
+#10 MAY 2016
+def main():
+    gvm = int(input('What is the gross vehicle mass (in kg)?\n'))
+
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match169-1.html#1" TARGET="1"><IMG SRC="../../bitmaps/tm_1_2.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    if gvm &lt;= 3500:
+        mark = 'B'
+        trail = input('Does the vehicle have a trailer?\n')
+        if trail == 'y':
+            massG = int(input('What is gross vehicle mass of the trailer (in kg)?\n'))
+            if massG &gt; 750:
+                mock = 'E'
+</FONT>            else:
+                mock =''
+            
+        elif trail == 'n':
+            art = input('Is the vehicle articulated?\n')
+            if art == 'y':
+                mock = 'E'
+            else:
+                mock = ""    
+    
+    elif 3500 &lt; gvm &lt;= 16000:
+        mark = 'C1'
+        trail = input('Does the vehicle have a trailer?\n')
+        if trail == 'y':
+            massG = int(input('What is gross vehicle mass of the trailer (in kg)?\n'))
+            if massG &gt; 750:
+                mock = 'E'
+            else:
+                mock =''
+            
+        elif trail == 'n':
+            art = input('Is the vehicle articulated?\n')
+            if art == 'y':
+                mock = 'E'
+            else:
+                mock = ""    
+
+    elif gvm &gt; 16000:
+        mark = 'C'
+        trail = input('Does the vehicle have a trailer?\n')
+        if trail == 'y':
+            massG = int(input('What is gross vehicle mass of the trailer (in kg)?\n'))
+            if massG &gt; 750:
+                mock = 'E'
+            else:
+                mock =''
+            
+        elif trail == 'n':
+            art = input('Is the vehicle articulated?\n')
+            if art == 'y':
+                mock = 'E'
+            else:
+                mock = ""    
+    print('This vehicle is class', mock+mark, end='.')
+
+main()
+</PRE>
+</PRE>
+</BODY>
+</HTML>

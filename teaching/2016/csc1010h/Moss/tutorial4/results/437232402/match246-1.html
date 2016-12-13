@@ -1,0 +1,161 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial4/raw/mkptha005/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial4/raw/rmvlas001/<p><PRE>
+&gt;&gt;&gt;&gt; file: Initials.py
+import turtle
+las = turtle.Pen()
+las.shape("turtle")
+las.color("red")
+las.right(270)
+las.forward(150)
+las.right(90)
+las.forward(200)
+las.up()
+las.right(90)
+las.forward(170)
+las.right(90)
+las.color("blue")
+las.forward(200)
+las.right(180)
+las.pendown()
+las.forward(200)
+las.right(150)
+las.forward(200)
+las.left(120)
+las.forward(200)
+las.right(150)
+las.forward(200)&gt;&gt;&gt;&gt; file: LongJump.py
+print("***** Long Jump Information System *****")
+print("Please enter the names of competitors. (Press return when done.)")
+dict1 = {}
+no_comp = 1
+highest = []
+while True:
+    comp_name = input("Competitor no. "+str(no_comp)+":\n")
+   
+    if comp_name =="":
+        break
+    dict1[no_comp] = comp_name
+    no_comp +=1 
+print("Please enter the distances for each competitor.") 
+n = 1
+
+for i in range(len(dict1)):
+    print("Competitor " +dict1[n]+":")
+    attemp = 1
+    att = 1
+    count_foul = 0
+    while True:
+        attempt = input("Attempt "+str(attemp)+":\n")
+        if attempt.isalpha():
+            count_foul+=1
+            if count_foul ==3:
+                high = "Nojump"
+        else:
+            if att == 1:
+                high = float(attempt)
+                att+=1
+            else:
+                if float(attempt) &gt; float(high):
+                    high = float(attempt)
+                    
+        attemp += 1
+        if attemp == 4:
+            highest.append(high)
+            break    
+    n += 1
+print()
+print("{:&lt;25}{}".format("Competitor","Longest Distance"))
+compare = 1
+for j in range(len(highest)):
+    if not str(highest[j]).isalpha():
+        print("{0:&lt;25}{1:.2f}".format(dict1[j+1],highest[j]))
+        if compare ==1:
+            high_jump = highest[j]
+            high_comp = j+1
+            compare=compare + 1
+        else:
+            if highest[j]&gt;high_jump:
+                high_jump = highest[j]
+                high_comp = j+1
+    else:
+        print("{:&lt;25}{}".format(dict1[j+1],"No jump"))
+print("") 
+print("The winner is {0:} with a jump of {1:.2f}. ".format(dict1[high_comp],high_jump))&gt;&gt;&gt;&gt; file: NikNaks.py
+import random
+
+
+
+def main():
+    print("Guess the mystery 4 letter code. (No letter occurs more than once.)")
+    difficulty=int(input('Choose difficulty level (4 to 26):\n'))
+    letters=list('abcdefghijklmnopqrstuvwxyz')[0: difficulty]
+    print('The letters in the code are chosen from: {}.'.format(letters))
+    secret_code=[]
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match246-0.html#0" TARGET="0"><IMG SRC="../../bitmaps/tm_0_4.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    for i in range(4):
+        rand_index=random.randint(0, len(letters)-1)
+        letter=letters.pop(rand_index)
+        secret_code.append(letter)
+    # To check things are working, uncomment this print line to see the
+    # code that has been created.
+    #print(secret_code)
+    
+   
+    
+    no_guesses = 10
+    while True:
+</FONT>        naks = 0
+        l = 0
+        niks = 0
+        
+        print("You have "+str(no_guesses)+" guesses remaining.")
+        guess = input("Enter your guess:\n")
+        for i in secret_code:
+            for j in range(len(guess)):
+                if i == guess[j]:
+                    naks +=1 
+        for k in secret_code:
+            if k == guess[l]:
+                niks +=1
+            l+=1
+        naks = naks - niks
+        if naks ==1:
+            Naks = "Nak"
+        else:
+            Naks = "Naks"
+        if niks == 1:
+            Niks ="Nik"
+        else:
+            Niks ="Niks"
+        if niks == 4:
+            print("Correct!")
+            break
+        gramm = 'is'
+        if niks==1:
+            print("There "+str(gramm)+" {0} {3} and {1} {2}.".format(niks,naks,Naks,Niks))
+        else:
+            print("There are {0} {3} and {1} {2}.".format(niks,naks,Naks,Niks))
+        if no_guesses ==1:
+            code = ""
+            for c in secret_code:
+                code+=c
+            print("Sorry, you lose.") 
+            print("The secret number was",code+".")
+            break
+        no_guesses-=1
+        
+        
+                
+
+
+if __name__ == '__main__':
+    main()</PRE>
+</PRE>
+</BODY>
+</HTML>

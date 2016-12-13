@@ -1,0 +1,143 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial7/raw/qngchu002/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial7/raw/rvlmuk001/<p><PRE>
+&gt;&gt;&gt;&gt; file: book_cypher.py
+book = input("Enter the book book filename:\n")
+mess = input("Enter the message:\n")
+outp = input("Enter the output filename:\n")
+otp = open(outp, 'w')
+print("BEGIN")
+print("BEGIN", file = otp)
+messag_list = mess.split()
+for words in messag_list:
+    count = 0
+    book_inp  = open(book, 'r')
+    for line in book_inp:
+        count +=1 
+        line_list= line.split()
+        count_w = 0
+        for word in line_list:            
+            count_w +=1
+            if words.lower() == (word.lower()).strip('?!.,;:)([]{}\'" \n'):
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match64-0.html#1" TARGET="0"><IMG SRC="../../bitmaps/tm_1_5.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+                print(str(count) +"-"+ str(count_w))
+                print(str(count) +"-"+ str(count_w),file = otp)
+                break
+        if words.lower() == (word.lower()).strip('?!.,;:)([]{}\'" \n'):
+</FONT>            break
+    if words.lower() != (word.lower()).strip('?!.,;:)([]{}\'" \n'):
+        print(words)
+        print(words,file = otp)
+        
+        
+
+print("END")
+print("END", file = otp)
+book_inp.close()
+otp.close()
+
+&gt;&gt;&gt;&gt; file: leader_board.py
+# leader_board.py
+
+def process_line(line):
+    parts = line.split(' ')
+    name = parts[0]
+    trials = int(parts[1])
+    average = float(parts[2])
+    return (name, trials, average)
+
+def get_max(entries):
+    max = entries[0]
+    for i in range(1, len(entries)):
+        if entries[i][2] &lt;max[2]:
+            max = entries[i]
+            
+    entries.remove(max)
+    return max
+
+def sort(entries):
+    sorted_entries = []
+    while len(entries)&gt;0:
+        sorted_entries.append(get_max(entries))
+    return sorted_entries
+
+def output(entries):
+    print('Subject        | Average Time')
+    print('************** | ************')
+    for entry in entries:
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match64-0.html#0" TARGET="0"><IMG SRC="../../bitmaps/tm_0_9.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+        print('{:14} | {:.6}'.format(entry[0], entry[2]))
+              
+def main():
+    while True:
+        try: 
+            file_name = input('Enter the name of the file:\n')
+            file_input = open(file_name, 'r')
+        
+            entries = []
+            for line in file_input:
+                entries.append(process_line(line))
+            file_input.close()
+        
+            entries = sort(entries)
+            output(entries)
+            break
+        except IOError as io_err :
+            print('File doesn\'t exist')
+</FONT>        except ValueError as val_err:
+            print(val_err)
+        
+main()
+    &gt;&gt;&gt;&gt; file: reaction_test.py
+import time
+import random
+import msvcrt
+import sys
+def main():
+    file = input("Enter the name of the output file:\n")
+    file_input = open(file, 'a')
+    print('Subject        | Average Time',file = file_input)
+    print('************** | ************',file = file_input)   
+    while True:
+        sub = input("Enter subject name (or press 'enter' to quit)\n")
+        if sub == "":
+            break
+        tests = int(input("Enter the number of tests:\n"))
+    
+        total = 0
+        for test in range(tests):
+            
+            print("Get ready...",flush=True)
+            time.sleep(random.randint(1,5))
+            def flush_input():
+                try:
+                    while msvcrt.kbhit():
+                        msvcrt.getch()
+                except ImportError:
+                    termios.tcflush(sys.stdin, termios.TCIOFLUSH)        
+            start=time.time()
+            react = input("Press Enter Now!")
+            stop=time.time()
+            total_time=stop-start
+            total += total_time
+            print("{:.6f}".format(total_time))
+        print("Tests complete")
+        print("Average reaction time {:.6f}".format(total/tests))
+        print(("{:14} | {:.6f}".format(sub,total/tests)),file=file_input)
+    file_input.close()
+        
+    
+        
+            
+        
+    
+main()</PRE>
+</PRE>
+</BODY>
+</HTML>

@@ -1,0 +1,144 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial3/raw/msnloy003/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial3/raw/ngdmal001/<p><PRE>
+&gt;&gt;&gt;&gt; file: FeetMetres.py
+# a program that displays a conversion for feets and metres measurements
+# Malusi Ngidi
+# 14 May 2016
+
+def main():
+    min_feet = int(input('Enter the minimum number of feet (not less than 0):\n'))
+    max_feet = int(input('Enter the maximum number of feet (not more than 99:)\n'))
+    for i in range(min_feet,max_feet+1):
+        metres = min_feet *0.3047999
+        print('   '+str(min_feet)+"' "+'|   '+str(round(metres,2))+'m')
+        min_feet += 1
+        
+main()&gt;&gt;&gt;&gt; file: InchesMetres.py
+# a program that displays a conversion table for inches to metres
+# Malusi Ngidi
+# 14 May 2016
+
+def main():
+    min_inches = int(input('Enter the minimum number of inches (not less than 0):\n'))
+    max_inches = int(input('Enter the maximum number of inches (not greater than 11):\n'))
+    print('Inches:', end='')
+    for i in range(min_inches,max_inches):
+        print('    '+str(min_inches), end='')
+        min_inches += 1
+    print('    '+str(max_inches), end='\n')
+
+    print("Metres:", end='')
+    while min_inches &lt;= min_inches &lt;=max_inches:
+        metres = str(min_inches *0.025400003)[0:4]
+        print(' '+metres, end='')
+        min_inches += 1
+main()&gt;&gt;&gt;&gt; file: Twelve.py
+# a program that converts time in a 12 hour clock to a 24 hour clock
+# Malusi Ngidi
+# 14 May 2016
+
+def main():
+    time = input('Enter a time in 12 hour clock ([h]h:[am|pm]):\n')
+    hours = int(time[:-6])
+    min = int(time[3:5])
+    if time.endswith('am') is True:
+        if hours == 12:
+            if min == 0:
+                print('00:00')
+            else:
+                tf = hours -12
+                print(str(tf)+time[2:5])
+        elif hours &gt;9:
+            print(time[0:])
+        else:
+            hours = int(time[-7::-1])
+            print('0'+time[0:4])
+    elif time.endswith('pm') is True:
+        if hours == 12:
+            print(time[0:5])
+        else:
+            tf = hours + 12
+            print(str(tf)+time[2:5])
+    
+main()&gt;&gt;&gt;&gt; file: TwentyFour.py
+# a program that converts time in 24 hour to 12 hour clock
+# Malusi Ngidi
+# 13 May 2016
+
+def main():
+    time = input('Enter a time in 24 hour clock (hh:mm):\n')
+    hours = int(time[0:2])
+    if 12 &lt; hours:
+        twelve_hours = hours - 12
+        hours = str(twelve_hours)
+        print(hours+time[2:5]+' pm')
+    elif 12 &gt; hours &gt; 0:
+        hours = str(hours)
+        print(time[1:5]+' am')
+    elif 00 == hours:
+        print('12:00 am')
+    else:
+        hours = str(hours)
+        print(time+' pm')
+main()&gt;&gt;&gt;&gt; file: VehicleClassifier.py
+# a vehicle classifying program
+# Malusi Ngidi
+# 16 May 2016
+
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match92-0.html#1" TARGET="0"><IMG SRC="../../bitmaps/tm_1_5.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+def main():
+    mass = int(input('What is the gross vehicle mass (in kg)?\n'))
+    if mass &lt;= 3500:
+        trailer = input('Does the vehicle a trailer?\n')
+        if trailer =='y':
+            mass_of_trailer = int(input('What is the gross vehicle mass of the tailer (in kg)?\n'))
+</FONT>            if mass_of_trailer &gt; 750:
+                print('This vehicle is class EB.')
+            else:
+                print('This vehicle is class B.')
+        else:
+            articulation = input('Is the vehicle articulated?')
+            if articulation == 'y':
+                print('This vehicle is class EB.')
+            else:
+                print('This vehicle is class B.')
+    elif mass &gt; 16000:
+        trailer = input('Does the vehicle a trailer?\n')
+        if trailer =='y':
+            mass_of_trailer = int(input('What is the gross vehicle mass of the tailer (in kg)?\n'))
+            if mass_of_trailer &gt; 750:
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match92-0.html#0" TARGET="0"><IMG SRC="../../bitmaps/tm_0_7.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+                print('This vehicle is class EC.')
+            else:
+                print('This vehicle is class C.')
+        else:
+            articulation = input('Is the vehicle articulated?')
+            if articulation == 'y':
+                print('This vehicle is class EC.')
+            else:
+                print('This vehicle is class C.')
+    else:
+        trailer = input('Does the vehicle a trailer?\n')
+        if trailer =='y':
+            mass_of_trailer = int(input('What is the gross vehicle mass of the tailer (in kg)?\n'))
+            if mass_of_trailer &gt; 750:
+</FONT>                print('This vehicle is class EC1.')
+            else:
+                print('This vehicle is class C1.')
+        else:
+            articulation = input('Is the vehicle articulated?')
+            if articulation == 'y':
+                print('This vehicle is class EC1.')
+            else:
+                print('This vehicle is class C1.')
+main()</PRE>
+</PRE>
+</BODY>
+</HTML>

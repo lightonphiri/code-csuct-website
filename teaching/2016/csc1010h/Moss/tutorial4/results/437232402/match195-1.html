@@ -1,0 +1,154 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial4/raw/rmjhrs001/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial4/raw/tstmpu001/<p><PRE>
+&gt;&gt;&gt;&gt; file: LongJump.py
+#Mpumelelo Tsotsha
+#long jump
+#1 August 2016
+
+def main():
+    print("***** Long Jump Information System *****")
+    print("Please enter the names of competitors. (Press return when done.)")
+    
+    #imput
+    competitor_1 = str(input("Competitor no. 1:\n"))
+    competitor_2 = str(input("Competitor no. 2:\n"))
+    competitor_3 = str(input("Competitor no. 3:\n"))
+    competitor_4 = str(input("Competitor no. 4:\n"))
+    print("Please enter the distances for each competitor.")
+    print("Competitor", competitor_1)
+    competitor_1_attempt_1 = eval(input("Attempt 1:\n"))
+    competitor_1_attempt_2 = eval(input("Attempt 2:\n"))
+    competitor_1_attempt_3 = input("Attempt 3:\n")
+    print("Competitor", competitor_2)
+    competitor_2_attempt_1 = input("Attempt 1:\n")
+    competitor_2_attempt_2 = input("Attempt 2:\n")
+    competitor_2_attempt_3 = input("Attempt 3:\n")
+    print("Competitor", competitor_3)
+    competitor_3_attempt_1 = input("Attempt 1:\n")
+    competitor_3_attempt_2 = input("Attempt 2:\n")
+    competitor_3_attempt_3 = input("Attempt 3:\n")
+    print("Competitor", competitor_4)
+    competitor_4_attempt_1 = input("Attempt 1:\n")
+    competitor_4_attempt_2 = input("Attempt 2:\n")
+    competitor_4_attempt_3 = input("Attempt 3:\n")
+    
+    if competitor_1_attempt_1 == "foul":
+        competitor_1_attempt_1_float = float(0)
+    else:
+        competitor_1_attempt_1_float = float(competitor_1_attempt_1)
+    if competitor_1_attempt_2 == "foul":
+        competitor_1_attempt_2_float = float(0)
+    else:
+        competitor_1_attempt_2_float = float(competitor_1_attempt_2)
+    if competitor_1_attempt_3 == "foul":
+        competitor_1_attempt_3_float = float(0)
+    else:
+        competitor_1_attempt_3_float = float(competitor_1_attempt_3)  
+    if competitor_2_attempt_1 == "foul":
+        competitor_2_attempt_1_float = float(0)
+    else:
+        competitor_2_attempt_1_float = float(competitor_2_attempt_1)
+    if competitor_2_attempt_2 == "foul":
+        competitor_2_attempt_2_float = float(0)
+    else:
+        competitor_2_attempt_2_float = float(competitor_2_attempt_2)
+    if competitor_2_attempt_3 == "foul":
+        competitor_2_attempt_3_float = float(0)
+    else:
+        competitor_2_attempt_3_float = float(competitor_2_attempt_3)
+    if competitor_3_attempt_1 == "foul":
+        competitor_3_attempt_1_float = float(0)
+    else:
+        competitor_3_attempt_1_float = float(competitor_3_attempt_1)
+    if competitor_3_attempt_2 == "foul":
+        competitor_3_attempt_2_float = float(0)
+    else:
+        competitor_3_attempt_2_float = float(competitor_3_attempt_2)
+    if competitor_3_attempt_3 == "foul":
+        competitor_3_attempt_3_float = float(0)
+    else:
+        competitor_3_attempt_3_float = float(competitor_3_attempt_3)
+    if competitor_4_attempt_1 == "foul":
+        competitor_4_attempt_1_float = float(0)
+    else:
+        competitor_4_attempt_1_float = float(competitor_4_attempt_1)
+    if competitor_4_attempt_2 == "foul":
+        competitor_4_attempt_2_float = float(0)
+    else:
+        competitor_4_attempt_2_float = float(competitor_4_attempt_2)
+    if competitor_4_attempt_3 == "foul":
+        competitor_4_attempt_3_float = float(0)
+    else:
+        competitor_4_attempt_3_float = float(competitor_4_attempt_3)
+    
+    competitor_1_maximum = float(max(competitor_1_attempt_1_float,competitor_1_attempt_2_float,competitor_1_attempt_3_float))
+    competitor_2_maximum = float(max(competitor_2_attempt_1_float,competitor_2_attempt_2_float,competitor_2_attempt_3_float))
+    competitor_3_maximum = float(max(competitor_3_attempt_1_float,competitor_3_attempt_2_float,competitor_3_attempt_3_float))
+    competitor_4_maximum = float(max(competitor_4_attempt_1_float,competitor_4_attempt_2_float,competitor_4_attempt_3_float))
+    
+    competitor_1_maximum_string = str(competitor_1_maximum)
+    competitor_2_maximum_string = str(competitor_2_maximum)
+    competitor_3_maximum_string = str(competitor_3_maximum)
+    competitor_4_maximum_string = str(competitor_4_maximum)
+    
+    overall_maximum = max(competitor_1_maximum, competitor_2_maximum, competitor_3_maximum, competitor_4_maximum)
+    
+    #dictionary
+    dictionary = {competitor_1:competitor_1_maximum,competitor_2:competitor_2_maximum,competitor_3:competitor_3_maximum,competitor_4:competitor_4_maximum}
+    
+    #output
+    print("{0:&lt;25} Longest Distance".format("Competitor"))
+    print("{0:&lt;26}{1}".format(competitor_1, competitor_1_maximum_string))
+    print("{0:&lt;26}{1}".format(competitor_2, competitor_2_maximum_string))
+    print("{0:&lt;26}{1}".format(competitor_3, competitor_3_maximum_string))
+    print("{0:&lt;26}{1}".format(competitor_4, competitor_4_maximum_string))
+    
+    if overall_maximum == competitor_1_maximum:
+        print("The winner is", competitor_1, "with a jump of", competitor_1_maximum_string+".")
+    elif overall_maximum == competitor_2_maximum:
+        print("The winner is", competitor_2, "with a jump of", competitor_2_maximum_string+".")
+    elif overall_maximum == competitor_3_maximum:
+        print("The winner is", competitor_3, "with a jump of", competitor_3_maximum_string+".") 
+    elif overall_maximum == competitor_4_maximum:
+        print("The winner is", competitor_4, "with a jump of", competitor_4_maximum_string+".")     
+    
+main()&gt;&gt;&gt;&gt; file: Python_turtle.py
+import turtle
+
+turtle.speed(1)
+turtle.screensize(20000,30000000)
+turtle.bgcolor('cyan')
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match195-0.html#0" TARGET="0"><IMG SRC="../../bitmaps/tm_0_5.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+turtle.pensize(1)
+turtle.hideturtle()
+turtle.left(60)
+turtle.forward(100)
+turtle.right(120)
+turtle.forward(100)
+turtle.right(120)
+turtle.forward(100)
+</FONT>
+turtle.penup()
+turtle.pendown()
+turtle.color('white')
+turtle.left(60)
+turtle.forward(100)
+turtle.right(120)
+turtle.forward(100)
+turtle.right(120)
+turtle.forward(100)
+
+
+
+
+
+</PRE>
+</PRE>
+</BODY>
+</HTML>

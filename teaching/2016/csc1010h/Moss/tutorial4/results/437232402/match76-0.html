@@ -1,0 +1,217 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial4/raw/gnxulr001/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial4/raw/gnxulr001/<p><PRE>
+&gt;&gt;&gt;&gt; file: LongJump.py
+#Log the results of an athletic long jump contest
+#Ulrich Geen
+#GNXULR001
+#27 July 2016
+
+def main():
+    print("{0:*^40}".format(" Long Jump Information System "))
+    print("Please enter the names of competitors. (Press return when done.)")
+    competitor_list=[]
+    longest_distance=0
+    contest_dict={}
+    new_distance_dict={}
+    overall_longest_distance=0
+    competitor_number=1
+    #Prompt user to enter competitors names
+    while True:
+        competitor=input("Competitor no. "+ str(competitor_number)+":\n")
+        if competitor == "": break
+        competitor_list.append(competitor)
+        competitor_number+=1
+    print("Please enter the distances for each competitor.")
+    #Prompt user to enter long jump distances
+    for competitor in competitor_list:
+        print("Competitor "+competitor+":")
+        for jump in range(3):
+            new_distance_dict[jump]=input("Attempt "+str(jump+1)+":\n")
+            #Compare competitors own long jump distances
+            if not new_distance_dict[jump].isalpha():
+                if float(new_distance_dict[jump]) &gt; longest_distance: longest_distance=float(new_distance_dict[jump])
+        contest_dict[competitor]=longest_distance
+        longest_distance=0
+    print()
+    #Display competitors longest jump
+    print("{0:&lt;25}".format("Competitor")+"Longest Distance")
+    #Compare all competitors long jump distance
+    for competitor in competitor_list:
+        new_distance=contest_dict[competitor]
+        if overall_longest_distance &lt; new_distance: 
+            overall_longest_distance=new_distance
+            longest_jumper=competitor
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match76-1.html#0" TARGET="1"><IMG SRC="../../bitmaps/tm_0_5.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    for competitor in competitor_list:
+        if contest_dict[competitor] == 0: 
+            contest_dict[competitor] = "No jump"
+            print("{0:&lt;25}{1}".format(competitor,contest_dict[competitor]))
+        else: print("{0:&lt;25}{1:4.2f}".format(competitor,contest_dict[competitor]))
+</FONT>    print()
+    #Display contest winner
+    print("The winner is {0} with a jump of {1:4.2f}.".format(longest_jumper,overall_longest_distance))
+    
+main()&gt;&gt;&gt;&gt; file: NikNaks.py
+#Play a game of niknaks with the user
+#Ulrich Geen
+#GNXULR001
+#28 July 2016
+
+from random import *
+
+def main():
+    letter_code=[]
+    answer=''
+    print("Guess the mystery 4 letter code. (No letter occurs more than once.)")
+    #Prompt user for difficulty level
+    difficulty_number=int(input('Choose difficulty level (4 to 26):\n'))
+    difficulty_level=list("abcdefghijklmnopqrstuvwxyz")[0:difficulty_number]
+    print("The letters in the code are chosen from: {0}.".format(difficulty_level))
+    #Generate random letter code
+    for i in range(4):
+        rand_index=randint(0, len(difficulty_level)-1)
+        letter=difficulty_level.pop(rand_index)
+        letter_code.append(letter)
+        answer+=letter
+    #Prompt user for answer
+    for guess_number in range(10):
+        Niks=0
+        Naks=0
+        guessed_letters=[]
+        print("You have {0} guesses remaining.".format(10-guess_number))
+        guess=input("Enter your guess: \n")
+        #Check for Naks
+        for i in range(4):
+            guessed_letters.append(guess[i])
+        Naks=len((set(guessed_letters)&set(letter_code)))
+        #Check for Niks
+        for letter_number in range(4):
+            if letter_code[letter_number] == guessed_letters[letter_number]: 
+                Niks+=1
+            else: continue
+        if Niks == 4:#End if correct guess
+            print("Correct!")
+            break
+        else: #Display how many Niks and Naks
+            if Niks==1:
+                print("There is {0} Nik and {1} Naks.".format(Niks,(Naks-Niks)))
+            else:
+                print("There are {0} Niks and {1} Naks.".format(Niks,(Naks-Niks)))
+    if guess_number == 9:
+        print("Sorry, you lose."+"\nThe secret number was {0}.".format(answer))
+if __name__ == '__main__':
+    main()&gt;&gt;&gt;&gt; file: Python_Turtle.py
+#Randomly Generated O's and X's
+#Ulrich Geen
+#GNXULR001
+#30 July 2016
+
+from turtle import *
+from math import *
+from random import *
+
+def draw_square(): #Draws a box around vertical and horizontal lines
+    setpos(-150,-100)
+    angle=0
+    pendown()
+    for i in range(4):
+        setheading(angle)
+        forward(300)
+        angle+=90
+    penup()
+
+def draw_circle(x,y): #Draws a red circle
+    penup()
+    setpos(x,y)
+    setheading(0)
+    pendown()
+    color("red","red")
+    begin_fill()
+    circle(50)
+    end_fill()
+    penup()
+    home()
+    
+def draw_x(x,y): #Draw an X
+    length=hypot(40, 40)
+    angle_one=45
+    penup()
+    setpos(x,y)
+    forward(10)
+    color("black")
+    pendown()
+    right(angle_one)
+    for i in range(4):
+        angle_two=90
+        forward(length)
+        right(angle_one)
+        for i in range(2):
+            forward(10)
+            right(angle_two)
+            angle_two-=90
+        right(angle_one)
+        forward(length)
+        left(90)
+    penup()
+
+def draw_vertical_lines(x_coord,y_coord): #Draw Vertical lines of 0's and X's
+    n=1
+    for i in range(2):
+        x_coord*=n    
+        penup()
+        setpos(x_coord,y_coord)
+        setheading(90)
+        pendown()
+        forward(300)
+        penup()
+        home()
+        n*=-1
+        
+def draw_horizontal_lines(x_coord,y_coord): #Draw Horizontal lines of 0's and X's 
+    n=0
+    for i in range(2):
+        y_coord+=n
+        penup()
+        setpos(x_coord,y_coord)
+        setheading(0)
+        pendown()
+        forward(300)
+        penup()
+        home()
+        n+=100
+
+def main():
+    mode("standard")
+    title("Randomly Generated O's and X's")
+    hideturtle()
+    delay(20)
+    draw_vertical_lines(-50,-100)
+    draw_horizontal_lines(-150,0)
+    draw_square()
+    coords = [(x,y) for x in range(3) for y in range(3)] #Creates a 2D matrix
+    coords_dict = {0:-100,1:0,2:100} #Positions for 2D matrix
+    shuffle(coords)
+    turn=1
+    moves_x=[]
+    moves_o=[]
+    for i,j in coords: #Goes through randomized 2D matrix
+        if turn == 1:
+            draw_x(coords_dict[i], coords_dict[j]+50)
+            moves_x.append(list((i,j)))
+        else:
+            draw_circle(coords_dict[i],coords_dict[j])
+            moves_o.append(list((i,j)))
+        turn*=-1
+    exitonclick()
+
+if __name__ == '__main__':
+    main()</PRE>
+</PRE>
+</BODY>
+</HTML>

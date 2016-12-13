@@ -1,0 +1,143 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial4/raw/jhnche013/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial4/raw/jhnche013/<p><PRE>
+&gt;&gt;&gt;&gt; file: LongJump.py
+<A NAME="2"></A><FONT color = #0000FF><A HREF="match12-1.html#2" TARGET="1"><IMG SRC="../../bitmaps/tm_2_6.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+print("***** Long Jump Information System *****")
+print("Please enter the names of competitors. (Press return when done.) ")
+num=1
+names=[]
+random="random"
+while random!="":
+    random=input("Competitor no. "+str(num)+": \n")
+    num=num+1
+</FONT>    names.append(random)
+names.remove("")
+
+  
+distances=[]
+final_distances=[]
+print("Please enter the distances for each competitor. ")
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match12-1.html#0" TARGET="1"><IMG SRC="../../bitmaps/tm_0_18.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+for name in names:
+    max_dis=[]
+    print("Competitor "+name+": ")
+    for i in range(1,4):
+        dis=input("Attempt "+str(i)+": \n")
+        max_dis.append(dis)
+   
+    if max_dis.count("foul")==3:
+        final_distances.append("No jump")
+    
+    elif max_dis.count("foul")&gt;=1:
+        for i in range(max_dis.count("foul")):
+            max_dis.remove("foul")
+        final_distances.append(max(max_dis))
+    else:
+        final_distances.append(max(max_dis))
+   
+cob=[]
+print("Competitor               Longest Distance ")
+</FONT><A NAME="1"></A><FONT color = #00FF00><A HREF="match12-1.html#1" TARGET="1"><IMG SRC="../../bitmaps/tm_1_17.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+for i in range(len(final_distances)):
+    cob.append(names[i])
+    cob.append(final_distances[i])
+    print('{0:10}               {1:10}'.format(names[i],final_distances[i]))
+
+winner_dis=""
+if final_distances.count("No jump")&gt;=1:
+        for i in range(final_distances.count("No jump")):
+            final_distances.remove("No jump")
+        winner_dis=max(final_distances)
+else:
+    winner_dis=max(final_distances)
+winner_nam=cob[(cob.index(winner_dis)-1)]
+
+print("The winner is "+winner_nam+" with a jump of "+winner_dis)
+</FONT>&gt;&gt;&gt;&gt; file: NikNaks.py
+import random  
+def main(): 
+   
+   
+   
+   print("Guess the mystery 4 letter code. (No letter occurs more than once.)")
+
+   difficulty=int(input('Choose difficulty level (4 to 26):\n'))     
+   letters=list('abcdefghijklmnopqrstuvwxyz')[0: difficulty]     
+   print('The letters in the code are chosen from: {}')     
+   secret_code=[]  
+   
+   for i in range(4):         
+      rand_index=random.randint(0, len(letters)-1)         
+      letter=letters.pop(rand_index)         
+      secret_code.append(letter)  
+   print(secret_code) 
+   guesses=10
+   guess=[]
+  
+   while guesses&gt;0 and str(guess)!=str(secret_code):
+      print("You have "+str(guesses)+" remaining")
+      guesses=guesses-1
+      guessed=input("Enter your guess: ")
+      guess=[]
+      nik=0
+      nak=0      
+      for i in range(len(guessed)):
+         guess.append(guessed[i])
+      for i in range(4):
+         if guess[i]==secret_code[i]:
+            nik=nik+1
+         elif secret_code.count(guess[i])&gt;0:
+            nak=nak+1
+      if nik!=4:
+         print("There are "+str(nik)+" Niks and "+str(nak)+" Naks. ")
+      
+   if guesses&gt;0:
+      print("Correct!")
+      
+   
+                
+if __name__ == '__main__':     main() 
+    &gt;&gt;&gt;&gt; file: turtle.py
+from turtle import *
+
+
+
+
+
+
+
+color("yellow","pink")
+
+for i in range(20):
+    pendown()
+    forward(150)
+    penup()
+    right(50)
+    back(50)
+    
+for g in range(-360,360,90):    
+    setposition(i, -100)  
+    for i in range(20):
+        pendown()
+        forward(150)
+        penup()
+        right(50)
+        back(50)
+    
+
+done()
+
+
+
+</PRE>
+</PRE>
+</BODY>
+</HTML>

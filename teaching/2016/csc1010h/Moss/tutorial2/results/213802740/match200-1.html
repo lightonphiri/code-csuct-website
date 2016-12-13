@@ -1,0 +1,151 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial2/raw/kglkhw001/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial2/raw/mbdnts001/<p><PRE>
+&gt;&gt;&gt;&gt; file: CreditCard.py
+#NTSIENI MBEDZI
+#CREDIT CARD
+#23 APRIL 2016
+
+name = (input("Enter the card holder's name:\n")).title()
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match200-0.html#0" TARGET="0"><IMG SRC="../../bitmaps/tm_0_7.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+card_num = input("Enter the 16 digit card number (no spaces please):\n")
+doi = input("Enter the date of issue (mm:yy):\n")
+exp_date = input('Enter the expiry date (mm:yy):\n')
+serc_cod = input('Enter the 3 digit security code:\n')
+cred_lim = float(input('Enter the credit limit (Rand):\n'))
+bal = float(input('Enter the balance (Rand):\n'))
+s=' '
+new_cardnum = card_num[0:4]+s+card_num[4:8]+s+card_num[8:12]+s+card_num[12::]
+</FONT>avail = cred_lim - bal
+avail1 = str('{0:.2f}'.format(avail))
+new_doi = doi.replace(':','/')
+new_bal=str('{0:.2f}'.format(bal))
+new_exp_date = exp_date.replace(':','/')
+new_credlim = str('{0:.2f}'.format(cred_lim))
+
+print("+------------- Credit Card Account --------------+")
+print('| Card holder:   {0:&lt;32}|'.format(name))
+print('| Card number:   {0:&lt;32}|'.format(new_cardnum))
+print('| Date of issue: {0:&lt;9}Expiry date: {1:&lt;10}|'.format(new_doi,new_exp_date))
+print('| Security code: {0:&lt;32}|'.format(serc_cod))
+print('| Credit limit:  {0:&lt;32}|'.format(new_credlim+' Rand'))
+print('| Available:     {0:&lt;32}|'.format(avail1+' Rand'))
+print('| Balance:       {0:&lt;32}|'.format(new_bal+' Rand'))
+print('+------------------------------------------------+')
+
+
+
+&gt;&gt;&gt;&gt; file: EugeneJunior.py
+#NTSIENI MBEDZI
+#EUGENE JUNIOR PROGRAM
+#23 APRIL 2016
+
+#ASK USER FOR NAME AND SURNAME AND RESPONSE
+
+print("Hello, I am Eugene Junior.")
+name = input('What is your first name?\n')
+surname = input('What is your last name?\n')
+
+a = name[0].upper()
+b = surname[0].upper()
+c = '.'
+print('Hi', a+c+b+c,end='!')
+
+#Ask for the current year and the user age and respond with their YOB
+
+Year = int(input('\nWhat year is this?\n'))
+age = int(input('What age are you?\n'))
+
+year_born = str(Year - age)
+
+year_born1 = int(year_born) - 1
+d ='/'
+e = year_born[2:4]
+print("Okay, so you were born in", str(year_born1)+d+e, end='.')
+
+#Ask the user for their height in metres and respond with the same in feet and inches
+
+height = eval(input('\nHow tall are you (metres)?\n'))
+
+cov_height_inches =height * 39.3700787
+
+height_ft = str(int(cov_height_inches //12))
+
+height_inches = str(round(cov_height_inches % 12))
+
+g = "'"
+h = '"'
+
+print("That's", height_ft+g+height_inches+h, end='!')
+
+#Tell the user that its going to calculate their star wars name
+
+print("\nI'm going to tell you your Star Wars name.")
+
+mom_name =input("What's your mother's first name?\n")
+city_name = input("What's the name of the city nearest to your place of birth?\n")
+
+
+print('Your Star Wars name is', (surname[0:3]+name[0:2]).title(), (mom_name[-2::]+city_name[-3::]).title(), end='.')&gt;&gt;&gt;&gt; file: HexagonArea.py
+#NTSIENI MBEDZI
+#HEXAGON AREA
+#25 APRIL 2016
+
+#PROMPT USER FOR LENGTH
+leng = eval(input('Enter the length of the side (cm):\n'))
+
+#CALCULATE AREA OF HEXAGON 
+import math 
+AREA =1.5 * math.sqrt(3) * ( leng**2)
+
+#FORMAT AND ROUND TO 3 DECI
+area1 = round(AREA,3)
+area = '{0:.3f}'.format(area1)
+#PRINT AREA
+print('The area of a hexagon of side',leng,'is',area,end='.')&gt;&gt;&gt;&gt; file: Initials.py
+
+
+def main():
+    import turtle 
+    import math
+    turtle.screensize(500,500)
+    turtle.penup()
+    turtle.left(90)
+    turtle.fd(40)
+    turtle.pendown()
+    turtle.pencolor('cyan')
+    turtle.right(90)
+    turtle.fd(200)
+    turtle.left(180)
+    turtle.right(36.86989765)
+    diag = math.hypot(150,200)
+    turtle.fd(diag)
+    turtle.right(143.1301024)
+    turtle.fd(200)
+    
+    turtle.right(90)
+    turtle.penup()
+    turtle.fd(230)
+    turtle.right(90)
+    turtle.fd(200)
+    turtle.left(180)
+    turtle.pendown()
+    turtle.pencolor('purple')
+    turtle.fd(200)
+    turtle.right(123.6900675)
+    turtle.fd(90.13878189)
+    turtle.left(67.38013505)
+    turtle.fd(90.13878189)
+    turtle.right(123.6900675)
+    turtle.fd(200)
+    turtle.exitonclick
+    
+main()</PRE>
+</PRE>
+</BODY>
+</HTML>

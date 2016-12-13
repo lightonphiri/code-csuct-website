@@ -1,0 +1,73 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial6/raw/mdykan002/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial6/raw/nyttha008/<p><PRE>
+&gt;&gt;&gt;&gt; file: fixed_mod.py
+def palindrome(s):
+    import string
+    s=s.lower()
+    if len(s)==1:
+        return s.isalpha()
+    elif len(s)==0:
+        return True
+    elif s[0] in string.punctuation or s[0] in string.whitespace:
+        return palindrome(s[1:])
+    elif s[-1] in string.punctuation or s[-1] in string.whitespace:
+        return palindrome(s[0:-1])
+    elif s[0].lower()==s[-1].lower():
+        return palindrome(s[1:-1])
+    else:
+        return False 
+&gt;&gt;&gt;&gt; file: match_mod.py
+def equals(word_one,word_two):
+    #if word_one[0]!=word_two[0]:
+        #return False
+    if len(word_one)==0 and len(word_two)==0:
+        return True
+    elif len(word_one) !=len(word_two):
+        return False
+    elif word_one[0]==word_two[0]:
+        return equals(word_one[1:],word_two[1:])
+    else:
+        return False
+
+def query(s,t):
+    if len(s)==len(t)==0:
+        return True
+    elif len(s)!=len(t):
+        return False
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match170-0.html#0" TARGET="0"><IMG SRC="../../bitmaps/tm_0_17.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    elif s[0]=="?":
+        return query(s[1:],t[1:])
+    elif s[0]==t[0]:
+        return query(s[1:],t[1:])
+    else:
+        return False
+    
+&gt;&gt;&gt;&gt; file: mongoose_mod.py
+#Thato Nyati
+#Mongoose mod program
+
+def population(n):
+    if n==0:
+</FONT>        return 0
+    elif n==1:
+        return 2
+    else:
+        return population(n-1)+population(n-2)
+    &gt;&gt;&gt;&gt; file: sum_mod.py
+#Thato Nyati
+# sum mod program
+
+def sum_to_n(n):
+    if n==1:
+        return 1
+    else:
+        return n+sum_to_n(n-1)</PRE>
+</PRE>
+</BODY>
+</HTML>

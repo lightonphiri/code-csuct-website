@@ -1,0 +1,130 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial4/raw/mkptha005/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial4/raw/tknnox001/<p><PRE>
+&gt;&gt;&gt;&gt; file: LongJump.py
+print("***** Long Jump Information System *****")
+print("Please enter the names of competitors. (Press return when done.)")
+
+Competitors=[]
+n=1
+while True:
+        names=input("Competitor no. " + str(n) + ":\n")
+        n +=1
+        if names=="":break
+        Competitors.append(names)
+longest_distance=[]
+print("Please enter the distances for each competitor.") 
+for i in range(len(Competitors)):
+        first_num = 0
+        n_of_foul = 0
+        print("Competitor "+ Competitors[i] +":")
+        for k in range (3):
+                attempt=input("Attempt "+str(k+1)+":\n")
+                if attempt.isalpha():
+                        n_of_foul+=1
+                        if n_of_foul==3:
+                                long = "No jump"
+                                
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match136-0.html#0" TARGET="0"><IMG SRC="../../bitmaps/tm_0_5.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+                else:
+                        first_num +=1
+                        if first_num ==1:
+                                long = float(attempt)
+                        else:
+                                if float(attempt) &gt; long:
+                                        long =  float(attempt)
+        longest_distance.append(long)
+</FONT>print()
+print("{0:&lt;25}{1:&lt;25}".format("Competitor","Longest Distance"))
+l = 0
+for f in Competitors:
+        if longest_distance[l]=="No jump":
+                print("{:&lt;25}{:&lt;15}".format(Competitors[l],longest_distance[l]))
+        else:
+                print("{:&lt;25}{:&lt;15.2f}".format(Competitors[l],float(longest_distance[l])))
+        l+=1
+max_1=0
+for p in longest_distance:
+        if type(p)!=str:
+                if max_1&lt;p:
+                        max_1=p
+print()
+print("The winner is {:} with a jump of {:.2f}.".format(Competitors[longest_distance.index(max_1)],float(max_1)))     &gt;&gt;&gt;&gt; file: NikNaks.py
+import random
+def main():
+    print("Guess the mystery 4 letter code. (No letter occurs more than once.)")
+    difficulty=int(input('Choose difficulty level (4 to 26):\n'))
+    letters=list('abcdefghijklmnopqrstuvwxyz')[0: difficulty]
+    print('The letters in the code are chosen from: {}.'.format(letters))
+    secret_code=[]
+    for i in range(4):
+        rand_index=random.randint(0, len(letters)-1)
+        letter=letters.pop(rand_index)
+        secret_code.append(letter)
+    code = ""
+    for m in secret_code:
+        code +=m
+    
+    guess = 10
+    while True:
+        
+        print("You have "+str(guess)+" guesses remaining.")
+        Nak=0
+        nik=0
+        w = 0
+        guess_2=input("Enter your guess:\n")
+        guess_3=list(guess_2)
+        if guess_3==secret_code:
+            print("Correct!")
+            break
+        for letters in secret_code:
+            for l in guess_3:
+            #if letters in secret_code:
+                if letters == l:
+                    Nak+=1
+        
+        for k in secret_code:
+            if k == guess_3[w]:
+                nik +=1
+            w+=1
+        naks = Nak - nik
+        if naks == 1:
+            nakk = "Nak"
+        else:
+            nakk = "Naks"
+        if nik ==1:
+            var2 = "is"
+            nikk = "Nik"
+        else:
+            var2 = "are"
+            nikk = "Niks"
+        print("There "+var2+" "+str(nik)+" "+nikk+" and "+str(naks)+" "+nakk+"." )
+        if guess == 1:
+            print("Sorry, you lose.")
+            print("The secret number was "+code+".")
+            break
+        guess-=1
+if __name__ == '__main__':
+    main()    &gt;&gt;&gt;&gt; file: Python_Turtle.py
+import turtle
+
+def main():
+    turtle.color("red","blue")
+    turtle.begin_fill()
+    turtle.circle(200)
+    turtle.end_fill()
+    turtle.right(90)
+    turtle.forward(200)
+    turtle.dot(50,"green")
+    turtle.left(90)
+    turtle.forward(100)
+    turtle.shape("triangle")
+main()</PRE>
+</PRE>
+</BODY>
+</HTML>

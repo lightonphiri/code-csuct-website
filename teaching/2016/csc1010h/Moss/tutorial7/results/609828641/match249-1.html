@@ -1,0 +1,144 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial7/raw/admhla001/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial7/raw/frnrif001/<p><PRE>
+&gt;&gt;&gt;&gt; file: book_cypher.py
+# Program to encode a message
+# Rifqah Francis
+# 16 September 2016
+
+import random
+
+def main():
+    file_name = input('Enter the book filename:\n')
+    message = input('Enter the message:\n')
+    output_file = input('Enter the output filename:\n')
+    message_encode = ''
+    
+    words = message.split()
+    position = 0
+    for word in words:
+        words[position] = word.strip('?!.,;:)([]{}\'" \n')
+        position+=1
+    
+    p = open(file_name, 'r')
+    
+    print('\nBEGIN')
+    
+    for word in words:
+        for n, line in enumerate(open(file_name)):
+            if word in line:
+                print(n+1)
+                location = line.split()
+                print(int(location.index(word)) + 1)
+            else:
+                continue
+                
+
+      
+            
+    print('\nEND')
+    f.close()
+main()&gt;&gt;&gt;&gt; file: leader_board.py
+# leader_board.py
+
+def process_line(line):
+    parts = line.split(' ')
+    name = parts[0]
+    trials = int(parts[1])
+    average = float(parts[2])
+    return (name, trials, average)
+
+def get_max(entries):
+    max = entries[0]
+    for i in range(1, len(entries)):
+        if entries[i][2] &lt;max[2]:
+            max = entries[i]
+            
+    entries.remove(max)
+    return max
+
+def sort(entries):
+    sorted_entries = []
+    while len(entries)&gt;0:
+        sorted_entries.append(get_max(entries))
+    return sorted_entries
+
+def output(entries):
+    print('Subject        | Average Time')
+    print('************** | ************')
+    for entry in entries:
+        print('{:14} | {:.6}'.format(entry[0], entry[2]))
+              
+def main():
+    try:
+        file_name = input('Enter the name of the file:\n')
+    except IOError:
+        print('The file cannot be opened')
+        file_name = input('Enter another file name:\n')
+    try:    
+        file_input = open(file_name, 'r')
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match249-0.html#0" TARGET="0"><IMG SRC="../../bitmaps/tm_0_6.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    except ValueError as val_err:
+        print('This ValueError occured',val_err)
+    
+    entries = []
+    for line in file_input:
+        entries.append(process_line(line))
+    file_input.close()
+    
+    entries = sort(entries)
+    output(entries)
+    
+main()
+</FONT>    &gt;&gt;&gt;&gt; file: reaction_test.py
+# Rifqah Francis
+# 15 September
+# Program to calculate the reaction time of test subjects
+
+import time
+import random
+
+def main():
+    file_name = input('Enter the name of the output file:\n')
+    
+    def flush_input():     
+        try:         
+            import msvcrt         
+            while msvcrt.kbhit():             
+                msvcrt.getch()     
+        except ImportError:         
+            import sys, termios         
+            termios.tcflush(sys.stdin, termios.TCIOFLUSH)
+    
+    while True:
+        subject_name = input('Enter subject name (or press "enter" to quit):\n')
+        if subject_name == 'quit':
+            break
+        no_of_tests = input('Enter the number of tests:\n')
+        total_time = 0
+        count = 0
+        
+        for count in range(int(no_of_tests)):
+            print('Get ready...', flush = True)
+            random_seconds = random.uniform(1,6)
+            time.sleep(random_seconds)
+            start = time.time()
+            reaction_question = input("Press 'enter' NOW!")
+            reaction_time= time.time() - start
+            print('Reaction time = {}'.format(round(reaction_time,6)))
+            total_time += reaction_time
+            count +=1
+        print('Tests complete.')
+        average_reaction = total_time/count
+        print('Average reaction time: {}\n'.format(round(average_reaction,6)))
+        file = open(file_name,'a')
+        file.close()
+main()</PRE>
+</PRE>
+</BODY>
+</HTML>

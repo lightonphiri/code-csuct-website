@@ -1,0 +1,220 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial3/raw/dvnrya001/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial3/raw/dvnrya001/<p><PRE>
+&gt;&gt;&gt;&gt; file: FeetMetres.py
+def main():
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match13-1.html#1" TARGET="1"><IMG SRC="../../bitmaps/tm_1_4.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    a = eval(input("Enter the minimum number of feet (not less than 0):\n"))
+    b = eval(input("Enter the maximum number of feet (not more than 99):\n"))
+    def metres(c):
+        d = 0
+        d = c * 0.3048
+        return "{0:.2f}".format(d)
+    
+    
+    for i in range(a,b+1):
+        e ="  {0:&gt;3}".format(str(i)+"\'")+" |"+" "*3+str(metres(i))+"m"
+        print(e)
+</FONT><A NAME="0"></A><FONT color = #FF0000><A HREF="match13-1.html#0" TARGET="1"><IMG SRC="../../bitmaps/tm_0_6.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+main()       &gt;&gt;&gt;&gt; file: InchesMetres.py
+a = eval(input("Enter the minimum number of inches (not less than 0):\n"))
+b = eval(input("Enter the maximum number of inches (not greater than 11):\n"))
+def meters(c):
+        d = 0 
+        d = c * 0.0254
+        return "{0:.2f}".format(d)
+    
+e ="Inches:"
+f ="Metres:"
+    
+for i in range(a,b+1):
+        if len(str(i))==1:
+                e+=" "*4+str(i)
+                f+=" "+str(meters(i))
+            
+        else:
+                e+=" "*3+str(i)
+                f+=" "+str(meters(i))
+            
+print(e)
+print(f)
+</FONT>
+        
+        
+        
+
+&gt;&gt;&gt;&gt; file: TimeConvertor.py
+a = input("Enter a time ([h]h:mm [am|pm]):\n")
+if a[6:8]=="am" or a[5:7]=="am": 
+    if int(a[0:5:4])&lt;=9 and int(a[0:5:4])&gt;0:
+        m = str(a[2:4])
+        b = str(a[0:5:4])
+        c = "0"+b+":"+m
+        print(c[0:2]+c[3:6])
+    elif int(a[0:2])&lt;=12 and int(a[0:2])&gt;=10:
+        if int(a[0:2])&lt;12 and int(a[0:2])&gt;=10:
+            n = str(a[3:5])
+            d = str(a[0:2])
+            print(d+":"+n)
+        elif int(a[0:2])==12:
+            q = str(a[3:5])
+            e = int(a[0:2])-12
+            f = str(e)
+            print("0"+f+":"+q)
+            
+elif a[6:8]=="pm" or a[5:7]=="pm":
+    if int(a[0:5:4])&lt;=9 and int(a[0:5:4])&gt;0:
+        o = str(a[2:4])
+        g = int(a[0:5:4])+12
+        h = str(g)
+        print(h+":"+o)
+    elif int(a[0:2])&lt;12 and int(a[0:2])&gt;=10:
+        p = str(a[3:5])
+        i = int(a[0:2])+12
+        j = str(i)
+        print(j+":"+p)
+    elif int(a[0:2])==12:
+        r = str(a[3:5])
+        k = int(a[0:2])
+        l = str(k)
+        print(l+":"+r)
+else:
+    
+    am = a[1:2]
+    an = int(am)
+    aj = a[3:5]
+    ak = str(aj)
+    ao = an + 12
+    ap = str(ao)
+    aq = a[0:2]
+    ar = int(aq)
+    rs = str(ar)
+    if ar&lt;10:
+        
+        if an==0:
+            
+            print(ap+":"+ak,"am")
+        
+        elif an&gt;=1 and an&lt;=9:
+            
+            print(am+":"+ak,"am")
+            
+    elif ar&gt;=10 and ar&lt;12:
+                        print(rs+":"+ak,"am")
+    
+    elif ar==12:
+        
+        print("12"+":"+ak,"pm")
+    elif ar&gt;12:
+        rs = ar -12
+        az = str(rs)
+        print(az+":"+ak,"pm")
+    
+         &gt;&gt;&gt;&gt; file: Twelve.py
+a = input("Enter a time in 12 hour clock ([h]h:mm [am|pm]):\n")
+if a[6:8]=="am" or a[5:7]=="am": 
+    if int(a[0:5:4])&lt;=9 and int(a[0:5:4])&gt;0:
+        m = str(a[2:4])
+        b = str(a[0:5:4])
+        c = "0"+b+":"+m
+        print(c[0:2]+c[3:6])
+    elif int(a[0:2])&lt;=12 and int(a[0:2])&gt;=10:
+        if int(a[0:2])&lt;12 and int(a[0:2])&gt;=10:
+            n = str(a[3:5])
+            d = str(a[0:2])
+            print(d+":"+n)
+        elif int(a[0:2])==12:
+            q = str(a[3:5])
+            e = int(a[0:2])-12
+            f = str(e)
+            print("0"+f+":"+q)
+            
+elif a[6:8]=="pm" or a[5:7]=="pm":
+    if int(a[0:5:4])&lt;=9 and int(a[0:5:4])&gt;0:
+        o = str(a[2:4])
+        g = int(a[0:5:4])+12
+        h = str(g)
+        print(h+":"+o)
+    elif int(a[0:2])&lt;12 and int(a[0:2])&gt;=10:
+        p = str(a[3:5])
+        i = int(a[0:2])+12
+        j = str(i)
+        print(j+":"+p)
+    elif int(a[0:2])==12:
+        r = str(a[3:5])
+        k = int(a[0:2])
+        l = str(k)
+        print(l+":"+r)
+    
+        &gt;&gt;&gt;&gt; file: TwentyFour.py
+a = input("Enter a time in 24 hour clock (hh:mm):\n")
+b = a[1:2]
+j = a[3:5]
+k = str(j)
+c = int(b)
+d = c + 12
+e = str(d)
+f = a[0:2]
+g = int(f)
+h = str(g)
+if g&lt;10:
+          if c==0:
+                              print(e+":"+k,"am")
+    
+          elif c&gt;=1 and c&lt;=9:
+                              print(b+":"+k,"am")
+        
+elif g&gt;=10 and g&lt;12:
+                    print(h+":"+k,"am")
+
+elif g==12:
+          print("12"+":"+k,"pm")
+elif g&gt;12:
+          h = g -12
+          i = str(h)
+          print(i+":"+k,"pm")
+
+    
+
+    &gt;&gt;&gt;&gt; file: VehicleClassifier.py
+a = int(input("What is the gross vehicle mass (in kg)?\n"))
+if a&lt;=3500:
+    a = "B"
+elif a&lt;=16000 and a&gt;3500:
+    a = "C1"
+elif a&gt;16000:
+    a = "C"
+
+b = input("Does the vehicle have a trailer?\n")
+if b=="y":
+    c = int(input("What is gross vehicle mass of the trailer (in kg)?\n"))
+    if c&lt;=750:
+                    
+                    print("This vehicle is class",a+".")
+                
+    elif c&gt;750:
+                    print("This vehicle is class","E"+a+".") 
+elif b=="n":
+    
+    e = input("Is the vehicle articulated?\n")
+    if e=="y":
+        print("This vehicle is class","E"+a+".")
+    elif e=="n":
+        print("This vehicle is class",a+".")
+
+
+    
+
+
+
+
+</PRE>
+</PRE>
+</BODY>
+</HTML>

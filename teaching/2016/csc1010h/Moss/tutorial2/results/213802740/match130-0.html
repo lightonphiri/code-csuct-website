@@ -1,0 +1,114 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial2/raw/gbxtoh001/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial2/raw/gbxtoh001/<p><PRE>
+&gt;&gt;&gt;&gt; file: CreditCard.py
+# program to format a credit card account
+# Tohfah Gaibie
+# 21 April 2016
+
+
+
+card_holder = input("Enter the card holder's name:\n")
+name = card_holder.title()
+card_number = input("Enter the 16 digit card number (no spaces please):\n")
+issue_date = input("Enter the date of issue (mm:yy):\n")
+expiry_date = input("Enter the expiry date (mm:yy):\n")
+code = input("Enter the 3 digit security code:\n")
+limit = float(input("Enter the credit limit (Rand):\n"))
+
+def main():
+
+    balance = float(input("Enter the balance (Rand):\n"))
+    availability = limit - balance
+    line = "|"
+    word = "Credit Card Account"
+    print ("+-------------",word,"--------------+")
+    print ("| Card holder:  ", '{0:&lt;31}'.format(name),line)
+    print ("| Card number:  ", '{0:&lt;4}'.format(card_number[:4]),'{0:&lt;4}'.format(card_number[4:8]), '{0:&lt;4}'.format(card_number[8:12]), '{0:&lt;16}'.format(card_number[12:16]), line)
+    print ("| Date of issue: ", issue_date[:2], "/",'{0:&lt;6}'.format(issue_date[3:]), "Expiry date: ", expiry_date[:2], "/",'{0:&lt;7}'.format(expiry_date[3:]), line, sep='') 
+    print ("| Security code:",'{0:&lt;31}'.format(code),line)
+    print ("| Credit limit: ",'{0:&lt;31}'.format(str('{:0.2f}'.format(limit))+" Rand"),line)
+    print ("| Available:    ",'{0:&lt;31}'.format(str('{:0.2f}'.format(availability))+ " Rand") ,line)
+    print ("| Balance:      ",'{0:&lt;31}'.format(str('{:0.2f}'.format(balance))+" Rand"),line)
+    print ("+------------------------------------------------+")
+    
+main()&gt;&gt;&gt;&gt; file: EugeneJunior.py
+# interactive program
+# Tohfah Gaibie
+# GBXTOH001
+# 21 April 2016
+
+def main ():
+    
+    print("Hello, I am Eugene Junior.")
+    first_name = input ("What is your first name?\n")
+    last_name = input ("What is your last name?\n")
+    print ("Hi ", first_name[0], ".",last_name[0],".!",sep='')
+    year = eval (input ("What year is this?\n"))
+    age = eval (input ("What age are you?\n"))
+    print("Okay, so you were born in ",(year-age-1),"/", year-age-1900,".", sep ='' )
+    height = eval (input ("How tall are you (metres)?\n"))
+    feet = int(height * 3.3)
+    inches = int(((height*3.3)-feet)*12)
+    print ("That's ", feet,"'",inches,"\"!", sep='')
+    print ("I'm going to tell you your Star Wars name.")
+    mother_name = input("What's your mother's first name?\n")
+    mother_1 = mother_name.upper()
+    city = input("What's the name of the city nearest to your place of birth?\n")
+    first_name = first_name.lower()
+    print ("Your Star Wars name is ", last_name[:3],first_name[:2]," ", mother_1[-2:-1],mother_name[-1:],city[-3:],"." ,sep = '')
+    
+main()&gt;&gt;&gt;&gt; file: HexagonArea.py
+# program to calculate and print the ares of a hexagon
+# Program to calculate and display area of hexagon
+# Tohfah Gaibie
+# 21 April 2016
+
+
+def main():
+    from math import sqrt
+
+    side = eval(input("Enter the length of the side (cm):\n"))
+    #area = (3*(sqrt(3))/2(side**2))
+    area = (2.59807621135)*(side**2)
+    print ("The area of a hexagon of side ", side, " is ", '{:0.3f}'.format(area),".",sep='')
+    
+main()&gt;&gt;&gt;&gt; file: initials.py
+import turtle 
+t = turtle.pen()
+turtle.penup()
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match130-1.html#0" TARGET="1"><IMG SRC="../../bitmaps/tm_0_11.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+turtle.left(90)
+turtle.forward(65)
+turtle.left(90)
+turtle.forward(100)
+turtle.right(180)
+turtle.pendown()
+turtle.pencolor('cyan')
+turtle.forward(200)
+turtle.left(90)
+turtle.forward(50)
+turtle.back(100)
+turtle.right(180)
+turtle.penup()
+turtle.forward(130)
+</FONT>turtle.pendown()
+turtle.pencolor('green')
+turtle.back(100)
+turtle.right(90)
+turtle.forward(200)
+turtle.left(90)
+turtle.forward(100)
+turtle.left(90)
+turtle.forward(100)
+turtle.left(90)
+turtle.forward(30)
+turtle.title("Initials")</PRE>
+</PRE>
+</BODY>
+</HTML>

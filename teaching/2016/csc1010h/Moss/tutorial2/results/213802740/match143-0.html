@@ -1,0 +1,123 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial2/raw/jrvcra004/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial2/raw/jrvcra004/<p><PRE>
+&gt;&gt;&gt;&gt; file: CreditCard.py
+# Creating a program that displays credit card details
+# Craig Jarvis
+# 21 April 2016
+
+# Defining a function that acts as an interactive responder
+def main():
+    # Obtaining information from user
+    card_holder = input("Enter the card holder's name:\n")
+    card_number = input("Enter the 16 digit card number (no spaces please):\n")
+    issue_date = input("Enter the date of issue (mm:yy):\n")
+    expiry_date = input("Enter the expiry date (mm:yy):\n")
+    security_code = input("Enter the 3 digit security code:\n")
+    credit_limit = float(input("Enter the credit limit (Rand):\n"))
+    balance = float(input("Enter the balance (Rand):\n"))
+    amount_available = credit_limit - balance
+    
+    # Printing results
+    print("+------------- Credit Card Account --------------+")
+    print("| Card holder:  ", "{0:&lt;31}".format(card_holder),"|")
+    print("| Card number:  ", "{0:&lt;4}".format(card_number[:4]), "{0:&lt;4}".format(card_number[4:8]), "{0:&lt;4}".format(card_number[8:12]), "{0:&lt;16}".format(card_number[12:16]), "|")
+    print("| Date of issue: ", issue_date[:2], "/", "{0:&lt;6}".format(issue_date[3:]), "Expiry date: ", expiry_date[:2], "/", "{0:&lt;7}".format(expiry_date[3:]), "|", sep = "")
+    print("| Security code:", "{0:&lt;31}".format(security_code), "|")
+    print("| Credit limit: ", "{0:&lt;31}".format(str("{:0.2f}".format(credit_limit)) + " Rand"), "|")                  # Two decimal points?
+    print("| Available:    ", "{0:&lt;31}".format(str("{:0.2f}".format(amount_available)) + " Rand"), "|")              # Two decimal points?
+    print("| Balance:      ", "{0:&lt;31}".format(str("{:0.2f}".format(balance)) + " Rand"), "|")                       # Two decimal points?
+    print("+------------------------------------------------+")
+
+main()&gt;&gt;&gt;&gt; file: EugeneJunior.py
+# Creating an interactive responder named Eugene Junior
+# Craig Jarvis
+# 21 April 2016
+
+# Defining a function that acts as an interactive responder
+def main():
+    print ("Hello, I am Eugene Junior.")
+    
+    # Names and initials
+    first_name = input("What is your first name?\n")
+    last_name = input("What is your last name?\n")
+    print ("Hi ", first_name[0:1], ".", last_name[0:1], ".!", sep = "")
+    
+    # Determining year born
+    year = int(input("What year is this?\n"))
+    age = int(input("What age are you?\n"))
+    birth_year1 = year - age - 1
+    birth_year2 = year - age
+    birth_year_string = str(birth_year2)    # Converting the year into a string (so that I can string slice it the next step)
+    print("Okay, so you were born in ", birth_year1, '/', birth_year_string[2:], ".", sep = "")
+    
+    # Determining height in feet(') and inches(")
+    height = float(input("How tall are you (metres)?\n"))
+    height_in_feet = height // 0.3048
+    height_in_inches = height / 0.3048 % 1 * 12
+    print("That's ", round(height_in_feet),"'",round(height_in_inches),'"!', sep = "")
+    
+    # Determining Star Wars name
+    print("I'm going to tell you your Star Wars name.")
+    mothers_name = input("What's your mother's first name?\n")
+    closest_city = input("What's the name of the city nearest to your place of birth?\n")
+    star_wars_first_name = last_name[:3] + first_name[:2]
+    star_wars_last_name = mothers_name[-2:] + closest_city[-3:]
+    print ("Your Star Wars name is {} {}.".format(star_wars_first_name.capitalize(), star_wars_last_name.capitalize()))
+    
+main()&gt;&gt;&gt;&gt; file: HexagonArea.py
+# Creating a program to calculate the area of a hexagon
+# Craig Jarvis
+# 21 April 2016
+
+import math
+
+# Defining a function that calculates and print the area of a hexagon
+def main():
+    side_length = int(input("Enter the length of the side (cm):\n"))
+    area = (((3 * math.sqrt(3))/2)*(side_length**2))
+    print ("The area of a hexagon of side {0} is {1:0.3f}.".format(side_length, area))
+
+main()&gt;&gt;&gt;&gt; file: Initials.py
+# Creating a program that draws my initials using Python Turtle
+# Craig Jarvis
+# 21 April 2016
+
+import turtle
+
+# Defining a function that draws my initials using Python Turtle
+def main():
+    turtle.penup()
+    turtle.forward(200)
+    turtle.left(90)
+    turtle.forward(50)
+    turtle.pendown()
+    turtle.pencolor("cyan")
+    turtle.forward(110)
+    turtle.left(90)
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match143-1.html#0" TARGET="1"><IMG SRC="../../bitmaps/tm_0_9.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    turtle.forward(150)
+    turtle.left(90)
+    turtle.forward(110)
+    turtle.penup()
+    turtle.forward(40)
+    turtle.pendown()
+    turtle.pencolor("magenta")
+    turtle.forward(100)
+    turtle.left(90)
+    turtle.forward(150)
+    turtle.left(90)
+</FONT>    turtle.forward(100)
+    turtle.back(175)
+    
+    turtle.exitonclick()
+
+main()</PRE>
+</PRE>
+</BODY>
+</HTML>

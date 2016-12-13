@@ -1,0 +1,91 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial6/raw/rvlmuk001/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial6/raw/shbmph001/<p><PRE>
+&gt;&gt;&gt;&gt; file: fixed_mod.py
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match97-0.html#0" TARGET="0"><IMG SRC="../../bitmaps/tm_0_5.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+import string
+
+def palindrome(s):
+
+    if len(s)==0:
+        return True   
+    elif len(s) == 1:
+        return s.isalpha()
+    elif s[0] in string.punctuation and s[-1] in string.whitespace:
+</FONT>        return palindrome(s[3:-2])
+    elif s[-2] in string.punctuation and s[0] in string.whitespace:
+        return palindrome(s[2:-3])
+    elif s[0] in string.punctuation or s[0] in string.whitespace:
+        return palindrome(s[2:-2])
+ 
+    elif s[-1] in string.punctuation or s[-1] in string.whitespace:
+        return palindrome(s[:-1])
+    elif s[0].lower() == s[-1].lower():
+        return palindrome (s[1:-1])
+    else:
+        return False&gt;&gt;&gt;&gt; file: match_mod.py
+def equals(w1,w2):
+    if ((len(w1)==1 and (w1[0]==w2[0])) or len(w2)==0):
+        return True
+    elif len(w1)!=len(w2):
+        return False
+    elif w1[0]==w2[0] and w1[-1]==w2[-1]:
+        return equals(w1[1:-1], w2[1:-1])
+    else:
+        return False
+ 
+ 
+  
+def query(w1,w2):
+    if (len(w1)==1 or len(w2)==0) and (w1[0]==w2[0] or w1[0]=="?"):
+        return True
+    elif len(w1)!=len(w2):
+        return False
+    elif (w1[0]==w2[0] or w1[0]=="?") and (w1[-1]==w2[-1] or w1[-1]=="?"):
+        return query(w1[1:-1], w2[1:-1])
+    else:
+        return False
+    
+def match(w1, w2):
+    
+    if len(w2)==0 and w1[0]=="*":
+        return True
+    elif (w1[0]!="*" and w1[-1]!="*" and w1[0]==w2[-1]):
+        return match(w1[1:-1],w2[1:-1])
+    
+    elif (w1[0]=="*" and w1[-1]=="*"):
+        
+        return match(w1, w2[1:-1])
+    elif (w1[0]!="*" and w1[0]==w2[0]):
+        return match(w1[1::], w2[1::])
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match97-0.html#1" TARGET="0"><IMG SRC="../../bitmaps/tm_1_4.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    elif (w1[0]=="?") and (w1[-1]=="?"):
+            return match(w1[1:-1], w2[1:-1])   
+</FONT>        
+    elif(w1[-1]!="*" and w1[-1]==w2[-1]):
+        return match(w1[::-1],w2[::-1])
+    else:
+        return False
+#print(match('*rd', 'lard'))&gt;&gt;&gt;&gt; file: mongoose_mod.py
+def population(n):
+    if n &lt;=2:
+        return 2
+    else:
+        return population(n-1) + population(n-2)
+
+
+&gt;&gt;&gt;&gt; file: sum_mod.py
+def sum_to_n(n):
+    if n&lt;=1:
+        return 1
+    else:
+        return n + sum_to_n(n-1)</PRE>
+</PRE>
+</BODY>
+</HTML>

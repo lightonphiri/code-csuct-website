@@ -1,0 +1,193 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial3/raw/swlash001/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial3/raw/swlash001/<p><PRE>
+&gt;&gt;&gt;&gt; file: FeetMetres.py
+def main():
+    minimum=int(input("Enter the minimum number of feet (not less than 0):\n"))
+    maximum=int(input("Enter the maximum number of feet (not more than 99):\n"))
+    
+    for i in range (maximum-minimum+1):
+        x=round(((i+minimum)/3.28084),2)
+        print("{0:&gt;4}".format(i+minimum)+"{0:&lt;2}".format("'")+"{0:&lt;4}".format("|")+"{0:.2f}".format(x)+"m",sep="")
+main()            &gt;&gt;&gt;&gt; file: FlowerPattern.py
+import turtle
+def main():
+    number=int(input("Enter the number of petals (must be an even number):"))
+    stem=int(input("Enter the length of stem:"))
+    petal=input("Enter the petal type (triangle, square, or pentagon):")
+    side=int(input("Enter the length of side:"))
+    s_colour=input("Enter the stem color:")
+    p1_colour=input("Enter the first petal colour:")
+    p2_colour=input("Enter the second petal colour:")
+
+    if petal=="triangle":
+        #first petal        
+        turtle.pencolor(s_colour)
+        turtle.forward(stem)        
+        turtle.pencolor(p1_colour)
+        turtle.forward(side)
+        turtle.right(120)
+        turtle.forward(side)
+        turtle.right(120)
+        turtle.forward(side)
+        turtle.right(120)
+        turtle.pencolor(s_colour)
+        turtle.home()
+        
+        #second petal
+        turtle.pencolor(s_colour)
+        turtle.right(180)
+        turtle.forward(stem)        
+        for i in range(3):
+            turtle.pencolor(p2_colour)
+            turtle.forward(side)
+            turtle.right(120)
+            turtle.pencolor(s_colour)
+        turtle.home() 
+        
+        #third petal
+        turtle.pencolor(s_colour)
+        turtle.left(45)
+        turtle.forward(stem)        
+        for i in range(3):
+            turtle.pencolor(p2_colour)
+            turtle.forward(side)
+            turtle.right(120)
+            turtle.pencolor(s_colour)
+        turtle.home()  
+        
+        #fourth petal
+        turtle.pencolor(s_colour)
+        turtle.right(45)
+        turtle.forward(stem)
+        for i in range(3):
+            turtle.pencolor(p2_colour)
+            turtle.forward(side)
+            turtle.right(120)  
+            turtle.pencolor(s_colour)
+        turtle.home() 
+        
+        #fifth petal
+        turtle.pencolor(s_colour)
+        turtle.right(135)
+        turtle.forward(stem)        
+        for i in range(3):
+            turtle.pencolor(p1_colour)
+            turtle.forward(side)
+            turtle.right(120)  
+            turtle.pencolor(s_colour)
+        turtle.home() 
+        
+        #sixth petal
+        turtle.pencolor(s_colour)
+        turtle.left(135)
+        turtle.forward(stem)        
+        for i in range(3):
+            turtle.pencolor(p1_colour)
+            turtle.forward(side)
+            turtle.right(120)
+            turtle.pencolor(s_colour)
+        turtle.home()         
+main() &gt;&gt;&gt;&gt; file: InchesMetres.py
+def main():
+    minimum=eval(input("Enter the minimum number of inches (not less than 0):\n"))
+    maximum=eval(input("Enter the maximum number of inches (not greater than 11):\n"))
+    
+    print("Inches: ",end="")
+    for i in range (maximum-minimum+1):
+        print("{0:&gt;4}".format(i+minimum),end=" ")
+    
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match88-1.html#0" TARGET="1"><IMG SRC="../../bitmaps/tm_0_4.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    print("\nMetres: ",end="")
+    for n in range (minimum,maximum+1):
+        x=((n)*0.0254)
+        print("{0:&gt;4.2f}".format(x),end=" ")
+    
+    
+    
+main()&gt;&gt;&gt;&gt; file: TwentyFour.py
+def main():
+    time=input("Enter a time in 24 hour clock (hh:mm):\n")
+</FONT>    t=int(time[0:2])
+    t1=int(time[-2])
+    t2=int(time[-1])
+    
+    if t==12:
+        print("12:",t1,t2," pm",sep="")
+        
+    elif t&gt;12:
+        t=t-12
+        print(t,":",t1,t2," pm",sep="")
+        
+    elif t==00:
+        print("12:",t1,t2," am",sep="")
+        
+    else:
+        print(t,":",t1,t2," am",sep="")
+   
+main()    &gt;&gt;&gt;&gt; file: VehicleClassifier.py
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match88-1.html#1" TARGET="1"><IMG SRC="../../bitmaps/tm_1_4.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+def main():
+    v_mass=eval(input("What is the gross vehicle mass (in kg)?\n"))
+    
+    if v_mass&lt;=3500:
+        trailer=input("Does the vehicle have a trailer?\n")
+        
+        if trailer=="y":
+            t_mass=eval(input("What is gross vehicle mass of the trailer (in kg)?\n"))
+            if t_mass&gt;750:
+                print("This vehicle is class EB.")
+</FONT>            else: 
+                print("This vehicle is class B.")
+                
+        if trailer=="n": 
+            articulated=input("Is the vehicle articulated?\n")
+            if articulated=="y":
+                print("This vehicle is class EB.")
+            else:
+                print("This vehicle is class B.")        
+    
+    if 3500&lt;v_mass&lt;=16000:
+        trailer=input("Does the vehicle have a trailer?\n")
+       
+        if trailer=="y":
+            t_mass=eval(input("What is gross vehicle mass of the trailer (in kg)?\n"))
+            if t_mass&gt;750:
+                print("This vehicle is class EC1.")
+            else: 
+                print("This vehicle is class C1.")
+               
+        if trailer=="n": 
+            articulated=input("Is the vehicle articulated?\n")
+            if articulated=="y":
+                print("This vehicle is class EC1.")
+            else:
+                print("This vehicle is class C1.")     
+    
+    if 16000&lt;v_mass:
+        trailer=input("Does the vehicle have a trailer?\n")
+          
+        if trailer=="y":
+            t_mass=eval(input("What is gross vehicle mass of the trailer (in kg)?\n"))
+            if t_mass&gt;750:
+                print("This vehicle is class EC.")
+            else: 
+                print("This vehicle is class C.")
+            
+        if trailer=="n": 
+            articulated=input("Is the vehicle articulated?\n")
+            if articulated=="y":
+                print("This vehicle is class EC.")
+            else:
+                print("This vehicle is class C.") 
+main()                
+    </PRE>
+</PRE>
+</BODY>
+</HTML>

@@ -1,0 +1,148 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial7/raw/clmtos001/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial7/raw/nksbon015/<p><PRE>
+&gt;&gt;&gt;&gt; file: book_cypher.py
+file= input('Enter the book filename: ')
+message= input('Enter the message: ')
+output_file= input('Enter the output filename: ')
+f= open(file,'r')
+o= open(output_file,'w')
+print('BEGIN')
+
+lomzi= message.split()
+n= len(lomzi)
+for i in range(n):
+    word= lomzi[i]
+    
+    
+    lines= file.split()
+    for i in lines:
+        row= i.split()
+        for m in row:
+            if word== m:
+                print(str(i+1) + "-" + str(row.index(m)))
+                o.write(str(i+1) + "-" + str(row.index(m)))
+            if word!= m:
+                print(word)
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match203-0.html#0" TARGET="0"><IMG SRC="../../bitmaps/tm_0_6.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+                o.write(word)
+                
+print('END')
+o.close()
+f.close()&gt;&gt;&gt;&gt; file: leader_board.py
+# leader_board.py
+
+def process_line(line):
+    parts = line.split(' ')
+    name = parts[0]
+    trials = int(parts[1])
+    average = float(parts[2])
+</FONT>    return (name, trials, average)
+
+def get_max(entries):
+    max = entries[0]
+    for i in range(1, len(entries)):
+        if entries[i][2] &lt;max[2]:
+            max = entries[i]
+            
+    entries.remove(max)
+    return max
+
+def sort(entries):
+    sorted_entries = []
+    while len(entries)&gt;0:
+        sorted_entries.append(get_max(entries))
+    return sorted_entries
+
+def output(entries):
+    print('Subject        | Average Time')
+    print('************** | ************')
+    for entry in entries:
+        print('{:14} | {:.6}'.format(entry[0], entry[2]))
+              
+def main():
+    while True:
+        try:
+            file_name = input('Enter the name of the file:\n')
+            file_input = open(file_name, 'r')
+    
+        except IOError as file_err:
+            print('This IOError occurred',file_err)
+        else:
+            break
+    try:
+        
+        entries = []
+        for line in file_input:
+            entries.append(process_line(line))
+            file_input.close()
+    
+        entries = sort(entries)
+        output(entries)
+    except ValueError as val_err:
+        print('This ValueError occurred',val_err,'An integer should be entered')
+    except IndexError as ind_err:
+        print('This IndexError occurred',ind_err,'An integer between 0 and 2 should be entered')
+    except:
+        print('An unknown error has occurred')
+        
+        
+main()
+    &gt;&gt;&gt;&gt; file: reaction_test.py
+import time
+import random
+
+file_name = input('Enter the name of the output file:\n')
+f= open('file_name','w')
+
+while True:
+    name= input("Enter subject name (or press 'enter' to quit:)\n")
+    if name=='':
+        break
+    else:
+        trials= int(input('Enter the number of tests:\n'))
+        n = random.randint(1,5)
+        print('Get ready...',flush=True)
+        pause= time.sleep(n)
+        total=0
+        for i in range(trials):
+            
+            print("Press 'enter' NOW!",end='')
+            start_time= time.time()
+            try:
+                import msvcrt
+                while msvcrt.kbhit():
+                    msvcrt.getch()
+                enter= input()             
+            except ImportError:
+                termios.tcflush(sys.stdin, termios.TCIOFLUSH)            
+            
+            
+            end_time= time.time()
+            reaction_time= end_time - start_time
+            reaction= round(reaction_time,6)
+            print('Reaction time:',reaction)
+            total+=reaction
+        average_time= total/trials
+        average= round(average_time,6)
+        print('Tests complete.')
+        print('Average reaction time:',average,'\n')
+        
+        f.write(name)
+        f.write(str(trials))
+        f.write(str(average))
+
+
+
+
+    
+
+</PRE>
+</PRE>
+</BODY>
+</HTML>

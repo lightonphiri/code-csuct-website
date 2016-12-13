@@ -1,0 +1,223 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial4/raw/mbdnts001/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial4/raw/mbdnts001/<p><PRE>
+&gt;&gt;&gt;&gt; file: LongJump.py
+#Ntsieni Mbedzi
+
+
+print('***** Long Jump Information System *****')
+print('Please enter the names of competitors. (Press return when done.)')
+
+#Competitors
+
+k = 1
+names = []
+while True:
+    print('Competitor no.', k, end=':')
+    k += 1
+    comp = input('\n')
+    if comp == '':
+        break
+    else:
+        names.append(comp)
+        
+#Distances
+
+print('Please enter the distances for each competitor.')
+
+
+dicnames = {}
+for i in names:
+    print('Competitor', i, end=':\n')
+    for o in range(3):
+        print('Attempt', o+1, end=':')
+        scores =input('\n')
+        if scores == 'foul':
+            scores = (-1)
+            if o == 0:
+                dicnames[i] = scores
+            elif scores &gt; dicnames[i]:
+                dicnames[i] = scores
+                
+        else:            
+            if o == 0:
+                dicnames[i] = eval(scores)
+            elif eval(scores) &gt; dicnames[i]:
+                dicnames[i] = eval(scores)
+print('')
+#Tables
+
+print('Competitor               Longest Distance')
+for poo in names:
+    if dicnames[poo] == (-1):
+        print('{0:&lt;25}{1}'.format(poo, 'No jump'))
+    else:
+        print('{0:&lt;25}{1:.2f}'.format(poo, dicnames[poo]))
+    
+#Winner
+t = 0
+for jo in names:
+    if t == 0:
+        high = dicnames[jo]
+        upto = jo
+        t += 1    
+    elif dicnames[jo] &gt; high:
+        high = dicnames[jo]
+        upto = jo      
+print('\nThe winner is {0} with a jump of {1:.2f}.'.format(upto,high))&gt;&gt;&gt;&gt; file: NikNaks.py
+#Ntseni Mbedzi
+
+import random
+
+def main():
+    # put your code here
+     print('Guess the mystery 4 letter code. (No letter occurs more than once.)')
+     
+     difficulty=int(input('Choose difficulty level (4 to 26):\n'))
+     letters=list('abcdefghijklmnopqrstuvwxyz')[0: difficulty]     
+     print('The letters in the code are chosen from: {}.'.format(letters))
+     secret_code=[]     
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match55-1.html#0" TARGET="1"><IMG SRC="../../bitmaps/tm_0_3.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+     for i in range(4):
+          rand_index=random.randint(0, len(letters)-1) 
+          letter=letters.pop(rand_index)
+          secret_code.append(letter)
+     k = 10
+     kol = 0
+</FONT>     nik = 0
+     nak = 0 
+     for p in range (10):
+          print('You have', k,'guesses remaining.')
+          k -=1
+          guess = input('Enter your guess:\n')
+          kol = 0
+          nik = 0
+          nak = 0
+          numb = 0
+          lad = ''
+          for h in secret_code:
+               numb = 0
+               lad += h
+               for j in guess[0: difficulty]:
+                    if j == h and numb == kol:
+                         nik += 1
+                    elif j==h and numb != kol:
+                         nak += 1
+                    numb += 1
+               kol +=1     
+          if nik == 4:
+               print('Correct!')
+               break
+          if nik == 1:
+               print('There is', nik,'Nik and',nak,'Naks.')
+          elif nak ==1:
+               print('There are', nik,'Niks and',nak,'Nak.')
+          else:
+               print('There are', nik,'Niks and',nak,'Naks.')
+
+                    
+     if k ==0:
+          print('Sorry, you lose.')
+          print('The secret number was', lad, end='.')                    
+          
+if __name__ == '__main__':         
+     main()&gt;&gt;&gt;&gt; file: PythonTurtle.py
+import turtle
+
+turtle.speed(10)
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match55-1.html#1" TARGET="1"><IMG SRC="../../bitmaps/tm_1_3.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+turtle.color('blue')
+turtle.right(90)
+turtle.penup()
+turtle.fd(100)
+turtle.pendown()
+turtle.left(90)
+turtle.circle(100) #First new function
+turtle.penup()
+</FONT>turtle.home()
+turtle.pendown
+
+
+ang = 0
+for i in range(15):
+    turtle.right(ang)
+    turtle.penup()
+    turtle.fd(60)
+    turtle.pendown()
+    turtle.dot(8,'purple') #Second new function
+    turtle.penup()
+    turtle.fd(20)
+    turtle.pendown()
+    turtle.shape('turtle') #third new function
+    turtle.color('red')
+    turtle.stamp() #Forth new function
+    turtle.penup()
+    turtle.shape('arrow')
+    turtle.fd(30)
+    turtle.pendown()
+    turtle.color('green')
+    turtle.stamp()
+    turtle.penup()
+    turtle.home()
+    turtle.pendown()
+    ang += 24
+    
+turtle.shape('turtle')
+bob = turtle.Turtle() #Fifth new function (cloning)
+turtle.pu()
+bob.pu()
+turtle.left(45)
+bob.right(45)
+turtle.fd(150)
+bob.fd(150)
+turtle.pd()
+bob.pd()
+turtle.fd(50)
+bob.fd(50)
+turtle.right(120)
+turtle.fd(50)
+bob.right(120)
+bob.fd(50)
+turtle.right(120)
+turtle.fd(50)
+bob.right(120)
+bob.fd(50)
+turtle.pu()
+bob.pu()
+turtle.home()
+bob.home()
+
+turtle.left(135)
+bob.right(135)
+turtle.pu()
+bob.pu()
+turtle.fd(150)
+bob.fd(150)
+turtle.pd()
+bob.pd()
+turtle.fd(50)
+bob.fd(50)
+turtle.right(120)
+turtle.fd(50)
+bob.right(120)
+bob.fd(50)
+turtle.right(120)
+turtle.fd(50)
+bob.right(120)
+bob.fd(50)
+turtle.pu()
+bob.pu()
+turtle.home()
+bob.home()
+
+turtle.exitonclick()
+</PRE>
+</PRE>
+</BODY>
+</HTML>

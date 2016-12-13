@@ -1,0 +1,195 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial7/raw/mbdnts001/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial7/raw/mbknts002/<p><PRE>
+&gt;&gt;&gt;&gt; file: book_cypher.py
+#Ntsikelelo Nelson Mbekwa
+#17September 2016
+#Gary Stewart
+
+import string
+file_name = input("Enter the book filename:\n")
+message = input("Enter the message:\n")
+Outfile = input("Enter the output filename:")
+
+
+  
+
+Ofile = open(Outfile,'w')
+print("BEGIN",file=Ofile)
+words = []
+#looping throught message
+bag = []
+for term in message.split():
+    f = open("ImportanceOfBeingEarnest.txt","r")
+    limit = 1 
+    ln = 0
+    for row in f:
+        ln += 1
+        if limit == False:break
+        pos = 0
+        for word in row.split():    #Loops through list of lines
+            pos += 1  
+            No_punctuationWord = word.strip('?!.,;--_:)([]{}\'--_ =*#$%@~`+"\n').lower()
+            #print(No_punctuationWord)
+            if term.lower() == No_punctuationWord.lower():                                               #Compares Word wi
+                print(str(ln)+'-'+str(pos),file=Ofile)
+                #bag.remove(term)
+                limit = False
+                break
+    if term.lower() != No_punctuationWord.lower():
+        print(term,file=Ofile)
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match80-0.html#0" TARGET="0"><IMG SRC="../../bitmaps/tm_0_4.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+print("END",file=Ofile)
+Ofile.close()
+f.close()&gt;&gt;&gt;&gt; file: leader_board.py
+# leader_board.py
+
+
+def process_line(line,ln):
+    parts = line.split(' ')
+    name = parts[0]
+    try:
+        trials = int(parts[1])
+    except ValueError as value_error:
+</FONT>        value_error=str(value_error)
+        print("On line number",ln,value_error[:value_error.index(":")])
+        print(line[:-1])
+        print("The correct format is &lt;string&gt; &lt;integer&gt; &lt;float&gt;")
+    try:
+        average = float(parts[2])
+    except ValueError as Valerr2:
+        Valerr2=str(Valerr2)
+        print("On line number",ln,Valerr2[:Valerr2.index(":")])
+        print(line[:-1])
+        print("The correct format is &lt;string&gt; &lt;integer&gt; &lt;float&gt;")
+    else:
+        return (name,trials,average)
+    
+def get_max(entries):
+        max = entries[0]
+        for i in range(1,len(entries)):
+            try:
+                entries[i][2]
+            except TypeError as typewrong:
+                print(end="")
+            else:
+                if entries[i][2] &lt; max[2]:
+                    max = entries[i]                
+        entries.remove(max)
+        return max
+
+def sort(entries):
+    sorted_entries = []
+    while len(entries)&gt;0:
+        sorted_entries.append(get_max(entries))
+    return sorted_entries
+
+def output(entries):
+    print('Subject        | Average Time')
+    print('************** | ************')
+    ln = 1
+    try:
+        ln += 1
+        for entry in entries:
+            print('{:14} | {:.6}'.format(entry[0],entry[2]))
+    except TypeError as Wrongtype:
+        pass
+        
+def main():
+    while True:
+        file_name = input('Enter the name of the file:\n')
+        if file_name == '':
+            break  
+        try:
+            file_input = open(file_name,'r')
+        except IOError as file_error:
+            print(file_error)
+            print("print filename in the format \"&lt;filename&gt;.txt\"")
+        else:
+            break
+    
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match80-0.html#1" TARGET="0"><IMG SRC="../../bitmaps/tm_1_3.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    entries = []
+    ln = 0
+    for line in file_input:
+        ln += 1
+        entries.append(process_line(line,ln))
+    file_input.close()
+    entries = sort(entries)
+</FONT>    output(entries)    
+main()&gt;&gt;&gt;&gt; file: reaction_test.py
+import time
+from random import*
+file_name = input("Enter the name of the output file:\n")
+file = open(file_name,"a")
+
+def flush_input():
+     try:
+          import msvcrt
+          while msvcrt.kbhit():
+               msvcrt.getch()
+     except ImportError:
+          import sys, termios
+          termios.tcflush(sys.stdin, termios.TCIOFLUSH)
+
+def sort(entries):
+     sorted_entries = []
+     while len(entries)&gt;0:
+          sorted_entries.append(get_max(entries))
+     return sorted_entries
+
+def get_max(entries):
+     max = entries[0]
+     for i in range(1, len(entries)):
+          if entries[i][1] &lt;max[1]:
+               max = entries[i] 
+          entries.remove(max)
+     return max
+
+def output(entries):
+     print('Subject        | Average Time',file=file)
+     print('************** | ************',file= file)
+     for entry in entries:
+          print('{:14} | {:.6}'.format(entry[0],entry[1]),file= file)
+
+def main():    
+     
+     entries = []
+     while True:
+          count = 0 
+          summation = 0
+          subject = input("Enter the subject name (or press 'enter' to quit):\n")
+          if subject =="":
+               break
+          else:
+               tests = int(input("Enter the number of tests:\n"))
+               for i in range(tests):
+                    t = randint(1,5)
+                    print("Get ready...",flush=True)
+                    time.sleep(t)
+                    flush_input()
+                    initial = time.time()
+                    react = input("Press 'enter' NOW!")
+                    end = time.time()
+                    diff = end-initial
+                    summation += diff
+                    count += 1
+                    print("{:.6f}".format(diff))
+               print(subject,tests,"{:.6f}".format(summation/count),file=file)
+               print("Tests complete.")
+               print("average reaction time:""{:.6f}".format(summation/count))
+               entries.append((subject,str("{:.6f}".format(summation/count))))
+               #entries = sort(entries) This leads to a memory error    
+     print(" ",file=file)
+     print(output(entries),file=file)
+     file.close()
+main()         </PRE>
+</PRE>
+</BODY>
+</HTML>

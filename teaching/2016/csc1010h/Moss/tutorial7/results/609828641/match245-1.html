@@ -1,0 +1,227 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial7/raw/bxypai001/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial7/raw/gcnsim001/<p><PRE>
+&gt;&gt;&gt;&gt; file: book_cypher.py
+#sent_input = input("Faka gama:")
+#txt_file = open("ImportanceOfBeingEarnest.txt","r")
+#lines = txt_file.readlines()
+#cleanLines = []
+#z = "Gutenberg eBook"
+#w = 
+#for r in z:
+    #pass Luxuriously furnished cucumber sandwiches
+def makeList(lines):
+    cleanLines = []
+    tempStore = []
+    for line in lines:
+        f = line.split()
+        for x in f:
+            tempStore.append(x.strip("?!.,;:)([]{}'\"\n_"))
+            
+        cleanLines.append(tempStore)
+        tempStore = []
+        #cleanLines.append(e)
+    return cleanLines
+
+ 
+def findFirstWord(z,cleanLines):   
+    count = 0
+    count1 = 0
+    for x in cleanLines:
+        count+=1
+        count1+=1
+        #w = x.strip("?!.,;:)([]{}'\"\n_")
+        if z in x:
+            #print("in line "+str(count)+" index "+str(x.index(z)+1))
+            return str(count)+"-"+str(x.index(z)+1)
+            
+        
+        if count1 == len(cleanLines):
+            return(z)
+            
+        
+        
+def main():
+   
+    
+    
+    txt_file1 = input("Enter the book filename:")
+    txt_file = open(txt_file1,"r")
+    lines = txt_file.readlines()
+    cleanLines = makeList(lines)
+    z = input("Enter the message:")
+    if z[:1]=="L":
+        z = z[:1].lower()+z[1:]
+    z = z.split() 
+    outputfile = input("Enter the output filename:")
+    txt_file2 = open(outputfile,"w")
+    
+    print("BEGIN")
+    print("BEGIN",file = txt_file2)
+    #print(cleanLines[104])
+    for x in z:
+        indexed = findFirstWord(x,cleanLines)
+        print(indexed, file = txt_file2)
+        print(indexed)
+    
+    print("END")
+    print("END",file = txt_file2)
+    txt_file.close()
+    txt_file2.close()
+    
+    
+main()
+    &gt;&gt;&gt;&gt; file: leader_board.py
+# leader_board.py
+
+
+def process_line(line):
+    parts = line.split(' ')
+    name = parts[0]
+    trials = int(parts[1])
+    average = float(parts[2])
+    return (name, trials, average)
+
+def get_max(entries):
+    max = entries[0]
+    for i in range(1, len(entries)):
+        if entries[i][2] &lt;max[2]:
+            max = entries[i]
+            
+    entries.remove(max)
+    return max
+
+def sort(entries):
+    sorted_entries = []
+    while len(entries)&gt;0:
+        sorted_entries.append(get_max(entries))
+    return sorted_entries
+
+def output(entries):
+    print('Subject        | Average Time')
+    print('************** | ************')
+    for entry in entries:
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match245-0.html#0" TARGET="0"><IMG SRC="../../bitmaps/tm_0_4.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+        print('{:14} | {:.6}'.format(entry[0], entry[2]))                 
+
+def main():
+    while True:
+        try:
+            file_name = input('Enter the name of the file:\n')
+            file_input = open(file_name, 'r') 
+            break
+        except IOError as d:
+</FONT>            print(d)
+    try:   
+        entries = []
+        for line in file_input:
+            entries.append(process_line(line))
+        file_input.close()
+        
+        entries = sort(entries)
+        output(entries)
+    except IndexError as f:
+        print (f)
+        
+
+main()
+
+#except IOError as sima:
+    &gt;&gt;&gt;&gt; file: reaction__tester.py
+
+import time
+import random
+
+def process_line(line):
+    parts = line.split(' ')
+    name = parts[0]
+    trials = int(parts[1])
+    average = float(parts[2])
+    return (name, trials, average)
+
+def get_max(entries):
+    max = entries[0]
+    for i in range(1, len(entries)):
+        if entries[i][2] &lt;max[2]:
+            max = entries[i]
+            
+    entries.remove(max)
+    return max
+
+def sort(entries):
+    sorted_entries = []
+    while len(entries)&gt;0:
+        sorted_entries.append(get_max(entries))
+    return sorted_entries
+
+def output(entries):
+    print('Subject        | Average Time')
+    print('************** | ************')
+    for entry in entries:
+        print('{:14} | {:.6}'.format(entry[0], entry[2]))  
+        
+        
+def flush_input():
+    try:
+        import msvcrt
+        while msvcrt.kbhit():
+            msvcrt.getch()
+    except ImportError:
+        import sys, termios
+        termios.tcflush(sys.stdin, termios.TCIOFLUSH)
+
+def main():
+    try:
+        file_name = input("Enter the name of the output file:\n")
+        file_input = open(file_name,"w")
+    
+    except IOError:
+        print("The file is not on the directory") 
+        
+    avgsum = 0
+    while True:
+        try:
+            subject_name = input("Enter subject name (or press 'enter' to quit):\n")
+            #sub_names.append(subject_name)
+            if subject_name =="": break
+            num_tests = int(input("Enter the number of tests:\n"))
+        except ValueError as w:
+            print("Please enter an INTEGER:",w)
+        for tests in range(0,num_tests):
+            print("Get ready...",flush=True)
+            s = random.randint(0,5)
+            time.sleep(s)
+            y = time.time()
+            d = input("Press 'enter' NOW!")
+            z = round(time.time()-y,6)
+            print(z)
+            avgsum+=z
+        avg = round(avgsum/num_tests,6)
+        print(subject_name+" "+str(num_tests)+" "+str(avg),file=file_input)
+    file_input.close()
+    
+    file_input_1 = open(file_name,"r") 
+      
+    try:   
+        entries = []
+        for line in file_input_1:
+            entries.append(process_line(line))
+        file_input_1.close()
+        
+        entries = sort(entries)
+        output(entries)
+    except IndexError:
+        print ("An Error has occured")
+        
+main()
+
+
+    </PRE>
+</PRE>
+</BODY>
+</HTML>

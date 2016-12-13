@@ -1,0 +1,176 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial4/raw/mbknts002/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial4/raw/mbknts002/<p><PRE>
+&gt;&gt;&gt;&gt; file: LongJump.py
+def main():
+    print("***** Long Jump Information System *****")
+    print("Please enter the names of competitors. (Press return when done.)")
+    uluhlu = []
+    maxima= []
+    dwelling = {}
+    Largest = []
+    e = 1
+    while True:
+        jumper = input("Competitor no."+" "+str(e)+":\n")
+        if jumper =='':
+            break
+        else:
+            uluhlu.append(jumper) 
+        e += 1        
+    print("Please enter the distances for each competitor.")
+    
+    for person in uluhlu:
+        print("Competitor",person+":")
+        for trial in range(1,4):
+            distance = input("Attempt"+" "+str(trial)+":\n")
+            if distance.title() != "Foul":
+                score = float(distance)
+                maxima.append(score)
+            else:
+                score = 0
+                maxima.append(score)
+        if max(maxima) != 0:   
+            dwelling[person] = max(maxima)
+            Largest.append(max(maxima))
+            maxima = []
+        else:
+            dwelling[person] = "No jump"
+    
+    print("\n{0:&lt;25}{1:&lt;25}".format("Competitor","Longest Distance"))
+    
+    for contender in uluhlu:
+        if type(dwelling[contender]) != str:
+            print("{0:&lt;25}{1:&lt;15.2f}".format(contender,dwelling[contender]))
+        else:
+            print("{0:&lt;25}{1:&lt;25}".format(contender,dwelling[contender]))
+        Win = list(dwelling.keys())[list(dwelling.values()).index(max(Largest))]
+    print("")                                                               #Getting Key corresponding with the maximum value from the 3 player's best scores
+    print("The winner is",Win,"with a jump of","{:.2f}".format(max(Largest))+".")
+        
+
+main()
+        
+
+&gt;&gt;&gt;&gt; file: NikNaks.py
+import random
+
+def main():
+     print("Guess the mystery 4 letter code. (No letter occurs more than once.)")
+     difficulty = int(input('Choose difficulty level (4 to 26):\n'))
+     letters = list('abcdefghijklmnopqrstuvwxyz')[0: difficulty]
+     print('The letters in the code are chosen from: {}.'.format(letters))
+     secret_code=[]
+     
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match29-1.html#1" TARGET="1"><IMG SRC="../../bitmaps/tm_1_5.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+     for i in range(4):
+          rand_index = random.randint(0, len(letters)-1)
+          letter = letters.pop(rand_index)
+          secret_code.append(letter)
+
+     for guess in range(11,0,-1):
+</FONT>          b = 0
+          a = 0
+          if guess != 1:
+               print("You have",guess-1,"guesses remaining.")
+               word = input("Enter your guess:\n")
+               word = word.lower()
+               if list(word) == secret_code:
+                    print("Correct!")
+                    break
+               else:
+                    i=0
+                    for alphabet in word:
+                         if alphabet in secret_code and alphabet in word:
+                              if (secret_code.index(alphabet) == i):
+                                   a += 1
+                              else:
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match29-1.html#0" TARGET="1"><IMG SRC="../../bitmaps/tm_0_5.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+                                   b += 1         
+                         if  b ==1:
+                              quantity = "Nak"
+                         else:
+                              quantity = "Naks"
+                         if a == 1:
+                              Nik = "Nik"
+                              pronoun = "is"
+                         else:
+                              Nik = "Niks"
+</FONT>                              pronoun = "are"
+                         
+                         i+=1
+                    print("There",pronoun,a,Nik,"and",b,quantity+".")      
+          elif guess ==1 and word != secret_code:
+               print("Sorry, you lose.")
+               print("The secret number was","".join(str(elem) for elem in secret_code)+".")
+          
+if __name__ =='__main__':                            
+     main()&gt;&gt;&gt;&gt; file: PythonTurtle.py
+from turtle import*
+for elem in range(3):
+    pendown()
+    color("Gold")
+    begin_fill()
+    if elem%2 ==0:
+        pencolor("Red")
+    else:
+        pencolor("yellow")
+        
+circle(180)
+
+end_fill()
+right(45)
+color("Black","Red")
+begin_fill()
+while True:
+    forward(200)
+    left(170)
+    if abs(pos())&lt;1:
+        break
+end_fill()
+left(137)
+penup()
+forward(50)
+pendown()
+for i in range(2):
+    pencolor("Black")
+    circle(50)
+    penup()
+    forward(200)
+    pendown()
+penup()    
+home()
+left(122)
+forward(190)
+pendown()
+circle(40,360)
+penup()
+home()
+left(1)
+pencolor("Blue")
+begin_fill()
+circle(184,180)
+penup()
+end_fill()
+done()
+home()
+    
+    
+
+
+
+
+
+
+
+
+
+exitonclick()</PRE>
+</PRE>
+</BODY>
+</HTML>

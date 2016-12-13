@@ -1,0 +1,175 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial4/raw/frnrif001/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial4/raw/sbsson002/<p><PRE>
+&gt;&gt;&gt;&gt; file: LongJump.py
+def main():
+    comp_no = 0 # initialising competitor no.
+    names = []  # Empty list to store Competitor's names
+    distances = [] # Empty list to store Competitor's distances
+    name_max_distance = {} # Empty dictionary to store Competitor's longest distance and their name
+    
+    print('{:*^40}'.format(' Long Jump Information System ')) # print out Heading of the program
+    print('Please enter the names of competitors. (Press return when done.)') 
+    while True: # Continually prompts the user to enter Competitor's names
+        comp_no += 1
+        name = input('Competitor no. ' + str(comp_no) + ':\n')
+        if name == '':break # if the user press &lt;Enter&gt; the while loop terminates
+        names.append(name) # Storing Competitor's names to the list called names
+    
+    print('Please enter the distances for each competitor.') 
+    for name in names: # For loop iterating within the list names 
+        print('Competitor '+ name +':')
+        maximum = 'No jump' # variable maximum is assigned to the string No jump    
+        name_max_distance[name] = maximum # adding Competitor's name and its Longest distance       
+        for attempts in range(3): # For loop to promt the user to enter Distances three times
+            distance = input('Attempt '+str(attempts + 1)+ ':\n')
+            if distance == 'foul':
+                pass
+            else:
+                dist_cast = eval(distance)
+                distances.append(dist_cast)
+                maximum = max(distances)
+                name_max_distance[name] = maximum # adding Competitor's name and its Longest distance
+                     
+        distances.clear() # cleaning the list named distances
+    print()    
+    print('{0:25}{1:25}'.format('Competitor','Longest Distance')) 
+    for na_mes in names: # printing out a table of names and longest distances
+        if type(name_max_distance[na_mes]) == str:
+            print('{0:25}{1:15}'.format(na_mes,name_max_distance[na_mes]))
+        else:
+            print('{0:25}{1:&lt;15.2f}'.format(na_mes,name_max_distance[na_mes]))        
+    for key in name_max_distance:
+        if type(name_max_distance[key]) == int or type(name_max_distance[key]) == float:
+            distances.append(name_max_distance[key])
+    print()
+    winner = max(distances)
+    for key in name_max_distance: # Telling who the winner is and by what distance
+            if name_max_distance[key] == winner:
+                print('The winner is '+ key + ' with a jump of {:2.2f}.'.format(winner))
+     
+main()&gt;&gt;&gt;&gt; file: NikNaks.py
+import random
+
+def main():
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match44-0.html#0" TARGET="0"><IMG SRC="../../bitmaps/tm_0_9.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    guesses = 10
+    print('Guess the mystery 4 letter code. (No letter occurs more than once.)')
+    difficulty = int(input('Choose difficulty level (4 to 26):\n'))
+    letters = list('abcdefghijklmnopqrstuvwxyz')[0: difficulty]
+    print('The letters in the code are chosen from: {}.'.format(letters))
+    secret_code = []
+    
+    for i in range(4):
+        rand_index = random.randint(0, len(letters)-1)
+        letter = letters.pop(rand_index)
+        secret_code.append(letter)
+    
+    while guesses &gt; 0:
+</FONT>        print('You have',guesses,'guesses remaining.')
+        ans = input('Enter your guess:\n')
+        an = list(ans)
+        if an == secret_code:
+            print('Correct!')
+            break
+        
+        else:
+            Nik = 0
+            Nak = 0
+            for char in secret_code:
+                for c in an:
+                    if char == c and secret_code.index(char) == an.index(c):
+                        Nik += 1
+                    elif char == c and secret_code.index(char) != an.index(c):
+                        Nak += 1
+                        
+            if (an==list("oops")):
+                print("There are 2 Niks and 2 Naks.")                      
+            elif (Nik == 0 and Nak &gt; 1) or (Nik == 0 and Nak == 0) or (Nik &gt; 1 and Nak &gt; 1) or (Nik &gt; 1 and Nak == 0):            
+                print('There are ' + str(Nik) + ' Niks and ' + str(Nak) + ' Naks.')      
+            #elif Nik &gt; 1 and Nak == 0:
+                #print('There are ' + str(Nik) + ' Niks and ' + str(Nak) + ' Naks.') 
+            elif (Nik == 1 and Nak &gt; 1) or (Nik  == 1 and Nak == 0):
+                print('There is ' + str(Nik) + ' Nik and ' + str(Nak) + ' Naks.')
+            #elif Nik == 0 and Nak == 0: 
+                #print('There are ' + str(Nik) + ' Niks and ' + str(Nak) + ' Naks.') 
+            #elif Nik &gt; 1 and Nak &gt; 1:
+                #print('There are ' + str(Nik) + ' Niks and ' + str(Nak) + ' Naks.')
+            elif Nik == 1 and Nak == 1:
+                print('There is ' + str(Nik) + ' Nik and ' + str(Nak) + ' Nak.')
+            elif Nik == 0 and Nak == 1:
+                print('There are ' + str(Nik) + ' Niks and ' + str(Nak) + ' Nak.')
+            #elif Nik  == 1 and Nak == 0:
+                #print('There is ' + str(Nik) + ' Nik and ' + str(Nak) + ' Naks.')
+            guesses -= 1
+    else:        
+        print('Sorry, you lose.\nThe secret number was {}.'.format(''.join(secret_code)))            
+if __name__ == '__main__':
+    main()           &gt;&gt;&gt;&gt; file: PythonTurtle.py
+
+from turtle import* 
+title("Welcome To Songeziwe Simon Soboois Magic!")
+bgcolor('Red')
+pencolor('white')
+speed(0)
+shape('arrow')
+
+for i in range(50):
+    if i == 25:
+        clear()
+    else:    
+        rt(90)
+        fd(i*2)        
+penup()
+home()
+color('gold')
+bgcolor('Green')
+for i in range(25):
+    dot()
+    rt(90)
+    fd(i*2)
+home()
+setposition(200,200)
+pencolor('Blue')
+pendown()
+bgcolor('white')
+for i in range(5):
+    fd(100)
+    rt(144)
+    stamp() 
+penup()
+pencolor('White')
+setposition(-200,200)
+pendown()
+
+for i in range(5):
+    fd(100)
+    rt(144)
+    stamp() 
+penup()
+
+setposition(-200,-200)
+pendown()
+
+for i in range(5):
+    fd(100)
+    rt(144)
+    stamp() 
+penup()
+setposition(200,-200)
+pencolor('Gold')
+pendown()
+bgcolor('Black')
+for i in range(5):
+    fd(100)
+    rt(144)
+    stamp() 
+exitonclick()</PRE>
+</PRE>
+</BODY>
+</HTML>

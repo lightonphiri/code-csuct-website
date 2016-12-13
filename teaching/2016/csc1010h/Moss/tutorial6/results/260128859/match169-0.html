@@ -1,0 +1,106 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial6/raw/mnxsar002/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial6/raw/mnxsar002/<p><PRE>
+&gt;&gt;&gt;&gt; file: fixed_mod.py
+import string
+
+def palindrome (s):
+   if len(s) == 1:
+      return s.isalpha()
+   elif len(s) ==2:
+      if s[0] == s[1]:
+         return True
+      else:
+         return False
+   
+   elif s[0] in string.punctuation or s[0] in string.whitespace:
+      return palindrome(s[1:])
+   
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match169-1.html#0" TARGET="1"><IMG SRC="../../bitmaps/tm_0_13.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+   elif s[-1] in string.punctuation or s[-1] in string.whitespace:
+      return palindrome(s[0:-1])
+   
+   elif s[0].lower() == s[-1].lower():
+      return palindrome (s[1:-1])
+</FONT>   
+   else:
+      return False
+   &gt;&gt;&gt;&gt; file: match_mod.py
+def equals(word_one, word_two):
+    word_one = word_one.lower()
+    word_two = word_two.lower()
+    if word_one == "" and word_two !="":
+        return False
+    elif word_one == word_two:
+        return True    
+    else:
+        return False
+    
+def query(pattern, word):
+    if len(pattern) != len(word):
+        return False
+    elif pattern == word:
+        return True    
+    elif pattern[0] == word[0]:
+        return query(pattern[1:-1], word[1:-1])
+    elif '?' in pattern[0] or '?' in word[0]:
+        return query(pattern[1:], word[1:])    
+    elif len(pattern) == 0 and len(word) == 0:
+            return True
+
+    else:
+        return False
+    
+def match(pattern, word):
+    import string
+    if pattern in word:
+        return True
+    elif word == 'astringint':
+        return True
+    elif pattern == 'd*d':
+        return True
+    elif pattern == 'd*d*d' and word == 'dodged':
+        return True    
+    
+    elif '*' in pattern:
+        pattern = pattern.replace( '*', '')
+        return match(pattern, word)
+    else:
+        return False
+
+
+
+    
+    
+
+&gt;&gt;&gt;&gt; file: mongoose_mod.py
+def population(n):
+    
+    if n == 1:
+        x= 2
+    elif n == 2:
+        x = 2
+    elif n == 3:
+        x = 4
+    elif n == 5:
+        x = 10
+    else:
+        x = population(n-1) +population(n-2)
+    
+    return x
+&gt;&gt;&gt;&gt; file: sum_mod.py
+def sum_to_n(n):
+    x= 0
+    if n == 0:
+        x = 0       
+    else:
+        x = n + sum_to_n(n-1)
+    return x</PRE>
+</PRE>
+</BODY>
+</HTML>

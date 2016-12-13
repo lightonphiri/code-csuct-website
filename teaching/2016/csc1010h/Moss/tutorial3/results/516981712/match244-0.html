@@ -1,0 +1,246 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial3/raw/mbttha024/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial3/raw/mbttha024/<p><PRE>
+&gt;&gt;&gt;&gt; file: FeetMetres.py
+# Conversion of feet to metres
+# Thandolwethu Mbatha
+# 8 May 2016
+
+def main():
+    print("Enter the minimum number of feet (not less than 0):")
+    min=int(input(""))
+    print("Enter the maximum number of feet (not more than 99):")
+    max=int(input(""))
+    
+    for i in range(min,max+1):
+        ans=round((i/0.032808)/100,2)
+        print(" {0:&gt;3}".format(i)+"'"," |  "," {0:0&lt;4}".format(ans),"m",sep="")
+main()
+        &gt;&gt;&gt;&gt; file: FlowerPattern.py
+#Flower Pattern
+# Thandolwethu Mbatha
+# 9 May 2016
+
+import turtle
+petals=eval(input("Enter the number of petals (must be even number): "))
+stem= eval(input("Enter the length of stem: "))
+petal_type=input("Enter the petal type (triangle,square, or pentagon): ")
+length= eval(input("Enter the length of side: " ))
+stem_colour=input("Enter the stem colour: ")
+first_petal_colour=input("Enter the first petal colour: ")
+second_petal_colour=input("Enter the second petal colour: ")
+
+if petal_type=="triangle":
+    l = 0
+    for i in range(petals):
+        l+=1
+        turtle.color(stem_colour)
+        turtle.forward(stem)
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match244-1.html#0" TARGET="1"><IMG SRC="../../bitmaps/tm_0_2.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+        if l%2==0:
+            turtle.color(first_petal_colour)
+        else:
+            turtle.color(second_petal_colour)
+        turtle.right(30)
+        turtle.forward(length)
+        turtle.left(120)
+        turtle.forward(length)
+        turtle.left(120)
+</FONT>        turtle.forward(length)
+        turtle.right(30)
+        turtle.color(stem_colour)
+        turtle.penup()
+        turtle.forward(stem)
+        turtle.pendown()
+        turtle.right(180-(360/petals))
+    turtle.left(360/petals)    
+    turtle.exitonclick()
+
+elif petal_type=="square":
+    m=0
+    for i in range(petals):
+        m+=1
+        turtle.color(stem_colour)
+        turtle.forward(stem)
+        if m%2==0:
+            turtle.color(first_petal_colour)
+        else:
+            turtle.color(second_petal_colour)
+        turtle.right(90)
+        turtle.forward(0.5*length)
+        turtle.left(90)
+        turtle.forward(length)
+        turtle.left(90)
+        turtle.forward(length)
+        turtle.left(90)
+        turtle.forward(length)
+        turtle.left(90)
+        turtle.forward(0.5*length)
+        turtle.right(90)
+        turtle.color(stem_colour)
+        turtle.forward(stem)
+        turtle.right(180-(360/petals))
+    turtle.left(360/petals)    
+    turtle.exitonclick()          
+elif petal_type=="pentagon":
+    k = 0
+    for i in range(petals):
+        k +=1 
+        turtle.color(stem_colour)
+        turtle.forward(stem)
+        if k%2 == 0:
+            turtle.color(first_petal_colour)
+        else:
+            turtle.color(second_petal_colour)
+        turtle.right(54)
+        turtle.forward(length)
+        turtle.left(72)
+        turtle.forward(length)
+        turtle.left(72)
+        turtle.forward(length)
+        turtle.left(72)
+        turtle.forward(length)
+        turtle.left(72)
+        turtle.forward(length)
+        turtle.right(54)
+        turtle.penup()
+        turtle.forward(stem)
+        turtle.pendown()
+        turtle.right(180-(360/petals))
+        
+    turtle.left(360/petals)    
+    turtle.exitonclick()       &gt;&gt;&gt;&gt; file: InchesMetres.py
+
+
+print("Enter the minimum number of inches (not less than 0):")
+min=int(input(""))
+print("Enter the maximum number of inches (not greater than 11):")
+max=int(input(""))
+print("Inches: ",end="")
+for i in range(min,max+1):
+    print("{0:&gt;4}".format(i),end=" ")
+print("\n","Metres: ",end="",sep="")
+for i in range(min,max+1):
+    metres=i*0.0254
+    print("{0:&gt;3.2f}".format(round(metres,2)),end=" ")&gt;&gt;&gt;&gt; file: TimeConvertor.py
+#Combination of conversions of 12 hour format time and 24 hour
+# Thandolwethu Mbatha
+# 08 May 2016
+
+def main():
+       print("Enter a time ([h]h:mm [am|pm]):")
+       time=input("")
+       if time.endswith("pm") and int(time[0])&gt;1:
+              print(int(time[0])+12,time[1:5],sep="")
+       elif time.endswith("am") and int(time[0])&gt;1:
+              print("0"+time[0:4])
+       elif time.endswith("pm") and int(time[0])==1:
+              if time[1]!=":":
+                     if time[0:2]=="12":
+                            print("12:"+time[3:5])
+                     else:
+                            print(int(time[0:2])+12,time[2:5],sep="")
+              else:
+                     print(int(time[0])+12,time[1:5],sep="")
+       elif time.endswith("am") and int(time[0])==1:
+              if time[1]!=":":
+                     if time[0:2]=="12":
+                            print("00:"+time[3:5])
+                     else:
+                            print(int(time[0:2]),time[2:5],sep="")
+              else:
+                     print("0"+time[0: 4])
+       elif int(time[0:2])&gt;12:
+              print(int(time[0:2])-12,":",time[3:5]," pm",sep="")
+       elif 0&lt; int(time[0:2])&lt;12:
+              print(time[1]+":"+time[3:5]+" am")
+       elif int(time[0:2])==12:
+              print(time[0:2]+":"+time[3:5]," pm")
+       elif int(time[0:2])==0:
+              print("12"+":"+time[3:5]+" am")
+                     
+main()&gt;&gt;&gt;&gt; file: Twelve.py
+#Calculating the time expressed in 12 hour clock.
+# Thandolwethu Mbatha
+# 08 May 2016
+
+def main():
+    print("Enter a time in 12 hour clock ([h]h:mm [am|pm]):")
+    time=input("")
+    if time.endswith("pm") and int(time[0])&gt;1:
+        print(int(time[0])+12,time[1:5],sep="")
+    elif time.endswith("am") and int(time[0])&gt;1:
+        print("0"+time[0:4])
+    elif time.endswith("pm") and int(time[0])==1:
+        if time[1]!=":":
+            if time[0:2]=="12":
+                print("12:"+time[3:5])
+            else:
+                print(int(time[0:2])+12,time[2:5],sep="")
+        else:
+            print(int(time[0])+12,time[1:5],sep="")
+    elif time.endswith("am") and int(time[0])==1:
+            if time[1]!=":":
+                if time[0:2]=="12":
+                    print("00:"+time[3:5])
+                else:
+                    print(int(time[0:2]),time[2:5],sep="")
+            else:
+                print("0"+time[0: 4])    
+main()&gt;&gt;&gt;&gt; file: TwentyFour.py
+#Converts time expressed in 24 hour to 12
+# Thandolwethu Mbatha
+# 08 May 2016
+
+def main():
+    print("Enter a time in 24 hour clock (hh:mm):")
+    time=input("")
+    if int(time[0:2])&gt;12:
+        print(int(time[0:2])-12,":",time[3:5]," pm",sep="")
+    elif 0&lt; int(time[0:2])&lt;12:
+        print(time[1]+":"+time[3:5]+" am")
+    elif int(time[0:2])==12:
+        print(time[0:2]+":"+time[3:5],"pm")
+    elif int(time[0:2])==0:
+        print("12"+":"+time[3:5]+" am")
+        
+main()&gt;&gt;&gt;&gt; file: VehicleClassifier.py
+#Classification of Vehicles
+# Thandolwethu Mbatha
+# 08 May 2016
+
+def main():
+    print("What is the gross vehicle mass (in kg)?")
+    GVM=int(input(""))    
+    if GVM&lt;=3500:
+        Class="B"
+    elif 3500&lt;=GVM&lt;=16000:
+        Class="C1"
+    elif GVM&gt;16000:
+        Class="C"  
+    print("Does the vehicle have a trailer?")
+    ans=input("")
+    if ans=="y":
+        print("What is gross vehicle mass of the trailer (in kg)?")
+        GVM_2=int(input(""))
+        if GVM_2&gt;750 and ans=="y":
+            print("This vehicle is class","E"+Class+".")
+        else:
+            print("This vehicle is class",Class+".")
+    elif ans=="n":
+        print("Is the vehicle articulated?")
+        ans2=input("")
+        if ans2=="y":
+            print("This vehicle is class","E"+Class+".")
+        else:
+            print("This vehicle is class",Class+".")
+    
+main()</PRE>
+</PRE>
+</BODY>
+</HTML>

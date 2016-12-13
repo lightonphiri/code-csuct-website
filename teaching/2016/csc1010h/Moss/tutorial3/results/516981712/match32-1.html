@@ -1,0 +1,271 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial3/raw/kknnok001/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial3/raw/ngxath002/<p><PRE>
+&gt;&gt;&gt;&gt; file: FeetMetres.py
+
+
+
+
+<A NAME="1"></A><FONT color = #00FF00><A HREF="match32-0.html#1" TARGET="0"><IMG SRC="../../bitmaps/tm_1_2.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+def main():
+    min_num = int(input('Enter the minimum number of feet (not less than 0):\n'))
+    max_num = int(input('Enter the maximum number of feet (not more than 99):\n'))
+
+    for i in range(min_num,max_num+1):
+        metre = i*0.3048
+        metres = '{0:4.2f}'.format(metre)
+</FONT>    
+        print('{0:4}'.format(i)+"'",'|',' ',metres+'m')
+main()&gt;&gt;&gt;&gt; file: FlowerPattern.py
+# flowe pattern drawing with turtle use
+# Athule Ngxovu
+# 15 May 2015
+
+
+import turtle
+
+petals_number = int(input('Enter the number of petals (must be an even number): '))
+stem_length = int(input('Enter the length of stem: '))
+petal_type = str(input('Enter the petal type (triangle, square, or pentagon): '))
+side_length = int(input('Enter the length of side: '))
+stem_colour = str(input('Enter the stem colour: '))
+first_petal_colour = str(input('Enter the first petal colour: '))
+second_petal_colour = str(input('Enter the second petal colour: '))
+
+if petal_type =='triangle':
+    turtle.pencolor(stem_colour)
+    for i in range(petals_number//2):
+        turtle.forward(stem_length)
+        turtle.left(30)
+        turtle.pencolor(first_petal_colour)
+        for i in range(3):
+            turtle.forward(side_length)
+            turtle.right(360/3)
+        turtle.pencolor(stem_colour)
+        turtle.right(30)
+        turtle.backward(stem_length)
+        turtle.right(360/petals_number)
+        
+        turtle.forward(stem_length)
+        turtle.left(30)
+        turtle.pencolor(second_petal_colour)
+        for i in range(3):
+            turtle.forward(side_length)
+            turtle.right(360/3)
+        turtle.pencolor(stem_colour)
+        turtle.right(30)
+        turtle.backward(stem_length)
+        turtle.right(360/petals_number)  
+             
+elif petal_type =='square':
+    turtle.pencolor(stem_colour)
+    for i in range(petals_number//2):
+        turtle.forward(stem_length)
+        turtle.left(45)
+        turtle.pencolor(first_petal_colour)
+        for i in range(4):
+            turtle.forward(side_length)
+            turtle.right(360/4)
+        turtle.pencolor(stem_colour)
+        turtle.right(45)
+        turtle.backward(stem_length)
+        turtle.right(360/petals_number) 
+        
+        turtle.forward(stem_length)
+        turtle.left(45)
+        turtle.pencolor(second_petal_colour)
+        for i in range(4):
+            turtle.forward(side_length)
+            turtle.right(360/4) 
+        turtle.pencolor(stem_colour)
+        turtle.right(45)
+        turtle.backward(stem_length)
+        turtle.right(360/petals_number)        
+        
+                
+elif petal_type =='pentagon':
+    turtle.pencolor(stem_colour)
+    for i in range(petals_number//2):
+        turtle.forward(stem_length)
+        turtle.left(54)
+        turtle.pencolor(first_petal_colour)
+        for i in range(5):
+            turtle.forward(side_length)
+            turtle.right(360/5)
+        turtle.pencolor(stem_colour)
+        turtle.right(54)
+        turtle.backward(stem_length)
+        turtle.right(360/petals_number)  
+        
+        turtle.forward(stem_length)
+        turtle.left(54)
+        turtle.pencolor(second_petal_colour)
+        for i in range(5):
+            turtle.forward(side_length)
+            turtle.right(360/5) 
+        turtle.pencolor(stem_colour)
+        turtle.right(54)
+        turtle.backward(stem_length)
+        turtle.right(360/petals_number)
+
+turtle.exitonclick()&gt;&gt;&gt;&gt; file: InchesMetres.py
+
+
+
+def main():
+    min_num = int(input('Enter the minimum number of inches (not less than 0):\n'))
+    max_num = int(input('Enter the maximum number of inches (not greater than 11):\n'))
+    metres =1
+    print('Inches:  ',end='')
+    
+    
+    for i in range(min_num,max_num+1):
+        print('{0:^5}'.format(i),end='')
+    print('')
+    
+    print('Metres:',end='')
+    for i in range(min_num,max_num+1):
+        metres = i*0.0254
+        print('{0:5.2f}'.format(metres),end='')
+main()
+        
+    &gt;&gt;&gt;&gt; file: TimeConvertor.py
+def main():
+    
+    time = str(input('Enter a time ([h]h:mm [am|pm]):\n'))
+    
+    if time[-1] == 'm':
+        hr = int(time[-8:-6])
+        mm = time[-6:-3]
+        m = str(time[-2:len(time)+1])
+       
+        if m == 'am' and hr == 12:
+            hr-=12
+            print('0'+str(hr)+str(mm))
+        elif 1 &lt;= hr &lt;= 9 and m == 'am':
+            print('0'+str(hr)+str(mm))
+        elif 10 &lt;= hr &lt;= 12 and m == 'am':
+            print(str(hr)+str(mm))
+        elif 1&lt;= hr &lt;11 and m == 'pm':
+            hr +=12
+            print(str(hr)+str(mm))
+        elif hr == 12 and m == 'pm':
+            print(str(hr)+str(mm))
+            
+    else:
+        
+        hr = int(time[0:2])
+        mm = time[2:5]        
+        
+        if hr == 12:
+                print(str(hr)+str(mm)+' pm')
+        elif hr == 0:
+                hr+=12
+                print(str(hr)+str(mm)+' am')
+        elif 13&lt;= hr &lt;= 23:
+            hr-=12
+            print(str(hr)+str(mm)+' pm')
+        elif 1&lt;= hr &lt;=11:
+            print(str(hr)+str(mm)+' am')
+main()&gt;&gt;&gt;&gt; file: Twelve.py
+
+
+def main():
+    time = str(input('Enter a time in 12 hour clock ([h]h:mm [am|pm]):\n'))
+    hr = int(time[-8:-6])
+    mm = time[-6:-3]
+    m = str(time[-2:len(time)+1])
+    
+    if m == 'am' and hr == 12:
+        hr-=12
+        print('0'+str(hr)+str(mm))
+    elif 1 &lt;= hr &lt;= 9 and m == 'am':
+        print('0'+str(hr)+str(mm))
+    elif 10 &lt;= hr &lt;= 12 and m == 'am':
+        print(str(hr)+str(mm))
+    elif 1&lt;= hr &lt;=11 and m == 'pm':
+        hr +=12
+        print(str(hr)+str(mm))
+    elif hr == 12 and m == 'pm':
+        print(str(hr)+str(mm))
+    
+main()&gt;&gt;&gt;&gt; file: TwentyFour.py
+# convert time from 24 hour clock to 12 hour clock
+
+def main():
+    t = str(input('Enter a time in 24 hour clock (hh:mm): \n'))
+    hr = int(t[0:2])
+    mm = t[2:5]
+    
+    if hr == 12:
+        print(str(hr)+str(mm)+' pm')
+    elif hr == 0:
+        hr+=12
+        print(str(hr)+str(mm)+' am')
+    elif 13&lt;= hr &lt;= 23:
+        hr-=12
+        print(str(hr)+str(mm)+' pm')
+    elif 1&lt;= hr &lt;=11:
+        print(str(hr)+str(mm)+' am')
+main() &gt;&gt;&gt;&gt; file: VehicleClassifier.py
+
+def main():
+    GVM_vehicle = float(input('What is the gross vehicle mass (in kg)?\n'))
+    trailor = str(input('Does the vehicle have a trailer?\n'))
+    
+    if GVM_vehicle &lt;= 3500 and trailor == 'n' :
+        articulation = str(input('Is the vehicle articulated?\n'))
+        if articulation =='y':
+            print('This vehicle is class EB.')
+        elif articulation == 'n':
+            print('This vehicle is class B.')
+        
+    elif 3500 &lt; GVM_vehicle &lt;= 16000 and trailor == 'n':
+        articulation = str(input('Is the vehicle articulated?\n'))
+        if articulation =='y':
+            print('This vehicle is class EC1.')
+        elif articulation == 'n':
+            print('This vehicle is class C1.')
+        
+    elif 16000 &lt; GVM_vehicle and trailor == 'n':
+        articulation = str(input('Is the vehicle articulated?\n'))
+        if articulation =='y':
+            print('This vehicle is class EC.')
+        elif articulation == 'n':
+            print('This vehicle is class C.')
+        
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match32-0.html#0" TARGET="0"><IMG SRC="../../bitmaps/tm_0_6.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    elif GVM_vehicle &lt;= 3500 and trailor == 'y':
+        trailor_GVM = float(input('What is gross vehicle mass of the trailer (in kg)?\n'))
+        if trailor_GVM &gt; 750:
+            print('This vehicle is class EB.')
+        else:
+            print('This vehicle is class B.')
+        
+    elif 3500 &lt; GVM_vehicle &lt;= 16000 and trailor == 'y':
+        trailor_GVM = float(input('What is gross vehicle mass of the trailer (in kg)?\n'))
+        if trailor_GVM &gt; 750:
+            print('This vehicle is class EC1.')
+        else:
+            print('This vehicle is class C1.')
+        
+    elif 16000 &lt; GVM_vehicle and trailor == 'y':
+        trailor_GVM = float(input('What is gross vehicle mass of the trailer (in kg)?\n'))
+        if trailor_GVM &gt; 750:
+            print('This vehicle is class EC.')
+        else:
+            print('This vehicle is class C.')
+</FONT>        
+main()        
+        
+    
+    </PRE>
+</PRE>
+</BODY>
+</HTML>

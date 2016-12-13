@@ -1,0 +1,175 @@
+<HTML>
+<HEAD>
+<TITLE>/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial4/raw/ndlkos002/</TITLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<HR>
+/home/phiri/Projects/work/2016/misc-csc1010h/tutorials/Moss/tutorial4/raw/rmjhrs001/<p><PRE>
+&gt;&gt;&gt;&gt; file: LongJump.py
+# Long jump program
+
+print("***** Long Jump Information System *****")
+print("Please enter the names of competitors. (Press enter when done.)")
+Names = []
+attemptsAr = []
+bestjumps = []
+namecounter = 1
+nameDist = {}
+while True:
+    name = input("Competitor no. "+str(namecounter)+":\n")
+    namecounter = namecounter + 1
+    if name == "":
+        break
+    Names.append(name)
+
+print("Please enter the distances for each competitor.")
+for names in range(0,len(Names)):
+    print("Competitor",Names[names],":")
+    for attempts in range(3):
+        attempt = input("Attempt "+str(attempts+1)+":\n")
+        
+        if attempt == "foul":
+            attemptsAr.append(0)
+        else:
+            attemptsAr.append(float(attempt))
+            
+    if max(attemptsAr) == 0:
+        attempts = attempts + 1
+    else:
+        bestjumps.append(max(attemptsAr))
+    
+    
+#for ele in range(0,len(Names)):
+   # nameDist[Names[ele]] = bestjumps[ele]
+    
+
+headings = "{}     {}".format("Competitor","Longest Distance")
+print(headings)
+for i in range(0,len(Names)-1):
+    table = "{}           {:.2f}".format(Names[i],bestjumps[i])
+    print(table,"\n")
+
+winnerd = max(bestjumps)
+winnern = Names[bestjumps.index(winnerd)]           
+print("The winner is {} with a jump of {:.2f}.".format(winnern,winnerd))&gt;&gt;&gt;&gt; file: NikNaks.py
+# Nik Naks Program
+# Hrsikesa Ramjith
+# 26/07/2016
+
+import random
+
+def main():
+ # Difficulty and code generator
+ print("Guess the mystery 4 letter code. (No letter occurs more than once.)")
+ difficulty = int(input('Choose difficulty level (4 to 26):\n'))
+ letters = list('abcdefghijklmnopqrstuvwxyz')[0: difficulty]
+ print('The letters in the code are chosen from: {}.'.format(letters))
+ secret_code = []
+ for i in range(4):
+  rand_index=random.randint(0, len(letters)-1)
+  letter=letters.pop(rand_index)
+  secret_code.append(letter)
+ 
+ secretcode = "".join(secret_code) # delete after debugging
+ #print(secretcode) # delete out after debugging
+ guessCounter = 0
+ 
+ # Where the magic happens
+ print("You have 10 guesses remaining.")
+ while True:
+  guess_word = [] 
+  Niks = 0
+  Naks = 0 
+  guess = input("Enter your guess:\n")
+  guessCounter = guessCounter + 1
+ 
+  if guess == secretcode:
+   print("Correct!")
+   break
+
+  # Takes your guess and converts it from string to an array
+  for i in guess:
+   guess_word.append(i)
+  #print(guess_word)
+ 
+  for ele in range(0,len(guess_word)):
+   if guess_word[ele] in secret_code:
+    Naks = Naks + 1
+    if guess_word[ele] == secret_code[ele]:
+     Niks = Niks + 1
+  if Niks == 1:
+    if Naks == 1:
+     print("There is",Niks,"Nik and",Naks-Niks,"Nak.")
+    else:
+     print("There is",Niks,"Nik and",Naks-Niks,"Naks.")
+  else:
+    if Naks == 1:
+     print("There are",Niks,"Niks and",Naks-Niks,"Nak.")
+    else:
+     print("There are",Niks,"Niks and",Naks-Niks,"Naks.")
+  if guessCounter &lt; 10:
+    print("You have",str(10-guessCounter),"guesses remaining.")
+   
+  if guessCounter == 10:
+     print("Sorry, you lose.")
+     print("The secret number was",secretcode,end=".")   
+     break  
+ 
+
+if __name__ == "__main__":
+ main()&gt;&gt;&gt;&gt; file: initials.py
+# initials program powered by turtle
+
+import turtle
+import math
+def main():
+    x = 500
+    y = 500
+    turtle.setup(x,y)
+    turtle.penup()
+    turtle.goto(-100,-100)
+    turtle.pendown()
+    turtle.forward(200)
+    turtle.penup()
+<A NAME="0"></A><FONT color = #FF0000><A HREF="match223-0.html#0" TARGET="0"><IMG SRC="../../bitmaps/tm_0_4.gif" ALT="other" BORDER="0" ALIGN=left></A>
+
+    turtle.back(100)
+    turtle.pendown()
+    turtle.right(90)
+    turtle.forward(75)
+    turtle.left(90)
+    turtle.forward(100)
+    turtle.back(200)
+    turtle.forward(100)
+</FONT>    turtle.penup()
+    turtle.goto(25,0)
+    turtle.back(100)
+    turtle.pendown()
+    turtle.forward(200)
+    turtle.right(90)
+    turtle.forward(75)
+    turtle.right(90)
+    turtle.forward(100)
+    turtle.right(90)
+    turtle.forward(75) 
+    turtle.left(180)
+    turtle.forward(37.5)
+    turtle.right(90)
+    turtle.forward(100)
+    turtle.penup()
+    turtle.goto(0,0)
+    
+    # SPIN FOR FUN
+    spinner = 10
+    while spinner &gt; 0:
+        turtle.right(90)
+        spinner = spinner - 1
+    turtle.done()             
+    
+    
+
+if __name__ == "__main__":
+    main()</PRE>
+</PRE>
+</BODY>
+</HTML>
