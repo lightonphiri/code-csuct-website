@@ -1,2 +1,0 @@
-<p>Please zip your files into one folder next time.</p>
-  <p>Your Clinic program doesn't seem to be running exactly as expected.</p>

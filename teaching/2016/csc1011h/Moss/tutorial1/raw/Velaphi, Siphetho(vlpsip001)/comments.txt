@@ -1,1 +1,0 @@
-<p>You didn't submit everything and some of your programs were short of variables.</p>

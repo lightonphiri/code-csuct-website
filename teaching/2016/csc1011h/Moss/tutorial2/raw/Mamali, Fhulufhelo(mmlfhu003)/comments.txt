@@ -1,2 +1,0 @@
-<p>Code looked all cluttered.</p>
-  <p>Guess method wasn't handled properly.&#160;</p>

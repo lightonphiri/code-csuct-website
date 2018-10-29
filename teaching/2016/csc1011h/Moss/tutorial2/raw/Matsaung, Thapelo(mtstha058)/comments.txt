@@ -1,3 +1,0 @@
-<p>Your game is not doing anything. I think you didn't understand what
-  you were supposed to do. Please consider attending the tuts, I think
-  it'll be useful.</p>

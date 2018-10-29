@@ -1,2 +1,0 @@
-<p>It would have been much nicer if the program would stop the user from
-  playing again if they got the correct answer.</p>

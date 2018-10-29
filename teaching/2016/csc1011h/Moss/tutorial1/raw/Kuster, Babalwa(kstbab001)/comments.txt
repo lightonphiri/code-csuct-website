@@ -1,2 +1,0 @@
-<p>
-  <span style="line-height: 20.8px;">No file submitted.</span></p>

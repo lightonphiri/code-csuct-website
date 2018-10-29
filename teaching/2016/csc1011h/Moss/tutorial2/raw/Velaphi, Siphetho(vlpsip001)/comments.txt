@@ -1,2 +1,0 @@
-<p>Your game doesn't generate a random number. It only uses 1. Please
-  include comments as well..</p>

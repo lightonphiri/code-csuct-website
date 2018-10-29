@@ -1,4 +1,0 @@
-<p>Your Clinic program has errors. I couldn't run it actually but I gave
-  you marks for what I found correct. Please try to make sure that your
-  program runs because if not you might lose a lot of marks. Submit a
-  zip file with all your work next time, please.</p>

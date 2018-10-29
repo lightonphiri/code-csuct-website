@@ -1,3 +1,0 @@
-<p>Th implemented Clinic solution is wrong - you must only have ONE
-  while loop. Such that all menu options are contained within it and the
-  user can choose any of them at any point.&#160;</p>

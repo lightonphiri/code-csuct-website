@@ -1,1 +1,0 @@
-<p>Your game works fine, next time try to comment more.</p>

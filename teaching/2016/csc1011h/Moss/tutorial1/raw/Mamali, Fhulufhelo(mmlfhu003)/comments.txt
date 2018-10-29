@@ -1,3 +1,0 @@
-<p>Give variables better names next time!!</p>
-  <p>Pickle solution not well done.</p>
-  <p>&#160;</p>

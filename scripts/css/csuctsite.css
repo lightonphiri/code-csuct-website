@@ -1,4 +1,4 @@
-body {
+/*body {
   max-width: 980px;
   margin: 0 auto;
   padding: 1em 0;
@@ -23,7 +23,7 @@ a:hover {
 a:active {
   color: blue;
   text-decoration: none;
-}
+}*/
 
 
 .project {

@@ -1,7 +1,0 @@
-<p>Submitted Clinic solution was extremely erroneous and shows showing
-  slight sloppiness, lack of code testing and a some&#160;misunderstanding of
-  concepts (especially OOP).&#160;</p>
-  <p>Looping mechanism not implemented correctly and actually gives the
-  user the chance to choose only once.</p>
-  <p>Please consider consulting with tutors (tut meeting, tut sessions,
-  via email) if lost and faced with unclear questions.</p>
